@@ -2,36 +2,74 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import prefectures from "@/app/prefectures.json";
+import { formatTime } from "@/app/utils/timeUtils";
 
+// 都道府県のデータ構造を定義
 interface Prefecture {
   id: string;
   name: string;
   romaji: string;
 }
 
+// ゲームの状態を定義
 type GameState = "idle" | "playing" | "finished";
 
 export default function PrefecturesGameTimeTrial() {
+  // ゲームの状態を管理するstate
   const [gameState, setGameState] = useState<GameState>("idle");
+  // 現在の都道府県を管理するstate
   const [currentPrefecture, setCurrentPrefecture] = useState<Prefecture | null>(
     null
   );
+  // ユーザーの入力を管理するstate
   const [input, setInput] = useState("");
+  // 完了した都道府県のリストを管理するstate
   const [completedPrefectures, setCompletedPrefectures] = useState<
     Prefecture[]
   >([]);
+  // ゲーム開始時間を管理するstate
   const [startTime, setStartTime] = useState<number | null>(null);
+  // ゲーム終了時間を管理するstate
   const [endTime, setEndTime] = useState<number | null>(null);
+  // 現在の経過時間を管理するstate
   const [currentTime, setCurrentTime] = useState<number>(0);
 
+  // 都道府県のリストをシャッフルする関数
   const shufflePrefectures = useCallback((): Prefecture[] => {
     return [...prefectures].sort(() => Math.random() - 0.5);
   }, []);
 
+  // 残りの都道府県のリストを管理するstate
   const [remainingPrefectures, setRemainingPrefectures] = useState<
     Prefecture[]
   >(shufflePrefectures());
 
+  // ゲームをリセットする関数
+  const resetGame = useCallback(() => {
+    setGameState("idle");
+    setCurrentPrefecture(null);
+    setInput("");
+    setCompletedPrefectures([]);
+    setStartTime(null);
+    setEndTime(null);
+    setCurrentTime(0);
+    setRemainingPrefectures(shufflePrefectures());
+  }, [shufflePrefectures]);
+
+  // 画像をプリロードする関数
+  const preloadImages = useCallback(() => {
+    prefectures.forEach((prefecture) => {
+      const img = new window.Image() as HTMLImageElement;
+      img.src = `/prefectures/${prefecture.romaji}.jpg`;
+    });
+  }, []);
+
+  // コンポーネントのマウント時に画像をプリロード
+  useEffect(() => {
+    preloadImages();
+  }, [preloadImages]);
+
+  // ゲームを開始する関数
   const startGame = useCallback(() => {
     setGameState("playing");
     setStartTime(Date.now());
@@ -41,8 +79,10 @@ export default function PrefecturesGameTimeTrial() {
     setCompletedPrefectures([]);
     setCurrentPrefecture(shuffled[0]);
     setInput("");
-  }, [shufflePrefectures]);
+    preloadImages(); // ゲーム開始時にも再度プリロード
+  }, [shufflePrefectures, preloadImages]);
 
+  // キーボードイベントを処理する関数
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (
@@ -50,16 +90,20 @@ export default function PrefecturesGameTimeTrial() {
         (gameState === "idle" || gameState === "finished")
       ) {
         startGame();
+      } else if (e.code === "Escape" && gameState === "playing") {
+        resetGame();
       }
     },
-    [gameState, startGame]
+    [gameState, startGame, resetGame]
   );
 
+  // キーボードイベントリスナーを設定するeffect
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  // タイマーを管理するeffect
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (gameState === "playing") {
@@ -70,6 +114,7 @@ export default function PrefecturesGameTimeTrial() {
     return () => clearInterval(interval);
   }, [gameState]);
 
+  // ユーザーの入力を処理する関数
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (gameState !== "playing" || !currentPrefecture) return;
 
@@ -79,14 +124,17 @@ export default function PrefecturesGameTimeTrial() {
       setInput(newInput);
 
       if (newInput === currentPrefecture.romaji) {
+        // 入力が正解の場合の処理
         setCompletedPrefectures([...completedPrefectures, currentPrefecture]);
         const newRemaining = remainingPrefectures.slice(1);
         setRemainingPrefectures(newRemaining);
 
         if (newRemaining.length === 0) {
+          // すべての都道府県が完了した場合
           setEndTime(Date.now());
           setGameState("finished");
         } else {
+          // 次の都道府県に進む
           setCurrentPrefecture(newRemaining[0]);
           setInput("");
         }
@@ -94,15 +142,7 @@ export default function PrefecturesGameTimeTrial() {
     }
   };
 
-  const formatTime = (milliseconds: number): string => {
-    const minutes = Math.floor(milliseconds / 60000);
-    const seconds = Math.floor((milliseconds % 60000) / 1000);
-    const ms = Math.floor((milliseconds % 1000) / 10);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}.${ms
-      .toString()
-      .padStart(2, "0")}`;
-  };
-
+  // ローマ字入力の表示を生成する関数
   const renderRomaji = () => {
     if (!currentPrefecture) return null;
     const correct = input;
@@ -115,6 +155,7 @@ export default function PrefecturesGameTimeTrial() {
     );
   };
 
+  // UIをレンダリング
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-gray-100">
       <main className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
@@ -124,12 +165,14 @@ export default function PrefecturesGameTimeTrial() {
         <h4 className="text-xl font-bold text-center mb-6">
           タイムトライアルモード
         </h4>
+        {/* ゲーム開始前または終了後の表示 */}
         {(gameState === "idle" || gameState === "finished") && (
           <div className="text-center">
             <p className="mb-2">全47問の合計タイムを競います。</p>
             <p className="text-center mb-4">スペースキーを押してゲームを開始</p>
           </div>
         )}
+        {/* ゲームプレイ中の表示 */}
         {gameState === "playing" && currentPrefecture && (
           <div className="mb-4">
             <p className="text-xl font-semibold text-center">
@@ -143,6 +186,7 @@ export default function PrefecturesGameTimeTrial() {
                 width={200}
                 height={150}
                 className="rounded-lg"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
               />
             </div>
             <input
@@ -155,14 +199,19 @@ export default function PrefecturesGameTimeTrial() {
             <p className="text-center mt-4 text-lg font-semibold">
               経過時間: {formatTime(currentTime)}
             </p>
+            <p className="text-center mt-2 text-sm text-gray-600">
+              ESCキーを押すとゲームを中断します
+            </p>
           </div>
         )}
+        {/* ゲーム終了後の結果表示 */}
         {gameState === "finished" && startTime !== null && endTime !== null && (
           <div className="text-center">
             <p className="text-xl font-semibold mb-2">ゲーム終了!</p>
             <p className="text-lg">タイム: {formatTime(endTime - startTime)}</p>
           </div>
         )}
+        {/* 進捗状況の表示 */}
         <div className="mt-4">
           <p className="text-sm text-gray-600">
             完了: {completedPrefectures.length} / {prefectures.length}
