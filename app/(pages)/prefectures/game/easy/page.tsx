@@ -41,16 +41,28 @@ const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
 export default function PrefecturesGameEasy() {
   // ゲームの状態を管理するstate
   const [gameState, setGameState] = useState<GameState>("idle");
+  // 現在の都道府県を管理するstate
   const [currentPrefecture, setCurrentPrefecture] = useState<Prefecture | null>(
     null
   );
+  // ユーザーの入力を管理するstate
   const [input, setInput] = useState("");
+  // 完了した都道府県のリストを管理するstate
   const [completedPrefectures, setCompletedPrefectures] = useState<
     Prefecture[]
   >([]);
+  // ゲーム開始時間を管理するstate
   const [startTime, setStartTime] = useState<number | null>(null);
+  // ゲーム終了時間を管理するstate
   const [endTime, setEndTime] = useState<number | null>(null);
+  // 現在の経過時間を管理するstate
   const [currentTime, setCurrentTime] = useState<number>(0);
+  // タイプミスの数を管理するstate
+  const [mistakeCount, setMistakeCount] = useState<number>(0);
+  // 総タイプ数を管理するstate
+  const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
+  // タイピング開始時間を管理するstate
+  const [typingStartTime, setTypingStartTime] = useState<number | null>(null);
 
   // 都道府県のリストをシャッフルする関数
   const shufflePrefectures = useCallback((): Prefecture[] => {
@@ -72,6 +84,9 @@ export default function PrefecturesGameEasy() {
     setEndTime(null);
     setCurrentTime(0);
     setRemainingPrefectures(shufflePrefectures());
+    setMistakeCount(0);
+    setTotalKeystrokes(0);
+    setTypingStartTime(null);
   }, [shufflePrefectures]);
 
   // 画像をプリロードする関数
@@ -138,27 +153,45 @@ export default function PrefecturesGameEasy() {
 
     const newInput = e.target.value.toLowerCase();
 
+    // タイピング開始時間を設定
+    if (typingStartTime === null) {
+      setTypingStartTime(Date.now());
+    }
+
+    // 総タイプ数を更新
+    setTotalKeystrokes((prevCount) => prevCount + 1);
+
     if (currentPrefecture.romaji.startsWith(newInput)) {
       setInput(newInput);
 
       if (newInput === currentPrefecture.romaji) {
-        // 入力が正解の場合の処理
         setCompletedPrefectures([...completedPrefectures, currentPrefecture]);
         const newRemaining = remainingPrefectures.slice(1);
         setRemainingPrefectures(newRemaining);
 
         if (newRemaining.length === 0) {
-          // すべての都道府県が完了した場合
           setEndTime(Date.now());
           setGameState("finished");
         } else {
-          // 次の都道府県に進む
           setCurrentPrefecture(newRemaining[0]);
           setInput("");
+          setTypingStartTime(null); // 次の問題のためにリセット
         }
       }
+    } else {
+      // タイプミスの場合
+      setMistakeCount((prevCount) => prevCount + 1);
     }
   };
+
+  // 平均タイピングスピードを計算する関数 (キーストローク/秒)
+  const calculateAverageTypingSpeed = useCallback(() => {
+    if (startTime && endTime && totalKeystrokes > 0) {
+      const totalTimeInSeconds = (endTime - startTime) / 1000; // ミリ秒を秒に変換
+      return (totalKeystrokes / totalTimeInSeconds).toFixed(2); // 1秒あたりの打鍵数（小数点以下2桁）
+    }
+    return "0.00";
+  }, [startTime, endTime, totalKeystrokes]);
 
   // UIをレンダリング
   return (
@@ -212,6 +245,10 @@ export default function PrefecturesGameEasy() {
           <div className="text-center">
             <p className="text-xl font-semibold mb-2">ゲーム終了!</p>
             <p className="text-lg">タイム: {formatTime(endTime - startTime)}</p>
+            <p className="text-md">タイプミス: {mistakeCount}回</p>
+            <p className="text-md">
+              平均タイピングスピード: {calculateAverageTypingSpeed()}打/秒
+            </p>
           </div>
         )}
         {/* 進捗状況の表示 */}

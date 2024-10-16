@@ -14,6 +14,21 @@ interface Prefecture {
 // ゲームの状態を定義
 type GameState = "idle" | "playing" | "finished";
 
+// ローマ字入力の表示コンポーネント
+const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
+  input,
+  romaji,
+}) => {
+  const correct = input;
+  const remaining = romaji.slice(input.length);
+  return (
+    <p className="text-lg text-center font-mono">
+      <span className="text-green-600">{correct}</span>
+      <span className="text-gray-400">{remaining}</span>
+    </p>
+  );
+};
+
 export default function PrefecturesGameTimeTrial() {
   // ゲームの状態を管理するstate
   const [gameState, setGameState] = useState<GameState>("idle");
@@ -33,6 +48,12 @@ export default function PrefecturesGameTimeTrial() {
   const [endTime, setEndTime] = useState<number | null>(null);
   // 現在の経過時間を管理するstate
   const [currentTime, setCurrentTime] = useState<number>(0);
+  // タイプミスの数を管理するstate
+  const [mistakeCount, setMistakeCount] = useState<number>(0);
+  // 総タイプ数を管理するstate
+  const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
+  // タイピング開始時間を管理するstate
+  const [typingStartTime, setTypingStartTime] = useState<number | null>(null);
 
   // 都道府県のリストをシャッフルする関数
   const shufflePrefectures = useCallback((): Prefecture[] => {
@@ -54,6 +75,9 @@ export default function PrefecturesGameTimeTrial() {
     setEndTime(null);
     setCurrentTime(0);
     setRemainingPrefectures(shufflePrefectures());
+    setMistakeCount(0);
+    setTotalKeystrokes(0);
+    setTypingStartTime(null);
   }, [shufflePrefectures]);
 
   // 画像をプリロードする関数
@@ -120,40 +144,45 @@ export default function PrefecturesGameTimeTrial() {
 
     const newInput = e.target.value.toLowerCase();
 
+    // タイピング開始時間を設定
+    if (typingStartTime === null) {
+      setTypingStartTime(Date.now());
+    }
+
+    // 総タイプ数を更新
+    setTotalKeystrokes((prevCount) => prevCount + 1);
+
     if (currentPrefecture.romaji.startsWith(newInput)) {
       setInput(newInput);
 
       if (newInput === currentPrefecture.romaji) {
-        // 入力が正解の場合の処理
         setCompletedPrefectures([...completedPrefectures, currentPrefecture]);
         const newRemaining = remainingPrefectures.slice(1);
         setRemainingPrefectures(newRemaining);
 
         if (newRemaining.length === 0) {
-          // すべての都道府県が完了した場合
           setEndTime(Date.now());
           setGameState("finished");
         } else {
-          // 次の都道府県に進む
           setCurrentPrefecture(newRemaining[0]);
           setInput("");
+          setTypingStartTime(null); // 次の問題のためにリセット
         }
       }
+    } else {
+      // タイプミスの場合
+      setMistakeCount((prevCount) => prevCount + 1);
     }
   };
 
-  // ローマ字入力の表示を生成する関数
-  const renderRomaji = () => {
-    if (!currentPrefecture) return null;
-    const correct = input;
-    const remaining = currentPrefecture.romaji.slice(input.length);
-    return (
-      <p className="text-lg text-center font-mono">
-        <span className="text-green-600">{correct}</span>
-        <span className="text-gray-400">{remaining}</span>
-      </p>
-    );
-  };
+  // 平均タイピングスピードを計算する関数 (キーストローク/秒)
+  const calculateAverageTypingSpeed = useCallback(() => {
+    if (startTime && endTime && totalKeystrokes > 0) {
+      const totalTimeInSeconds = (endTime - startTime) / 1000; // ミリ秒を秒に変換
+      return (totalKeystrokes / totalTimeInSeconds).toFixed(2); // 1秒あたりの打鍵数（小数点以下2桁）
+    }
+    return "0.00";
+  }, [startTime, endTime, totalKeystrokes]);
 
   // UIをレンダリング
   return (
@@ -178,7 +207,7 @@ export default function PrefecturesGameTimeTrial() {
             <p className="text-xl font-semibold text-center">
               {currentPrefecture.name}
             </p>
-            {renderRomaji()}
+            <RomajiDisplay input={input} romaji={currentPrefecture.romaji} />
             <div className="flex justify-center my-4">
               <Image
                 src={`/prefectures/${currentPrefecture.romaji}.jpg`}
@@ -209,6 +238,10 @@ export default function PrefecturesGameTimeTrial() {
           <div className="text-center">
             <p className="text-xl font-semibold mb-2">ゲーム終了!</p>
             <p className="text-lg">タイム: {formatTime(endTime - startTime)}</p>
+            <p className="text-md">タイプミス: {mistakeCount}回</p>
+            <p className="text-md">
+              平均タイピングスピード: {calculateAverageTypingSpeed()}打/秒
+            </p>
           </div>
         )}
         {/* 進捗状況の表示 */}
