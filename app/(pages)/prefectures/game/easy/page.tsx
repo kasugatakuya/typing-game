@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-// import prefectures from "@/app/prefectures.json";
 
 interface Prefecture {
   id: string;
@@ -16,10 +15,10 @@ const prefectures: Prefecture[] = [
   { id: "2", name: "青森県", romaji: "aomoriken" },
   { id: "3", name: "沖縄県", romaji: "okinawaken" },
   { id: "4", name: "山梨県", romaji: "yamanashiken" },
-  // ... 他の都道府県を追加 ...
+  { id: "5", name: "東京都", romaji: "toukyouto" },
 ];
 
-export default function Game() {
+export default function PrefecturesGameEasy() {
   const [gameState, setGameState] = useState<GameState>("idle");
   const [currentPrefecture, setCurrentPrefecture] = useState<Prefecture | null>(
     null
@@ -129,12 +128,10 @@ export default function Game() {
         <h1 className="text-3xl font-bold text-center">
           47都道府県タイピングゲーム
         </h1>
-        <h4 className="text-xl font-bold text-center mb-6">
-          タイムトライアルモード
-        </h4>
+        <h4 className="text-xl font-bold text-center mb-6">かんたんモード</h4>
         {(gameState === "idle" || gameState === "finished") && (
           <div className="text-center">
-            <p className="mb-2">全47題の合計タイムを競います。</p>
+            <p className="mb-2">全5問の合計タイムを競います。</p>
             <p className="text-center mb-4">スペースキーを押してゲームを開始</p>
           </div>
         )}
