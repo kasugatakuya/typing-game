@@ -3,13 +3,13 @@ import React from "react";
 import { TypingGame } from "@/app/components/TypingGame";
 import prefectures from "@/app/prefectures.json";
 
-export default function PrefecturesGameTimeTrial() {
+export default function PrefecturesGameNormal() {
   return (
     <TypingGame
       allItems={prefectures}
-      itemCount={prefectures.length}
-      gameName="タイムトライアルモード"
-      gameDescription="全47問の合計タイムを競います。"
+      itemCount={20}
+      gameName="ふつうモード"
+      gameDescription="ランダムに選ばれた20個の都道府県で練習できます。"
       mode="main"
       gameType="prefectures"
     />

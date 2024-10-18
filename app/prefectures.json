@@ -2,236 +2,330 @@
   {
     "id": "1",
     "name": "北海道",
-    "romaji": "hokkaidou"
+    "romaji": "hokkaidou",
+    "subName": "札幌市",
+    "subRomaji": "sapporoshi"
   },
   {
     "id": "2",
     "name": "青森県",
-    "romaji": "aomoriken"
+    "romaji": "aomoriken",
+    "subName": "青森市",
+    "subRomaji": "aomorishi"
   },
   {
     "id": "3",
     "name": "岩手県",
-    "romaji": "iwateken"
+    "romaji": "iwateken",
+    "subName": "盛岡市",
+    "subRomaji": "moriokashi"
   },
   {
     "id": "4",
     "name": "宮城県",
-    "romaji": "miyagiken"
+    "romaji": "miyagiken",
+    "subName": "仙台市",
+    "subRomaji": "sendaishi"
   },
   {
     "id": "5",
     "name": "秋田県",
-    "romaji": "akitaken"
+    "romaji": "akitaken",
+    "subName": "秋田市",
+    "subRomaji": "akitashi"
   },
   {
     "id": "6",
     "name": "山形県",
-    "romaji": "yamagataken"
+    "romaji": "yamagataken",
+    "subName": "山形市",
+    "subRomaji": "yamagatashi"
   },
   {
     "id": "7",
     "name": "福島県",
-    "romaji": "fokushimaken"
+    "romaji": "fukushimaken",
+    "subName": "福島市",
+    "subRomaji": "fukushimashi"
   },
   {
     "id": "8",
     "name": "茨城県",
-    "romaji": "ibarakiken"
+    "romaji": "ibarakiken",
+    "subName": "水戸市",
+    "subRomaji": "mitoshi"
   },
   {
     "id": "9",
     "name": "栃木県",
-    "romaji": "tochigiken"
+    "romaji": "tochigiken",
+    "subName": "宇都宮市",
+    "subRomaji": "utsunomiyashi"
   },
   {
     "id": "10",
     "name": "群馬県",
-    "romaji": "gunmaken"
+    "romaji": "gunmaken",
+    "subName": "前橋市",
+    "subRomaji": "maebashishi"
   },
   {
     "id": "11",
     "name": "埼玉県",
-    "romaji": "saitamaken"
+    "romaji": "saitamaken",
+    "subName": "さいたま市",
+    "subRomaji": "saitamashi"
   },
   {
     "id": "12",
     "name": "千葉県",
-    "romaji": "chibaken"
+    "romaji": "chibaken",
+    "subName": "千葉市",
+    "subRomaji": "chibashi"
   },
   {
     "id": "13",
     "name": "東京都",
-    "romaji": "toukyouto"
+    "romaji": "toukyouto",
+    "subName": "新宿区",
+    "subRomaji": "shinjukuku"
   },
   {
     "id": "14",
     "name": "神奈川県",
-    "romaji": "kanagawaken"
+    "romaji": "kanagawaken",
+    "subName": "横浜市",
+    "subRomaji": "yokohamashi"
   },
   {
     "id": "15",
     "name": "山梨県",
-    "romaji": "yamanashiken"
+    "romaji": "yamanashiken",
+    "subName": "甲府市",
+    "subRomaji": "koufushi"
   },
   {
     "id": "16",
     "name": "長野県",
-    "romaji": "naganoken"
+    "romaji": "naganoken",
+    "subName": "長野市",
+    "subRomaji": "naganoshi"
   },
   {
     "id": "17",
     "name": "新潟県",
-    "romaji": "niigataken"
+    "romaji": "niigataken",
+    "subName": "新潟市",
+    "subRomaji": "niigatashi"
   },
   {
     "id": "18",
     "name": "富山県",
-    "romaji": "toyamaken"
+    "romaji": "toyamaken",
+    "subName": "富山市",
+    "subRomaji": "toyamashi"
   },
   {
     "id": "19",
     "name": "石川県",
-    "romaji": "ishikawaken"
+    "romaji": "ishikawaken",
+    "subName": "金沢市",
+    "subRomaji": "kanazawashi"
   },
   {
     "id": "20",
     "name": "福井県",
-    "romaji": "fukuiken"
+    "romaji": "fukuiken",
+    "subName": "福井市",
+    "subRomaji": "fukuishi"
   },
   {
     "id": "21",
     "name": "岐阜県",
-    "romaji": "gifuken"
+    "romaji": "gifuken",
+    "subName": "岐阜市",
+    "subRomaji": "gifushi"
   },
   {
     "id": "22",
     "name": "静岡県",
-    "romaji": "shizuokaken"
+    "romaji": "shizuokaken",
+    "subName": "静岡市",
+    "subRomaji": "shizuokashi"
   },
   {
     "id": "23",
     "name": "愛知県",
-    "romaji": "aichiken"
+    "romaji": "aichiken",
+    "subName": "名古屋市",
+    "subRomaji": "nagoyashi"
   },
   {
     "id": "24",
     "name": "三重県",
-    "romaji": "mieken"
+    "romaji": "mieken",
+    "subName": "津市",
+    "subRomaji": "tsushi"
   },
   {
     "id": "25",
     "name": "滋賀県",
-    "romaji": "shigaken"
+    "romaji": "shigaken",
+    "subName": "大津市",
+    "subRomaji": "otsushi"
   },
   {
     "id": "26",
     "name": "京都府",
-    "romaji": "kyoutofu"
+    "romaji": "kyoutofu",
+    "subName": "京都市",
+    "subRomaji": "kyoutoshi"
   },
   {
     "id": "27",
     "name": "大阪府",
-    "romaji": "oosakafu"
+    "romaji": "oosakafu",
+    "subName": "大阪市",
+    "subRomaji": "oosakashi"
   },
   {
     "id": "28",
     "name": "兵庫県",
-    "romaji": "hyougoken"
+    "romaji": "hyougoken",
+    "subName": "神戸市",
+    "subRomaji": "koubeshi"
   },
   {
     "id": "29",
     "name": "奈良県",
-    "romaji": "naraken"
+    "romaji": "naraken",
+    "subName": "奈良市",
+    "subRomaji": "narashi"
   },
   {
     "id": "30",
     "name": "和歌山県",
-    "romaji": "wakayamaken"
+    "romaji": "wakayamaken",
+    "subName": "和歌山市",
+    "subRomaji": "wakayamashi"
   },
   {
     "id": "31",
     "name": "鳥取県",
-    "romaji": "tottoriken"
+    "romaji": "tottoriken",
+    "subName": "鳥取市",
+    "subRomaji": "tottorishi"
   },
   {
     "id": "32",
     "name": "島根県",
-    "romaji": "shimaneken"
+    "romaji": "shimaneken",
+    "subName": "松江市",
+    "subRomaji": "matsueshi"
   },
   {
     "id": "33",
     "name": "岡山県",
-    "romaji": "okayamaken"
+    "romaji": "okayamaken",
+    "subName": "岡山市",
+    "subRomaji": "okayamashi"
   },
   {
     "id": "34",
     "name": "広島県",
-    "romaji": "hiroshimaken"
+    "romaji": "hiroshimaken",
+    "subName": "広島市",
+    "subRomaji": "hiroshimashi"
   },
   {
     "id": "35",
     "name": "山口県",
-    "romaji": "yamaguchiken"
+    "romaji": "yamaguchiken",
+    "subName": "山口市",
+    "subRomaji": "yamaguchishi"
   },
   {
     "id": "36",
     "name": "徳島県",
-    "romaji": "tokushimaken"
+    "romaji": "tokushimaken",
+    "subName": "徳島市",
+    "subRomaji": "tokushimashi"
   },
   {
     "id": "37",
     "name": "香川県",
-    "romaji": "kagawaken"
+    "romaji": "kagawaken",
+    "subName": "高松市",
+    "subRomaji": "takamatushi"
   },
   {
     "id": "38",
     "name": "愛媛県",
-    "romaji": "ehimeken"
+    "romaji": "ehimeken",
+    "subName": "松山市",
+    "subRomaji": "matsuyamashi"
   },
   {
     "id": "39",
     "name": "高知県",
-    "romaji": "kouchiken"
+    "romaji": "kouchiken",
+    "subName": "高知市",
+    "subRomaji": "kouchishi"
   },
   {
     "id": "40",
     "name": "福岡県",
-    "romaji": "fukuokaken"
+    "romaji": "fukuokaken",
+    "subName": "福岡市",
+    "subRomaji": "fukuokashi"
   },
   {
     "id": "41",
     "name": "佐賀県",
-    "romaji": "sagaken"
+    "romaji": "sagaken",
+    "subName": "佐賀市",
+    "subRomaji": "sagashi"
   },
   {
     "id": "42",
     "name": "長崎県",
-    "romaji": "nagasakiken"
+    "romaji": "nagasakiken",
+    "subName": "長崎市",
+    "subRomaji": "nagasakishi"
   },
   {
     "id": "43",
     "name": "熊本県",
-    "romaji": "kumamotoken"
+    "romaji": "kumamotoken",
+    "subName": "熊本市",
+    "subRomaji": "kumamotoken"
   },
   {
     "id": "44",
     "name": "大分県",
-    "romaji": "ooitaken"
+    "romaji": "ooitaken",
+    "subName": "大分市",
+    "subRomaji": "ooitashi"
   },
   {
     "id": "45",
     "name": "宮崎県",
-    "romaji": "miyazakiken"
+    "romaji": "miyazakiken",
+    "subName": "宮崎市",
+    "subRomaji": "miyazakishi"
   },
   {
     "id": "46",
     "name": "鹿児島県",
-    "romaji": "kagoshimaken"
+    "romaji": "kagoshimaken",
+    "subName": "鹿児島市",
+    "subRomaji": "kagoshimashi"
   },
   {
     "id": "47",
     "name": "沖縄県",
-    "romaji": "okinawaken"
+    "romaji": "okinawaken",
+    "subName": "那覇市",
+    "subRomaji": "nahashi"
   }
 ]
