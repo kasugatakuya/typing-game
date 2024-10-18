@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   title: "タイピングゲーム",
   description:
     "タイピングゲームは、指定された文字列を入力するゲームです。指定された文字列を入力することで、スコアが加算されます。",
-  keywords: "タイピングゲーム, タイピング, ゲーム",
+  keywords:
+    "タイピングゲーム, タイピング, ゲーム, 人気, 国, 都道府県, 首都, 県庁所在地, 世界遺産, 国旗",
   openGraph: {
     title: "タイピングゲーム",
     description:
