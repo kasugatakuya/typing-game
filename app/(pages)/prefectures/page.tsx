@@ -5,11 +5,14 @@ export default function Home() {
       <main className='mt-32'></main>
       <div className='text-center md:m-20'>
         <div className='flex justify-center py-5'>
-          <div className='md:text-2xl text-blue-700'>
-            楽しくゲーム感覚で遊ぼう!
-          </div>
+          <div className='md:text-2xl text-blue-700'>楽しくゲーム感覚で遊ぼう!</div>
           <div className='md:block hidden'>
-            <Image width={200} height={200} src='/map-japan-10210.png' alt='' />
+            <Image
+              width={200}
+              height={200}
+              src='/map-japan-10210.png'
+              alt=''
+            />
           </div>
         </div>
         <div className='py-5'>地図で示された都道府県が出てきます</div>
@@ -51,9 +54,7 @@ export default function Home() {
         </div>
 
         <div className='border rounded-md bg-blue-300 pb-10'>
-          <div className='my-3'>
-            ユーザー登録する事でゲームの記録をつける事が出来ます。
-          </div>
+          <div className='my-3'>ユーザー登録する事でゲームの記録をつける事が出来ます。</div>
           <div className='md:flex justify-center'>
             <div>
               <a

@@ -139,7 +139,7 @@
     "subName": "ニューデリー",
     "subRomaji": "nyuderi"
   },
-   {
+  {
     "id": "21",
     "name": "インドネシア",
     "romaji": "indoneshia",
@@ -1003,7 +1003,7 @@
   {
     "id": "144",
     "name": "西サハラ",
-    "romaji": "nisisahara",
+    "romaji": "nishisahara",
     "subName": "アイウン",
     "subRomaji": "aiun"
   },
@@ -1371,7 +1371,7 @@
     "subName": "モスクワ",
     "subRomaji": "mosukuwa"
   },
-    {
+  {
     "id": "197",
     "name": "香港",
     "romaji": "honkon",
