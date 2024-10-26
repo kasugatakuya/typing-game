@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "",
+    "romaji": "aisurando"
+  },
+  {
+    "id": "2",
+    "name": "アイルランド",
+    "romaji": "airurando"
+  },
+  {
+    "id": "3",
+    "name": "アゼルバイジャン",
+    "romaji": "azerubaijan"
+  },
+  {
+    "id": "4",
+    "name": "アフガニスタン",
+    "romaji": "afuganisutan"
+  },
+  {
+    "id": "5",
+    "name": "アメリカ",
+    "romaji": "amerika"
+  },
+  {
+    "id": "6",
+    "name": "アラブ首長国連邦",
+    "romaji": "arabushuchoukokurenpou"
+  }
+]
