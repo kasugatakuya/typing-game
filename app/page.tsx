@@ -50,7 +50,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 mt-16">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 mt-11 lg:mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* ヘッダーセクション */}
         <div className="text-center mb-16 flex items-center justify-center">
