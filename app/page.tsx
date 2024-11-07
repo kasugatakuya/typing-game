@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const gameCategories = [
     {
@@ -51,16 +53,29 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* ヘッダーセクション */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            タイピングで学ぶ地理
-          </h1>
-          <p className="text-xl text-gray-600 mb-3">
-            楽しくゲーム感覚で遊ぼう!
-          </p>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            国旗、主要国の首都、主要国の世界遺産、都道府県、県庁所在地が出てきます
-          </p>
+        <div className="text-center mb-16 flex items-center justify-center">
+          <div>
+            <Image width={200} height={200} src="/earth-map.png" alt="地球" />
+          </div>
+          <div className="mx-1">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              タイピングで学ぶ地理
+            </h1>
+            <p className="text-xl text-gray-600 mb-3">
+              楽しくゲーム感覚で遊ぼう!
+            </p>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              国旗、主要国の首都、主要国の世界遺産、都道府県、県庁所在地が出てきます
+            </p>
+          </div>
+          <div>
+            <Image
+              width={200}
+              height={200}
+              src="/japan-map.png"
+              alt="日本地図"
+            />
+          </div>
         </div>
 
         {/* ゲームカテゴリーセクション */}
