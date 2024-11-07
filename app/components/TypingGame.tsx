@@ -19,7 +19,7 @@ interface TypingGameProps {
   gameName: string;
   gameDescription: string;
   mode: "main" | "sub";
-  gameType: "country" | "prefectures";
+  gameType: "country" | "prefectures" | "heritage";
 }
 
 function getRandomElements<T>(array: T[], n: number): T[] {
@@ -112,9 +112,16 @@ export function TypingGame({
   const preloadImages = useCallback(() => {
     allItems.forEach((item) => {
       const img = new window.Image() as HTMLImageElement;
-      img.src = `/${gameType}/${item.romaji}.${
-        gameType === "country" ? "png" : "jpg"
-      }`;
+      img.src = `/${gameType}/${item.romaji}.${(() => {
+        switch (gameType) {
+          case "country":
+            return "png";
+          case "heritage":
+            return "webp";
+          default:
+            return "jpg";
+        }
+      })()}`;
     });
   }, [allItems, gameType]);
 
@@ -199,6 +206,8 @@ export function TypingGame({
   const getBasePath = useCallback(() => {
     if (gameType === "country") {
       return mode === "main" ? "/country/game" : "/capitals/game";
+    } else if (gameType === "heritage") {
+      return "/heritage/game";
     } else {
       return mode === "main"
         ? "/prefectures/game"
@@ -209,112 +218,185 @@ export function TypingGame({
   const getTitle = () => {
     if (gameType === "country") {
       return mode === "main" ? "国" : "首都";
+    } else if (gameType === "heritage") {
+      return "世界遺産";
     } else {
       return mode === "main" ? "47都道府県" : "県庁所在地";
     }
   };
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
-      <main className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold text-center">
-          {getTitle()}タイピングゲーム
-        </h1>
-        <h4 className="text-xl font-bold text-center mb-6">{gameName}</h4>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col justify-between">
+      {/* ヘッダーの高さ分のスペース */}
+      <div className="h-16"></div>
 
-        {(gameState === "idle" || gameState === "finished") && (
-          <div className="text-center">
-            <p className="mb-2">{gameDescription}</p>
-            <p
-              className={`text-red-600 font-bold text-lg mb-4 transition-opacity duration-500 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              スペースキーを押してゲームを開始
-            </p>
-            <p className="text-sm text-gray-600 mt-4">
-              ※タイピング中はキーボードを使います
-            </p>
+      {/* メインコンテンツ */}
+      <main className="container mx-auto max-w-2xl px-4 flex-1 flex flex-col items-center justify-center">
+        {/* ゲームカード */}
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden w-full">
+          {/* ヘッダー部分 */}
+          <div className="bg-gradient-to-r from-red-400 to-red-500 p-4 text-center">
+            <h1 className="text-2xl font-bold text-white mb-1">
+              {getTitle()}タイピングゲーム
+            </h1>
+            <h2 className="text-lg text-white/90">{gameName}</h2>
           </div>
-        )}
 
-        {gameState === "playing" && currentItem && (
-          <div className="mb-4">
-            <p className="text-xl font-semibold text-center">
-              {getCurrentItemInfo(currentItem).name}
-            </p>
-            <RomajiDisplay
-              input={input}
-              romaji={getCurrentItemInfo(currentItem).romaji}
-            />
-            <div className="flex justify-center my-4">
-              <Image
-                src={`/${gameType}/${currentItem.romaji}.${
-                  gameType === "country" ? "png" : "jpg"
-                }`}
-                alt={currentItem.name}
-                width={200}
-                height={150}
-                className="rounded-lg"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
-              />
+          {/* ゲームコンテンツ */}
+          <div className="p-4">
+            {/* アイドル状態または終了状態 */}
+            {(gameState === "idle" || gameState === "finished") && (
+              <div className="text-center space-y-3">
+                <p className="text-gray-700">{gameDescription}</p>
+                <p
+                  className={`text-lg font-semibold text-red-500 transition-opacity duration-500 ${
+                    isVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  スペースキーを押してゲームを開始
+                </p>
+                <p className="text-sm text-gray-500">
+                  ※タイピング中はキーボードを使います
+                </p>
+              </div>
+            )}
+            {/* プレイ中の状態 */}
+            {gameState === "playing" && currentItem && (
+              <div className="space-y-3">
+                {/* 問題表示エリア */}
+                <div className="text-center space-y-1">
+                  <p className="text-xl font-bold text-gray-800">
+                    {getCurrentItemInfo(currentItem).name}
+                  </p>
+                  <RomajiDisplay
+                    input={input}
+                    romaji={getCurrentItemInfo(currentItem).romaji}
+                  />
+                </div>
+
+                {/* 画像表示エリア */}
+                <div className="flex justify-center">
+                  <div className="relative overflow-hidden rounded-lg shadow-md">
+                    <Image
+                      src={`/${gameType}/${currentItem.romaji}.${(() => {
+                        switch (gameType) {
+                          case "country":
+                            return "png";
+                          case "heritage":
+                            return "webp";
+                          default:
+                            return "jpg";
+                        }
+                      })()}`}
+                      alt={currentItem.name}
+                      width={250}
+                      height={150}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+
+                {/* 入力エリア */}
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={handleInput}
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-red-400 outline-none transition-all"
+                    autoFocus
+                  />
+                  <div className="text-center space-y-1">
+                    <p className="text-sm font-semibold text-gray-700">
+                      経過時間: {formatTime(currentTime)}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      ESCキーを押すとゲームを中断します
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* 終了状態の結果表示 */}
+            {gameState === "finished" &&
+              startTime !== null &&
+              endTime !== null && (
+                <div className="space-y-4 bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-2xl font-bold text-gray-800 text-center">
+                    ゲーム終了!
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white p-4 rounded-lg shadow-sm">
+                      <p className="text-sm text-gray-500">タイム</p>
+                      <p className="text-xl font-bold text-gray-800">
+                        {formatTime(endTime - startTime)}
+                      </p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg shadow-sm">
+                      <p className="text-sm text-gray-500">タイプミス</p>
+                      <p className="text-xl font-bold text-gray-800">
+                        {mistakeCount}回
+                      </p>
+                    </div>
+                    <div className="col-span-2 bg-white p-4 rounded-lg shadow-sm">
+                      <p className="text-sm text-gray-500">
+                        平均タイピングスピード
+                      </p>
+                      <p className="text-xl font-bold text-gray-800">
+                        {calculateAverageTypingSpeed()}打/秒
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            {/* 進捗バー */}
+            <div className="mt-4">
+              <div className="flex justify-between text-sm text-gray-600 mb-1">
+                <span>進捗状況</span>
+                <span>
+                  {completedItems.length} / {itemCount}
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className="bg-red-400 h-2 rounded-full transition-all duration-300"
+                  style={{
+                    width: `${(completedItems.length / itemCount) * 100}%`,
+                  }}
+                />
+              </div>
             </div>
-            <input
-              type="text"
-              value={input}
-              onChange={handleInput}
-              className="w-full mt-2 p-2 border rounded"
-              autoFocus
-            />
-            <p className="text-center mt-4 text-lg font-semibold">
-              経過時間: {formatTime(currentTime)}
-            </p>
-            <p className="text-center mt-2 text-sm text-gray-600">
-              ESCキーを押すとゲームを中断します
-            </p>
           </div>
-        )}
-
-        {gameState === "finished" && startTime !== null && endTime !== null && (
-          <div className="text-center mt-5">
-            <p className="text-xl font-semibold mb-2">ゲーム終了!</p>
-            <p className="text-lg">タイム: {formatTime(endTime - startTime)}</p>
-            <p className="text-md">タイプミス: {mistakeCount}回</p>
-            <p className="text-md">
-              平均タイピングスピード: {calculateAverageTypingSpeed()}打/秒
-            </p>
-          </div>
-        )}
-
-        <div className="mt-4">
-          <p className="text-sm text-gray-600">
-            完了: {completedItems.length} / {itemCount}
-          </p>
+        </div>
+        {/* 難易度選択ボタン - ゲームカードの下に配置 */}
+        <div className="flex justify-center gap-4 mt-6">
+          <Link
+            href={`${getBasePath()}/easy`}
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-orange-300 to-orange-400 text-white font-medium transition-all duration-200 hover:from-orange-400 hover:to-orange-500 hover:shadow-md transform hover:-translate-y-1 active:translate-y-0"
+          >
+            かんたん
+          </Link>
+          <Link
+            href={`${getBasePath()}/normal`}
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-orange-300 to-orange-400 text-white font-medium transition-all duration-200 hover:from-orange-400 hover:to-orange-500 hover:shadow-md transform hover:-translate-y-1 active:translate-y-0"
+          >
+            ふつう
+          </Link>
+          <Link
+            href={`${getBasePath()}/${
+              gameType === "country" || gameType === "heritage"
+                ? "hard"
+                : "time-trial"
+            }`}
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-orange-300 to-orange-400 text-white font-medium transition-all duration-200 hover:from-orange-400 hover:to-orange-500 hover:shadow-md transform hover:-translate-y-1 active:translate-y-0"
+          >
+            {gameType === "country" || gameType === "heritage"
+              ? "むずかしい"
+              : "タイムトライアル"}
+          </Link>
         </div>
       </main>
-
-      <div className="mt-10">
-        <Link
-          href={`${getBasePath()}/easy`}
-          className="border rounded-full bg-orange-300 px-3 py-3 mr-2"
-        >
-          かんたん
-        </Link>
-        <Link
-          href={`${getBasePath()}/normal`}
-          className="border rounded-full bg-orange-300 px-3 py-3 mr-2"
-        >
-          ふつう
-        </Link>
-        <Link
-          href={`${getBasePath()}/${
-            gameType === "country" ? "hard" : "time-trial"
-          }`}
-          className="border rounded-full bg-orange-300 px-3 py-3"
-        >
-          {gameType === "country" ? "むずかしい" : "タイムトライアル"}
-        </Link>
-      </div>
+      {/* フッターの高さ分のスペース */}
+      <div className="h-12"></div>
     </div>
   );
 }

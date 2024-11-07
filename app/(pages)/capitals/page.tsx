@@ -1,5 +1,5 @@
 import Link from "next/link";
-export default function CapitalsPage() {
+export default function Capitals() {
   return (
     <div className="h-screen">
       <main className="mt-32">

@@ -1,0 +1,352 @@
+[
+  {
+    "id": "1",
+    "name": "ムザブの谷",
+    "romaji": "muzabunotani",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "2",
+    "name": "デロス島",
+    "romaji": "derosutou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "3",
+    "name": "古都奈良の文化財",
+    "romaji": "kotonaranobunkazai",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "4",
+    "name": "知床",
+    "romaji": "shiretoko",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "5",
+    "name": "原爆ドーム",
+    "romaji": "genbakudomu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "6",
+    "name": "日光の社寺",
+    "romaji": "nikkounosyaji",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "7",
+    "name": "白根山地",
+    "romaji": "shirakamisanchi",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "8",
+    "name": "ヴェルサイユ宮殿",
+    "romaji": "verusaiukyuden",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "9",
+    "name": "グレートバリアリーフ",
+    "romaji": "guretobariarifu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "10",
+    "name": "万里の長城",
+    "romaji": "banrinochoujou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "11",
+    "name": "グランドキャニオン",
+    "romaji": "gurandokyanion",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "12",
+    "name": "バチカン市国",
+    "romaji": "bachikanshikoku",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "13",
+    "name": "オペラハウス",
+    "romaji": "operahausu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "14",
+    "name": "済洲島",
+    "romaji": "chejutou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "15",
+    "name": "モヘンジョダロの考古遺跡",
+    "romaji": "mohenjodaronokoukoiseki",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "16",
+    "name": "軍艦島",
+    "romaji": "gunkanjima",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "17",
+    "name": "メテオラ",
+    "romaji": "meteora",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "18",
+    "name": "ヴィクトリアの滝",
+    "romaji": "vikutorianotaki",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "19",
+    "name": "ガラパゴス諸島",
+    "romaji": "garapagosushotou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "20",
+    "name": "カナディアンロッキー山脈",
+    "romaji": "kanadhianrokkisanmyaku",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "21",
+    "name": "ナスカとパルパの地上絵",
+    "romaji": "nasukatoparupanochijoue",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "22",
+    "name": "アテネのアクロポリス",
+    "romaji": "atenenoakuroporisu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "23",
+    "name": "ピラミッド",
+    "romaji": "piramiddo",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "24",
+    "name": "マチュピチュ",
+    "romaji": "machupichu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "25",
+    "name": "イグアスの滝",
+    "romaji": "iguasunotaki",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "26",
+    "name": "パリのセーヌ河岸",
+    "romaji": "parinosenukagan",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "27",
+    "name": "アルベロベッロのトゥルッリ",
+    "romaji": "aruberoberronotwurruri",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "28",
+    "name": "モンサンミッシェル",
+    "romaji": "monsanmissheru",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "29",
+    "name": "ペトラ　ヨルダンの世界遺産",
+    "romaji": "petora yorudannosekaiisan",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "30",
+    "name": "自由の女神像",
+    "romaji": "jiyuunomegamizou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "31",
+    "name": "イエローストーン国立公園",
+    "romaji": "ierosutonkokuritsukouen",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "32",
+    "name": "ケルン大聖堂",
+    "romaji": "kerundaiseidou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "33",
+    "name": "タージマハル",
+    "romaji": "tajimaharu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "34",
+    "name": "白川郷",
+    "romaji": "shirakawagou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "35",
+    "name": "厳島神社",
+    "romaji": "itsukushimajinja",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "36",
+    "name": "姫路城",
+    "romaji": "himejijyou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "37",
+    "name": "シルクロード",
+    "romaji": "shirukurodo",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "38",
+    "name": "アミアン大聖堂",
+    "romaji": "amiandaiseidou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "39",
+    "name": "富岡製糸場",
+    "romaji": "tomiokaseishijou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "40",
+    "name": "今帰仁城",
+    "romaji": "nakijinjyou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "41",
+    "name": "ペルセポリス",
+    "romaji": "peruseporisu",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "42",
+    "name": "フィレンツェ歴史地区",
+    "romaji": "firentserekishichiku",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "43",
+    "name": "イースター島モアイ",
+    "romaji": "isutatoumoai",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "44",
+    "name": "小笠原諸島",
+    "romaji": "ogasawarasyotou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "45",
+    "name": "法隆寺",
+    "romaji": "houryuji",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "46",
+    "name": "古都京都の文化財",
+    "romaji": "kotokyotonobunkazai",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "47",
+    "name": "富士山",
+    "romaji": "fujisan",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "48",
+    "name": "屋久島",
+    "romaji": "yakushima",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "49",
+    "name": "アーヘン大聖堂",
+    "romaji": "ahendaiseidou",
+    "subName": "",
+    "subRomaji": ""
+  },
+  {
+    "id": "50",
+    "name": "ロンドン塔",
+    "romaji": "rondontou",
+    "subName": "",
+    "subRomaji": ""
+  }
+]

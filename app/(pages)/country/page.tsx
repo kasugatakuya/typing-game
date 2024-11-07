@@ -1,5 +1,5 @@
 import Link from "next/link";
-export default function CountryPage() {
+export default function Country() {
   return (
     <div className="h-screen">
       <main className="mt-32">
