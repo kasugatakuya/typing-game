@@ -30,7 +30,7 @@ export default function RootLayout({
         <Header />
         {children}
         <footer className="text-md py-8 text-center bg-black text-white">
-          <p>© タイピングゲーム 2024-{new Date().getFullYear()}</p>
+          <p>© 地理タイピング 2023-{new Date().getFullYear()}</p>
         </footer>
       </body>
     </html>
