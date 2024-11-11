@@ -9,6 +9,8 @@ const links = [
   { href: "/heritage/game/normal", label: "世界遺産" },
   { href: "/prefectures/game/normal", label: "都道府県" },
   { href: "/prefecturalCapitals/game/normal", label: "県庁所在地" },
+  { href: "/prefecturalBird/game/normal", label: "県鳥" },
+  { href: "/prefecturalFlower/game/normal", label: "県花" },
 ];
 
 export default function Header() {

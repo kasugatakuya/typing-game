@@ -47,6 +47,24 @@ export default function Home() {
         { name: "タイムトライアル", path: "/time-trial" },
       ],
     },
+    {
+      title: "県鳥 タイピング 練習",
+      baseUrl: "/prefecturalBird/game",
+      modes: [
+        { name: "かんたん", path: "/easy" },
+        { name: "ふつう", path: "/normal" },
+        { name: "タイムトライアル", path: "/time-trial" },
+      ],
+    },
+    {
+      title: "県花 タイピング 練習",
+      baseUrl: "/prefecturalFlower/game",
+      modes: [
+        { name: "かんたん", path: "/easy" },
+        { name: "ふつう", path: "/normal" },
+        { name: "タイムトライアル", path: "/time-trial" },
+      ],
+    },
   ];
 
   return (

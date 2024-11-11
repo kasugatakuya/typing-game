@@ -4,328 +4,610 @@
     "name": "北海道",
     "romaji": "hokkaidou",
     "subName": "札幌市",
-    "subRomaji": "sapporoshi"
+    "subRomaji": "sapporoshi",
+    "birdName": "丹頂鶴(たんちょう)",
+    "birdRomaji": "tanchou",
+    "flowerName": "ハマナス",
+    "flowerRomaji": "hamanasu",
+    "treeName": "エゾマツ",
+    "treeRomaji": "ezomatsu"
   },
   {
     "id": "2",
     "name": "青森県",
     "romaji": "aomoriken",
     "subName": "青森市",
-    "subRomaji": "aomorishi"
+    "subRomaji": "aomorishi",
+    "birdName": "白鳥(はくちょう)",
+    "birdRomaji": "hakucyo",
+    "flowerName": "りんごの花",
+    "flowerRomaji": "ringonohana",
+    "treeName": "ヒバ(ひば)",
+    "treeRomaji": "hiba"
   },
   {
     "id": "3",
     "name": "岩手県",
     "romaji": "iwateken",
     "subName": "盛岡市",
-    "subRomaji": "moriokashi"
+    "subRomaji": "moriokashi",
+    "birdName": "雉(きじ)",
+    "birdRomaji": "kiji",
+    "flowerName": "キリ",
+    "flowerRomaji": "kiri",
+    "treeName": "ナンブアカマツ",
+    "treeRomaji": "nanbuakamatsu"
   },
   {
     "id": "4",
     "name": "宮城県",
     "romaji": "miyagiken",
     "subName": "仙台市",
-    "subRomaji": "sendaishi"
+    "subRomaji": "sendaishi",
+    "birdName": "雁(がん)",
+    "birdRomaji": "gan",
+    "flowerName": "ミヤギノハギ",
+    "flowerRomaji": "miyaginohagi",
+    "treeName": "ケヤキ",
+    "treeRomaji": "keyaki"
   },
   {
     "id": "5",
     "name": "秋田県",
     "romaji": "akitaken",
     "subName": "秋田市",
-    "subRomaji": "akitashi"
+    "subRomaji": "akitashi",
+    "birdName": "山鳥(やまどり)",
+    "birdRomaji": "yamadori",
+    "flowerName": "ふきのとう",
+    "flowerRomaji": "fukinotou",
+    "treeName": "秋田杉(あきたすぎ)",
+    "treeRomaji": "akitasugi"
   },
   {
     "id": "6",
     "name": "山形県",
     "romaji": "yamagataken",
     "subName": "山形市",
-    "subRomaji": "yamagatashi"
+    "subRomaji": "yamagatashi",
+    "birdName": "鴨(おしどり)",
+    "birdRomaji": "oshidori",
+    "flowerName": "べにばな",
+    "flowerRomaji": "benibana",
+    "treeName": "さくらんぼ",
+    "treeRomaji": "sakuranbo"
   },
   {
     "id": "7",
     "name": "福島県",
     "romaji": "fukushimaken",
     "subName": "福島市",
-    "subRomaji": "fukushimashi"
+    "subRomaji": "fukushimashi",
+    "birdName": "黄鶲(きびたき)",
+    "birdRomaji": "kibitaki",
+    "flowerName": "ネモトシャクナゲ",
+    "flowerRomaji": "nemotoshakunage",
+    "treeName": "ケヤキ",
+    "treeRomaji": "keyaki"
   },
   {
     "id": "8",
     "name": "茨城県",
     "romaji": "ibarakiken",
     "subName": "水戸市",
-    "subRomaji": "mitoshi"
+    "subRomaji": "mitoshi",
+    "birdName": "雲雀(ひばり)",
+    "birdRomaji": "hibari",
+    "flowerName": "薔薇(ばら)",
+    "flowerRomaji": "bara",
+    "treeName": "梅(うめ)",
+    "treeRomaji": "ume"
   },
   {
     "id": "9",
     "name": "栃木県",
     "romaji": "tochigiken",
     "subName": "宇都宮市",
-    "subRomaji": "utsunomiyashi"
+    "subRomaji": "utsunomiyashi",
+    "birdName": "大瑠璃(おおるり)",
+    "birdRomaji": "oruri",
+    "flowerName": "やしおつつじ",
+    "flowerRomaji": "yashiotsutsuji",
+    "treeName": "トチノキ",
+    "treeRomaji": "tochinoki"
   },
   {
     "id": "10",
     "name": "群馬県",
     "romaji": "gunmaken",
     "subName": "前橋市",
-    "subRomaji": "maebashishi"
+    "subRomaji": "maebashishi",
+    "birdName": "山鳥(やまどり)",
+    "birdRomaji": "yamadori",
+    "flowerName": "レンゲツツジ",
+    "flowerRomaji": "rengetsutsuji",
+    "treeName": "クロマツ",
+    "treeRomaji": "kuromatsu"
   },
   {
     "id": "11",
     "name": "埼玉県",
     "romaji": "saitamaken",
     "subName": "さいたま市",
-    "subRomaji": "saitamashi"
+    "subRomaji": "saitamashi",
+    "birdName": "白鳩(しらこばと)",
+    "birdRomaji": "shirakobato",
+    "flowerName": "サクラソウ",
+    "flowerRomaji": "sakurasou",
+    "treeName": "ケヤキ",
+    "treeRomaji": "keyaki"
   },
   {
     "id": "12",
     "name": "千葉県",
     "romaji": "chibaken",
     "subName": "千葉市",
-    "subRomaji": "chibashi"
+    "subRomaji": "chibashi",
+    "birdName": "鵯(ほおじろ)",
+    "birdRomaji": "hojiro",
+    "flowerName": "なのはな",
+    "flowerRomaji": "nanohana",
+    "treeName": "マキ",
+    "treeRomaji": "maki"
   },
   {
     "id": "13",
     "name": "東京都",
     "romaji": "toukyouto",
     "subName": "新宿区",
-    "subRomaji": "shinjukuku"
+    "subRomaji": "shinjukuku",
+    "birdName": "百合鴎(ゆりかもめ)",
+    "birdRomaji": "yurikamome",
+    "flowerName": "ソメイヨシノ",
+    "flowerRomaji": "someiyoshino",
+    "treeName": "イチョウ",
+    "treeRomaji": "ichou"
   },
   {
     "id": "14",
     "name": "神奈川県",
     "romaji": "kanagawaken",
     "subName": "横浜市",
-    "subRomaji": "yokohamashi"
+    "subRomaji": "yokohamashi",
+    "birdName": "鴎(かもめ)",
+    "birdRomaji": "kamome",
+    "flowerName": "山ゆり",
+    "flowerRomaji": "yamayuri",
+    "treeName": "イチョウ",
+    "treeRomaji": "ichou"
   },
   {
     "id": "15",
-    "name": "山梨県",
-    "romaji": "yamanashiken",
-    "subName": "甲府市",
-    "subRomaji": "koufushi"
-  },
-  {
-    "id": "16",
-    "name": "長野県",
-    "romaji": "naganoken",
-    "subName": "長野市",
-    "subRomaji": "naganoshi"
-  },
-  {
-    "id": "17",
     "name": "新潟県",
     "romaji": "niigataken",
     "subName": "新潟市",
-    "subRomaji": "niigatashi"
+    "subRomaji": "niigatashi",
+    "birdName": "朱鷺(とき)",
+    "birdRomaji": "toki",
+    "flowerName": "チューリップ",
+    "flowerRomaji": "churippu",
+    "treeName": "雪椿(ゆきつばき)",
+    "treeRomaji": "yukitsubaki"
   },
   {
-    "id": "18",
+    "id": "16",
     "name": "富山県",
     "romaji": "toyamaken",
     "subName": "富山市",
-    "subRomaji": "toyamashi"
+    "subRomaji": "toyamashi",
+    "birdName": "雷鳥(らいちょう)",
+    "birdRomaji": "raichou",
+    "flowerName": "チューリップ",
+    "flowerRomaji": "churippu",
+    "treeName": "立山杉(たてやますぎ)",
+    "treeRomaji": "tateyamasugi"
   },
   {
-    "id": "19",
+    "id": "17",
     "name": "石川県",
     "romaji": "ishikawaken",
     "subName": "金沢市",
-    "subRomaji": "kanazawashi"
+    "subRomaji": "kanazawashi",
+    "birdName": "鷲(いぬわし)",
+    "birdRomaji": "inuwashi",
+    "flowerName": "クロユリ",
+    "flowerRomaji": "kuroyuri",
+    "treeName": "あて",
+    "treeRomaji": "ate"
   },
   {
-    "id": "20",
+    "id": "18",
     "name": "福井県",
     "romaji": "fukuiken",
     "subName": "福井市",
-    "subRomaji": "fukuishi"
+    "subRomaji": "fukuishi",
+    "birdName": "鶫(つぐみ)",
+    "birdRomaji": "tsugumi",
+    "flowerName": "スイセン",
+    "flowerRomaji": "suisen",
+    "treeName": "マツ",
+    "treeRomaji": "matsu"
+  },
+  {
+    "id": "19",
+    "name": "山梨県",
+    "romaji": "yamanashiken",
+    "subName": "甲府市",
+    "subRomaji": "koufushi",
+    "birdName": "鶯(うぐいす)",
+    "birdRomaji": "uguisu",
+    "flowerName": "フジザクラ",
+    "flowerRomaji": "fujizakura",
+    "treeName": "カエデ",
+    "treeRomaji": "kaede"
+  },
+  {
+    "id": "20",
+    "name": "長野県",
+    "romaji": "naganoken",
+    "subName": "長野市",
+    "subRomaji": "naganoshi",
+    "birdName": "雷鳥(らいちょう)",
+    "birdRomaji": "raichou",
+    "flowerName": "りんどう",
+    "flowerRomaji": "rindou",
+    "treeName": "白樺(しらかば)",
+    "treeRomaji": "shirakaba"
   },
   {
     "id": "21",
     "name": "岐阜県",
     "romaji": "gifuken",
     "subName": "岐阜市",
-    "subRomaji": "gifushi"
+    "subRomaji": "gifushi",
+    "birdName": "雷鳥(らいちょう)",
+    "birdRomaji": "raichou",
+    "flowerName": "レンゲ草",
+    "flowerRomaji": "rengesou",
+    "treeName": "イチイ",
+    "treeRomaji": "ichii"
   },
   {
     "id": "22",
     "name": "静岡県",
     "romaji": "shizuokaken",
     "subName": "静岡市",
-    "subRomaji": "shizuokashi"
+    "subRomaji": "shizuokashi",
+    "birdName": "三光鳥(さんこうちょう)",
+    "birdRomaji": "sankouchou",
+    "flowerName": "つつじ",
+    "flowerRomaji": "tsutsuji",
+    "treeName": "もくせい",
+    "treeRomaji": "mokusei"
   },
   {
     "id": "23",
     "name": "愛知県",
     "romaji": "aichiken",
     "subName": "名古屋市",
-    "subRomaji": "nagoyashi"
+    "subRomaji": "nagoyashi",
+    "birdName": "木菟(このはずく)",
+    "birdRomaji": "konohazuku",
+    "flowerName": "カキツバタ",
+    "flowerRomaji": "kakitsubata",
+    "treeName": "ハナノキ",
+    "treeRomaji": "hananoki"
   },
   {
     "id": "24",
     "name": "三重県",
     "romaji": "mieken",
     "subName": "津市",
-    "subRomaji": "tsushi"
+    "subRomaji": "tsushi",
+    "birdName": "白千鳥(しろちどり)",
+    "birdRomaji": "shirochidori",
+    "flowerName": "ハナショウブ",
+    "flowerRomaji": "hanashobu",
+    "treeName": "神宮スギ(じんぐうすぎ)",
+    "treeRomaji": "jingusugi"
   },
   {
     "id": "25",
     "name": "滋賀県",
     "romaji": "shigaken",
     "subName": "大津市",
-    "subRomaji": "otsushi"
+    "subRomaji": "otsushi",
+    "birdName": "かいつぶり(かいつぶり)",
+    "birdRomaji": "kaitsuburi",
+    "flowerName": "しゃくなげ",
+    "flowerRomaji": "shakunage",
+    "treeName": "もみじ",
+    "treeRomaji": "momiji"
   },
   {
     "id": "26",
     "name": "京都府",
     "romaji": "kyoutofu",
     "subName": "京都市",
-    "subRomaji": "kyoutoshi"
+    "subRomaji": "kyoutoshi",
+    "birdName": "大水薙鳥(おおみずなぎどり)",
+    "birdRomaji": "omizunagidori",
+    "flowerName": "しだれ桜(しだれざくら)",
+    "flowerRomaji": "shidarezakura",
+    "treeName": "北山杉(きたやますぎ)",
+    "treeRomaji": "kitayamasugi"
   },
   {
     "id": "27",
     "name": "大阪府",
     "romaji": "oosakafu",
     "subName": "大阪市",
-    "subRomaji": "oosakashi"
+    "subRomaji": "oosakashi",
+    "birdName": "百舌(もず)",
+    "birdRomaji": "mozu",
+    "flowerName": "梅(うめ)",
+    "flowerRomaji": "ume",
+    "treeName": "いちょう",
+    "treeRomaji": "ichou"
   },
   {
     "id": "28",
     "name": "兵庫県",
     "romaji": "hyougoken",
     "subName": "神戸市",
-    "subRomaji": "koubeshi"
+    "subRomaji": "koubeshi",
+    "birdName": "鸛(こうのとり)",
+    "birdRomaji": "kounotori",
+    "flowerName": "ノジギク",
+    "flowerRomaji": "nojigiku",
+    "treeName": "クスノキ",
+    "treeRomaji": "kusunoki"
   },
   {
     "id": "29",
     "name": "奈良県",
     "romaji": "naraken",
     "subName": "奈良市",
-    "subRomaji": "narashi"
+    "subRomaji": "narashi",
+    "birdName": "駒鳥(こまどり)",
+    "birdRomaji": "komadori",
+    "flowerName": "奈良八重桜(ならやえざくら)",
+    "flowerRomaji": "narayaezakura",
+    "treeName": "すぎ",
+    "treeRomaji": "sugi"
   },
   {
     "id": "30",
     "name": "和歌山県",
     "romaji": "wakayamaken",
     "subName": "和歌山市",
-    "subRomaji": "wakayamashi"
+    "subRomaji": "wakayamashi",
+    "birdName": "目白(めじろ)",
+    "birdRomaji": "mejiro",
+    "flowerName": "梅(うめ)",
+    "flowerRomaji": "ume",
+    "treeName": "うばめがし",
+    "treeRomaji": "ubamegashi"
   },
   {
     "id": "31",
     "name": "鳥取県",
     "romaji": "tottoriken",
     "subName": "鳥取市",
-    "subRomaji": "tottorishi"
+    "subRomaji": "tottorishi",
+    "birdName": "鴨(おしどり)",
+    "birdRomaji": "oshidori",
+    "flowerName": "二十世紀梨の花(にじっせいきなしのはな)",
+    "flowerRomaji": "nijusseikinashinohana",
+    "treeName": "ダイセンキャラボク",
+    "treeRomaji": "daisenkyaraboku"
   },
   {
     "id": "32",
     "name": "島根県",
     "romaji": "shimaneken",
     "subName": "松江市",
-    "subRomaji": "matsueshi"
+    "subRomaji": "matsueshi",
+    "birdName": "白鳥(はくちょう)",
+    "birdRomaji": "hakucyo",
+    "flowerName": "牡丹(ぼたん)",
+    "flowerRomaji": "botan",
+    "treeName": "黒松(くろまつ)",
+    "treeRomaji": "kuromatsu"
   },
   {
     "id": "33",
     "name": "岡山県",
     "romaji": "okayamaken",
     "subName": "岡山市",
-    "subRomaji": "okayamashi"
+    "subRomaji": "okayamashi",
+    "birdName": "雉(きじ)",
+    "birdRomaji": "kiji",
+    "flowerName": "ももの花",
+    "flowerRomaji": "momonohana",
+    "treeName": "あかまつ",
+    "treeRomaji": "akamatsu"
   },
   {
     "id": "34",
     "name": "広島県",
     "romaji": "hiroshimaken",
     "subName": "広島市",
-    "subRomaji": "hiroshimashi"
+    "subRomaji": "hiroshimashi",
+    "birdName": "阿微(あび)",
+    "birdRomaji": "abi",
+    "flowerName": "もみじ",
+    "flowerRomaji": "momiji",
+    "treeName": "もみじ",
+    "treeRomaji": "momiji"
   },
   {
     "id": "35",
     "name": "山口県",
     "romaji": "yamaguchiken",
     "subName": "山口市",
-    "subRomaji": "yamaguchishi"
+    "subRomaji": "yamaguchishi",
+    "birdName": "鍋鶴(なべづる)",
+    "birdRomaji": "nabezuru",
+    "flowerName": "夏みかんの花(なつみかんのはな)",
+    "flowerRomaji": "natsumikannohana",
+    "treeName": "アカマツ",
+    "treeRomaji": "akamatsu"
   },
   {
     "id": "36",
     "name": "徳島県",
     "romaji": "tokushimaken",
     "subName": "徳島市",
-    "subRomaji": "tokushimashi"
+    "subRomaji": "tokushimashi",
+    "birdName": "白鷺(しらさぎ)",
+    "birdRomaji": "shirasagi",
+    "flowerName": "すだちの花",
+    "flowerRomaji": "sudachinohana",
+    "treeName": "やまもも",
+    "treeRomaji": "yamamomo"
   },
   {
     "id": "37",
     "name": "香川県",
     "romaji": "kagawaken",
     "subName": "高松市",
-    "subRomaji": "takamatushi"
+    "subRomaji": "takamatushi",
+    "birdName": "郭公(ほととぎす)",
+    "birdRomaji": "hototogisu",
+    "flowerName": "オリーブ",
+    "flowerRomaji": "oribu",
+    "treeName": "オリーブ",
+    "treeRomaji": "oribu"
   },
   {
     "id": "38",
     "name": "愛媛県",
     "romaji": "ehimeken",
     "subName": "松山市",
-    "subRomaji": "matsuyamashi"
+    "subRomaji": "matsuyamashi",
+    "birdName": "駒鳥(こまどり)",
+    "birdRomaji": "komadori",
+    "flowerName": "みかんの花",
+    "flowerRomaji": "mikannohana",
+    "treeName": "まつ",
+    "treeRomaji": "matsu"
   },
   {
     "id": "39",
     "name": "高知県",
     "romaji": "kouchiken",
     "subName": "高知市",
-    "subRomaji": "kouchishi"
+    "subRomaji": "kouchishi",
+    "birdName": "綺麗鳥(やいろちょう)",
+    "birdRomaji": "yairochou",
+    "flowerName": "ヤマモモ",
+    "flowerRomaji": "yamamomo",
+    "treeName": "ヤナセスギ",
+    "treeRomaji": "yanasesugi"
   },
   {
     "id": "40",
     "name": "福岡県",
     "romaji": "fukuokaken",
     "subName": "福岡市",
-    "subRomaji": "fukuokashi"
+    "subRomaji": "fukuokashi",
+    "birdName": "鶯(うぐいす)",
+    "birdRomaji": "uguisu",
+    "flowerName": "梅(うめ)",
+    "flowerRomaji": "ume",
+    "treeName": "つつじ",
+    "treeRomaji": "tsutsuji"
   },
   {
     "id": "41",
     "name": "佐賀県",
     "romaji": "sagaken",
     "subName": "佐賀市",
-    "subRomaji": "sagashi"
+    "subRomaji": "sagashi",
+    "birdName": "鵲(かささぎ)",
+    "birdRomaji": "kasasagi",
+    "flowerName": "クスの花",
+    "flowerRomaji": "kusunohana",
+    "treeName": "クス",
+    "treeRomaji": "kusu"
   },
   {
     "id": "42",
     "name": "長崎県",
     "romaji": "nagasakiken",
     "subName": "長崎市",
-    "subRomaji": "nagasakishi"
+    "subRomaji": "nagasakishi",
+    "birdName": "鴨(おしどり)",
+    "birdRomaji": "oshidori",
+    "flowerName": "雲仙ツツジ(うんぜんつつじ)",
+    "flowerRomaji": "unzentsutsuji",
+    "treeName": "ヒノキ",
+    "treeRomaji": "hinoki"
   },
   {
     "id": "43",
     "name": "熊本県",
     "romaji": "kumamotoken",
     "subName": "熊本市",
-    "subRomaji": "kumamotoken"
+    "subRomaji": "kumamotoken",
+    "birdName": "雲雀(ひばり)",
+    "birdRomaji": "hibari",
+    "flowerName": "リンドウ",
+    "flowerRomaji": "rindou",
+    "treeName": "クスノキ",
+    "treeRomaji": "kusunoki"
   },
   {
     "id": "44",
     "name": "大分県",
     "romaji": "ooitaken",
     "subName": "大分市",
-    "subRomaji": "ooitashi"
+    "subRomaji": "ooitashi",
+    "birdName": "目白(めじろ)",
+    "birdRomaji": "mejiro",
+    "flowerName": "豊後梅(ぶんごうめ)",
+    "flowerRomaji": "bungoume",
+    "treeName": "豊後梅(ぶんごうめ)",
+    "treeRomaji": "bungoume"
   },
   {
     "id": "45",
     "name": "宮崎県",
     "romaji": "miyazakiken",
     "subName": "宮崎市",
-    "subRomaji": "miyazakishi"
+    "subRomaji": "miyazakishi",
+    "birdName": "越白山鳥(こしじろやまどり)",
+    "birdRomaji": "koshijiroyamadori",
+    "flowerName": "はまゆう",
+    "flowerRomaji": "hamayu",
+    "treeName": "フェニックス",
+    "treeRomaji": "fenikkusu"
   },
   {
     "id": "46",
     "name": "鹿児島県",
     "romaji": "kagoshimaken",
     "subName": "鹿児島市",
-    "subRomaji": "kagoshimashi"
+    "subRomaji": "kagoshimashi",
+    "birdName": "瑠璃掛(るりかけす)",
+    "birdRomaji": "rurikakesu",
+    "flowerName": "ミヤマキリシマ",
+    "flowerRomaji": "miyamakirishima",
+    "treeName": "クスノキ",
+    "treeRomaji": "kusunoki"
   },
   {
     "id": "47",
     "name": "沖縄県",
     "romaji": "okinawaken",
     "subName": "那覇市",
-    "subRomaji": "nahashi"
+    "subRomaji": "nahashi",
+    "birdName": "野口啄木鳥(のぐちげら)",
+    "birdRomaji": "noguchigera",
+    "flowerName": "デイゴ",
+    "flowerRomaji": "deigo",
+    "treeName": "リュウキュウマツ",
+    "treeRomaji": "ryukyumatsu"
   }
 ]

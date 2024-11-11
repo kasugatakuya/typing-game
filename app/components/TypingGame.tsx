@@ -9,6 +9,12 @@ interface Item {
   romaji: string;
   subName: string;
   subRomaji: string;
+  birdName: string;
+  birdRomaji: string;
+  flowerName: string;
+  flowerRomaji: string;
+  treeName: string;
+  treeRomaji: string;
 }
 
 type GameState = "idle" | "playing" | "finished";
@@ -18,7 +24,7 @@ interface TypingGameProps {
   itemCount: number;
   gameName: string;
   gameDescription: string;
-  mode: "main" | "sub";
+  mode: "main" | "sub" | "bird" | "flower" | "tree";
   gameType: "country" | "prefectures" | "heritage";
 }
 
@@ -71,9 +77,18 @@ export function TypingGame({
 
   const getCurrentItemInfo = useCallback(
     (item: Item) => {
-      return mode === "main"
-        ? { name: item.name, romaji: item.romaji }
-        : { name: item.subName, romaji: item.subRomaji };
+      if (mode === "main") {
+        return { name: item.name, romaji: item.romaji };
+      } else if (mode === "sub") {
+        return { name: item.subName, romaji: item.subRomaji };
+      } else if (mode === "bird") {
+        return { name: item.birdName, romaji: item.birdRomaji };
+      } else if (mode === "flower") {
+        return { name: item.flowerName, romaji: item.flowerRomaji };
+      } else if (mode === "tree") {
+        return { name: item.treeName, romaji: item.treeRomaji };
+      }
+      return { name: item.name, romaji: item.romaji };
     },
     [mode]
   );
@@ -109,10 +124,25 @@ export function TypingGame({
     setInput("");
   }, [getItems]);
 
-  const preloadImages = useCallback(() => {
-    allItems.forEach((item) => {
-      const img = new window.Image() as HTMLImageElement;
-      img.src = `/${gameType}/${item.romaji}.${(() => {
+  const getImagePath = useCallback(
+    (item: Item) => {
+      let firstPath: string = gameType;
+      let secondPath: string = item.romaji;
+
+      if (gameType === "prefectures") {
+        if (mode === "bird") {
+          firstPath = "bird";
+          secondPath = item.birdRomaji;
+        } else if (mode === "flower") {
+          firstPath = "flower";
+          secondPath = item.flowerRomaji;
+        } else if (mode === "tree") {
+          firstPath = "tree";
+          secondPath = item.treeRomaji;
+        }
+      }
+
+      const extension = (() => {
         switch (gameType) {
           case "country":
             return "png";
@@ -121,9 +151,19 @@ export function TypingGame({
           default:
             return "jpg";
         }
-      })()}`;
+      })();
+
+      return `/${firstPath}/${secondPath}.${extension}`;
+    },
+    [gameType, mode]
+  );
+
+  const preloadImages = useCallback(() => {
+    allItems.forEach((item) => {
+      const img = new window.Image() as HTMLImageElement;
+      img.src = getImagePath(item);
     });
-  }, [allItems, gameType]);
+  }, [allItems, getImagePath]);
 
   useEffect(() => {
     preloadImages();
@@ -208,10 +248,21 @@ export function TypingGame({
       return mode === "main" ? "/country/game" : "/capitals/game";
     } else if (gameType === "heritage") {
       return "/heritage/game";
+    } else if (gameType === "prefectures") {
+      if (mode === "main") {
+        return "/prefectures/game";
+      } else if (mode === "sub") {
+        return "/prefecturalCapitals/game";
+      } else if (mode === "bird") {
+        return "/prefecturalBird/game";
+      } else if (mode === "flower") {
+        return "/prefecturalFlower/game";
+      } else if (mode === "tree") {
+        return "/prefecturalTree/game";
+      }
+      return "/prefectures/game";
     } else {
-      return mode === "main"
-        ? "/prefectures/game"
-        : "/prefecturalCapitals/game";
+      return "/country/game";
     }
   }, [mode, gameType]);
 
@@ -220,8 +271,19 @@ export function TypingGame({
       return mode === "main" ? "国" : "首都";
     } else if (gameType === "heritage") {
       return "世界遺産";
-    } else {
-      return mode === "main" ? "47都道府県" : "県庁所在地";
+    } else if (gameType === "prefectures") {
+      if (mode === "main") {
+        return "47都道府県";
+      } else if (mode === "sub") {
+        return "県庁所在地";
+      } else if (mode === "bird") {
+        return "県鳥";
+      } else if (mode === "flower") {
+        return "県花";
+      } else if (mode === "tree") {
+        return "県木";
+      }
+      return "47都道府県";
     }
   };
 
@@ -278,16 +340,7 @@ export function TypingGame({
                 <div className="flex justify-center">
                   <div className="relative overflow-hidden rounded-lg shadow-md">
                     <Image
-                      src={`/${gameType}/${currentItem.romaji}.${(() => {
-                        switch (gameType) {
-                          case "country":
-                            return "png";
-                          case "heritage":
-                            return "webp";
-                          default:
-                            return "jpg";
-                        }
-                      })()}`}
+                      src={getImagePath(currentItem)}
                       alt={currentItem.name}
                       width={250}
                       height={150}

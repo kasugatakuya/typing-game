@@ -4,1385 +4,2573 @@
     "name": "アイスランド",
     "romaji": "aisurando",
     "subName": "レイキャビク",
-    "subRomaji": "reikiyabiku"
+    "subRomaji": "reikiyabiku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "2",
     "name": "アイルランド",
     "romaji": "airurando",
     "subName": "ダブリン",
-    "subRomaji": "daburin"
+    "subRomaji": "daburin",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "3",
     "name": "アゼルバイジャン",
     "romaji": "azerubaijan",
     "subName": "バクー",
-    "subRomaji": "baku"
+    "subRomaji": "baku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "4",
     "name": "アフガニスタン",
     "romaji": "afuganisutan",
     "subName": "カブール",
-    "subRomaji": "kaburu"
+    "subRomaji": "kaburu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "5",
     "name": "アメリカ",
     "romaji": "amerika",
     "subName": "ワシントンD.C.",
-    "subRomaji": "washinton di si"
+    "subRomaji": "washinton di si",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "6",
     "name": "アラブ首長国連邦",
     "romaji": "arabushuchoukokurenpou",
     "subName": "アブダビ",
-    "subRomaji": "abudabi"
+    "subRomaji": "abudabi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "7",
     "name": "アルジェリア",
     "romaji": "arujeria",
     "subName": "アルジェ",
-    "subRomaji": "aruje"
+    "subRomaji": "aruje",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "8",
     "name": "アルゼンチン",
     "romaji": "aruzenchin",
     "subName": "ブエノスアイレス",
-    "subRomaji": "buenosuairesu"
+    "subRomaji": "buenosuairesu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "9",
     "name": "アルバニア",
     "romaji": "arubania",
     "subName": "ティラナ",
-    "subRomaji": "tirana"
+    "subRomaji": "tirana",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "10",
     "name": "アルメニア",
     "romaji": "arumenia",
     "subName": "エレバン",
-    "subRomaji": "ereban"
+    "subRomaji": "ereban",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "11",
     "name": "アンゴラ",
     "romaji": "angora",
     "subName": "ルアンダ",
-    "subRomaji": "ruanda"
+    "subRomaji": "ruanda",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "12",
     "name": "アンティグア　バーブーダ",
     "romaji": "anthigua babuda",
     "subName": "セントジョンズ",
-    "subRomaji": "sentojonzu"
+    "subRomaji": "sentojonzu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "13",
     "name": "アンドラ",
     "romaji": "andora",
     "subName": "アンドラ・ラ・ベリャ",
-    "subRomaji": "andora ra berya"
+    "subRomaji": "andora ra berya",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "14",
     "name": "イエメン",
     "romaji": "iemen",
     "subName": "サナア",
-    "subRomaji": "sanaa"
+    "subRomaji": "sanaa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "15",
     "name": "イギリス",
     "romaji": "igirisu",
     "subName": "ロンドン",
-    "subRomaji": "rondon"
+    "subRomaji": "rondon",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "16",
     "name": "イスラエル",
     "romaji": "isuraeru",
     "subName": "エルサレム",
-    "subRomaji": "erusaremu"
+    "subRomaji": "erusaremu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "17",
     "name": "イタリア",
     "romaji": "itaria",
     "subName": "ローマ",
-    "subRomaji": "roma"
+    "subRomaji": "roma",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "18",
     "name": "イラク",
     "romaji": "iraku",
     "subName": "バグダッド",
-    "subRomaji": "bagudaddo"
+    "subRomaji": "bagudaddo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "19",
     "name": "イラン",
     "romaji": "iran",
     "subName": "テヘラン",
-    "subRomaji": "teheran"
+    "subRomaji": "teheran",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "20",
     "name": "インド",
     "romaji": "indo",
     "subName": "ニューデリー",
-    "subRomaji": "nyuderi"
+    "subRomaji": "nyuderi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "21",
     "name": "インドネシア",
     "romaji": "indoneshia",
     "subName": "ジャカルタ",
-    "subRomaji": "jakaruta"
+    "subRomaji": "jakaruta",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "22",
     "name": "ウガンダ",
     "romaji": "uganda",
     "subName": "カンパラ",
-    "subRomaji": "kanpara"
+    "subRomaji": "kanpara",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "23",
     "name": "ウクライナ",
     "romaji": "ukuraina",
     "subName": "キーウ",
-    "subRomaji": "kiyu"
+    "subRomaji": "kiyu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "24",
     "name": "ウズベキスタン",
     "romaji": "uzubekisutan",
     "subName": "タシケント",
-    "subRomaji": "tashikento"
+    "subRomaji": "tashikento",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "25",
     "name": "ウルグアイ",
     "romaji": "uruguai",
     "subName": "モンテビデオ",
-    "subRomaji": "montebideo"
+    "subRomaji": "montebideo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "26",
     "name": "エクアドル",
     "romaji": "ekuadoru",
     "subName": "キト",
-    "subRomaji": "kito"
+    "subRomaji": "kito",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "27",
     "name": "エジプト　アラブ",
     "romaji": "ejiputo arabu",
     "subName": "カイロ",
-    "subRomaji": "kairo"
+    "subRomaji": "kairo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "28",
     "name": "エストニア",
     "romaji": "esutonia",
     "subName": "タリン",
-    "subRomaji": "tarin"
+    "subRomaji": "tarin",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "29",
     "name": "エチオピア",
     "romaji": "echiopia",
     "subName": "アディスアベバ",
-    "subRomaji": "adisuabeba"
+    "subRomaji": "adisuabeba",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "30",
     "name": "エリトリア",
     "romaji": "eritoria",
     "subName": "アスマラ",
-    "subRomaji": "asumara"
+    "subRomaji": "asumara",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "31",
     "name": "エルサルバドル",
     "romaji": "erusarubadoru",
     "subName": "サンサルバドル",
-    "subRomaji": "sansarubadoru"
+    "subRomaji": "sansarubadoru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "32",
     "name": "オーストラリア",
     "romaji": "osutoraria",
     "subName": "キャンベラ",
-    "subRomaji": "kyanbera"
+    "subRomaji": "kyanbera",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "33",
     "name": "オーストリア",
     "romaji": "osutoria",
     "subName": "ウィーン",
-    "subRomaji": "win"
+    "subRomaji": "win",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "34",
     "name": "オマーン",
     "romaji": "oman",
     "subName": "マスカット",
-    "subRomaji": "masukatto"
+    "subRomaji": "masukatto",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "35",
     "name": "オランダ",
     "romaji": "oranda",
     "subName": "アムステルダム",
-    "subRomaji": "amusuterudamu"
+    "subRomaji": "amusuterudamu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "36",
     "name": "ガーナ",
     "romaji": "gana",
     "subName": "アクラ",
-    "subRomaji": "akura"
+    "subRomaji": "akura",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "37",
     "name": "カーボヴェルデ",
     "romaji": "kaboverude",
     "subName": "プライア",
-    "subRomaji": "puraia"
+    "subRomaji": "puraia",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "38",
     "name": "ガイアナ",
     "romaji": "gaiana",
     "subName": "ジョージタウン",
-    "subRomaji": "jojitaun"
+    "subRomaji": "jojitaun",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "39",
     "name": "カザフスタン",
     "romaji": "kazafusutan",
     "subName": "ヌルスルタン",
-    "subRomaji": "nurusurutan"
+    "subRomaji": "nurusurutan",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "40",
     "name": "カタール",
     "romaji": "kataru",
     "subName": "ドーハ",
-    "subRomaji": "doha"
+    "subRomaji": "doha",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "41",
     "name": "カナダ",
     "romaji": "kanada",
     "subName": "オタワ",
-    "subRomaji": "otawa"
+    "subRomaji": "otawa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "42",
     "name": "ガボン",
     "romaji": "gabon",
     "subName": "リーブルビル",
-    "subRomaji": "riburubiru"
+    "subRomaji": "riburubiru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "43",
     "name": "カメルーン",
     "romaji": "kamerun",
     "subName": "ヤウンデ",
-    "subRomaji": "yaunde"
+    "subRomaji": "yaunde",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "44",
     "name": "ガンビア",
     "romaji": "ganbia",
     "subName": "バンジュール",
-    "subRomaji": "banjuru"
+    "subRomaji": "banjuru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "45",
     "name": "カンボジア",
     "romaji": "kanbojia",
     "subName": "プノンペン",
-    "subRomaji": "punonpen"
+    "subRomaji": "punonpen",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "46",
     "name": "北朝鮮",
     "romaji": "kitachosen",
     "subName": "平壌",
-    "subRomaji": "pyonyan"
+    "subRomaji": "pyonyan",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "47",
     "name": "ギニアビサウ",
     "romaji": "giniabisau",
     "subName": "ビサウ",
-    "subRomaji": "bisau"
+    "subRomaji": "bisau",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "48",
     "name": "ギニア",
     "romaji": "ginia",
     "subName": "コナクリ",
-    "subRomaji": "konakuri"
+    "subRomaji": "konakuri",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "49",
     "name": "キプロス",
     "romaji": "kipurosu",
     "subName": "ニコシア",
-    "subRomaji": "nikoshia"
+    "subRomaji": "nikoshia",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "50",
     "name": "キューバ",
     "romaji": "kyuba",
     "subName": "ハバナ",
-    "subRomaji": "habana"
+    "subRomaji": "habana",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "51",
     "name": "ギリシャ",
     "romaji": "girisha",
     "subName": "アテネ",
-    "subRomaji": "atene"
+    "subRomaji": "atene",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "52",
     "name": "キリバス",
     "romaji": "kiribasu",
     "subName": "タラワ",
-    "subRomaji": "tarawa"
+    "subRomaji": "tarawa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "53",
     "name": "キルギス",
     "romaji": "kirugisu",
     "subName": "ビシュケク",
-    "subRomaji": "bishukeku"
+    "subRomaji": "bishukeku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "54",
     "name": "グアテマラ",
     "romaji": "guatemara",
     "subName": "グアテマラシティ",
-    "subRomaji": "guatemarashithi"
+    "subRomaji": "guatemarashithi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "55",
     "name": "クウェート",
     "romaji": "kuweto",
     "subName": "クウェート",
-    "subRomaji": "kuweto"
+    "subRomaji": "kuweto",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "56",
     "name": "クック諸島",
     "romaji": "kukkushoto",
     "subName": "アバルア",
-    "subRomaji": "abarua"
+    "subRomaji": "abarua",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "57",
     "name": "グレナダ",
     "romaji": "gurenada",
     "subName": "セントジョージズ",
-    "subRomaji": "sentojojizu"
+    "subRomaji": "sentojojizu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "58",
     "name": "クロアチア",
     "romaji": "kuroachia",
     "subName": "ザグレブ",
-    "subRomaji": "zagureb"
+    "subRomaji": "zagureb",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "59",
     "name": "ケニア",
     "romaji": "kenia",
     "subName": "ナイロビ",
-    "subRomaji": "nairobi"
+    "subRomaji": "nairobi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "60",
     "name": "コートジボワール",
     "romaji": "kotojibowaru",
     "subName": "ヤムスクロ",
-    "subRomaji": "yamusukuro"
+    "subRomaji": "yamusukuro",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "61",
     "name": "コスタリカ",
     "romaji": "kosutarika",
     "subName": "サンホセ",
-    "subRomaji": "sanhose"
+    "subRomaji": "sanhose",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "62",
     "name": "コモロ",
     "romaji": "komoro",
     "subName": "モロニ",
-    "subRomaji": "moroni"
+    "subRomaji": "moroni",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "63",
     "name": "コロンビア",
     "romaji": "koronbia",
     "subName": "ボゴタ",
-    "subRomaji": "bogota"
+    "subRomaji": "bogota",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "64",
     "name": "コンゴ共和国",
     "romaji": "kongokyouwakoku",
     "subName": "ブラザビル",
-    "subRomaji": "burazabiru"
+    "subRomaji": "burazabiru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "65",
     "name": "コンゴ民主共和国",
     "romaji": "kongominshukyouwakoku",
     "subName": "キンシャサ",
-    "subRomaji": "kinshasa"
+    "subRomaji": "kinshasa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "66",
     "name": "サウジアラビア",
     "romaji": "saujiarabia",
     "subName": "リヤド",
-    "subRomaji": "riyado"
+    "subRomaji": "riyado",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "67",
     "name": "サモア",
     "romaji": "samoa",
     "subName": "アピア",
-    "subRomaji": "apia"
+    "subRomaji": "apia",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "68",
     "name": "サントメ　プリンシペ",
     "romaji": "santome purinshipe",
     "subName": "サントメ",
-    "subRomaji": "santome"
+    "subRomaji": "santome",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "69",
     "name": "ザンビア",
     "romaji": "zanbia",
     "subName": "ルサカ",
-    "subRomaji": "rusaka"
+    "subRomaji": "rusaka",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "70",
     "name": "サンマリノ",
     "romaji": "sanmarino",
     "subName": "サンマリノ",
-    "subRomaji": "sanmarino"
+    "subRomaji": "sanmarino",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "71",
     "name": "シエラレオネ",
     "romaji": "shierareone",
     "subName": "フリータウン",
-    "subRomaji": "furitaun"
+    "subRomaji": "furitaun",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "72",
     "name": "ジブチ",
     "romaji": "jibuchi",
     "subName": "ジブチ",
-    "subRomaji": "jibuchi"
+    "subRomaji": "jibuchi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "73",
     "name": "ジャマイカ",
     "romaji": "jamaika",
     "subName": "キングストン",
-    "subRomaji": "kingusuton"
+    "subRomaji": "kingusuton",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "74",
     "name": "ジョージア",
     "romaji": "jojia",
     "subName": "トビリシ",
-    "subRomaji": "tobirishi"
+    "subRomaji": "tobirishi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "75",
     "name": "シリア　アラブ",
     "romaji": "shiria arabu",
     "subName": "ダマスカス",
-    "subRomaji": "damasukasu"
+    "subRomaji": "damasukasu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "76",
     "name": "シンガポール",
     "romaji": "shingaporu",
     "subName": "シンガポール",
-    "subRomaji": "shingaporu"
+    "subRomaji": "shingaporu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "77",
     "name": "ジンバブエ",
     "romaji": "jinbabue",
     "subName": "ハラレ",
-    "subRomaji": "harare"
+    "subRomaji": "harare",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "78",
     "name": "スイス",
     "romaji": "suisu",
     "subName": "ベルン",
-    "subRomaji": "berun"
+    "subRomaji": "berun",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "79",
     "name": "スウェーデン",
     "romaji": "suweden",
     "subName": "ストックホルム",
-    "subRomaji": "sutokkuhorumu"
+    "subRomaji": "sutokkuhorumu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "80",
     "name": "スーダン",
     "romaji": "sudan",
     "subName": "ハルツーム",
-    "subRomaji": "harutumu"
+    "subRomaji": "harutumu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "81",
     "name": "スペイン",
     "romaji": "supein",
     "subName": "マドリード",
-    "subRomaji": "madoriido"
+    "subRomaji": "madoriido",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "82",
     "name": "スリナム",
     "romaji": "surinamu",
     "subName": "パラマリボ",
-    "subRomaji": "paramaribo"
+    "subRomaji": "paramaribo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "83",
     "name": "スリランカ",
     "romaji": "suriranka",
     "subName": "スリジャヤワルダナプラコッテ",
-    "subRomaji": "surijayawarudanapurakotte"
+    "subRomaji": "surijayawarudanapurakotte",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "84",
     "name": "スロバキア",
     "romaji": "surobakia",
     "subName": "ブラチスラバ",
-    "subRomaji": "burachisuraba"
+    "subRomaji": "burachisuraba",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "85",
     "name": "スロベニア",
     "romaji": "surobenia",
     "subName": "リュブリャナ",
-    "subRomaji": "ryuburyana"
+    "subRomaji": "ryuburyana",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "86",
     "name": "セーシェル",
     "romaji": "sesheru",
     "subName": "ビクトリア",
-    "subRomaji": "bikutoria"
+    "subRomaji": "bikutoria",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "87",
     "name": "赤道ギニア",
     "romaji": "sekidoginia",
     "subName": "マラボ",
-    "subRomaji": "marabo"
+    "subRomaji": "marabo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "88",
     "name": "セネガル",
     "romaji": "senegaru",
     "subName": "ダカール",
-    "subRomaji": "dakaru"
+    "subRomaji": "dakaru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "89",
     "name": "セルビア",
     "romaji": "serubia",
     "subName": "ベオグラード",
-    "subRomaji": "beoguradu"
+    "subRomaji": "beoguradu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "90",
     "name": "セントクリストファー　ネーヴィス",
     "romaji": "sentokurisutofa nevisu",
     "subName": "バセテール",
-    "subRomaji": "baseteru"
+    "subRomaji": "baseteru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "91",
     "name": "セントビンセント　グレナディーン",
     "romaji": "sentobinsento gurenadhin",
     "subName": "キングスタウン",
-    "subRomaji": "kingusutaun"
+    "subRomaji": "kingusutaun",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "92",
     "name": "セントルシア",
     "romaji": "sentorushia",
     "subName": "カストリーズ",
-    "subRomaji": "kasutorizu"
+    "subRomaji": "kasutorizu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "93",
     "name": "ソマリア",
     "romaji": "somania",
     "subName": "モガディシオ",
-    "subRomaji": "mogadishio"
+    "subRomaji": "mogadishio",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "94",
     "name": "ソロモン",
     "romaji": "soromon",
     "subName": "ホニアラ",
-    "subRomaji": "honiara"
+    "subRomaji": "honiara",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "95",
     "name": "タイ",
     "romaji": "tai",
     "subName": "バンコク",
-    "subRomaji": "bankoku"
+    "subRomaji": "bankoku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "96",
     "name": "大韓民国",
     "romaji": "daikanminkoku",
     "subName": "ソウル",
-    "subRomaji": "souru"
+    "subRomaji": "souru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "97",
     "name": "タジキスタン",
     "romaji": "tajikisutan",
     "subName": "ドゥシャンベ",
-    "subRomaji": "dushanbe"
+    "subRomaji": "dushanbe",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "98",
     "name": "タンザニア",
     "romaji": "tanzania",
     "subName": "ドドマ",
-    "subRomaji": "dodoma"
+    "subRomaji": "dodoma",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "99",
     "name": "チェコ",
     "romaji": "cheko",
     "subName": "プラハ",
-    "subRomaji": "puraha"
+    "subRomaji": "puraha",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "100",
     "name": "チャド",
     "romaji": "chado",
     "subName": "ンジャメナ",
-    "subRomaji": "njamena"
+    "subRomaji": "njamena",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "101",
     "name": "中央アフリカ",
     "romaji": "chuouafurika",
     "subName": "バンギ",
-    "subRomaji": "bangi"
+    "subRomaji": "bangi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "102",
     "name": "中国",
     "romaji": "chuugoku",
     "subName": "北京",
-    "subRomaji": "pekin"
+    "subRomaji": "pekin",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "103",
     "name": "チュニジア",
     "romaji": "chunijia",
     "subName": "チュニス",
-    "subRomaji": "chunisu"
+    "subRomaji": "chunisu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "104",
     "name": "チリ",
     "romaji": "chiri",
     "subName": "サンティアゴ",
-    "subRomaji": "santiago"
+    "subRomaji": "santiago",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "105",
     "name": "ツバル",
     "romaji": "tsubaru",
     "subName": "フナフティ",
-    "subRomaji": "funafuti"
+    "subRomaji": "funafuti",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "106",
     "name": "台湾",
     "romaji": "taiwan",
     "subName": "台北",
-    "subRomaji": "taipei"
+    "subRomaji": "taipei",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "107",
     "name": "デンマーク",
     "romaji": "denmaku",
     "subName": "コペンハーゲン",
-    "subRomaji": "kopenhagen"
+    "subRomaji": "kopenhagen",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "108",
     "name": "ドイツ",
     "romaji": "doitsu",
     "subName": "ベルリン",
-    "subRomaji": "berurin"
+    "subRomaji": "berurin",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "109",
     "name": "トーゴ",
     "romaji": "togo",
     "subName": "ロメ",
-    "subRomaji": "rome"
+    "subRomaji": "rome",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "110",
     "name": "ドミニカ共和国",
     "romaji": "dominikakyouwakoku",
     "subName": "サントドミンゴ",
-    "subRomaji": "santodomingo"
+    "subRomaji": "santodomingo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "111",
     "name": "ドミニカ国",
     "romaji": "dominikakoku",
     "subName": "ロゾー",
-    "subRomaji": "rozo"
+    "subRomaji": "rozo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "112",
     "name": "トリニダード　トバゴ",
     "romaji": "torinidado tobago",
     "subName": "ポートオブスペイン",
-    "subRomaji": "potoobusupein"
+    "subRomaji": "potoobusupein",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "113",
     "name": "トルクメニスタン",
     "romaji": "torukumenisutan",
     "subName": "アシガバート",
-    "subRomaji": "ashigabato"
+    "subRomaji": "ashigabato",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "114",
     "name": "トルコ",
     "romaji": "toruko",
     "subName": "アンカラ",
-    "subRomaji": "ankara"
+    "subRomaji": "ankara",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "115",
     "name": "トンガ",
     "romaji": "tonga",
     "subName": "ヌクアロファ",
-    "subRomaji": "nukuarofa"
+    "subRomaji": "nukuarofa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "116",
     "name": "ナイジェリア",
     "romaji": "naijeria",
     "subName": "アブジャ",
-    "subRomaji": "abuja"
+    "subRomaji": "abuja",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "117",
     "name": "ナウル",
     "romaji": "nauru",
     "subName": "ヤレン",
-    "subRomaji": "yaren"
+    "subRomaji": "yaren",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "118",
     "name": "ナミビア",
     "romaji": "namibia",
     "subName": "ウィントフック",
-    "subRomaji": "wintofukku"
+    "subRomaji": "wintofukku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "119",
     "name": "ニウエ",
     "romaji": "niue",
     "subName": "アロフィ",
-    "subRomaji": "arofi"
+    "subRomaji": "arofi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "120",
     "name": "ニカラグア",
     "romaji": "nikaragua",
     "subName": "マナグア",
-    "subRomaji": "managua"
+    "subRomaji": "managua",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "121",
     "name": "ニジェール",
     "romaji": "nijeru",
     "subName": "ニアメ",
-    "subRomaji": "niame"
+    "subRomaji": "niame",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "122",
     "name": "日本",
     "romaji": "nihon",
     "subName": "東京",
-    "subRomaji": "tokyo"
+    "subRomaji": "tokyo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "123",
     "name": "ニュージーランド",
     "romaji": "nyujirando",
     "subName": "ウェリントン",
-    "subRomaji": "werinton"
+    "subRomaji": "werinton",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "124",
     "name": "ネパール",
     "romaji": "neparu",
     "subName": "カトマンズ",
-    "subRomaji": "katomanzu"
+    "subRomaji": "katomanzu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "125",
     "name": "ノルウェー",
     "romaji": "noruwe",
     "subName": "オスロ",
-    "subRomaji": "osuro"
+    "subRomaji": "osuro",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "126",
     "name": "バーレーン",
     "romaji": "baren",
     "subName": "マナーマ",
-    "subRomaji": "manama"
+    "subRomaji": "manama",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "127",
     "name": "ハイチ",
     "romaji": "haichi",
     "subName": "ポルトープランス",
-    "subRomaji": "porutopuransu"
+    "subRomaji": "porutopuransu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "128",
     "name": "パキスタン",
     "romaji": "pakisutan",
     "subName": "イスラマバード",
-    "subRomaji": "isuramabado"
+    "subRomaji": "isuramabado",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "129",
     "name": "バチカン",
     "romaji": "bachikan",
     "subName": "バチカン市国",
-    "subRomaji": "bachikanshikoku"
+    "subRomaji": "bachikanshikoku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "130",
     "name": "パナマ",
     "romaji": "panama",
     "subName": "パナマシティ",
-    "subRomaji": "panamashiti"
+    "subRomaji": "panamashiti",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "131",
     "name": "バヌアツ",
     "romaji": "banuatsu",
     "subName": "ポートビラ",
-    "subRomaji": "potobira"
+    "subRomaji": "potobira",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "132",
     "name": "バハマ",
     "romaji": "bahama",
     "subName": "ナッソー",
-    "subRomaji": "nasso"
+    "subRomaji": "nasso",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "133",
     "name": "パプアニューギニア",
     "romaji": "papuanyuginia",
     "subName": "ポートモレスビー",
-    "subRomaji": "potomoresubii"
+    "subRomaji": "potomoresubii",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "134",
     "name": "パラオ",
     "romaji": "parao",
     "subName": "マルキョク",
-    "subRomaji": "marukyoku"
+    "subRomaji": "marukyoku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "135",
     "name": "パラグアイ",
     "romaji": "paraguai",
     "subName": "アスンシオン",
-    "subRomaji": "asunshion"
+    "subRomaji": "asunshion",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "136",
     "name": "バルバドス",
     "romaji": "barubadosu",
     "subName": "ブリッジタウン",
-    "subRomaji": "burijjitaun"
+    "subRomaji": "burijjitaun",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "137",
     "name": "ハンガリー",
     "romaji": "hungari",
     "subName": "ブダペスト",
-    "subRomaji": "budapesuto"
+    "subRomaji": "budapesuto",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "138",
     "name": "バングラデシュ",
     "romaji": "banguradeshu",
     "subName": "ダッカ",
-    "subRomaji": "dakka"
+    "subRomaji": "dakka",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "139",
     "name": "東ティモール",
     "romaji": "higashitimoru",
     "subName": "ディリ",
-    "subRomaji": "diri"
+    "subRomaji": "diri",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "140",
     "name": "フィジー",
     "romaji": "fiji",
     "subName": "スバ",
-    "subRomaji": "suba"
+    "subRomaji": "suba",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "141",
     "name": "フィリピン",
     "romaji": "firipin",
     "subName": "マニラ",
-    "subRomaji": "manira"
+    "subRomaji": "manira",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "142",
     "name": "フィンランド",
     "romaji": "finrando",
     "subName": "ヘルシンキ",
-    "subRomaji": "herusinki"
+    "subRomaji": "herusinki",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "143",
     "name": "ブータン",
     "romaji": "butan",
     "subName": "ティンプー",
-    "subRomaji": "tinpu"
+    "subRomaji": "tinpu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "144",
     "name": "西サハラ",
     "romaji": "nishisahara",
     "subName": "アイウン",
-    "subRomaji": "aiun"
+    "subRomaji": "aiun",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "145",
     "name": "ブラジル",
     "romaji": "burajiru",
     "subName": "ブラジリア",
-    "subRomaji": "burajirua"
+    "subRomaji": "burajirua",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "146",
     "name": "フランス",
     "romaji": "furansu",
     "subName": "パリ",
-    "subRomaji": "pari"
+    "subRomaji": "pari",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "147",
     "name": "ブルガリア",
     "romaji": "burugaria",
     "subName": "ソフィア",
-    "subRomaji": "sofia"
+    "subRomaji": "sofia",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "148",
     "name": "ブルキナファソ",
     "romaji": "burukinafaso",
     "subName": "ワガドゥグー",
-    "subRomaji": "wagadugu"
+    "subRomaji": "wagadugu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "149",
     "name": "ブルネイ　ダルサラーム",
     "romaji": "burunei darusaramu",
     "subName": "バンダルスリブガワン",
-    "subRomaji": "bandarusuribugawan"
+    "subRomaji": "bandarusuribugawan",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "150",
     "name": "ブルンジ",
     "romaji": "burunji",
     "subName": "ギテガ",
-    "subRomaji": "gitega"
+    "subRomaji": "gitega",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "151",
     "name": "ベトナム",
     "romaji": "betonamu",
     "subName": "ハノイ",
-    "subRomaji": "hanoi"
+    "subRomaji": "hanoi",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "152",
     "name": "ベナン",
     "romaji": "benan",
     "subName": "ポルトノボ",
-    "subRomaji": "porutonobo"
+    "subRomaji": "porutonobo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "153",
     "name": "ベネズエラ",
     "romaji": "benezuera",
     "subName": "カラカス",
-    "subRomaji": "karakasu"
+    "subRomaji": "karakasu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "154",
     "name": "ベラルーシ",
     "romaji": "berarushi",
     "subName": "ミンスク",
-    "subRomaji": "minsuku"
+    "subRomaji": "minsuku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "155",
     "name": "ベリーズ",
     "romaji": "berizu",
     "subName": "ベルモパン",
-    "subRomaji": "berumopan"
+    "subRomaji": "berumopan",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "156",
     "name": "ペルー",
     "romaji": "peru",
     "subName": "リマ",
-    "subRomaji": "rima"
+    "subRomaji": "rima",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "157",
     "name": "ベルギー",
     "romaji": "berugi",
     "subName": "ブリュッセル",
-    "subRomaji": "buryusseru"
+    "subRomaji": "buryusseru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "158",
     "name": "ポーランド",
     "romaji": "porando",
     "subName": "ワルシャワ",
-    "subRomaji": "warushawa"
+    "subRomaji": "warushawa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "159",
     "name": "ボスニア　ヘルツェゴビナ",
     "romaji": "bosunia herutsegobina",
     "subName": "サラエボ",
-    "subRomaji": "saraebo"
+    "subRomaji": "saraebo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "160",
     "name": "ボツワナ",
     "romaji": "botsuwana",
     "subName": "ハボロネ",
-    "subRomaji": "haborone"
+    "subRomaji": "haborone",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "161",
     "name": "ボリビア",
     "romaji": "boribia",
     "subName": "スクレ",
-    "subRomaji": "sukure"
+    "subRomaji": "sukure",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "162",
     "name": "ポルトガル",
     "romaji": "porutogaru",
     "subName": "リスボン",
-    "subRomaji": "risubon"
+    "subRomaji": "risubon",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "163",
     "name": "ホンジュラス",
     "romaji": "honjurasu",
     "subName": "テグシガルパ",
-    "subRomaji": "tegushigarupa"
+    "subRomaji": "tegushigarupa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "164",
     "name": "マーシャル",
     "romaji": "masharu",
     "subName": "マジュロ",
-    "subRomaji": "majuro"
+    "subRomaji": "majuro",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "165",
     "name": "マダガスカル",
     "romaji": "madagasukaru",
     "subName": "アンタナナリボ",
-    "subRomaji": "antananaribo"
+    "subRomaji": "antananaribo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "166",
     "name": "マラウイ",
     "romaji": "maraui",
     "subName": "リロングウェ",
-    "subRomaji": "rirongwe"
+    "subRomaji": "rirongwe",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "167",
     "name": "マリ",
     "romaji": "mari",
     "subName": "バマコ",
-    "subRomaji": "bamako"
+    "subRomaji": "bamako",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "168",
     "name": "マルタ",
     "romaji": "maruta",
     "subName": "バレッタ",
-    "subRomaji": "baretta"
+    "subRomaji": "baretta",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "169",
     "name": "マレーシア",
     "romaji": "mareshia",
     "subName": "クアラルンプール",
-    "subRomaji": "kuararunpuru"
+    "subRomaji": "kuararunpuru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "170",
     "name": "ミクロネシア",
     "romaji": "mikuroneshia",
     "subName": "パリキール",
-    "subRomaji": "parikiru"
+    "subRomaji": "parikiru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "171",
     "name": "南アフリカ",
     "romaji": "minamiafurika",
     "subName": "プレトリア",
-    "subRomaji": "puretoria"
+    "subRomaji": "puretoria",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "172",
     "name": "南スーダン",
     "romaji": "minamisudan",
     "subName": "ジュバ",
-    "subRomaji": "juba"
+    "subRomaji": "juba",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "173",
     "name": "ミャンマー",
     "romaji": "myanma",
     "subName": "ネーピードー",
-    "subRomaji": "nepido"
+    "subRomaji": "nepido",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "174",
     "name": "メキシコ",
     "romaji": "mekishiko",
     "subName": "メキシコシティ",
-    "subRomaji": "mekishikoshiti"
+    "subRomaji": "mekishikoshiti",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "175",
     "name": "モーリシャス",
     "romaji": "morishasu",
     "subName": "ポートルイス",
-    "subRomaji": "potoruisu"
+    "subRomaji": "potoruisu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "176",
     "name": "モーリタニア　イスラム",
     "romaji": "moritania isuramu",
     "subName": "ヌアクショット",
-    "subRomaji": "nuakushotto"
+    "subRomaji": "nuakushotto",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "177",
     "name": "モザンビーク",
     "romaji": "mozanbiku",
     "subName": "マプト",
-    "subRomaji": "maputo"
+    "subRomaji": "maputo",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "178",
     "name": "モナコ",
     "romaji": "monako",
     "subName": "モナコ",
-    "subRomaji": "monako"
+    "subRomaji": "monako",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "179",
     "name": "モルディブ",
     "romaji": "morudibu",
     "subName": "マレ",
-    "subRomaji": "mare"
+    "subRomaji": "mare",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "180",
     "name": "モルドバ",
     "romaji": "morudoba",
     "subName": "キシナウ",
-    "subRomaji": "kishinau"
+    "subRomaji": "kishinau",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "181",
     "name": "モロッコ",
     "romaji": "morokko",
     "subName": "ラバト",
-    "subRomaji": "rabato"
+    "subRomaji": "rabato",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "182",
     "name": "モンゴル",
     "romaji": "mongoru",
     "subName": "ウランバートル",
-    "subRomaji": "uranbatoru"
+    "subRomaji": "uranbatoru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "183",
     "name": "モンテネグロ",
     "romaji": "monteneguro",
     "subName": "ポドゴリツァ",
-    "subRomaji": "podogoritsa"
+    "subRomaji": "podogoritsa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "184",
     "name": "ヨルダン",
     "romaji": "yorudan",
     "subName": "アンマン",
-    "subRomaji": "anman"
+    "subRomaji": "anman",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "185",
     "name": "ラオス",
     "romaji": "raosu",
     "subName": "ビエンチャン",
-    "subRomaji": "bienchan"
+    "subRomaji": "bienchan",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "186",
     "name": "ラトビア",
     "romaji": "ratobia",
     "subName": "リガ",
-    "subRomaji": "riga"
+    "subRomaji": "riga",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "187",
     "name": "リトアニア",
     "romaji": "ritoania",
     "subName": "ビリニュス",
-    "subRomaji": "birinyusu"
+    "subRomaji": "birinyusu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "188",
     "name": "リビア",
     "romaji": "ribia",
     "subName": "トリポリ",
-    "subRomaji": "toripori"
+    "subRomaji": "toripori",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "189",
     "name": "リヒテンシュタイン",
     "romaji": "rihitenshutain",
     "subName": "ファドゥーツ",
-    "subRomaji": "fadutsu"
+    "subRomaji": "fadutsu",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "190",
     "name": "リベリア",
     "romaji": "riberia",
     "subName": "モンロビア",
-    "subRomaji": "monrobia"
+    "subRomaji": "monrobia",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "191",
     "name": "ルーマニア",
     "romaji": "rumania",
     "subName": "ブカレスト",
-    "subRomaji": "bukaresuto"
+    "subRomaji": "bukaresuto",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "192",
     "name": "ルクセンブルク",
     "romaji": "rukusenburuku",
     "subName": "ルクセンブルク",
-    "subRomaji": "rukusenburuku"
+    "subRomaji": "rukusenburuku",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "193",
     "name": "ルワンダ",
     "romaji": "ruwanda",
     "subName": "キガリ",
-    "subRomaji": "kigari"
+    "subRomaji": "kigari",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "194",
     "name": "レソト",
     "romaji": "resoto",
     "subName": "マセル",
-    "subRomaji": "maseru"
+    "subRomaji": "maseru",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "195",
     "name": "レバノン",
     "romaji": "rebanon",
     "subName": "ベイルート",
-    "subRomaji": "beiruto"
+    "subRomaji": "beiruto",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "196",
     "name": "ロシア",
     "romaji": "roshia",
     "subName": "モスクワ",
-    "subRomaji": "mosukuwa"
+    "subRomaji": "mosukuwa",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "197",
     "name": "香港",
     "romaji": "honkon",
     "subName": "香港",
-    "subRomaji": "honkon"
+    "subRomaji": "honkon",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   },
   {
     "id": "198",
     "name": "南オセチア",
     "romaji": "minamiosechia",
     "subName": "ツヒンヴァリ",
-    "subRomaji": "tsukhinvari"
+    "subRomaji": "tsukhinvari",
+    "birdName": "",
+    "birdRomaji": "",
+    "flowerName": "",
+    "flowerRomaji": "",
+    "treeName": "",
+    "treeRomaji": ""
   }
 ]
