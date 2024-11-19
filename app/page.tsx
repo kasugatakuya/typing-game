@@ -65,6 +65,15 @@ export default function Home() {
         { name: "タイムトライアル", path: "/time-trial" },
       ],
     },
+    {
+      title: "県木 タイピング 練習",
+      baseUrl: "/prefecturalTree/game",
+      modes: [
+        { name: "かんたん", path: "/easy" },
+        { name: "ふつう", path: "/normal" },
+        { name: "タイムトライアル", path: "/time-trial" },
+      ],
+    },
   ];
 
   return (

@@ -11,6 +11,7 @@ const links = [
   { href: "/prefecturalCapitals/game/normal", label: "県庁所在地" },
   { href: "/prefecturalBird/game/normal", label: "県鳥" },
   { href: "/prefecturalFlower/game/normal", label: "県花" },
+  { href: "/prefecturalTree/game/normal", label: "県木" },
 ];
 
 export default function Header() {
