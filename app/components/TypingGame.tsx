@@ -15,6 +15,8 @@ interface Item {
   flowerRomaji: string;
   treeName: string;
   treeRomaji: string;
+  charaName: string;
+  charaRomaji: string;
 }
 
 type GameState = "idle" | "playing" | "finished";
@@ -24,7 +26,7 @@ interface TypingGameProps {
   itemCount: number;
   gameName: string;
   gameDescription: string;
-  mode: "main" | "sub" | "bird" | "flower" | "tree";
+  mode: "main" | "sub" | "bird" | "flower" | "tree" | "chara";
   gameType: "country" | "prefectures" | "heritage";
 }
 
@@ -87,6 +89,8 @@ export function TypingGame({
         return { name: item.flowerName, romaji: item.flowerRomaji };
       } else if (mode === "tree") {
         return { name: item.treeName, romaji: item.treeRomaji };
+      } else if (mode === "chara") {
+        return { name: item.charaName, romaji: item.charaRomaji };
       }
       return { name: item.name, romaji: item.romaji };
     },
@@ -139,6 +143,9 @@ export function TypingGame({
         } else if (mode === "tree") {
           firstPath = "tree";
           secondPath = item.treeRomaji;
+        } else if (mode === "chara") {
+          firstPath = "chara";
+          secondPath = item.charaRomaji;
         }
       }
 
@@ -149,7 +156,12 @@ export function TypingGame({
           case "heritage":
             return "webp";
           default:
-            return "jpg";
+            switch (mode) {
+              case "chara":
+                return "png";
+              default:
+                return "jpg";
+            }
         }
       })();
 
@@ -259,6 +271,8 @@ export function TypingGame({
         return "/prefecturalFlower/game";
       } else if (mode === "tree") {
         return "/prefecturalTree/game";
+      } else if (mode === "chara") {
+        return "/prefecturalChara/game";
       }
       return "/prefectures/game";
     } else {
@@ -282,6 +296,8 @@ export function TypingGame({
         return "県花";
       } else if (mode === "tree") {
         return "県木";
+      } else if (mode === "chara") {
+        return "ゆるキャラ";
       }
       return "47都道府県";
     }

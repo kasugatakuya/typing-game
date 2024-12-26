@@ -74,6 +74,15 @@ export default function Home() {
         { name: "タイムトライアル", path: "/time-trial" },
       ],
     },
+    {
+      title: "ゆるキャラ タイピング 練習",
+      baseUrl: "/prefecturalChara/game",
+      modes: [
+        { name: "かんたん", path: "/easy" },
+        { name: "ふつう", path: "/normal" },
+        { name: "タイムトライアル", path: "/time-trial" },
+      ],
+    },
   ];
 
   return (
