@@ -17,6 +17,9 @@ export const metadata: Metadata = {
       "地理タイピングは、タイピング練習をしながら地理を学ぶことができます。",
     type: "website",
   },
+  icons: {
+    icon: "/earth.png",
+  },
 };
 
 export default function RootLayout({
