@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://typing-game-rho-weld.vercel.app/sitemap.xml
