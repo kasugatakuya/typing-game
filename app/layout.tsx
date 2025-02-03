@@ -6,21 +6,21 @@ import Header from "@/app/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "地理タイピング",
+  title: "タイピングゲーム | 地理タイピング",
   description:
-    "地理タイピングは、タイピング練習をしながら地理を学ぶことができます。",
+    "タイピングスキルを向上させる無料オンラインタイピングゲーム。地理を学びながら楽しくタイピング練習ができます。",
   keywords:
-    "地理タイピング, タイピング, ゲーム, 人気, 国, 都道府県, 首都, 県庁所在地, 世界遺産, 国旗, 地理, 学習, 地球, オンライン, 無料, 練習",
+    "タイピングゲーム, 地理タイピング, タイピング練習, タイピング, ゲーム, 無料タイピング, 人気, 国, 都道府県, 首都, 県庁所在地, 世界遺産, 国旗, 地理, 学習, 地球, オンライン, 無料, 練習",
 
   metadataBase: new URL("https://typing-game-rho-weld.vercel.app"),
 
   openGraph: {
-    title: "地理タイピング",
+    title: "タイピングゲーム | 地理タイピング",
     description:
-      "地理タイピングは、タイピング練習をしながら地理を学ぶことができます。",
+      "タイピングスキルを向上させる無料オンラインタイピングゲーム。地理を学びながら楽しくタイピング練習ができます。",
     type: "website",
-    siteName: "地理タイピング", // これを追加
-    url: "https://typing-game-rho-weld.vercel.app", // これを追加
+    siteName: "地理タイピング",
+    url: "https://typing-game-rho-weld.vercel.app",
   },
 
   alternates: {
@@ -54,6 +54,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Game",
+              name: "地理タイピング",
+              description:
+                "タイピングスキルを向上させる無料オンラインタイピングゲーム。地理を学びながら楽しくタイピング練習ができます。",
+              url: "https://typing-game-rho-weld.vercel.app",
+            }),
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Header />
         {children}
