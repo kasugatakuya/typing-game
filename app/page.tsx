@@ -101,7 +101,7 @@ export default function Home() {
               楽しくゲーム感覚で遊ぼう!
             </p>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              国旗、主要国の首都、主要国の世界遺産、都道府県、県庁所在地が出てきます
+              国旗、主要国の首都、主要国の世界遺産、都道府県、県庁所在地、県鳥、県花、県木、ゆるキャラが出てきます
             </p>
           </div>
           <div>
