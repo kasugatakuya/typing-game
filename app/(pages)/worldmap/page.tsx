@@ -29,8 +29,8 @@ export default function WorldMap() {
     {
       id: "oceania",
       name: "オセアニア",
-      description: "オーストラリア、ニュージーランドなど",
-      available: false,
+      description: "オーストラリア、ニュージーランドなど（全14問）",
+      available: true,
     },
     {
       id: "africa",

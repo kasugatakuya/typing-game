@@ -1,0 +1,86 @@
+[
+  {
+    "id": "AU",
+    "name": "オーストラリア",
+    "romaji": "osutoraria",
+    "flagImage": "osutoraria"
+  },
+  {
+    "id": "NZ",
+    "name": "ニュージーランド",
+    "romaji": "nyujirando",
+    "flagImage": "nyujirando"
+  },
+  {
+    "id": "PG",
+    "name": "パプアニューギニア",
+    "romaji": "papuanyuginia",
+    "flagImage": "papuanyuginia"
+  },
+  {
+    "id": "FJ",
+    "name": "フィジー",
+    "romaji": "fiji",
+    "flagImage": "fiji"
+  },
+  {
+    "id": "SB",
+    "name": "ソロモン諸島",
+    "romaji": "soromon",
+    "flagImage": "soromon"
+  },
+  {
+    "id": "VU",
+    "name": "バヌアツ",
+    "romaji": "banuatsu",
+    "flagImage": "banuatsu"
+  },
+  {
+    "id": "WS",
+    "name": "サモア",
+    "romaji": "samoa",
+    "flagImage": "samoa"
+  },
+  {
+    "id": "TO",
+    "name": "トンガ",
+    "romaji": "tonga",
+    "flagImage": "tonga"
+  },
+  {
+    "id": "KI",
+    "name": "キリバス",
+    "romaji": "kiribasu",
+    "flagImage": "kiribasu"
+  },
+  {
+    "id": "FM",
+    "name": "ミクロネシア連邦",
+    "romaji": "mikuroneshia",
+    "flagImage": "mikuroneshia"
+  },
+  {
+    "id": "MH",
+    "name": "マーシャル諸島",
+    "romaji": "masharu",
+    "flagImage": "masharu"
+  },
+  {
+    "id": "PW",
+    "name": "パラオ",
+    "romaji": "parao",
+    "flagImage": "parao"
+  },
+  {
+    "id": "NR",
+    "name": "ナウル",
+    "romaji": "nauru",
+    "flagImage": "nauru"
+  },
+  {
+    "id": "TV",
+    "name": "ツバル",
+    "romaji": "tsubaru",
+    "flagImage": "tsubaru"
+  }
+]

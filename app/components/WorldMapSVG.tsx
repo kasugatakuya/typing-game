@@ -17,6 +17,9 @@ export function WorldMapSVG({ highlightedCountry, region }: WorldMapSVGProps) {
   if (region === "europe") {
     return <EuropeMap highlightedCountry={highlightedCountry} />;
   }
+  if (region === "oceania") {
+    return <OceaniaMap highlightedCountry={highlightedCountry} />;
+  }
   return null;
 }
 
@@ -672,6 +675,155 @@ function EuropeMap({ highlightedCountry }: { highlightedCountry: string | null }
         id="EE"
         d="M355,115 L390,108 L405,130 L395,155 L360,160 L348,140 Z"
         {...getCountryStyle("EE")}
+        className="transition-all duration-300"
+      />
+    </svg>
+  );
+}
+
+function OceaniaMap({ highlightedCountry }: { highlightedCountry: string | null }) {
+  const getCountryStyle = (countryId: string) => {
+    const isHighlighted = highlightedCountry === countryId;
+    return {
+      fill: isHighlighted ? "#ef4444" : "#d4d4d4",
+      stroke: isHighlighted ? "#b91c1c" : "#737373",
+      strokeWidth: isHighlighted ? 1.2 : 0.4,
+    };
+  };
+
+  return (
+    <svg
+      viewBox="0 0 500 420"
+      className="w-full h-full"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ backgroundColor: "#a5d8ff" }}
+    >
+      {/* パラオ */}
+      <path
+        id="PW"
+        d="M22,55 L27,52 L32,57 L27,62 L22,59 Z"
+        {...getCountryStyle("PW")}
+        className="transition-all duration-300"
+      />
+
+      {/* ミクロネシア連邦 */}
+      <path
+        id="FM"
+        d="M85,65 L90,62 L95,67 L90,72 L85,69 Z"
+        {...getCountryStyle("FM")}
+        className="transition-all duration-300"
+      />
+
+      {/* マーシャル諸島 */}
+      <path
+        id="MH"
+        d="M230,50 L235,47 L240,52 L235,57 L230,54 Z"
+        {...getCountryStyle("MH")}
+        className="transition-all duration-300"
+      />
+
+      {/* キリバス */}
+      <path
+        id="KI"
+        d="M340,75 L345,72 L350,77 L345,82 L340,79 Z"
+        {...getCountryStyle("KI")}
+        className="transition-all duration-300"
+      />
+
+      {/* パプアニューギニア */}
+      <path
+        id="PG"
+        d="M75,95 L95,88 L120,95 L132,112 L122,130 L95,135 L72,125 L65,108 Z"
+        {...getCountryStyle("PG")}
+        className="transition-all duration-300"
+      />
+
+      {/* ナウル */}
+      <path
+        id="NR"
+        d="M195,95 L200,92 L205,97 L200,102 L195,99 Z"
+        {...getCountryStyle("NR")}
+        className="transition-all duration-300"
+      />
+
+      {/* ソロモン諸島 */}
+      <path
+        id="SB"
+        d="M175,125 L182,121 L188,128 L182,135 L175,131 Z"
+        {...getCountryStyle("SB")}
+        className="transition-all duration-300"
+      />
+
+      {/* ツバル */}
+      <path
+        id="TV"
+        d="M305,145 L310,142 L315,147 L310,152 L305,149 Z"
+        {...getCountryStyle("TV")}
+        className="transition-all duration-300"
+      />
+
+      {/* バヌアツ */}
+      <path
+        id="VU"
+        d="M285,175 L291,170 L297,178 L291,186 L285,181 Z"
+        {...getCountryStyle("VU")}
+        className="transition-all duration-300"
+      />
+
+      {/* フィジー */}
+      <path
+        id="FJ"
+        d="M335,185 L341,181 L347,188 L341,195 L335,191 Z"
+        {...getCountryStyle("FJ")}
+        className="transition-all duration-300"
+      />
+
+      {/* サモア */}
+      <path
+        id="WS"
+        d="M375,155 L380,152 L385,157 L380,162 L375,159 Z"
+        {...getCountryStyle("WS")}
+        className="transition-all duration-300"
+      />
+
+      {/* トンガ */}
+      <path
+        id="TO"
+        d="M345,225 L350,222 L355,227 L350,232 L345,229 Z"
+        {...getCountryStyle("TO")}
+        className="transition-all duration-300"
+      />
+
+      {/* オーストラリア本土 */}
+      <path
+        id="AU"
+        d="M25,220 L45,215 L70,210 L95,205 Q108,195 120,175 Q133,170 146,175 Q158,188 165,205 Q178,218 195,220 Q205,215 215,205 Q225,192 232,185 Q240,195 248,215 L258,235
+           L262,280 L258,320 L245,350 L215,365 Q160,375 160,375 Q120,340 80,375 L50,365 L30,345 L15,310 L12,265 L18,235 Z"
+        {...getCountryStyle("AU")}
+        className="transition-all duration-300"
+      />
+
+      {/* タスマニア */}
+      <path
+        id="AU-TAS"
+        d="M205,385 L213,380 L220,390 L213,400 L205,395 Z"
+        {...getCountryStyle("AU")}
+        className="transition-all duration-300"
+      />
+
+      {/* ニュージーランド北島 */}
+      <path
+        id="NZ"
+        d="M320,300 L329,294 L337,308 L331,325 L321,330 L315,318 Z"
+        {...getCountryStyle("NZ")}
+        className="transition-all duration-300"
+      />
+
+      {/* ニュージーランド南島 */}
+      <path
+        id="NZ-S"
+        d="M307,338 L319,332 L329,355 L321,378 L307,382 L300,362 Z"
+        {...getCountryStyle("NZ")}
         className="transition-all duration-300"
       />
     </svg>
