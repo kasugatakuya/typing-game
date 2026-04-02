@@ -1,0 +1,140 @@
+[
+  {
+    "id": "CA",
+    "name": "カナダ",
+    "romaji": "kanada",
+    "flagImage": "kanada"
+  },
+  {
+    "id": "US",
+    "name": "アメリカ",
+    "romaji": "amerika",
+    "flagImage": "amerika"
+  },
+  {
+    "id": "MX",
+    "name": "メキシコ",
+    "romaji": "mekishiko",
+    "flagImage": "mekishiko"
+  },
+  {
+    "id": "GT",
+    "name": "グアテマラ",
+    "romaji": "guatemara",
+    "flagImage": "guatemara"
+  },
+  {
+    "id": "BZ",
+    "name": "ベリーズ",
+    "romaji": "berizu",
+    "flagImage": "berizu"
+  },
+  {
+    "id": "HN",
+    "name": "ホンジュラス",
+    "romaji": "honjurasu",
+    "flagImage": "honjurasu"
+  },
+  {
+    "id": "SV",
+    "name": "エルサルバドル",
+    "romaji": "erusarubadoru",
+    "flagImage": "erusarubadoru"
+  },
+  {
+    "id": "NI",
+    "name": "ニカラグア",
+    "romaji": "nikaragua",
+    "flagImage": "nikaragua"
+  },
+  {
+    "id": "CR",
+    "name": "コスタリカ",
+    "romaji": "kosutarika",
+    "flagImage": "kosutarika"
+  },
+  {
+    "id": "PA",
+    "name": "パナマ",
+    "romaji": "panama",
+    "flagImage": "panama"
+  },
+  {
+    "id": "CU",
+    "name": "キューバ",
+    "romaji": "kyuba",
+    "flagImage": "kyuba"
+  },
+  {
+    "id": "JM",
+    "name": "ジャマイカ",
+    "romaji": "jamaika",
+    "flagImage": "jamaika"
+  },
+  {
+    "id": "HT",
+    "name": "ハイチ",
+    "romaji": "haichi",
+    "flagImage": "haichi"
+  },
+  {
+    "id": "DO",
+    "name": "ドミニカ共和国",
+    "romaji": "dominikakyouwakoku",
+    "flagImage": "dominikakyouwakoku"
+  },
+  {
+    "id": "BS",
+    "name": "バハマ",
+    "romaji": "bahama",
+    "flagImage": "bahama"
+  },
+  {
+    "id": "TT",
+    "name": "トリニダード・トバゴ",
+    "romaji": "torinidadotobago",
+    "flagImage": "torinidado tobago"
+  },
+  {
+    "id": "BB",
+    "name": "バルバドス",
+    "romaji": "barubadosu",
+    "flagImage": "barubadosu"
+  },
+  {
+    "id": "DM",
+    "name": "ドミニカ国",
+    "romaji": "dominikakoku",
+    "flagImage": "dominikakoku"
+  },
+  {
+    "id": "LC",
+    "name": "セントルシア",
+    "romaji": "sentorushia",
+    "flagImage": "sentorushia"
+  },
+  {
+    "id": "VC",
+    "name": "セントビンセント・グレナディーン",
+    "romaji": "sentobinsentogurenadhin",
+    "flagImage": "sentobinsento gurenadhin"
+  },
+  {
+    "id": "GD",
+    "name": "グレナダ",
+    "romaji": "gurenada",
+    "flagImage": "gurenada"
+  },
+  {
+    "id": "AG",
+    "name": "アンティグア・バーブーダ",
+    "romaji": "anthiguababuda",
+    "flagImage": "anthigua babuda"
+  },
+  {
+    "id": "KN",
+    "name": "セントクリストファー・ネイビス",
+    "romaji": "sentokurisutofanevisu",
+    "flagImage": "sentokurisutofa nevisu"
+  }
+]

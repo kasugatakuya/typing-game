@@ -3,6 +3,15 @@ import Image from "next/image";
 export default function Home() {
   const gameCategories = [
     {
+      title: "世界地図 タイピング 練習",
+      baseUrl: "/worldmap/north-america",
+      modes: [
+        { name: "北アメリカ（全23問）", path: "" },
+      ],
+      isNew: true,
+      singleMode: true,
+    },
+    {
       title: "世界の国 タイピング 練習",
       baseUrl: "/country/game",
       modes: [
@@ -121,7 +130,18 @@ export default function Home() {
               key={index}
               className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-[1.02]"
             >
-              <div className="bg-gradient-to-r from-red-400 to-red-500 p-4">
+              <div
+                className={`p-4 relative ${
+                  "isNew" in category && category.isNew
+                    ? "bg-gradient-to-r from-blue-400 to-blue-500"
+                    : "bg-gradient-to-r from-red-400 to-red-500"
+                }`}
+              >
+                {"isNew" in category && category.isNew && (
+                  <span className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">
+                    NEW
+                  </span>
+                )}
                 <h2 className="text-2xl font-bold text-white text-center">
                   {category.title}
                 </h2>
@@ -135,7 +155,11 @@ export default function Home() {
                     <a
                       key={modeIndex}
                       href={category.baseUrl + mode.path}
-                      className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-orange-300 to-orange-400 text-white font-medium transition-all duration-200 hover:from-orange-400 hover:to-orange-500 hover:shadow-md transform hover:-translate-y-1 active:translate-y-0"
+                      className={`inline-block px-8 py-3 rounded-full text-white font-medium transition-all duration-200 hover:shadow-md transform hover:-translate-y-1 active:translate-y-0 ${
+                        "isNew" in category && category.isNew
+                          ? "bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500"
+                          : "bg-gradient-to-r from-orange-300 to-orange-400 hover:from-orange-400 hover:to-orange-500"
+                      }`}
                     >
                       {mode.name}
                     </a>
