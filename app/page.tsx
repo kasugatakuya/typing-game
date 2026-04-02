@@ -10,6 +10,13 @@ export default function Home() {
       singleMode: true,
     },
     {
+      title: "日本地図 タイピング",
+      baseUrl: "/japanmap",
+      modes: [{ name: "日本地図 タイピング 一覧", path: "" }],
+      isNew: true,
+      singleMode: true,
+    },
+    {
       title: "世界の国旗 タイピング",
       baseUrl: "/country/game",
       modes: [
