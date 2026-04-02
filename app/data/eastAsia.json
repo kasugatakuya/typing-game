@@ -1,0 +1,104 @@
+[
+  {
+    "id": "JP",
+    "name": "日本",
+    "romaji": "nihon",
+    "flagImage": "nihon"
+  },
+  {
+    "id": "CN",
+    "name": "中国",
+    "romaji": "chuugoku",
+    "flagImage": "chuugoku"
+  },
+  {
+    "id": "KR",
+    "name": "韓国",
+    "romaji": "kankoku",
+    "flagImage": "daikanminkoku"
+  },
+  {
+    "id": "IN",
+    "name": "インド",
+    "romaji": "indo",
+    "flagImage": "indo"
+  },
+  {
+    "id": "ID",
+    "name": "インドネシア",
+    "romaji": "indoneshia",
+    "flagImage": "indoneshia"
+  },
+  {
+    "id": "PH",
+    "name": "フィリピン",
+    "romaji": "firipin",
+    "flagImage": "firipin"
+  },
+  {
+    "id": "VN",
+    "name": "ベトナム",
+    "romaji": "betonamu",
+    "flagImage": "betonamu"
+  },
+  {
+    "id": "TH",
+    "name": "タイ",
+    "romaji": "tai",
+    "flagImage": "tai"
+  },
+  {
+    "id": "MY",
+    "name": "マレーシア",
+    "romaji": "mareshia",
+    "flagImage": "mareshia"
+  },
+  {
+    "id": "MM",
+    "name": "ミャンマー",
+    "romaji": "myanma",
+    "flagImage": "myanma"
+  },
+  {
+    "id": "KH",
+    "name": "カンボジア",
+    "romaji": "kanbojia",
+    "flagImage": "kanbojia"
+  },
+  {
+    "id": "LA",
+    "name": "ラオス",
+    "romaji": "raosu",
+    "flagImage": "raosu"
+  },
+  {
+    "id": "BD",
+    "name": "バングラデシュ",
+    "romaji": "banguradeshu",
+    "flagImage": "banguradeshu"
+  },
+  {
+    "id": "PK",
+    "name": "パキスタン",
+    "romaji": "pakisutan",
+    "flagImage": "pakisutan"
+  },
+  {
+    "id": "LK",
+    "name": "スリランカ",
+    "romaji": "suriranka",
+    "flagImage": "suriranka"
+  },
+  {
+    "id": "MN",
+    "name": "モンゴル",
+    "romaji": "mongoru",
+    "flagImage": "mongoru"
+  },
+  {
+    "id": "TW",
+    "name": "台湾",
+    "romaji": "taiwan",
+    "flagImage": "taiwan"
+  }
+]

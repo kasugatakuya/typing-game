@@ -1,0 +1,92 @@
+[
+  {
+    "id": "TR",
+    "name": "トルコ",
+    "romaji": "toruko",
+    "flagImage": "toruko"
+  },
+  {
+    "id": "SA",
+    "name": "サウジアラビア",
+    "romaji": "saujiarabia",
+    "flagImage": "saujiarabia"
+  },
+  {
+    "id": "AE",
+    "name": "アラブ首長国連邦",
+    "romaji": "arabushuchoukokurenpou",
+    "flagImage": "arabushuchoukokurenpou"
+  },
+  {
+    "id": "IR",
+    "name": "イラン",
+    "romaji": "iran",
+    "flagImage": "iran"
+  },
+  {
+    "id": "IQ",
+    "name": "イラク",
+    "romaji": "iraku",
+    "flagImage": "iraku"
+  },
+  {
+    "id": "IL",
+    "name": "イスラエル",
+    "romaji": "isuraeru",
+    "flagImage": "isuraeru"
+  },
+  {
+    "id": "SY",
+    "name": "シリア",
+    "romaji": "shiria",
+    "flagImage": "shiria arabu"
+  },
+  {
+    "id": "JO",
+    "name": "ヨルダン",
+    "romaji": "yorudan",
+    "flagImage": "yorudan"
+  },
+  {
+    "id": "LB",
+    "name": "レバノン",
+    "romaji": "rebanon",
+    "flagImage": "rebanon"
+  },
+  {
+    "id": "KW",
+    "name": "クウェート",
+    "romaji": "kuweto",
+    "flagImage": "kuweto"
+  },
+  {
+    "id": "OM",
+    "name": "オマーン",
+    "romaji": "oman",
+    "flagImage": "oman"
+  },
+  {
+    "id": "QA",
+    "name": "カタール",
+    "romaji": "kataru",
+    "flagImage": "kataru"
+  },
+  {
+    "id": "BH",
+    "name": "バーレーン",
+    "romaji": "baren",
+    "flagImage": "baren"
+  },
+  {
+    "id": "YE",
+    "name": "イエメン",
+    "romaji": "iemen",
+    "flagImage": "iemen"
+  },
+  {
+    "id": "AF",
+    "name": "アフガニスタン",
+    "romaji": "afuganisutan",
+    "flagImage": "afuganisutan"
+  }
+]

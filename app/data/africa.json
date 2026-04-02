@@ -1,0 +1,170 @@
+[
+  {
+    "id": "EG",
+    "name": "エジプト",
+    "romaji": "ejiputo",
+    "flagImage": "ejiputo arabu"
+  },
+  {
+    "id": "ZA",
+    "name": "南アフリカ",
+    "romaji": "minamiafurika",
+    "flagImage": "minamiafurika"
+  },
+  {
+    "id": "KE",
+    "name": "ケニア",
+    "romaji": "kenia",
+    "flagImage": "kenia"
+  },
+  {
+    "id": "NG",
+    "name": "ナイジェリア",
+    "romaji": "naijeria",
+    "flagImage": "naijeria"
+  },
+  {
+    "id": "MA",
+    "name": "モロッコ",
+    "romaji": "morokko",
+    "flagImage": "morokko"
+  },
+  {
+    "id": "DZ",
+    "name": "アルジェリア",
+    "romaji": "arujeria",
+    "flagImage": "arujeria"
+  },
+  {
+    "id": "ET",
+    "name": "エチオピア",
+    "romaji": "echiopia",
+    "flagImage": "echiopia"
+  },
+  {
+    "id": "GH",
+    "name": "ガーナ",
+    "romaji": "gana",
+    "flagImage": "gana"
+  },
+  {
+    "id": "TZ",
+    "name": "タンザニア",
+    "romaji": "tanzania",
+    "flagImage": "tanzania"
+  },
+  {
+    "id": "UG",
+    "name": "ウガンダ",
+    "romaji": "uganda",
+    "flagImage": "uganda"
+  },
+  {
+    "id": "SN",
+    "name": "セネガル",
+    "romaji": "senegaru",
+    "flagImage": "senegaru"
+  },
+  {
+    "id": "CM",
+    "name": "カメルーン",
+    "romaji": "kamerun",
+    "flagImage": "kamerun"
+  },
+  {
+    "id": "CI",
+    "name": "コートジボワール",
+    "romaji": "kotojibowaru",
+    "flagImage": "kotojibowaru"
+  },
+  {
+    "id": "CD",
+    "name": "コンゴ民主共和国",
+    "romaji": "kongominshukyouwakoku",
+    "flagImage": "kongominshukyouwakoku"
+  },
+  {
+    "id": "AO",
+    "name": "アンゴラ",
+    "romaji": "angora",
+    "flagImage": "angora"
+  },
+  {
+    "id": "MZ",
+    "name": "モザンビーク",
+    "romaji": "mozanbiku",
+    "flagImage": "mozanbiku"
+  },
+  {
+    "id": "MG",
+    "name": "マダガスカル",
+    "romaji": "madagasukaru",
+    "flagImage": "madagasukaru"
+  },
+  {
+    "id": "ZW",
+    "name": "ジンバブエ",
+    "romaji": "jinbabue",
+    "flagImage": "jinbabue"
+  },
+  {
+    "id": "TD",
+    "name": "チャド",
+    "romaji": "chado",
+    "flagImage": "chado"
+  },
+  {
+    "id": "TG",
+    "name": "トーゴ",
+    "romaji": "togo",
+    "flagImage": "togo"
+  },
+  {
+    "id": "SD",
+    "name": "スーダン",
+    "romaji": "sudan",
+    "flagImage": "sudan"
+  },
+  {
+    "id": "TN",
+    "name": "チュニジア",
+    "romaji": "chunijia",
+    "flagImage": "chunijia"
+  },
+  {
+    "id": "LY",
+    "name": "リビア",
+    "romaji": "ribia",
+    "flagImage": "ribia"
+  },
+  {
+    "id": "GA",
+    "name": "ガボン",
+    "romaji": "gabon",
+    "flagImage": "gabon"
+  },
+  {
+    "id": "NA",
+    "name": "ナミビア",
+    "romaji": "namibia",
+    "flagImage": "namibia"
+  },
+  {
+    "id": "BW",
+    "name": "ボツワナ",
+    "romaji": "botsuwana",
+    "flagImage": "botsuwana"
+  },
+  {
+    "id": "RW",
+    "name": "ルワンダ",
+    "romaji": "ruwanda",
+    "flagImage": "ruwanda"
+  },
+  {
+    "id": "CF",
+    "name": "中央アフリカ",
+    "romaji": "chuouafurika",
+    "flagImage": "chuouafurika"
+  }
+]

@@ -14,7 +14,16 @@ interface MapCountry {
 }
 
 type GameState = "idle" | "playing" | "finished";
-type Region = "north-america" | "south-america" | "europe" | "asia" | "oceania" | "africa";
+type Region =
+  | "north-america"
+  | "south-america"
+  | "western-europe"
+  | "eastern-europe"
+  | "east-asia"
+  | "west-asia"
+  | "oceania"
+  | "north-africa"
+  | "sub-saharan-africa";
 
 interface WorldMapTypingGameProps {
   allCountries: MapCountry[];
@@ -30,7 +39,7 @@ const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
   input,
   romaji,
 }) => (
-  <p className="text-base text-center font-mono">
+  <p className="text-lg text-center font-mono">
     <span className="text-green-600">{input}</span>
     <span className="text-gray-400">{romaji.slice(input.length)}</span>
   </p>
@@ -44,8 +53,12 @@ export function WorldMapTypingGame({
   const [gameState, setGameState] = useState<GameState>("idle");
   const [currentCountry, setCurrentCountry] = useState<MapCountry | null>(null);
   const [input, setInput] = useState("");
-  const [completedCountries, setCompletedCountries] = useState<MapCountry[]>([]);
-  const [remainingCountries, setRemainingCountries] = useState<MapCountry[]>([]);
+  const [completedCountries, setCompletedCountries] = useState<MapCountry[]>(
+    [],
+  );
+  const [remainingCountries, setRemainingCountries] = useState<MapCountry[]>(
+    [],
+  );
   const [startTime, setStartTime] = useState<number | null>(null);
   const [endTime, setEndTime] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -109,7 +122,7 @@ export function WorldMapTypingGame({
         resetGame();
       }
     },
-    [gameState, startGame, resetGame]
+    [gameState, startGame, resetGame],
   );
 
   useEffect(() => {
@@ -134,7 +147,6 @@ export function WorldMapTypingGame({
     setTotalKeystrokes((prevCount) => prevCount + 1);
 
     if (typingStartTime === null) {
-      // eslint-disable-next-line react-hooks/purity -- Date.now() is safe in event handlers
       setTypingStartTime(Date.now());
     }
 
@@ -176,147 +188,136 @@ export function WorldMapTypingGame({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col justify-between">
-      {/* ヘッダーの高さ分のスペース */}
-      <div className="h-16"></div>
+    <div className="h-screen flex flex-col pt-11 lg:pt-14">
+      <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 py-10 overflow-hidden">
+        {/* ヘッダー */}
+        <div className="flex-shrink-0 text-center mb-5 w-full">
+          <h1 className="text-xl font-bold text-gray-800">
+            世界地図タイピング - {regionName}（全{itemCount}問）
+          </h1>
+        </div>
 
-      {/* メインコンテンツ */}
-      <main className="container mx-auto max-w-3xl px-4 flex-1 flex flex-col items-center justify-center">
-        {/* ゲームカード */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden w-full">
-          {/* ヘッダー部分 */}
-          <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-3 text-center">
-            <h1 className="text-xl font-bold text-white">
-              世界地図タイピング
-            </h1>
-            <h2 className="text-sm text-white/90">{regionName}（全{itemCount}問）</h2>
-          </div>
+        {/* 地図表示エリア - 残りスペースを埋める */}
+        <div className="relative flex-1 min-h-0 min-w-0 w-full bg-white rounded-lg shadow-lg overflow-hidden mb-4">
+          <WorldMapSVG
+            highlightedCountry={currentCountry?.id || null}
+            region={region}
+          />
 
-          {/* ゲームコンテンツ */}
-          <div className="p-4">
-            {/* 地図と国旗の表示エリア */}
-            <div className="flex gap-4 mb-4">
-              {/* 地図表示エリア */}
-              <div className="flex-1 border rounded-lg overflow-hidden" style={{ maxHeight: "240px" }}>
-                <WorldMapSVG
-                  highlightedCountry={currentCountry?.id || null}
-                  region={region}
+          {/* 国旗オーバーレイ - 右上の海の部分に表示 */}
+          {gameState === "playing" && currentCountry && (
+            <div className="absolute top-4 right-4 z-10">
+              <div className="bg-white/90 p-3 rounded-lg shadow-lg border border-gray-200">
+                <Image
+                  src={getFlagImagePath(currentCountry)}
+                  alt={`${currentCountry.name}の国旗`}
+                  width={120}
+                  height={80}
+                  className="object-contain rounded w-[120px] h-auto"
                 />
               </div>
-
-              {/* 国旗表示エリア */}
-              {gameState === "playing" && currentCountry && (
-                <div className="w-36 flex items-center justify-center">
-                  <div className="relative overflow-hidden rounded-lg shadow-md border border-gray-200">
-                    <Image
-                      src={getFlagImagePath(currentCountry)}
-                      alt={`${currentCountry.name}の国旗`}
-                      width={140}
-                      height={95}
-                      className="object-contain"
-                      style={{ width: "auto", height: "auto" }}
-                    />
-                  </div>
-                </div>
-              )}
             </div>
+          )}
 
-            {/* アイドル状態または終了状態 */}
-            {(gameState === "idle" || gameState === "finished") && (
-              <div className="text-center space-y-2">
-                <p className="text-sm text-gray-700">
-                  地図上でハイライトされた国の名前をタイピングしよう！
-                </p>
-                <p
-                  className={`text-base font-semibold text-blue-500 transition-opacity duration-500 ${
-                    isVisible ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  スペースキーを押してゲームを開始
-                </p>
-                <p className="text-xs text-gray-500">
-                  ※タイピング中はキーボードを使います
-                </p>
-              </div>
-            )}
+          {/* 進捗表示 - 左上 */}
+          <div className="absolute top-4 left-4 z-10 bg-white/90 px-3 py-1 rounded-lg shadow">
+            <span className="text-sm font-semibold text-gray-700">
+              {completedCountries.length} / {itemCount}
+            </span>
+          </div>
 
-            {/* プレイ中の状態 */}
-            {gameState === "playing" && currentCountry && (
-              <div className="space-y-2">
-                {/* 問題表示エリア */}
-                <div className="text-center">
-                  <p className="text-lg font-bold text-gray-800">
-                    {currentCountry.name}
-                  </p>
-                  <RomajiDisplay
-                    input={input}
-                    romaji={currentCountry.romaji}
-                  />
-                </div>
-
-                {/* 入力エリア */}
-                <div className="space-y-1">
-                  <input
-                    type="text"
-                    value={input}
-                    onChange={handleInput}
-                    className="w-full p-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all"
-                    autoFocus
-                  />
-                  <div className="text-center">
-                    <p className="text-xs font-semibold text-gray-700">
-                      経過時間: {formatTime(currentTime)}
+          {/* アイドル状態または終了状態のオーバーレイ */}
+          {(gameState === "idle" || gameState === "finished") && (
+            <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/20">
+              <div className="bg-white/95 rounded-xl shadow-xl p-6 text-center max-w-md mx-4">
+                {gameState === "idle" ? (
+                  <>
+                    <p className="text-gray-700 mb-3">
+                      地図上でハイライトされた国の名前をタイピングしよう！
                     </p>
-                    <p className="text-xs text-gray-500">
-                      ESCキーでゲームを中断
+                    <p
+                      className={`text-xl font-semibold text-blue-500 transition-opacity duration-500 ${
+                        isVisible ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      スペースキーを押してゲームを開始
                     </p>
-                  </div>
-                </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                      ※タイピング中はキーボードを使います
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                      ゲーム終了！
+                    </h3>
+                    {startTime !== null && endTime !== null && (
+                      <div className="flex justify-center gap-6 mb-4">
+                        <div>
+                          <p className="text-xs text-gray-500">タイム</p>
+                          <p className="text-lg font-bold text-gray-800">
+                            {formatTime(endTime - startTime)}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500">ミス</p>
+                          <p className="text-lg font-bold text-gray-800">
+                            {mistakeCount}回
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-gray-500">速度</p>
+                          <p className="text-lg font-bold text-gray-800">
+                            {calculateAverageTypingSpeed()}打/秒
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    <p
+                      className={`text-base font-semibold text-blue-500 transition-opacity duration-500 ${
+                        isVisible ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      スペースキーでもう一度プレイ
+                    </p>
+                  </>
+                )}
               </div>
-            )}
+            </div>
+          )}
+        </div>
 
-            {/* 終了状態の結果表示 */}
-            {gameState === "finished" &&
-              startTime !== null &&
-              endTime !== null && (
-                <div className="bg-gray-50 p-3 rounded-lg">
-                  <h3 className="text-base font-bold text-gray-800 text-center mb-2">
-                    ゲーム終了!
-                  </h3>
-                  <div className="flex justify-center gap-4 text-center">
-                    <div>
-                      <p className="text-xs text-gray-500">タイム</p>
-                      <p className="text-sm font-bold text-gray-800">
-                        {formatTime(endTime - startTime)}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500">ミス</p>
-                      <p className="text-sm font-bold text-gray-800">
-                        {mistakeCount}回
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500">速度</p>
-                      <p className="text-sm font-bold text-gray-800">
-                        {calculateAverageTypingSpeed()}打/秒
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-            {/* 進捗バー */}
-            <div className="mt-3">
-              <div className="flex justify-between text-xs text-gray-600 mb-1">
-                <span>進捗</span>
-                <span>
-                  {completedCountries.length} / {itemCount}
-                </span>
+        {/* プレイ中の入力エリア */}
+        {gameState === "playing" && currentCountry && (
+          <div className="flex-shrink-0 bg-white rounded-lg shadow-lg p-4 mb-3">
+            <div className="max-w-lg mx-auto">
+              {/* 国名と入力 */}
+              <div className="text-center mb-2">
+                <p className="text-xl font-bold text-gray-800">
+                  {currentCountry.name}
+                </p>
+                <RomajiDisplay input={input} romaji={currentCountry.romaji} />
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-1.5">
+
+              {/* 入力フィールド */}
+              <input
+                type="text"
+                value={input}
+                onChange={handleInput}
+                className="w-full p-2 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all"
+                autoFocus
+              />
+
+              {/* 経過時間とヒント */}
+              <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
+                <span>経過時間: {formatTime(currentTime)}</span>
+                <span>ESCキーで中断</span>
+              </div>
+
+              {/* 進捗バー */}
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                 <div
-                  className="bg-blue-400 h-1.5 rounded-full transition-all duration-300"
+                  className="bg-blue-400 h-2 rounded-full transition-all duration-300"
                   style={{
                     width: `${(completedCountries.length / itemCount) * 100}%`,
                   }}
@@ -324,21 +325,18 @@ export function WorldMapTypingGame({
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* 地域選択に戻るリンク */}
-        <div className="mt-4">
+        <div className="flex-shrink-0 text-center mt-4">
           <Link
             href="/worldmap"
-            className="px-4 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-300 to-gray-400 text-white font-medium transition-all duration-200 hover:from-gray-400 hover:to-gray-500 hover:shadow-md"
+            className="inline-block px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
           >
             ← 地域選択に戻る
           </Link>
         </div>
-      </main>
-
-      {/* フッターの高さ分のスペース */}
-      <div className="h-8"></div>
+      </div>
     </div>
   );
 }

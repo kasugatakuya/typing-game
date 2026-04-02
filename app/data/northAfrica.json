@@ -1,0 +1,38 @@
+[
+  {
+    "id": "EG",
+    "name": "エジプト",
+    "romaji": "ejiputo",
+    "flagImage": "ejiputo arabu"
+  },
+  {
+    "id": "MA",
+    "name": "モロッコ",
+    "romaji": "morokko",
+    "flagImage": "morokko"
+  },
+  {
+    "id": "DZ",
+    "name": "アルジェリア",
+    "romaji": "arujeria",
+    "flagImage": "arujeria"
+  },
+  {
+    "id": "TN",
+    "name": "チュニジア",
+    "romaji": "chunijia",
+    "flagImage": "chunijia"
+  },
+  {
+    "id": "LY",
+    "name": "リビア",
+    "romaji": "ribia",
+    "flagImage": "ribia"
+  },
+  {
+    "id": "SD",
+    "name": "スーダン",
+    "romaji": "sudan",
+    "flagImage": "sudan"
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "GB",
+    "name": "イギリス",
+    "romaji": "igirisu",
+    "flagImage": "igirisu"
+  },
+  {
+    "id": "FR",
+    "name": "フランス",
+    "romaji": "furansu",
+    "flagImage": "furansu"
+  },
+  {
+    "id": "DE",
+    "name": "ドイツ",
+    "romaji": "doitsu",
+    "flagImage": "doitsu"
+  },
+  {
+    "id": "IT",
+    "name": "イタリア",
+    "romaji": "itaria",
+    "flagImage": "itaria"
+  },
+  {
+    "id": "ES",
+    "name": "スペイン",
+    "romaji": "supein",
+    "flagImage": "supein"
+  },
+  {
+    "id": "PT",
+    "name": "ポルトガル",
+    "romaji": "porutogaru",
+    "flagImage": "porutogaru"
+  },
+  {
+    "id": "NL",
+    "name": "オランダ",
+    "romaji": "oranda",
+    "flagImage": "oranda"
+  },
+  {
+    "id": "BE",
+    "name": "ベルギー",
+    "romaji": "berugi",
+    "flagImage": "berugi"
+  },
+  {
+    "id": "CH",
+    "name": "スイス",
+    "romaji": "suisu",
+    "flagImage": "suisu"
+  },
+  {
+    "id": "AT",
+    "name": "オーストリア",
+    "romaji": "osutoria",
+    "flagImage": "osutoria"
+  },
+  {
+    "id": "IE",
+    "name": "アイルランド",
+    "romaji": "airurando",
+    "flagImage": "airurando"
+  },
+  {
+    "id": "NO",
+    "name": "ノルウェー",
+    "romaji": "noruwe",
+    "flagImage": "noruwe"
+  },
+  {
+    "id": "SE",
+    "name": "スウェーデン",
+    "romaji": "suweden",
+    "flagImage": "suweden"
+  },
+  {
+    "id": "FI",
+    "name": "フィンランド",
+    "romaji": "finrando",
+    "flagImage": "finrando"
+  },
+  {
+    "id": "DK",
+    "name": "デンマーク",
+    "romaji": "denmaku",
+    "flagImage": "denmaku"
+  },
+  {
+    "id": "IS",
+    "name": "アイスランド",
+    "romaji": "aisurando",
+    "flagImage": "aisurando"
+  },
+  {
+    "id": "GR",
+    "name": "ギリシャ",
+    "romaji": "girisha",
+    "flagImage": "girisha"
+  }
+]

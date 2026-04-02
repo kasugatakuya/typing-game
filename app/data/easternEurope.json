@@ -1,0 +1,110 @@
+[
+  {
+    "id": "PL",
+    "name": "ポーランド",
+    "romaji": "porando",
+    "flagImage": "porando"
+  },
+  {
+    "id": "CZ",
+    "name": "チェコ",
+    "romaji": "cheko",
+    "flagImage": "cheko"
+  },
+  {
+    "id": "HU",
+    "name": "ハンガリー",
+    "romaji": "hungari",
+    "flagImage": "hungari"
+  },
+  {
+    "id": "RO",
+    "name": "ルーマニア",
+    "romaji": "rumania",
+    "flagImage": "rumania"
+  },
+  {
+    "id": "BG",
+    "name": "ブルガリア",
+    "romaji": "burugaria",
+    "flagImage": "burugaria"
+  },
+  {
+    "id": "UA",
+    "name": "ウクライナ",
+    "romaji": "ukuraina",
+    "flagImage": "ukuraina"
+  },
+  {
+    "id": "BY",
+    "name": "ベラルーシ",
+    "romaji": "berarushi",
+    "flagImage": "berarushi"
+  },
+  {
+    "id": "RS",
+    "name": "セルビア",
+    "romaji": "serubia",
+    "flagImage": "serubia"
+  },
+  {
+    "id": "HR",
+    "name": "クロアチア",
+    "romaji": "kuroachia",
+    "flagImage": "kuroachia"
+  },
+  {
+    "id": "SI",
+    "name": "スロベニア",
+    "romaji": "surobenia",
+    "flagImage": "surobenia"
+  },
+  {
+    "id": "SK",
+    "name": "スロバキア",
+    "romaji": "surobakia",
+    "flagImage": "surobakia"
+  },
+  {
+    "id": "BA",
+    "name": "ボスニア・ヘルツェゴビナ",
+    "romaji": "bosuniahertsuegobina",
+    "flagImage": "bosunia herutsegobina"
+  },
+  {
+    "id": "ME",
+    "name": "モンテネグロ",
+    "romaji": "monteneguro",
+    "flagImage": "monteneguro"
+  },
+  {
+    "id": "AL",
+    "name": "アルバニア",
+    "romaji": "arubania",
+    "flagImage": "arubania"
+  },
+  {
+    "id": "MD",
+    "name": "モルドバ",
+    "romaji": "morudoba",
+    "flagImage": "morudoba"
+  },
+  {
+    "id": "EE",
+    "name": "エストニア",
+    "romaji": "esutonia",
+    "flagImage": "esutonia"
+  },
+  {
+    "id": "LV",
+    "name": "ラトビア",
+    "romaji": "ratobia",
+    "flagImage": "ratobia"
+  },
+  {
+    "id": "LT",
+    "name": "リトアニア",
+    "romaji": "ritoania",
+    "flagImage": "ritoania"
+  }
+]
