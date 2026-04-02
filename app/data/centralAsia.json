@@ -1,0 +1,10 @@
+[
+  { "id": "KZ", "name": "カザフスタン", "romaji": "kazafusutan", "flagImage": "kazafusutan" },
+  { "id": "UZ", "name": "ウズベキスタン", "romaji": "uzubekisutan", "flagImage": "uzubekisutan" },
+  { "id": "TM", "name": "トルクメニスタン", "romaji": "torukumenisutan", "flagImage": "torukumenisutan" },
+  { "id": "TJ", "name": "タジキスタン", "romaji": "tajikisutan", "flagImage": "tajikisutan" },
+  { "id": "KG", "name": "キルギス", "romaji": "kirugisu", "flagImage": "kirugisu" },
+  { "id": "GE", "name": "ジョージア", "romaji": "jojia", "flagImage": "jojia" },
+  { "id": "AM", "name": "アルメニア", "romaji": "arumenia", "flagImage": "arumenia" },
+  { "id": "AZ", "name": "アゼルバイジャン", "romaji": "azerubaijan", "flagImage": "azerubaijan" }
+]

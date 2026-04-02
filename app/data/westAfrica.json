@@ -1,0 +1,13 @@
+[
+  { "id": "ML", "name": "マリ", "romaji": "mari", "flagImage": "mari" },
+  { "id": "NE", "name": "ニジェール", "romaji": "nijeru", "flagImage": "nijeru" },
+  { "id": "BF", "name": "ブルキナファソ", "romaji": "burukinafaso", "flagImage": "burukinafaso" },
+  { "id": "GN", "name": "ギニア", "romaji": "ginia", "flagImage": "ginia" },
+  { "id": "SL", "name": "シエラレオネ", "romaji": "shierareone", "flagImage": "shierareone" },
+  { "id": "LR", "name": "リベリア", "romaji": "riberia", "flagImage": "riberia" },
+  { "id": "BJ", "name": "ベナン", "romaji": "benan", "flagImage": "benan" },
+  { "id": "GM", "name": "ガンビア", "romaji": "ganbia", "flagImage": "ganbia" },
+  { "id": "GW", "name": "ギニアビサウ", "romaji": "giniabisau", "flagImage": "giniabisau" },
+  { "id": "MR", "name": "モーリタニア", "romaji": "moritania", "flagImage": "moritania isuramu" },
+  { "id": "CV", "name": "カーボベルデ", "romaji": "kaboverude", "flagImage": "kaboverude" }
+]

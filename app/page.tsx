@@ -3,14 +3,14 @@ import Image from "next/image";
 export default function Home() {
   const gameCategories = [
     {
-      title: "世界地図 タイピング 練習",
+      title: "世界地図 タイピング",
       baseUrl: "/worldmap",
       modes: [{ name: "世界地図 タイピング 一覧", path: "" }],
       isNew: true,
       singleMode: true,
     },
     {
-      title: "世界の国旗 タイピング 練習",
+      title: "世界の国旗 タイピング",
       baseUrl: "/country/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -19,7 +19,7 @@ export default function Home() {
       ],
     },
     {
-      title: "世界の首都 タイピング 練習",
+      title: "世界の首都 タイピング",
       baseUrl: "/capitals/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -28,7 +28,7 @@ export default function Home() {
       ],
     },
     {
-      title: "世界遺産 タイピング 練習",
+      title: "世界遺産 タイピング",
       baseUrl: "/heritage/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -37,7 +37,7 @@ export default function Home() {
       ],
     },
     {
-      title: "都道府県 タイピング 練習",
+      title: "都道府県 タイピング",
       baseUrl: "/prefectures/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -46,7 +46,7 @@ export default function Home() {
       ],
     },
     {
-      title: "県庁所在地 タイピング 練習",
+      title: "県庁所在地 タイピング",
       baseUrl: "/prefecturalCapitals/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -55,7 +55,7 @@ export default function Home() {
       ],
     },
     {
-      title: "県鳥 タイピング 練習",
+      title: "県鳥 タイピング",
       baseUrl: "/prefecturalBird/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -64,7 +64,7 @@ export default function Home() {
       ],
     },
     {
-      title: "県花 タイピング 練習",
+      title: "県花 タイピング",
       baseUrl: "/prefecturalFlower/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -73,7 +73,7 @@ export default function Home() {
       ],
     },
     {
-      title: "県木 タイピング 練習",
+      title: "県木 タイピング",
       baseUrl: "/prefecturalTree/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -82,7 +82,7 @@ export default function Home() {
       ],
     },
     {
-      title: "ゆるキャラ タイピング 練習",
+      title: "ゆるキャラ タイピング",
       baseUrl: "/prefecturalChara/game",
       modes: [
         { name: "かんたん", path: "/easy" },

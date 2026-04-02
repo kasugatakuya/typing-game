@@ -14,7 +14,10 @@ interface WorldMapSVGProps {
     | "west-asia"
     | "oceania"
     | "north-africa"
-    | "sub-saharan-africa";
+    | "sub-saharan-africa"
+    | "central-asia"
+    | "southern-europe"
+    | "west-africa";
 }
 
 // Natural Earth TopoJSON - 世界地図データ（ISO数値コードを使用）
@@ -177,6 +180,51 @@ const alpha2ToNumeric: Record<string, string> = {
   BW: "072",
   RW: "646",
   CF: "140",
+  ZM: "894",
+  MW: "454",
+  BI: "108",
+  SS: "728",
+  ER: "232",
+  DJ: "262",
+  SO: "706",
+  LS: "426",
+  SZ: "748",
+  CG: "178",
+  GQ: "226",
+  // 中央アジア・コーカサス
+  KZ: "398",
+  UZ: "860",
+  TM: "795",
+  TJ: "762",
+  KG: "417",
+  GE: "268",
+  AM: "051",
+  AZ: "031",
+  // 南ヨーロッパ・その他
+  RU: "643",
+  MK: "807",
+  LU: "442",
+  MT: "470",
+  CY: "196",
+  // 西アフリカ
+  ML: "466",
+  NE: "562",
+  BF: "854",
+  GN: "324",
+  SL: "694",
+  LR: "430",
+  BJ: "204",
+  GM: "270",
+  GW: "624",
+  MR: "478",
+  CV: "132",
+  // 東アジア追加
+  SG: "702",
+  BN: "096",
+  TL: "626",
+  NP: "524",
+  BT: "064",
+  MV: "462",
 };
 
 // 地域ごとの設定（ISO数値コード）
@@ -304,6 +352,12 @@ const regionConfig: Record<
       "496",
       "158",
       "408",
+      "702",
+      "096",
+      "626",
+      "524",
+      "064",
+      "462",
     ],
   },
   "west-asia": {
@@ -378,6 +432,44 @@ const regionConfig: Record<
       "072",
       "646",
       "140",
+      "894",
+      "454",
+      "108",
+      "728",
+      "232",
+      "262",
+      "706",
+      "426",
+      "748",
+      "178",
+      "226",
+    ],
+  },
+  "central-asia": {
+    center: [65, 45],
+    scale: 800,
+    countries: ["398", "860", "795", "762", "417", "268", "051", "031"],
+  },
+  "southern-europe": {
+    center: [90, 66],
+    scale: 250,
+    countries: ["643", "807", "442", "470", "196"],
+  },
+  "west-africa": {
+    center: [-5, 16],
+    scale: 1000,
+    countries: [
+      "466",
+      "562",
+      "854",
+      "324",
+      "694",
+      "430",
+      "204",
+      "270",
+      "624",
+      "478",
+      "132",
     ],
   },
 };

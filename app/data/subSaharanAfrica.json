@@ -130,5 +130,71 @@
     "name": "中央アフリカ",
     "romaji": "chuouafurika",
     "flagImage": "chuouafurika"
+  },
+  {
+    "id": "ZM",
+    "name": "ザンビア",
+    "romaji": "zanbia",
+    "flagImage": "zanbia"
+  },
+  {
+    "id": "MW",
+    "name": "マラウイ",
+    "romaji": "maraui",
+    "flagImage": "maraui"
+  },
+  {
+    "id": "BI",
+    "name": "ブルンジ",
+    "romaji": "burunji",
+    "flagImage": "burunji"
+  },
+  {
+    "id": "SS",
+    "name": "南スーダン",
+    "romaji": "minamisudan",
+    "flagImage": "minamisudan"
+  },
+  {
+    "id": "ER",
+    "name": "エリトリア",
+    "romaji": "eritoria",
+    "flagImage": "eritoria"
+  },
+  {
+    "id": "DJ",
+    "name": "ジブチ",
+    "romaji": "jibuchi",
+    "flagImage": "jibuchi"
+  },
+  {
+    "id": "SO",
+    "name": "ソマリア",
+    "romaji": "somaria",
+    "flagImage": "somaria"
+  },
+  {
+    "id": "LS",
+    "name": "レソト",
+    "romaji": "resoto",
+    "flagImage": "resoto"
+  },
+  {
+    "id": "SZ",
+    "name": "エスワティニ",
+    "romaji": "esuwatini",
+    "flagImage": "esuwatini"
+  },
+  {
+    "id": "CG",
+    "name": "コンゴ共和国",
+    "romaji": "kongokyouwakoku",
+    "flagImage": "kongokyouwakoku"
+  },
+  {
+    "id": "GQ",
+    "name": "赤道ギニア",
+    "romaji": "sekidoginia",
+    "flagImage": "sekidoginia"
   }
 ]

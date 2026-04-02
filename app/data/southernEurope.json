@@ -1,0 +1,7 @@
+[
+  { "id": "RU", "name": "ロシア", "romaji": "roshia", "flagImage": "roshia" },
+  { "id": "MK", "name": "北マケドニア", "romaji": "kitamakedonia", "flagImage": "kitamakedonia" },
+  { "id": "LU", "name": "ルクセンブルク", "romaji": "rukusenburuku", "flagImage": "rukusenburuku" },
+  { "id": "MT", "name": "マルタ", "romaji": "maruta", "flagImage": "maruta" },
+  { "id": "CY", "name": "キプロス", "romaji": "kipurosu", "flagImage": "kipurosu" }
+]

@@ -23,7 +23,10 @@ type Region =
   | "west-asia"
   | "oceania"
   | "north-africa"
-  | "sub-saharan-africa";
+  | "sub-saharan-africa"
+  | "central-asia"
+  | "southern-europe"
+  | "west-africa";
 
 interface WorldMapTypingGameProps {
   allCountries: MapCountry[];
@@ -233,7 +236,7 @@ export function WorldMapTypingGame({
                 {gameState === "idle" ? (
                   <>
                     <p className="text-gray-700 mb-3">
-                      地図上でハイライトされた国の名前をタイピングしよう！
+                      地図上の国の名前をタイピングしよう！
                     </p>
                     <p
                       className={`text-xl font-semibold text-blue-500 transition-opacity duration-500 ${

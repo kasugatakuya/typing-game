@@ -100,5 +100,47 @@
     "name": "台湾",
     "romaji": "taiwan",
     "flagImage": "taiwan"
+  },
+  {
+    "id": "SG",
+    "name": "シンガポール",
+    "romaji": "shingaporu",
+    "flagImage": "shingaporu"
+  },
+  {
+    "id": "BN",
+    "name": "ブルネイ",
+    "romaji": "burunei",
+    "flagImage": "burunei darusaramu"
+  },
+  {
+    "id": "TL",
+    "name": "東ティモール",
+    "romaji": "higashitimoru",
+    "flagImage": "higashitimoru"
+  },
+  {
+    "id": "NP",
+    "name": "ネパール",
+    "romaji": "neparu",
+    "flagImage": "neparu"
+  },
+  {
+    "id": "BT",
+    "name": "ブータン",
+    "romaji": "butan",
+    "flagImage": "butan"
+  },
+  {
+    "id": "MV",
+    "name": "モルディブ",
+    "romaji": "morudibu",
+    "flagImage": "morudibu"
+  },
+  {
+    "id": "KP",
+    "name": "北朝鮮",
+    "romaji": "kitachousen",
+    "flagImage": "kitachousen"
   }
 ]

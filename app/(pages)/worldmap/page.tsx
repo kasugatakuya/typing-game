@@ -5,55 +5,73 @@ export default function WorldMap() {
     {
       id: "north-america",
       name: "北アメリカ",
-      description: "カナダ、アメリカ、メキシコ、中米、カリブ海諸国（全23問）",
+      description: "カナダ、アメリカなど（全23問）",
       available: true,
     },
     {
       id: "south-america",
       name: "南アメリカ",
-      description: "ブラジル、アルゼンチン、チリなど（全12問）",
+      description: "ブラジル、アルゼンチンなど（全12問）",
       available: true,
     },
     {
       id: "western-europe",
       name: "西ヨーロッパ",
-      description: "イギリス、フランス、ドイツ、イタリアなど（全17問）",
+      description: "イギリス、フランスなど（全17問）",
       available: true,
     },
     {
       id: "eastern-europe",
       name: "東ヨーロッパ",
-      description: "ポーランド、ウクライナ、チェコなど（全18問）",
+      description: "ポーランド、ウクライナなど（全18問）",
+      available: true,
+    },
+    {
+      id: "southern-europe",
+      name: "ロシア・その他",
+      description: "ロシア、キプロスなど（全5問）",
       available: true,
     },
     {
       id: "east-asia",
       name: "東・東南・南アジア",
-      description: "日本、中国、韓国、インドなど（全17問）",
+      description: "日本、中国など（全24問）",
       available: true,
     },
     {
       id: "west-asia",
       name: "西アジア（中東）",
-      description: "トルコ、サウジアラビア、イランなど（全15問）",
+      description: "トルコ、イランなど（全15問）",
+      available: true,
+    },
+    {
+      id: "central-asia",
+      name: "中央アジア・コーカサス",
+      description: "カザフスタンなど（全8問）",
       available: true,
     },
     {
       id: "oceania",
       name: "オセアニア",
-      description: "オーストラリア、ニュージーランドなど（全14問）",
+      description: "オーストラリアなど（全14問）",
       available: true,
     },
     {
       id: "north-africa",
       name: "北アフリカ",
-      description: "エジプト、モロッコ、アルジェリアなど（全6問）",
+      description: "エジプト、モロッコなど（全6問）",
+      available: true,
+    },
+    {
+      id: "west-africa",
+      name: "西アフリカ",
+      description: "マリ、ギニアなど（全11問）",
       available: true,
     },
     {
       id: "sub-saharan-africa",
       name: "サブサハラ・アフリカ",
-      description: "南アフリカ、ケニア、ナイジェリアなど（全22問）",
+      description: "ケニア、ナイジェリアなど（全33問）",
       available: true,
     },
   ];
@@ -67,7 +85,7 @@ export default function WorldMap() {
             世界地図タイピング
           </h1>
           <p className="text-base text-gray-600">
-            地図上でハイライトされた国の名前をタイピングしよう！
+            地図上の国の名前をタイピングしよう！
           </p>
         </div>
 
@@ -83,7 +101,7 @@ export default function WorldMap() {
               }`}
             >
               <div
-                className={`py-2 px-3 ${
+                className={`py-1 px-2 ${
                   region.available
                     ? "bg-gradient-to-r from-blue-400 to-blue-500"
                     : "bg-gradient-to-r from-gray-400 to-gray-500"
@@ -93,7 +111,7 @@ export default function WorldMap() {
                   {region.name}
                 </h2>
               </div>
-              <div className="p-3 flex flex-col flex-grow">
+              <div className="p-2 flex flex-col flex-grow">
                 <p className="text-gray-600 text-sm mb-3 text-center flex-grow">
                   {region.description}
                 </p>
@@ -117,7 +135,7 @@ export default function WorldMap() {
         </div>
 
         {/* ホームに戻るリンク */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <Link
             href="/"
             className="inline-block px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
