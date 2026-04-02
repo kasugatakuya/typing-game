@@ -94,7 +94,7 @@ export function TypingGame({
       }
       return { name: item.name, romaji: item.romaji };
     },
-    [mode]
+    [mode],
   );
 
   const getItems = useCallback(() => {
@@ -167,7 +167,7 @@ export function TypingGame({
 
       return `/${firstPath}/${secondPath}.${extension}`;
     },
-    [gameType, mode]
+    [gameType, mode],
   );
 
   const preloadImages = useCallback(() => {
@@ -193,7 +193,7 @@ export function TypingGame({
         resetGame();
       }
     },
-    [gameState, startGame, resetGame]
+    [gameState, startGame, resetGame],
   );
 
   useEffect(() => {
@@ -283,7 +283,7 @@ export function TypingGame({
 
   const getTitle = () => {
     if (gameType === "country") {
-      return mode === "main" ? "国" : "首都";
+      return mode === "main" ? "国旗" : "首都";
     } else if (gameType === "heritage") {
       return "世界遺産";
     } else if (gameType === "prefectures") {

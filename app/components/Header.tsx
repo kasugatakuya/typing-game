@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const links = [
   { href: "/worldmap", label: "世界地図" },
-  { href: "/country/game/normal", label: "国" },
+  { href: "/country/game/normal", label: "国旗" },
   { href: "/capitals/game/normal", label: "首都" },
   { href: "/heritage/game/normal", label: "世界遺産" },
   { href: "/prefectures/game/normal", label: "都道府県" },

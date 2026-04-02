@@ -11,14 +11,14 @@ export default function WorldMap() {
     {
       id: "south-america",
       name: "南アメリカ",
-      description: "ブラジル、アルゼンチン、チリなど",
-      available: false,
+      description: "ブラジル、アルゼンチン、チリなど（全12問）",
+      available: true,
     },
     {
       id: "europe",
       name: "ヨーロッパ",
-      description: "イギリス、フランス、ドイツなど",
-      available: false,
+      description: "イギリス、フランス、ドイツなど（全35問）",
+      available: true,
     },
     {
       id: "asia",
@@ -61,7 +61,7 @@ export default function WorldMap() {
           {regions.map((region) => (
             <div
               key={region.id}
-              className={`bg-white rounded-lg shadow-lg overflow-hidden transition-transform ${
+              className={`bg-white rounded-lg shadow-lg overflow-hidden transition-transform flex flex-col ${
                 region.available
                   ? "hover:scale-105 cursor-pointer"
                   : "opacity-60"
@@ -78,8 +78,8 @@ export default function WorldMap() {
                   {region.name}
                 </h2>
               </div>
-              <div className="p-4">
-                <p className="text-gray-600 text-sm mb-4 text-center">
+              <div className="p-4 flex flex-col flex-grow">
+                <p className="text-gray-600 text-sm mb-4 text-center flex-grow">
                   {region.description}
                 </p>
                 {region.available ? (
@@ -105,7 +105,7 @@ export default function WorldMap() {
         <div className="text-center mt-8">
           <Link
             href="/"
-            className="text-blue-500 hover:text-blue-700 underline"
+            className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
           >
             ← ホームに戻る
           </Link>

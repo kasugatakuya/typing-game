@@ -1,0 +1,74 @@
+[
+  {
+    "id": "BR",
+    "name": "ブラジル",
+    "romaji": "burajiru",
+    "flagImage": "burajiru"
+  },
+  {
+    "id": "AR",
+    "name": "アルゼンチン",
+    "romaji": "aruzenchin",
+    "flagImage": "aruzenchin"
+  },
+  {
+    "id": "CL",
+    "name": "チリ",
+    "romaji": "chiri",
+    "flagImage": "chiri"
+  },
+  {
+    "id": "PE",
+    "name": "ペルー",
+    "romaji": "peru",
+    "flagImage": "peru"
+  },
+  {
+    "id": "CO",
+    "name": "コロンビア",
+    "romaji": "koronbia",
+    "flagImage": "koronbia"
+  },
+  {
+    "id": "VE",
+    "name": "ベネズエラ",
+    "romaji": "benezuera",
+    "flagImage": "benezuera"
+  },
+  {
+    "id": "EC",
+    "name": "エクアドル",
+    "romaji": "ekuadoru",
+    "flagImage": "ekuadoru"
+  },
+  {
+    "id": "BO",
+    "name": "ボリビア",
+    "romaji": "boribia",
+    "flagImage": "boribia"
+  },
+  {
+    "id": "PY",
+    "name": "パラグアイ",
+    "romaji": "paraguai",
+    "flagImage": "paraguai"
+  },
+  {
+    "id": "UY",
+    "name": "ウルグアイ",
+    "romaji": "uruguai",
+    "flagImage": "uruguai"
+  },
+  {
+    "id": "GY",
+    "name": "ガイアナ",
+    "romaji": "gaiana",
+    "flagImage": "gaiana"
+  },
+  {
+    "id": "SR",
+    "name": "スリナム",
+    "romaji": "surinamu",
+    "flagImage": "surinamu"
+  }
+]

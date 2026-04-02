@@ -4,15 +4,13 @@ export default function Home() {
   const gameCategories = [
     {
       title: "世界地図 タイピング 練習",
-      baseUrl: "/worldmap/north-america",
-      modes: [
-        { name: "北アメリカ（全23問）", path: "" },
-      ],
+      baseUrl: "/worldmap",
+      modes: [{ name: "世界地図 タイピング 一覧", path: "" }],
       isNew: true,
       singleMode: true,
     },
     {
-      title: "世界の国 タイピング 練習",
+      title: "世界の国旗 タイピング 練習",
       baseUrl: "/country/game",
       modes: [
         { name: "かんたん", path: "/easy" },
@@ -100,7 +98,14 @@ export default function Home() {
         {/* ヘッダーセクション */}
         <div className="text-center mb-16 flex items-center justify-center">
           <div>
-            <Image width={200} height={200} src="/earth-map.png" alt="地球" style={{ width: "auto", height: "auto" }} priority />
+            <Image
+              width={200}
+              height={200}
+              src="/earth-map.png"
+              alt="地球"
+              style={{ width: "auto", height: "auto" }}
+              priority
+            />
           </div>
           <div className="mx-1">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
