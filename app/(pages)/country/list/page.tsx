@@ -85,6 +85,7 @@ export default function Country() {
               alt={item.name}
               width={150}
               height={150}
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
         ))}

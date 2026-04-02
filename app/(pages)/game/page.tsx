@@ -151,6 +151,7 @@ export default function Game() {
                 width={200}
                 height={150}
                 className="rounded-lg"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
             <input

@@ -100,7 +100,7 @@ export default function Home() {
         {/* ヘッダーセクション */}
         <div className="text-center mb-16 flex items-center justify-center">
           <div>
-            <Image width={200} height={200} src="/earth-map.png" alt="地球" />
+            <Image width={200} height={200} src="/earth-map.png" alt="地球" style={{ width: "auto", height: "auto" }} priority />
           </div>
           <div className="mx-1">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
@@ -119,6 +119,8 @@ export default function Home() {
               height={200}
               src="/japan-map.png"
               alt="日本地図"
+              style={{ width: "auto", height: "auto" }}
+              priority
             />
           </div>
         </div>

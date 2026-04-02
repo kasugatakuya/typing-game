@@ -218,6 +218,7 @@ export function TypingGame({
     setTotalKeystrokes((prevCount) => prevCount + 1);
 
     if (typingStartTime === null) {
+      // eslint-disable-next-line react-hooks/purity -- Date.now() is safe in event handlers
       setTypingStartTime(Date.now());
     }
 
@@ -361,6 +362,7 @@ export function TypingGame({
                       width={250}
                       height={150}
                       className="object-contain"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </div>
                 </div>

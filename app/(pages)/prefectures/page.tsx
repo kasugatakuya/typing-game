@@ -9,7 +9,7 @@ export default function Prefectures() {
             楽しくゲーム感覚で遊ぼう!
           </div>
           <div className="md:block hidden">
-            <Image width={200} height={200} src="/map-japan-10210.png" alt="" />
+            <Image width={200} height={200} src="/map-japan-10210.png" alt="" style={{ width: "auto", height: "auto" }} />
           </div>
         </div>
         <div className="py-5">地図で示された都道府県が出てきます</div>

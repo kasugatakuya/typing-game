@@ -134,6 +134,7 @@ export function WorldMapTypingGame({
     setTotalKeystrokes((prevCount) => prevCount + 1);
 
     if (typingStartTime === null) {
+      // eslint-disable-next-line react-hooks/purity -- Date.now() is safe in event handlers
       setTypingStartTime(Date.now());
     }
 
@@ -213,6 +214,7 @@ export function WorldMapTypingGame({
                       width={140}
                       height={95}
                       className="object-contain"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </div>
                 </div>
