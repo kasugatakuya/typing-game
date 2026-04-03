@@ -4,18 +4,15 @@ import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
+import { YamanoteSVG } from "./YamanoteSVG";
 
-interface Item {
+interface Station {
   name: string;
   romaji: string;
-  hint?: string;
 }
 
-interface OtherTypingGameProps {
-  items: Item[];
-  title: string;
-  backUrl: string;
-  themeColor: string;
+interface YamanoteTypingGameProps {
+  stations: Station[];
 }
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -26,25 +23,20 @@ const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
   input,
   romaji,
 }) => (
-  <p className="text-lg text-center font-mono">
+  <p className="text-base text-center font-mono">
     <span className="text-green-600">{input}</span>
     <span className="text-gray-400">{romaji.slice(input.length)}</span>
   </p>
 );
 
-export function OtherTypingGame({
-  items,
-  title,
-  backUrl,
-  themeColor,
-}: OtherTypingGameProps) {
+export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
   const [gameState, setGameState] = useState<"idle" | "playing" | "finished">(
     "idle",
   );
-  const [currentItem, setCurrentItem] = useState<Item | null>(null);
+  const [currentStation, setCurrentStation] = useState<Station | null>(null);
   const [input, setInput] = useState("");
-  const [completedItems, setCompletedItems] = useState<Item[]>([]);
-  const [remainingItems, setRemainingItems] = useState<Item[]>([]);
+  const [completedStations, setCompletedStations] = useState<Station[]>([]);
+  const [remainingStations, setRemainingStations] = useState<Station[]>([]);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [endTime, setEndTime] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -53,7 +45,7 @@ export function OtherTypingGame({
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
 
-  const itemCount = items.length;
+  const stationCount = stations.length;
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -67,33 +59,33 @@ export function OtherTypingGame({
     };
   }, [gameState]);
 
-  const getItems = useCallback(() => {
-    return shuffleArray(items);
-  }, [items]);
+  const getStations = useCallback(() => {
+    return shuffleArray(stations);
+  }, [stations]);
 
   const resetGame = useCallback(() => {
     setGameState("idle");
-    setCurrentItem(null);
+    setCurrentStation(null);
     setInput("");
-    setCompletedItems([]);
+    setCompletedStations([]);
     setStartTime(null);
     setEndTime(null);
     setCurrentTime(0);
-    setRemainingItems(getItems());
+    setRemainingStations(getStations());
     setMistakeCount(0);
     setTotalKeystrokes(0);
-  }, [getItems]);
+  }, [getStations]);
 
   const startGame = useCallback(() => {
     setGameState("playing");
     setStartTime(Date.now());
     setCurrentTime(0);
-    const newItems = getItems();
-    setRemainingItems(newItems);
-    setCompletedItems([]);
-    setCurrentItem(newItems[0]);
+    const newStations = getStations();
+    setRemainingStations(newStations);
+    setCompletedStations([]);
+    setCurrentStation(newStations[0]);
     setInput("");
-  }, [getItems]);
+  }, [getStations]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -126,30 +118,30 @@ export function OtherTypingGame({
   }, [gameState]);
 
   const handleCorrectInput = useCallback(() => {
-    setCompletedItems((prev) => [...prev, currentItem!]);
-    setRemainingItems((prev) => {
+    setCompletedStations((prev) => [...prev, currentStation!]);
+    setRemainingStations((prev) => {
       const newRemaining = prev.slice(1);
       if (newRemaining.length === 0) {
         setEndTime(Date.now());
         setGameState("finished");
       } else {
-        setCurrentItem(newRemaining[0]);
+        setCurrentStation(newRemaining[0]);
         setInput("");
       }
       return newRemaining;
     });
-  }, [currentItem]);
+  }, [currentStation]);
 
   const handleInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (gameState !== "playing" || !currentItem) return;
+      if (gameState !== "playing" || !currentStation) return;
 
       const newInput = e.target.value.toLowerCase();
       setTotalKeystrokes((prevCount) => prevCount + 1);
 
-      if (currentItem.romaji.startsWith(newInput)) {
+      if (currentStation.romaji.startsWith(newInput)) {
         setInput(newInput);
-        if (newInput === currentItem.romaji) {
+        if (newInput === currentStation.romaji) {
           handleCorrectInput();
         }
       } else {
@@ -158,7 +150,7 @@ export function OtherTypingGame({
         setTimeout(() => setShowMistakeEffect(false), 300);
       }
     },
-    [gameState, currentItem, handleCorrectInput],
+    [gameState, currentStation, handleCorrectInput],
   );
 
   const calculateAverageTypingSpeed = useCallback(() => {
@@ -170,72 +162,72 @@ export function OtherTypingGame({
   }, [startTime, endTime, totalKeystrokes]);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-teal-50 to-slate-100 py-12 pt-20 mt-4">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <div className="text-center mb-8">
+    <div className="h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-16 pb-2 mt-4">
+      <div className="container mx-auto px-4 max-w-md">
+        {/* タイトル */}
+        <div className="text-center py-1 mb-4">
           <h1 className="text-2xl font-bold text-gray-800">
-            {title}（全{itemCount}問）
+            山手線タイピング（全{stationCount}駅）
           </h1>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+        {/* 路線図 */}
+        <div className="bg-white rounded-xl shadow-lg p-2 mb-3">
+          <YamanoteSVG
+            currentStation={currentStation?.name || null}
+            completedStations={completedStations.map((s) => s.name)}
+          />
+        </div>
+
+        {/* ゲームエリア */}
+        <div className="bg-white rounded-xl shadow-lg p-4 mb-3">
           {gameState === "idle" && (
-            <div className="text-center py-12">
-              <p className="text-gray-700 mb-4">
-                表示される名前をタイピングしよう！
+            <div className="text-center py-3">
+              <p className="text-gray-700 mb-2">
+                山手線の駅名をタイピングしよう！
               </p>
               <p
-                className={`text-xl font-semibold transition-opacity duration-500 ${themeColor} ${
+                className={`text-lg font-semibold text-green-500 transition-opacity duration-500 ${
                   isVisible ? "opacity-100" : "opacity-0"
                 }`}
               >
-                スペースキーを押してゲームを開始
+                スペースキーで開始
               </p>
-              <p className="text-xs text-gray-500 mt-2">
-                ※ESCキーで中断できます
-              </p>
+              <p className="text-xs text-gray-500 mt-1">※ESCキーで中断</p>
             </div>
           )}
 
-          {gameState === "playing" && currentItem && (
+          {gameState === "playing" && currentStation && (
             <div>
-              <div className="text-center mb-6">
-                <div className="text-sm text-gray-500 mb-1">
-                  {completedItems.length + 1} / {itemCount}
-                </div>
-                {currentItem.hint && (
-                  <p className="text-sm text-gray-500 mb-2">
-                    {currentItem.hint}
-                  </p>
-                )}
-                <p className="text-3xl font-bold text-gray-800 mb-2">
-                  {currentItem.name}
+              <div className="text-center mb-3">
+                <p className="text-lg font-bold text-gray-800 mb-1">
+                  {currentStation.name}
                 </p>
-                <RomajiDisplay input={input} romaji={currentItem.romaji} />
+                <RomajiDisplay input={input} romaji={currentStation.romaji} />
               </div>
 
               <input
                 type="text"
                 value={input}
                 onChange={handleInput}
-                className={`w-full p-3 text-lg border rounded-lg outline-none transition-all ${
+                className={`w-full p-2.5 text-lg border rounded-lg outline-none transition-all ${
                   showMistakeEffect
                     ? "border-red-500 bg-red-50 animate-shake"
-                    : "border-gray-300 focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+                    : "border-gray-300 focus:ring-2 focus:ring-green-400 focus:border-green-400"
                 }`}
                 autoFocus
               />
 
-              <div className="flex justify-between items-center mt-4 text-sm text-gray-600">
-                <span>経過時間: {formatTime(currentTime)}</span>
+              <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
+                <span>経過: {formatTime(currentTime)}</span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
-              <div className="w-full bg-gray-200 rounded-full h-2 mt-4">
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                 <div
-                  className={`h-2 rounded-full transition-all duration-300 bg-teal-500`}
+                  className="h-2 rounded-full transition-all duration-300 bg-green-500"
                   style={{
-                    width: `${(completedItems.length / itemCount) * 100}%`,
+                    width: `${(completedStations.length / stationCount) * 100}%`,
                   }}
                 />
               </div>
@@ -243,26 +235,26 @@ export function OtherTypingGame({
           )}
 
           {gameState === "finished" && startTime && endTime && (
-            <div className="text-center py-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                ゲーム終了！
+            <div className="text-center py-2">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">
+                🎉 全駅制覇！
               </h3>
-              <div className="flex justify-center gap-8 mb-6">
+              <div className="flex justify-center gap-5 mb-3">
                 <div>
                   <p className="text-xs text-gray-500">タイム</p>
-                  <p className="text-xl font-bold text-gray-800">
+                  <p className="text-base font-bold text-gray-800">
                     {formatTime(endTime - startTime)}
                   </p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500">ミス</p>
-                  <p className="text-xl font-bold text-gray-800">
+                  <p className="text-base font-bold text-gray-800">
                     {mistakeCount}回
                   </p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500">速度</p>
-                  <p className="text-xl font-bold text-gray-800">
+                  <p className="text-base font-bold text-gray-800">
                     {calculateAverageTypingSpeed()}打/秒
                   </p>
                 </div>
@@ -271,27 +263,28 @@ export function OtherTypingGame({
                 time={formatTime(endTime - startTime)}
                 mistakes={mistakeCount}
                 speed={calculateAverageTypingSpeed()}
-                gameName={title}
+                gameName="山手線タイピング"
                 mode=""
               />
               <p
-                className={`text-base font-semibold transition-opacity duration-500 mt-6 ${themeColor} ${
+                className={`text-sm font-semibold text-green-500 transition-opacity duration-500 mt-3 ${
                   isVisible ? "opacity-100" : "opacity-0"
                 }`}
               >
-                スペースキーでもう一度プレイ
+                スペースキーでもう一度
               </p>
             </div>
           )}
         </div>
 
-        <div className="text-center">
+        {/* 戻るボタン */}
+        <div className="text-center mt-6">
           <Link
-            href={backUrl}
-            className="inline-flex items-center px-6 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md hover:shadow-lg hover:text-teal-600 transition-all"
+            href="/other"
+            className="inline-flex items-center px-4 py-1 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md hover:shadow-lg hover:text-teal-600 transition-all"
           >
             <svg
-              className="w-4 h-4 mr-2"
+              className="w-3.5 h-3.5 mr-1.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

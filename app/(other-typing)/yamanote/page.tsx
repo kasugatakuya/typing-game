@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../components/OtherTypingGame";
+import { YamanoteTypingGame } from "../components/YamanoteTypingGame";
 import { stations } from "./data";
 
 export const metadata: Metadata = {
@@ -8,12 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function YamanotePage() {
-  return (
-    <OtherTypingGame
-      items={stations}
-      title="山手線タイピング"
-      backUrl="/other"
-      themeColor="text-green-500"
-    />
-  );
+  return <YamanoteTypingGame stations={stations} />;
 }
