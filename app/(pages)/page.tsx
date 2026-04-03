@@ -8,7 +8,7 @@ export default function Home() {
       baseUrl: "/worldmap",
       text: "地図上の国名と首都をタイピングしよう！",
       image: "/earth-map.png",
-      gradient: "from-blue-500 to-cyan-400",
+      linear: "from-blue-500 to-cyan-400",
       hoverGradient: "hover:from-blue-600 hover:to-cyan-500",
       features: ["国名", "首都"],
     },
@@ -17,7 +17,7 @@ export default function Home() {
       baseUrl: "/japanmap",
       text: "地図上の都道府県や県の情報をタイピングしよう！",
       image: "/japan-map.png",
-      gradient: "from-rose-500 to-orange-400",
+      linear: "from-rose-500 to-orange-400",
       hoverGradient: "hover:from-rose-600 hover:to-orange-500",
       features: ["都道府県", "県庁所在地", "県鳥", "県花", "県木"],
     },
@@ -28,7 +28,7 @@ export default function Home() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* ヘッダーセクション */}
         <div className="text-center mb-10 flex items-center justify-center">
-          <div>
+          <div className="hidden md:block">
             <Link href="/worldmap">
               <Image
                 width={200}
@@ -51,7 +51,7 @@ export default function Home() {
               国名・首都、都道府県・県庁所在地・県鳥・県花・県木をタイピングで学ぼう
             </p>
           </div>
-          <div>
+          <div className="hidden md:block">
             <Link href="/japanmap">
               <Image
                 width={200}
@@ -72,7 +72,7 @@ export default function Home() {
               <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                 {/* グラデーション背景 */}
                 <div
-                  className={`absolute inset-0 bg-linear-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  className={`absolute inset-0 bg-linear-to-br ${category.linear} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                 />
 
                 {/* カード内容 */}

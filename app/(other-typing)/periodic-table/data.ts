@@ -1,4 +1,5 @@
-export const elements = [
+// 基本20元素（1-20）
+export const basicElements = [
   { name: "水素", romaji: "suiso", hint: "H (1)" },
   { name: "ヘリウム", romaji: "heriumu", hint: "He (2)" },
   { name: "リチウム", romaji: "richiumu", hint: "Li (3)" },
@@ -19,6 +20,10 @@ export const elements = [
   { name: "アルゴン", romaji: "arugon", hint: "Ar (18)" },
   { name: "カリウム", romaji: "kariumu", hint: "K (19)" },
   { name: "カルシウム", romaji: "karushiumu", hint: "Ca (20)" },
+];
+
+// 遷移金属など（21-54）
+export const transitionElements = [
   { name: "スカンジウム", romaji: "sukanjiumu", hint: "Sc (21)" },
   { name: "チタン", romaji: "chitan", hint: "Ti (22)" },
   { name: "バナジウム", romaji: "banajiumu", hint: "V (23)" },
@@ -53,23 +58,12 @@ export const elements = [
   { name: "テルル", romaji: "teruru", hint: "Te (52)" },
   { name: "ヨウ素", romaji: "youso", hint: "I (53)" },
   { name: "キセノン", romaji: "kisenon", hint: "Xe (54)" },
+];
+
+// 重元素（55-88、ランタノイド除く）
+export const heavyElements = [
   { name: "セシウム", romaji: "seshiumu", hint: "Cs (55)" },
   { name: "バリウム", romaji: "bariumu", hint: "Ba (56)" },
-  { name: "ランタン", romaji: "rantan", hint: "La (57)" },
-  { name: "セリウム", romaji: "seriumu", hint: "Ce (58)" },
-  { name: "プラセオジム", romaji: "puraseojimu", hint: "Pr (59)" },
-  { name: "ネオジム", romaji: "neojimu", hint: "Nd (60)" },
-  { name: "プロメチウム", romaji: "puromechiumu", hint: "Pm (61)" },
-  { name: "サマリウム", romaji: "samariumu", hint: "Sm (62)" },
-  { name: "ユウロピウム", romaji: "yuuropiumu", hint: "Eu (63)" },
-  { name: "ガドリニウム", romaji: "gadoriniumu", hint: "Gd (64)" },
-  { name: "テルビウム", romaji: "terubiumu", hint: "Tb (65)" },
-  { name: "ジスプロシウム", romaji: "jisupuroshiumu", hint: "Dy (66)" },
-  { name: "ホルミウム", romaji: "horumiumu", hint: "Ho (67)" },
-  { name: "エルビウム", romaji: "erubiumu", hint: "Er (68)" },
-  { name: "ツリウム", romaji: "tsuriumu", hint: "Tm (69)" },
-  { name: "イッテルビウム", romaji: "itterubiumu", hint: "Yb (70)" },
-  { name: "ルテチウム", romaji: "rutechiumu", hint: "Lu (71)" },
   { name: "ハフニウム", romaji: "hafuniumu", hint: "Hf (72)" },
   { name: "タンタル", romaji: "tantaru", hint: "Ta (73)" },
   { name: "タングステン", romaji: "tangusuten", hint: "W (74)" },
@@ -87,6 +81,29 @@ export const elements = [
   { name: "ラドン", romaji: "radon", hint: "Rn (86)" },
   { name: "フランシウム", romaji: "furanshiumu", hint: "Fr (87)" },
   { name: "ラジウム", romaji: "rajiumu", hint: "Ra (88)" },
+];
+
+// ランタノイド（57-71）
+export const lanthanides = [
+  { name: "ランタン", romaji: "rantan", hint: "La (57)" },
+  { name: "セリウム", romaji: "seriumu", hint: "Ce (58)" },
+  { name: "プラセオジム", romaji: "puraseojimu", hint: "Pr (59)" },
+  { name: "ネオジム", romaji: "neojimu", hint: "Nd (60)" },
+  { name: "プロメチウム", romaji: "puromechiumu", hint: "Pm (61)" },
+  { name: "サマリウム", romaji: "samariumu", hint: "Sm (62)" },
+  { name: "ユウロピウム", romaji: "yuuropiumu", hint: "Eu (63)" },
+  { name: "ガドリニウム", romaji: "gadoriniumu", hint: "Gd (64)" },
+  { name: "テルビウム", romaji: "terubiumu", hint: "Tb (65)" },
+  { name: "ジスプロシウム", romaji: "jisupuroshiumu", hint: "Dy (66)" },
+  { name: "ホルミウム", romaji: "horumiumu", hint: "Ho (67)" },
+  { name: "エルビウム", romaji: "erubiumu", hint: "Er (68)" },
+  { name: "ツリウム", romaji: "tsuriumu", hint: "Tm (69)" },
+  { name: "イッテルビウム", romaji: "itterubiumu", hint: "Yb (70)" },
+  { name: "ルテチウム", romaji: "rutechiumu", hint: "Lu (71)" },
+];
+
+// アクチノイド（89-103）
+export const actinides = [
   { name: "アクチニウム", romaji: "akuchiniumu", hint: "Ac (89)" },
   { name: "トリウム", romaji: "toriumu", hint: "Th (90)" },
   { name: "プロトアクチニウム", romaji: "purotoakuchiniumu", hint: "Pa (91)" },
@@ -102,6 +119,10 @@ export const elements = [
   { name: "メンデレビウム", romaji: "menderebiumu", hint: "Md (101)" },
   { name: "ノーベリウム", romaji: "nooberiumu", hint: "No (102)" },
   { name: "ローレンシウム", romaji: "roorenshiumu", hint: "Lr (103)" },
+];
+
+// 超重元素（104-118）
+export const superheavyElements = [
   { name: "ラザホージウム", romaji: "razahoojiumu", hint: "Rf (104)" },
   { name: "ドブニウム", romaji: "dobuniumu", hint: "Db (105)" },
   { name: "シーボーギウム", romaji: "shiiboogiumu", hint: "Sg (106)" },
@@ -117,4 +138,15 @@ export const elements = [
   { name: "リバモリウム", romaji: "ribamoriumu", hint: "Lv (116)" },
   { name: "テネシン", romaji: "teneshin", hint: "Ts (117)" },
   { name: "オガネソン", romaji: "oganeson", hint: "Og (118)" },
+];
+
+// 全元素
+export const allElements = [
+  ...basicElements,
+  ...transitionElements,
+  ...heavyElements.slice(0, 2), // Cs, Ba
+  ...lanthanides,
+  ...heavyElements.slice(2), // Hf以降
+  ...actinides,
+  ...superheavyElements,
 ];

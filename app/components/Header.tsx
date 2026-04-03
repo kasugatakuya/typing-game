@@ -112,8 +112,8 @@ export default function Header() {
 
         {/* モバイルメニュー */}
         <div
-          className={`lg:hidden fixed left-0 right-0 bg-slate-800 border-t border-slate-700 transition-all duration-300 ${
-            isMenuOpen ? "top-16 opacity-100" : "-top-full opacity-0"
+          className={`lg:hidden fixed left-0 right-0 bg-slate-800 transition-all duration-300 ${
+            isMenuOpen ? "top-14 opacity-100" : "-top-full opacity-0"
           }`}
         >
           {links.map((link) => (
