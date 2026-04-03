@@ -3,102 +3,136 @@
     "id": "GB",
     "name": "イギリス",
     "romaji": "igirisu",
-    "flagImage": "igirisu"
+    "flagImage": "igirisu",
+    "capital": "ロンドン",
+    "capitalRomaji": "rondon"
   },
   {
     "id": "FR",
     "name": "フランス",
     "romaji": "furansu",
-    "flagImage": "furansu"
+    "flagImage": "furansu",
+    "capital": "パリ",
+    "capitalRomaji": "pari"
   },
   {
     "id": "DE",
     "name": "ドイツ",
     "romaji": "doitsu",
-    "flagImage": "doitsu"
+    "flagImage": "doitsu",
+    "capital": "ベルリン",
+    "capitalRomaji": "berurin"
   },
   {
     "id": "IT",
     "name": "イタリア",
     "romaji": "itaria",
-    "flagImage": "itaria"
+    "flagImage": "itaria",
+    "capital": "ローマ",
+    "capitalRomaji": "roma"
   },
   {
     "id": "ES",
     "name": "スペイン",
     "romaji": "supein",
-    "flagImage": "supein"
+    "flagImage": "supein",
+    "capital": "マドリード",
+    "capitalRomaji": "madorido"
   },
   {
     "id": "PT",
     "name": "ポルトガル",
     "romaji": "porutogaru",
-    "flagImage": "porutogaru"
+    "flagImage": "porutogaru",
+    "capital": "リスボン",
+    "capitalRomaji": "risubon"
   },
   {
     "id": "NL",
     "name": "オランダ",
     "romaji": "oranda",
-    "flagImage": "oranda"
+    "flagImage": "oranda",
+    "capital": "アムステルダム",
+    "capitalRomaji": "amusuterudamu"
   },
   {
     "id": "BE",
     "name": "ベルギー",
     "romaji": "berugi",
-    "flagImage": "berugi"
+    "flagImage": "berugi",
+    "capital": "ブリュッセル",
+    "capitalRomaji": "buryusseru"
   },
   {
     "id": "CH",
     "name": "スイス",
     "romaji": "suisu",
-    "flagImage": "suisu"
+    "flagImage": "suisu",
+    "capital": "ベルン",
+    "capitalRomaji": "berun"
   },
   {
     "id": "AT",
     "name": "オーストリア",
     "romaji": "osutoria",
-    "flagImage": "osutoria"
+    "flagImage": "osutoria",
+    "capital": "ウィーン",
+    "capitalRomaji": "win"
   },
   {
     "id": "IE",
     "name": "アイルランド",
     "romaji": "airurando",
-    "flagImage": "airurando"
+    "flagImage": "airurando",
+    "capital": "ダブリン",
+    "capitalRomaji": "daburin"
   },
   {
     "id": "NO",
     "name": "ノルウェー",
     "romaji": "noruwe",
-    "flagImage": "noruwe"
+    "flagImage": "noruwe",
+    "capital": "オスロ",
+    "capitalRomaji": "osuro"
   },
   {
     "id": "SE",
     "name": "スウェーデン",
     "romaji": "suweden",
-    "flagImage": "suweden"
+    "flagImage": "suweden",
+    "capital": "ストックホルム",
+    "capitalRomaji": "sutokkuhorumu"
   },
   {
     "id": "FI",
     "name": "フィンランド",
     "romaji": "finrando",
-    "flagImage": "finrando"
+    "flagImage": "finrando",
+    "capital": "ヘルシンキ",
+    "capitalRomaji": "herushinki"
   },
   {
     "id": "DK",
     "name": "デンマーク",
     "romaji": "denmaku",
-    "flagImage": "denmaku"
+    "flagImage": "denmaku",
+    "capital": "コペンハーゲン",
+    "capitalRomaji": "kopenhagen"
   },
   {
     "id": "IS",
     "name": "アイスランド",
     "romaji": "aisurando",
-    "flagImage": "aisurando"
+    "flagImage": "aisurando",
+    "capital": "レイキャビク",
+    "capitalRomaji": "reikyabiku"
   },
   {
     "id": "GR",
     "name": "ギリシャ",
     "romaji": "girisha",
-    "flagImage": "girisha"
+    "flagImage": "girisha",
+    "capital": "アテネ",
+    "capitalRomaji": "atene"
   }
 ]

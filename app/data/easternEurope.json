@@ -3,108 +3,144 @@
     "id": "PL",
     "name": "ポーランド",
     "romaji": "porando",
-    "flagImage": "porando"
+    "flagImage": "porando",
+    "capital": "ワルシャワ",
+    "capitalRomaji": "warushawa"
   },
   {
     "id": "CZ",
     "name": "チェコ",
     "romaji": "cheko",
-    "flagImage": "cheko"
+    "flagImage": "cheko",
+    "capital": "プラハ",
+    "capitalRomaji": "puraha"
   },
   {
     "id": "HU",
     "name": "ハンガリー",
     "romaji": "hungari",
-    "flagImage": "hungari"
+    "flagImage": "hungari",
+    "capital": "ブダペスト",
+    "capitalRomaji": "budapesuto"
   },
   {
     "id": "RO",
     "name": "ルーマニア",
     "romaji": "rumania",
-    "flagImage": "rumania"
+    "flagImage": "rumania",
+    "capital": "ブカレスト",
+    "capitalRomaji": "bukaresuto"
   },
   {
     "id": "BG",
     "name": "ブルガリア",
     "romaji": "burugaria",
-    "flagImage": "burugaria"
+    "flagImage": "burugaria",
+    "capital": "ソフィア",
+    "capitalRomaji": "sofia"
   },
   {
     "id": "UA",
     "name": "ウクライナ",
     "romaji": "ukuraina",
-    "flagImage": "ukuraina"
+    "flagImage": "ukuraina",
+    "capital": "キーウ",
+    "capitalRomaji": "kiu"
   },
   {
     "id": "BY",
     "name": "ベラルーシ",
     "romaji": "berarushi",
-    "flagImage": "berarushi"
+    "flagImage": "berarushi",
+    "capital": "ミンスク",
+    "capitalRomaji": "minsuku"
   },
   {
     "id": "RS",
     "name": "セルビア",
     "romaji": "serubia",
-    "flagImage": "serubia"
+    "flagImage": "serubia",
+    "capital": "ベオグラード",
+    "capitalRomaji": "beogurado"
   },
   {
     "id": "HR",
     "name": "クロアチア",
     "romaji": "kuroachia",
-    "flagImage": "kuroachia"
+    "flagImage": "kuroachia",
+    "capital": "ザグレブ",
+    "capitalRomaji": "zagurebu"
   },
   {
     "id": "SI",
     "name": "スロベニア",
     "romaji": "surobenia",
-    "flagImage": "surobenia"
+    "flagImage": "surobenia",
+    "capital": "リュブリャナ",
+    "capitalRomaji": "ryuburiyana"
   },
   {
     "id": "SK",
     "name": "スロバキア",
     "romaji": "surobakia",
-    "flagImage": "surobakia"
+    "flagImage": "surobakia",
+    "capital": "ブラチスラバ",
+    "capitalRomaji": "burachisuraba"
   },
   {
     "id": "BA",
     "name": "ボスニア・ヘルツェゴビナ",
     "romaji": "bosuniahertsuegobina",
-    "flagImage": "bosunia herutsegobina"
+    "flagImage": "bosunia herutsegobina",
+    "capital": "サラエボ",
+    "capitalRomaji": "saraebo"
   },
   {
     "id": "ME",
     "name": "モンテネグロ",
     "romaji": "monteneguro",
-    "flagImage": "monteneguro"
+    "flagImage": "monteneguro",
+    "capital": "ポドゴリツァ",
+    "capitalRomaji": "podogoritsa"
   },
   {
     "id": "AL",
     "name": "アルバニア",
     "romaji": "arubania",
-    "flagImage": "arubania"
+    "flagImage": "arubania",
+    "capital": "ティラナ",
+    "capitalRomaji": "tirana"
   },
   {
     "id": "MD",
     "name": "モルドバ",
     "romaji": "morudoba",
-    "flagImage": "morudoba"
+    "flagImage": "morudoba",
+    "capital": "キシナウ",
+    "capitalRomaji": "kishinau"
   },
   {
     "id": "EE",
     "name": "エストニア",
     "romaji": "esutonia",
-    "flagImage": "esutonia"
+    "flagImage": "esutonia",
+    "capital": "タリン",
+    "capitalRomaji": "tarin"
   },
   {
     "id": "LV",
     "name": "ラトビア",
     "romaji": "ratobia",
-    "flagImage": "ratobia"
+    "flagImage": "ratobia",
+    "capital": "リガ",
+    "capitalRomaji": "riga"
   },
   {
     "id": "LT",
     "name": "リトアニア",
     "romaji": "ritoania",
-    "flagImage": "ritoania"
+    "flagImage": "ritoania",
+    "capital": "ビリニュス",
+    "capitalRomaji": "birinyusu"
   }
 ]

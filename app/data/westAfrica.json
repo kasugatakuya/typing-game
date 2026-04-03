@@ -1,13 +1,90 @@
 [
-  { "id": "ML", "name": "マリ", "romaji": "mari", "flagImage": "mari" },
-  { "id": "NE", "name": "ニジェール", "romaji": "nijeru", "flagImage": "nijeru" },
-  { "id": "BF", "name": "ブルキナファソ", "romaji": "burukinafaso", "flagImage": "burukinafaso" },
-  { "id": "GN", "name": "ギニア", "romaji": "ginia", "flagImage": "ginia" },
-  { "id": "SL", "name": "シエラレオネ", "romaji": "shierareone", "flagImage": "shierareone" },
-  { "id": "LR", "name": "リベリア", "romaji": "riberia", "flagImage": "riberia" },
-  { "id": "BJ", "name": "ベナン", "romaji": "benan", "flagImage": "benan" },
-  { "id": "GM", "name": "ガンビア", "romaji": "ganbia", "flagImage": "ganbia" },
-  { "id": "GW", "name": "ギニアビサウ", "romaji": "giniabisau", "flagImage": "giniabisau" },
-  { "id": "MR", "name": "モーリタニア", "romaji": "moritania", "flagImage": "moritania isuramu" },
-  { "id": "CV", "name": "カーボベルデ", "romaji": "kaboverude", "flagImage": "kaboverude" }
+  {
+    "id": "ML",
+    "name": "マリ",
+    "romaji": "mari",
+    "flagImage": "mari",
+    "capital": "バマコ",
+    "capitalRomaji": "bamako"
+  },
+  {
+    "id": "NE",
+    "name": "ニジェール",
+    "romaji": "nijeru",
+    "flagImage": "nijeru",
+    "capital": "ニアメ",
+    "capitalRomaji": "niame"
+  },
+  {
+    "id": "BF",
+    "name": "ブルキナファソ",
+    "romaji": "burukinafaso",
+    "flagImage": "burukinafaso",
+    "capital": "ワガドゥグー",
+    "capitalRomaji": "wagadugu"
+  },
+  {
+    "id": "GN",
+    "name": "ギニア",
+    "romaji": "ginia",
+    "flagImage": "ginia",
+    "capital": "コナクリ",
+    "capitalRomaji": "konakuri"
+  },
+  {
+    "id": "SL",
+    "name": "シエラレオネ",
+    "romaji": "shierareone",
+    "flagImage": "shierareone",
+    "capital": "フリータウン",
+    "capitalRomaji": "furitaun"
+  },
+  {
+    "id": "LR",
+    "name": "リベリア",
+    "romaji": "riberia",
+    "flagImage": "riberia",
+    "capital": "モンロビア",
+    "capitalRomaji": "monrobia"
+  },
+  {
+    "id": "BJ",
+    "name": "ベナン",
+    "romaji": "benan",
+    "flagImage": "benan",
+    "capital": "ポルトノボ",
+    "capitalRomaji": "porutonobo"
+  },
+  {
+    "id": "GM",
+    "name": "ガンビア",
+    "romaji": "ganbia",
+    "flagImage": "ganbia",
+    "capital": "バンジュール",
+    "capitalRomaji": "banjuru"
+  },
+  {
+    "id": "GW",
+    "name": "ギニアビサウ",
+    "romaji": "giniabisau",
+    "flagImage": "giniabisau",
+    "capital": "ビサウ",
+    "capitalRomaji": "bisau"
+  },
+  {
+    "id": "MR",
+    "name": "モーリタニア",
+    "romaji": "moritania",
+    "flagImage": "moritania isuramu",
+    "capital": "ヌアクショット",
+    "capitalRomaji": "nuakushotto"
+  },
+  {
+    "id": "CV",
+    "name": "カーボベルデ",
+    "romaji": "kaboverude",
+    "flagImage": "kaboverude",
+    "capital": "プライア",
+    "capitalRomaji": "puraia"
+  }
 ]

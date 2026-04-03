@@ -83,7 +83,7 @@ export default function JapanMap() {
               }`}
             >
               <div
-                className={`py-1 px-2 ${
+                className={`p-2 ${
                   region.id === "all"
                     ? "bg-gradient-to-r from-green-400 to-green-500"
                     : region.available
@@ -95,7 +95,7 @@ export default function JapanMap() {
                   {region.name}
                 </h2>
               </div>
-              <div className="p-2 flex flex-col flex-grow">
+              <div className="p-4 flex flex-col flex-grow">
                 <p className="text-gray-600 text-sm mb-3 text-center flex-grow">
                   {region.description}
                 </p>

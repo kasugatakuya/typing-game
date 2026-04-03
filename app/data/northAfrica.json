@@ -3,36 +3,48 @@
     "id": "EG",
     "name": "エジプト",
     "romaji": "ejiputo",
-    "flagImage": "ejiputo arabu"
+    "flagImage": "ejiputo arabu",
+    "capital": "カイロ",
+    "capitalRomaji": "kairo"
   },
   {
     "id": "MA",
     "name": "モロッコ",
     "romaji": "morokko",
-    "flagImage": "morokko"
+    "flagImage": "morokko",
+    "capital": "ラバト",
+    "capitalRomaji": "rabato"
   },
   {
     "id": "DZ",
     "name": "アルジェリア",
     "romaji": "arujeria",
-    "flagImage": "arujeria"
+    "flagImage": "arujeria",
+    "capital": "アルジェ",
+    "capitalRomaji": "aruje"
   },
   {
     "id": "TN",
     "name": "チュニジア",
     "romaji": "chunijia",
-    "flagImage": "chunijia"
+    "flagImage": "chunijia",
+    "capital": "チュニス",
+    "capitalRomaji": "chunisu"
   },
   {
     "id": "LY",
     "name": "リビア",
     "romaji": "ribia",
-    "flagImage": "ribia"
+    "flagImage": "ribia",
+    "capital": "トリポリ",
+    "capitalRomaji": "toripori"
   },
   {
     "id": "SD",
     "name": "スーダン",
     "romaji": "sudan",
-    "flagImage": "sudan"
+    "flagImage": "sudan",
+    "capital": "ハルツーム",
+    "capitalRomaji": "harutsumu"
   }
 ]

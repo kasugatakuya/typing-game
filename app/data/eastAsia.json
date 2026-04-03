@@ -3,144 +3,192 @@
     "id": "JP",
     "name": "日本",
     "romaji": "nihon",
-    "flagImage": "nihon"
+    "flagImage": "nihon",
+    "capital": "東京",
+    "capitalRomaji": "toukyou"
   },
   {
     "id": "CN",
     "name": "中国",
     "romaji": "chuugoku",
-    "flagImage": "chuugoku"
+    "flagImage": "chuugoku",
+    "capital": "北京",
+    "capitalRomaji": "pekin"
   },
   {
     "id": "KR",
     "name": "韓国",
     "romaji": "kankoku",
-    "flagImage": "daikanminkoku"
+    "flagImage": "daikanminkoku",
+    "capital": "ソウル",
+    "capitalRomaji": "souru"
   },
   {
     "id": "IN",
     "name": "インド",
     "romaji": "indo",
-    "flagImage": "indo"
+    "flagImage": "indo",
+    "capital": "ニューデリー",
+    "capitalRomaji": "nyuderi"
   },
   {
     "id": "ID",
     "name": "インドネシア",
     "romaji": "indoneshia",
-    "flagImage": "indoneshia"
+    "flagImage": "indoneshia",
+    "capital": "ジャカルタ",
+    "capitalRomaji": "jakaruta"
   },
   {
     "id": "PH",
     "name": "フィリピン",
     "romaji": "firipin",
-    "flagImage": "firipin"
+    "flagImage": "firipin",
+    "capital": "マニラ",
+    "capitalRomaji": "manira"
   },
   {
     "id": "VN",
     "name": "ベトナム",
     "romaji": "betonamu",
-    "flagImage": "betonamu"
+    "flagImage": "betonamu",
+    "capital": "ハノイ",
+    "capitalRomaji": "hanoi"
   },
   {
     "id": "TH",
     "name": "タイ",
     "romaji": "tai",
-    "flagImage": "tai"
+    "flagImage": "tai",
+    "capital": "バンコク",
+    "capitalRomaji": "bankoku"
   },
   {
     "id": "MY",
     "name": "マレーシア",
     "romaji": "mareshia",
-    "flagImage": "mareshia"
+    "flagImage": "mareshia",
+    "capital": "クアラルンプール",
+    "capitalRomaji": "kuararunpuru"
   },
   {
     "id": "MM",
     "name": "ミャンマー",
     "romaji": "myanma",
-    "flagImage": "myanma"
+    "flagImage": "myanma",
+    "capital": "ネピドー",
+    "capitalRomaji": "nepido"
   },
   {
     "id": "KH",
     "name": "カンボジア",
     "romaji": "kanbojia",
-    "flagImage": "kanbojia"
+    "flagImage": "kanbojia",
+    "capital": "プノンペン",
+    "capitalRomaji": "punonpen"
   },
   {
     "id": "LA",
     "name": "ラオス",
     "romaji": "raosu",
-    "flagImage": "raosu"
+    "flagImage": "raosu",
+    "capital": "ビエンチャン",
+    "capitalRomaji": "bienchan"
   },
   {
     "id": "BD",
     "name": "バングラデシュ",
     "romaji": "banguradeshu",
-    "flagImage": "banguradeshu"
+    "flagImage": "banguradeshu",
+    "capital": "ダッカ",
+    "capitalRomaji": "dakka"
   },
   {
     "id": "PK",
     "name": "パキスタン",
     "romaji": "pakisutan",
-    "flagImage": "pakisutan"
+    "flagImage": "pakisutan",
+    "capital": "イスラマバード",
+    "capitalRomaji": "isuramabado"
   },
   {
     "id": "LK",
     "name": "スリランカ",
     "romaji": "suriranka",
-    "flagImage": "suriranka"
+    "flagImage": "suriranka",
+    "capital": "コロンボ",
+    "capitalRomaji": "koronbo"
   },
   {
     "id": "MN",
     "name": "モンゴル",
     "romaji": "mongoru",
-    "flagImage": "mongoru"
+    "flagImage": "mongoru",
+    "capital": "ウランバートル",
+    "capitalRomaji": "uranbatoru"
   },
   {
     "id": "TW",
     "name": "台湾",
     "romaji": "taiwan",
-    "flagImage": "taiwan"
+    "flagImage": "taiwan",
+    "capital": "台北",
+    "capitalRomaji": "taipei"
   },
   {
     "id": "SG",
     "name": "シンガポール",
     "romaji": "shingaporu",
-    "flagImage": "shingaporu"
+    "flagImage": "shingaporu",
+    "capital": "シンガポール",
+    "capitalRomaji": "shingaporu"
   },
   {
     "id": "BN",
     "name": "ブルネイ",
     "romaji": "burunei",
-    "flagImage": "burunei darusaramu"
+    "flagImage": "burunei darusaramu",
+    "capital": "バンダルスリブガワン",
+    "capitalRomaji": "bandarusuribugawan"
   },
   {
     "id": "TL",
     "name": "東ティモール",
     "romaji": "higashitimoru",
-    "flagImage": "higashitimoru"
+    "flagImage": "higashitimoru",
+    "capital": "ディリ",
+    "capitalRomaji": "diri"
   },
   {
     "id": "NP",
     "name": "ネパール",
     "romaji": "neparu",
-    "flagImage": "neparu"
+    "flagImage": "neparu",
+    "capital": "カトマンズ",
+    "capitalRomaji": "katomanzu"
   },
   {
     "id": "BT",
     "name": "ブータン",
     "romaji": "butan",
-    "flagImage": "butan"
+    "flagImage": "butan",
+    "capital": "ティンプー",
+    "capitalRomaji": "tinpu"
   },
   {
     "id": "MV",
     "name": "モルディブ",
     "romaji": "morudibu",
-    "flagImage": "morudibu"
+    "flagImage": "morudibu",
+    "capital": "マレ",
+    "capitalRomaji": "mare"
   },
   {
     "id": "KP",
     "name": "北朝鮮",
     "romaji": "kitachousen",
-    "flagImage": "kitachousen"
+    "flagImage": "kitachousen",
+    "capital": "平壌",
+    "capitalRomaji": "pyonyan"
   }
 ]

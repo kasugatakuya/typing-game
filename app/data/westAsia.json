@@ -3,90 +3,120 @@
     "id": "TR",
     "name": "トルコ",
     "romaji": "toruko",
-    "flagImage": "toruko"
+    "flagImage": "toruko",
+    "capital": "アンカラ",
+    "capitalRomaji": "ankara"
   },
   {
     "id": "SA",
     "name": "サウジアラビア",
     "romaji": "saujiarabia",
-    "flagImage": "saujiarabia"
+    "flagImage": "saujiarabia",
+    "capital": "リヤド",
+    "capitalRomaji": "riyado"
   },
   {
     "id": "AE",
     "name": "アラブ首長国連邦",
     "romaji": "arabushuchoukokurenpou",
-    "flagImage": "arabushuchoukokurenpou"
+    "flagImage": "arabushuchoukokurenpou",
+    "capital": "アブダビ",
+    "capitalRomaji": "abudabi"
   },
   {
     "id": "IR",
     "name": "イラン",
     "romaji": "iran",
-    "flagImage": "iran"
+    "flagImage": "iran",
+    "capital": "テヘラン",
+    "capitalRomaji": "teheran"
   },
   {
     "id": "IQ",
     "name": "イラク",
     "romaji": "iraku",
-    "flagImage": "iraku"
+    "flagImage": "iraku",
+    "capital": "バグダッド",
+    "capitalRomaji": "bagudaddo"
   },
   {
     "id": "IL",
     "name": "イスラエル",
     "romaji": "isuraeru",
-    "flagImage": "isuraeru"
+    "flagImage": "isuraeru",
+    "capital": "エルサレム",
+    "capitalRomaji": "erusaremu"
   },
   {
     "id": "SY",
     "name": "シリア",
     "romaji": "shiria",
-    "flagImage": "shiria arabu"
+    "flagImage": "shiria arabu",
+    "capital": "ダマスカス",
+    "capitalRomaji": "damasukasu"
   },
   {
     "id": "JO",
     "name": "ヨルダン",
     "romaji": "yorudan",
-    "flagImage": "yorudan"
+    "flagImage": "yorudan",
+    "capital": "アンマン",
+    "capitalRomaji": "anman"
   },
   {
     "id": "LB",
     "name": "レバノン",
     "romaji": "rebanon",
-    "flagImage": "rebanon"
+    "flagImage": "rebanon",
+    "capital": "ベイルート",
+    "capitalRomaji": "beiruto"
   },
   {
     "id": "KW",
     "name": "クウェート",
     "romaji": "kuweto",
-    "flagImage": "kuweto"
+    "flagImage": "kuweto",
+    "capital": "クウェート",
+    "capitalRomaji": "kuweto"
   },
   {
     "id": "OM",
     "name": "オマーン",
     "romaji": "oman",
-    "flagImage": "oman"
+    "flagImage": "oman",
+    "capital": "マスカット",
+    "capitalRomaji": "masukatto"
   },
   {
     "id": "QA",
     "name": "カタール",
     "romaji": "kataru",
-    "flagImage": "kataru"
+    "flagImage": "kataru",
+    "capital": "ドーハ",
+    "capitalRomaji": "doha"
   },
   {
     "id": "BH",
     "name": "バーレーン",
     "romaji": "baren",
-    "flagImage": "baren"
+    "flagImage": "baren",
+    "capital": "マナーマ",
+    "capitalRomaji": "manama"
   },
   {
     "id": "YE",
     "name": "イエメン",
     "romaji": "iemen",
-    "flagImage": "iemen"
+    "flagImage": "iemen",
+    "capital": "サナア",
+    "capitalRomaji": "sanaa"
   },
   {
     "id": "AF",
     "name": "アフガニスタン",
     "romaji": "afuganisutan",
-    "flagImage": "afuganisutan"
+    "flagImage": "afuganisutan",
+    "capital": "カブール",
+    "capitalRomaji": "kaburu"
   }
 ]

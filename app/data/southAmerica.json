@@ -3,72 +3,96 @@
     "id": "BR",
     "name": "ブラジル",
     "romaji": "burajiru",
-    "flagImage": "burajiru"
+    "flagImage": "burajiru",
+    "capital": "ブラジリア",
+    "capitalRomaji": "burajilia"
   },
   {
     "id": "AR",
     "name": "アルゼンチン",
     "romaji": "aruzenchin",
-    "flagImage": "aruzenchin"
+    "flagImage": "aruzenchin",
+    "capital": "ブエノスアイレス",
+    "capitalRomaji": "buenosuairesu"
   },
   {
     "id": "CL",
     "name": "チリ",
     "romaji": "chiri",
-    "flagImage": "chiri"
+    "flagImage": "chiri",
+    "capital": "サンティアゴ",
+    "capitalRomaji": "santiago"
   },
   {
     "id": "PE",
     "name": "ペルー",
     "romaji": "peru",
-    "flagImage": "peru"
+    "flagImage": "peru",
+    "capital": "リマ",
+    "capitalRomaji": "rima"
   },
   {
     "id": "CO",
     "name": "コロンビア",
     "romaji": "koronbia",
-    "flagImage": "koronbia"
+    "flagImage": "koronbia",
+    "capital": "ボゴタ",
+    "capitalRomaji": "bogota"
   },
   {
     "id": "VE",
     "name": "ベネズエラ",
     "romaji": "benezuera",
-    "flagImage": "benezuera"
+    "flagImage": "benezuera",
+    "capital": "カラカス",
+    "capitalRomaji": "karakasu"
   },
   {
     "id": "EC",
     "name": "エクアドル",
     "romaji": "ekuadoru",
-    "flagImage": "ekuadoru"
+    "flagImage": "ekuadoru",
+    "capital": "キト",
+    "capitalRomaji": "kito"
   },
   {
     "id": "BO",
     "name": "ボリビア",
     "romaji": "boribia",
-    "flagImage": "boribia"
+    "flagImage": "boribia",
+    "capital": "ラパス",
+    "capitalRomaji": "rapasu"
   },
   {
     "id": "PY",
     "name": "パラグアイ",
     "romaji": "paraguai",
-    "flagImage": "paraguai"
+    "flagImage": "paraguai",
+    "capital": "アスンシオン",
+    "capitalRomaji": "asunshion"
   },
   {
     "id": "UY",
     "name": "ウルグアイ",
     "romaji": "uruguai",
-    "flagImage": "uruguai"
+    "flagImage": "uruguai",
+    "capital": "モンテビデオ",
+    "capitalRomaji": "montebideo"
   },
   {
     "id": "GY",
     "name": "ガイアナ",
     "romaji": "gaiana",
-    "flagImage": "gaiana"
+    "flagImage": "gaiana",
+    "capital": "ジョージタウン",
+    "capitalRomaji": "jojitaun"
   },
   {
     "id": "SR",
     "name": "スリナム",
     "romaji": "surinamu",
-    "flagImage": "surinamu"
+    "flagImage": "surinamu",
+    "capital": "パラマリボ",
+    "capitalRomaji": "paramaribo"
   }
 ]

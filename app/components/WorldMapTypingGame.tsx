@@ -11,7 +11,11 @@ interface MapCountry {
   name: string;
   romaji: string;
   flagImage: string;
+  capital: string;
+  capitalRomaji: string;
 }
+
+type GameMode = "country" | "capital";
 
 type GameState = "idle" | "playing" | "finished";
 type Region =
@@ -32,6 +36,7 @@ interface WorldMapTypingGameProps {
   allCountries: MapCountry[];
   region: Region;
   regionName: string;
+  gameMode: GameMode;
 }
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -48,10 +53,19 @@ const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
   </p>
 );
 
+const getTargetName = (country: MapCountry, mode: GameMode): string => {
+  return mode === "capital" ? country.capital : country.name;
+};
+
+const getTargetRomaji = (country: MapCountry, mode: GameMode): string => {
+  return mode === "capital" ? country.capitalRomaji : country.romaji;
+};
+
 export function WorldMapTypingGame({
   allCountries,
   region,
   regionName,
+  gameMode,
 }: WorldMapTypingGameProps) {
   const [gameState, setGameState] = useState<GameState>("idle");
   const [currentCountry, setCurrentCountry] = useState<MapCountry | null>(null);
@@ -153,9 +167,10 @@ export function WorldMapTypingGame({
       setTypingStartTime(Date.now());
     }
 
-    if (currentCountry.romaji.startsWith(newInput)) {
+    const targetRomaji = getTargetRomaji(currentCountry, gameMode);
+    if (targetRomaji.startsWith(newInput)) {
       setInput(newInput);
-      if (newInput === currentCountry.romaji) {
+      if (newInput === targetRomaji) {
         handleCorrectInput();
       }
     } else {
@@ -197,6 +212,9 @@ export function WorldMapTypingGame({
         <div className="flex-shrink-0 text-center mb-5 w-full">
           <h1 className="text-xl font-bold text-gray-800">
             世界地図タイピング - {regionName}（全{itemCount}問）
+            <span className="ml-2 text-sm font-normal text-blue-600">
+              {gameMode === "capital" ? "【首都名】" : "【国名】"}
+            </span>
           </h1>
         </div>
 
@@ -236,7 +254,9 @@ export function WorldMapTypingGame({
                 {gameState === "idle" ? (
                   <>
                     <p className="text-gray-700 mb-3">
-                      地図上の国の名前をタイピングしよう！
+                      {gameMode === "capital"
+                        ? "地図上の国の首都名をタイピングしよう！"
+                        : "地図上の国の名前をタイピングしよう！"}
                     </p>
                     <p
                       className={`text-xl font-semibold text-blue-500 transition-opacity duration-500 ${
@@ -294,12 +314,26 @@ export function WorldMapTypingGame({
         {gameState === "playing" && currentCountry && (
           <div className="flex-shrink-0 bg-white rounded-lg shadow-lg p-4 mb-3">
             <div className="max-w-lg mx-auto">
-              {/* 国名と入力 */}
+              {/* 国名/首都名と入力 */}
               <div className="text-center mb-2">
-                <p className="text-xl font-bold text-gray-800">
-                  {currentCountry.name}
-                </p>
-                <RomajiDisplay input={input} romaji={currentCountry.romaji} />
+                {gameMode === "capital" ? (
+                  <>
+                    <p className="text-sm text-gray-500 mb-1">
+                      {currentCountry.name}の首都
+                    </p>
+                    <p className="text-xl font-bold text-gray-800">
+                      {currentCountry.capital}
+                    </p>
+                  </>
+                ) : (
+                  <p className="text-xl font-bold text-gray-800">
+                    {currentCountry.name}
+                  </p>
+                )}
+                <RomajiDisplay
+                  input={input}
+                  romaji={getTargetRomaji(currentCountry, gameMode)}
+                />
               </div>
 
               {/* 入力フィールド */}

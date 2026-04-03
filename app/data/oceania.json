@@ -3,84 +3,112 @@
     "id": "AU",
     "name": "オーストラリア",
     "romaji": "osutoraria",
-    "flagImage": "osutoraria"
+    "flagImage": "osutoraria",
+    "capital": "キャンベラ",
+    "capitalRomaji": "kyanbera"
   },
   {
     "id": "NZ",
     "name": "ニュージーランド",
     "romaji": "nyujirando",
-    "flagImage": "nyujirando"
+    "flagImage": "nyujirando",
+    "capital": "ウェリントン",
+    "capitalRomaji": "werinton"
   },
   {
     "id": "PG",
     "name": "パプアニューギニア",
     "romaji": "papuanyuginia",
-    "flagImage": "papuanyuginia"
+    "flagImage": "papuanyuginia",
+    "capital": "ポートモレスビー",
+    "capitalRomaji": "potomoresubi"
   },
   {
     "id": "FJ",
     "name": "フィジー",
     "romaji": "fiji",
-    "flagImage": "fiji"
+    "flagImage": "fiji",
+    "capital": "スバ",
+    "capitalRomaji": "suba"
   },
   {
     "id": "SB",
     "name": "ソロモン諸島",
     "romaji": "soromon",
-    "flagImage": "soromon"
+    "flagImage": "soromon",
+    "capital": "ホニアラ",
+    "capitalRomaji": "honiara"
   },
   {
     "id": "VU",
     "name": "バヌアツ",
     "romaji": "banuatsu",
-    "flagImage": "banuatsu"
+    "flagImage": "banuatsu",
+    "capital": "ポートビラ",
+    "capitalRomaji": "potobira"
   },
   {
     "id": "WS",
     "name": "サモア",
     "romaji": "samoa",
-    "flagImage": "samoa"
+    "flagImage": "samoa",
+    "capital": "アピア",
+    "capitalRomaji": "apia"
   },
   {
     "id": "TO",
     "name": "トンガ",
     "romaji": "tonga",
-    "flagImage": "tonga"
+    "flagImage": "tonga",
+    "capital": "ヌクアロファ",
+    "capitalRomaji": "nukuarofa"
   },
   {
     "id": "KI",
     "name": "キリバス",
     "romaji": "kiribasu",
-    "flagImage": "kiribasu"
+    "flagImage": "kiribasu",
+    "capital": "タラワ",
+    "capitalRomaji": "tarawa"
   },
   {
     "id": "FM",
     "name": "ミクロネシア連邦",
     "romaji": "mikuroneshia",
-    "flagImage": "mikuroneshia"
+    "flagImage": "mikuroneshia",
+    "capital": "パリキール",
+    "capitalRomaji": "parikiru"
   },
   {
     "id": "MH",
     "name": "マーシャル諸島",
     "romaji": "masharu",
-    "flagImage": "masharu"
+    "flagImage": "masharu",
+    "capital": "マジュロ",
+    "capitalRomaji": "majuro"
   },
   {
     "id": "PW",
     "name": "パラオ",
     "romaji": "parao",
-    "flagImage": "parao"
+    "flagImage": "parao",
+    "capital": "マルキョク",
+    "capitalRomaji": "marukyoku"
   },
   {
     "id": "NR",
     "name": "ナウル",
     "romaji": "nauru",
-    "flagImage": "nauru"
+    "flagImage": "nauru",
+    "capital": "ヤレン",
+    "capitalRomaji": "yaren"
   },
   {
     "id": "TV",
     "name": "ツバル",
     "romaji": "tsubaru",
-    "flagImage": "tsubaru"
+    "flagImage": "tsubaru",
+    "capital": "フナフティ",
+    "capitalRomaji": "funafuti"
   }
 ]

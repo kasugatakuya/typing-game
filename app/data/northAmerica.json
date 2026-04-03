@@ -3,138 +3,184 @@
     "id": "CA",
     "name": "カナダ",
     "romaji": "kanada",
-    "flagImage": "kanada"
+    "flagImage": "kanada",
+    "capital": "オタワ",
+    "capitalRomaji": "otawa"
   },
   {
     "id": "US",
     "name": "アメリカ",
     "romaji": "amerika",
-    "flagImage": "amerika"
+    "flagImage": "amerika",
+    "capital": "ワシントンD.C.",
+    "capitalRomaji": "washintondc"
   },
   {
     "id": "MX",
     "name": "メキシコ",
     "romaji": "mekishiko",
-    "flagImage": "mekishiko"
+    "flagImage": "mekishiko",
+    "capital": "メキシコシティ",
+    "capitalRomaji": "mekishikoshiti"
   },
   {
     "id": "GT",
     "name": "グアテマラ",
     "romaji": "guatemara",
-    "flagImage": "guatemara"
+    "flagImage": "guatemara",
+    "capital": "グアテマラシティ",
+    "capitalRomaji": "guatemarashiti"
   },
   {
     "id": "BZ",
     "name": "ベリーズ",
     "romaji": "berizu",
-    "flagImage": "berizu"
+    "flagImage": "berizu",
+    "capital": "ベルモパン",
+    "capitalRomaji": "berumopan"
   },
   {
     "id": "HN",
     "name": "ホンジュラス",
     "romaji": "honjurasu",
-    "flagImage": "honjurasu"
+    "flagImage": "honjurasu",
+    "capital": "テグシガルパ",
+    "capitalRomaji": "tegushigarupa"
   },
   {
     "id": "SV",
     "name": "エルサルバドル",
     "romaji": "erusarubadoru",
-    "flagImage": "erusarubadoru"
+    "flagImage": "erusarubadoru",
+    "capital": "サンサルバドル",
+    "capitalRomaji": "sansarubadoru"
   },
   {
     "id": "NI",
     "name": "ニカラグア",
     "romaji": "nikaragua",
-    "flagImage": "nikaragua"
+    "flagImage": "nikaragua",
+    "capital": "マナグア",
+    "capitalRomaji": "managua"
   },
   {
     "id": "CR",
     "name": "コスタリカ",
     "romaji": "kosutarika",
-    "flagImage": "kosutarika"
+    "flagImage": "kosutarika",
+    "capital": "サンホセ",
+    "capitalRomaji": "sanhose"
   },
   {
     "id": "PA",
     "name": "パナマ",
     "romaji": "panama",
-    "flagImage": "panama"
+    "flagImage": "panama",
+    "capital": "パナマシティ",
+    "capitalRomaji": "panamashiti"
   },
   {
     "id": "CU",
     "name": "キューバ",
     "romaji": "kyuba",
-    "flagImage": "kyuba"
+    "flagImage": "kyuba",
+    "capital": "ハバナ",
+    "capitalRomaji": "habana"
   },
   {
     "id": "JM",
     "name": "ジャマイカ",
     "romaji": "jamaika",
-    "flagImage": "jamaika"
+    "flagImage": "jamaika",
+    "capital": "キングストン",
+    "capitalRomaji": "kingusuton"
   },
   {
     "id": "HT",
     "name": "ハイチ",
     "romaji": "haichi",
-    "flagImage": "haichi"
+    "flagImage": "haichi",
+    "capital": "ポルトープランス",
+    "capitalRomaji": "porutopuransu"
   },
   {
     "id": "DO",
     "name": "ドミニカ共和国",
     "romaji": "dominikakyouwakoku",
-    "flagImage": "dominikakyouwakoku"
+    "flagImage": "dominikakyouwakoku",
+    "capital": "サントドミンゴ",
+    "capitalRomaji": "santodomingo"
   },
   {
     "id": "BS",
     "name": "バハマ",
     "romaji": "bahama",
-    "flagImage": "bahama"
+    "flagImage": "bahama",
+    "capital": "ナッソー",
+    "capitalRomaji": "nasso"
   },
   {
     "id": "TT",
     "name": "トリニダード・トバゴ",
     "romaji": "torinidadotobago",
-    "flagImage": "torinidado tobago"
+    "flagImage": "torinidado tobago",
+    "capital": "ポートオブスペイン",
+    "capitalRomaji": "potoobusupein"
   },
   {
     "id": "BB",
     "name": "バルバドス",
     "romaji": "barubadosu",
-    "flagImage": "barubadosu"
+    "flagImage": "barubadosu",
+    "capital": "ブリッジタウン",
+    "capitalRomaji": "burijjitaun"
   },
   {
     "id": "DM",
     "name": "ドミニカ国",
     "romaji": "dominikakoku",
-    "flagImage": "dominikakoku"
+    "flagImage": "dominikakoku",
+    "capital": "ロゾー",
+    "capitalRomaji": "rozo"
   },
   {
     "id": "LC",
     "name": "セントルシア",
     "romaji": "sentorushia",
-    "flagImage": "sentorushia"
+    "flagImage": "sentorushia",
+    "capital": "カストリーズ",
+    "capitalRomaji": "kasutorizu"
   },
   {
     "id": "VC",
     "name": "セントビンセント・グレナディーン",
     "romaji": "sentobinsentogurenadhin",
-    "flagImage": "sentobinsento gurenadhin"
+    "flagImage": "sentobinsento gurenadhin",
+    "capital": "キングスタウン",
+    "capitalRomaji": "kingusutaun"
   },
   {
     "id": "GD",
     "name": "グレナダ",
     "romaji": "gurenada",
-    "flagImage": "gurenada"
+    "flagImage": "gurenada",
+    "capital": "セントジョージズ",
+    "capitalRomaji": "sentojojizu"
   },
   {
     "id": "AG",
     "name": "アンティグア・バーブーダ",
     "romaji": "anthiguababuda",
-    "flagImage": "anthigua babuda"
+    "flagImage": "anthigua babuda",
+    "capital": "セントジョンズ",
+    "capitalRomaji": "sentojonzu"
   },
   {
     "id": "KN",
     "name": "セントクリストファー・ネイビス",
     "romaji": "sentokurisutofanevisu",
-    "flagImage": "sentokurisutofa nevisu"
+    "flagImage": "sentokurisutofa nevisu",
+    "capital": "バセテール",
+    "capitalRomaji": "baseteru"
   }
 ]

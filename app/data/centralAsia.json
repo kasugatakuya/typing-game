@@ -1,10 +1,66 @@
 [
-  { "id": "KZ", "name": "カザフスタン", "romaji": "kazafusutan", "flagImage": "kazafusutan" },
-  { "id": "UZ", "name": "ウズベキスタン", "romaji": "uzubekisutan", "flagImage": "uzubekisutan" },
-  { "id": "TM", "name": "トルクメニスタン", "romaji": "torukumenisutan", "flagImage": "torukumenisutan" },
-  { "id": "TJ", "name": "タジキスタン", "romaji": "tajikisutan", "flagImage": "tajikisutan" },
-  { "id": "KG", "name": "キルギス", "romaji": "kirugisu", "flagImage": "kirugisu" },
-  { "id": "GE", "name": "ジョージア", "romaji": "jojia", "flagImage": "jojia" },
-  { "id": "AM", "name": "アルメニア", "romaji": "arumenia", "flagImage": "arumenia" },
-  { "id": "AZ", "name": "アゼルバイジャン", "romaji": "azerubaijan", "flagImage": "azerubaijan" }
+  {
+    "id": "KZ",
+    "name": "カザフスタン",
+    "romaji": "kazafusutan",
+    "flagImage": "kazafusutan",
+    "capital": "アスタナ",
+    "capitalRomaji": "asutana"
+  },
+  {
+    "id": "UZ",
+    "name": "ウズベキスタン",
+    "romaji": "uzubekisutan",
+    "flagImage": "uzubekisutan",
+    "capital": "タシケント",
+    "capitalRomaji": "tashikento"
+  },
+  {
+    "id": "TM",
+    "name": "トルクメニスタン",
+    "romaji": "torukumenisutan",
+    "flagImage": "torukumenisutan",
+    "capital": "アシガバート",
+    "capitalRomaji": "ashigabato"
+  },
+  {
+    "id": "TJ",
+    "name": "タジキスタン",
+    "romaji": "tajikisutan",
+    "flagImage": "tajikisutan",
+    "capital": "ドゥシャンベ",
+    "capitalRomaji": "dushanbe"
+  },
+  {
+    "id": "KG",
+    "name": "キルギス",
+    "romaji": "kirugisu",
+    "flagImage": "kirugisu",
+    "capital": "ビシュケク",
+    "capitalRomaji": "bishukeku"
+  },
+  {
+    "id": "GE",
+    "name": "ジョージア",
+    "romaji": "jojia",
+    "flagImage": "jojia",
+    "capital": "トビリシ",
+    "capitalRomaji": "tobirishi"
+  },
+  {
+    "id": "AM",
+    "name": "アルメニア",
+    "romaji": "arumenia",
+    "flagImage": "arumenia",
+    "capital": "エレバン",
+    "capitalRomaji": "ereban"
+  },
+  {
+    "id": "AZ",
+    "name": "アゼルバイジャン",
+    "romaji": "azerubaijan",
+    "flagImage": "azerubaijan",
+    "capital": "バクー",
+    "capitalRomaji": "baku"
+  }
 ]

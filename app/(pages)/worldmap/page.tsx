@@ -116,12 +116,18 @@ export default function WorldMap() {
                   {region.description}
                 </p>
                 {region.available ? (
-                  <div className="flex justify-center">
+                  <div className="flex justify-center gap-2">
                     <Link
                       href={`/worldmap/${region.id}`}
-                      className="px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-blue-300 to-blue-400 text-white font-medium transition-all duration-200 hover:from-blue-400 hover:to-blue-500 hover:shadow-md"
+                      className="px-4 py-1.5 text-sm rounded-full bg-gradient-to-r from-blue-300 to-blue-400 text-white font-medium transition-all duration-200 hover:from-blue-400 hover:to-blue-500 hover:shadow-md"
                     >
-                      プレイする
+                      国名
+                    </Link>
+                    <Link
+                      href={`/worldmap/${region.id}?mode=capital`}
+                      className="px-4 py-1.5 text-sm rounded-full bg-gradient-to-r from-green-300 to-green-400 text-white font-medium transition-all duration-200 hover:from-green-400 hover:to-green-500 hover:shadow-md"
+                    >
+                      首都
                     </Link>
                   </div>
                 ) : (

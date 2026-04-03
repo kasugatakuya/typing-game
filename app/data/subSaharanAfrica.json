@@ -3,198 +3,264 @@
     "id": "ZA",
     "name": "南アフリカ",
     "romaji": "minamiafurika",
-    "flagImage": "minamiafurika"
+    "flagImage": "minamiafurika",
+    "capital": "プレトリア",
+    "capitalRomaji": "puretoria"
   },
   {
     "id": "KE",
     "name": "ケニア",
     "romaji": "kenia",
-    "flagImage": "kenia"
+    "flagImage": "kenia",
+    "capital": "ナイロビ",
+    "capitalRomaji": "nairobi"
   },
   {
     "id": "NG",
     "name": "ナイジェリア",
     "romaji": "naijeria",
-    "flagImage": "naijeria"
+    "flagImage": "naijeria",
+    "capital": "アブジャ",
+    "capitalRomaji": "abuja"
   },
   {
     "id": "ET",
     "name": "エチオピア",
     "romaji": "echiopia",
-    "flagImage": "echiopia"
+    "flagImage": "echiopia",
+    "capital": "アディスアベバ",
+    "capitalRomaji": "adisuabeba"
   },
   {
     "id": "GH",
     "name": "ガーナ",
     "romaji": "gana",
-    "flagImage": "gana"
+    "flagImage": "gana",
+    "capital": "アクラ",
+    "capitalRomaji": "akura"
   },
   {
     "id": "TZ",
     "name": "タンザニア",
     "romaji": "tanzania",
-    "flagImage": "tanzania"
+    "flagImage": "tanzania",
+    "capital": "ドドマ",
+    "capitalRomaji": "dodoma"
   },
   {
     "id": "UG",
     "name": "ウガンダ",
     "romaji": "uganda",
-    "flagImage": "uganda"
+    "flagImage": "uganda",
+    "capital": "カンパラ",
+    "capitalRomaji": "kanpara"
   },
   {
     "id": "SN",
     "name": "セネガル",
     "romaji": "senegaru",
-    "flagImage": "senegaru"
+    "flagImage": "senegaru",
+    "capital": "ダカール",
+    "capitalRomaji": "dakaru"
   },
   {
     "id": "CM",
     "name": "カメルーン",
     "romaji": "kamerun",
-    "flagImage": "kamerun"
+    "flagImage": "kamerun",
+    "capital": "ヤウンデ",
+    "capitalRomaji": "yaunde"
   },
   {
     "id": "CI",
     "name": "コートジボワール",
     "romaji": "kotojibowaru",
-    "flagImage": "kotojibowaru"
+    "flagImage": "kotojibowaru",
+    "capital": "ヤムスクロ",
+    "capitalRomaji": "yamusukuro"
   },
   {
     "id": "CD",
     "name": "コンゴ民主共和国",
     "romaji": "kongominshukyouwakoku",
-    "flagImage": "kongominshukyouwakoku"
+    "flagImage": "kongominshukyouwakoku",
+    "capital": "キンシャサ",
+    "capitalRomaji": "kinshasa"
   },
   {
     "id": "AO",
     "name": "アンゴラ",
     "romaji": "angora",
-    "flagImage": "angora"
+    "flagImage": "angora",
+    "capital": "ルアンダ",
+    "capitalRomaji": "ruanda"
   },
   {
     "id": "MZ",
     "name": "モザンビーク",
     "romaji": "mozanbiku",
-    "flagImage": "mozanbiku"
+    "flagImage": "mozanbiku",
+    "capital": "マプト",
+    "capitalRomaji": "maputo"
   },
   {
     "id": "MG",
     "name": "マダガスカル",
     "romaji": "madagasukaru",
-    "flagImage": "madagasukaru"
+    "flagImage": "madagasukaru",
+    "capital": "アンタナナリボ",
+    "capitalRomaji": "antananaribo"
   },
   {
     "id": "ZW",
     "name": "ジンバブエ",
     "romaji": "jinbabue",
-    "flagImage": "jinbabue"
+    "flagImage": "jinbabue",
+    "capital": "ハラレ",
+    "capitalRomaji": "harare"
   },
   {
     "id": "TD",
     "name": "チャド",
     "romaji": "chado",
-    "flagImage": "chado"
+    "flagImage": "chado",
+    "capital": "ンジャメナ",
+    "capitalRomaji": "njamena"
   },
   {
     "id": "TG",
     "name": "トーゴ",
     "romaji": "togo",
-    "flagImage": "togo"
+    "flagImage": "togo",
+    "capital": "ロメ",
+    "capitalRomaji": "rome"
   },
   {
     "id": "GA",
     "name": "ガボン",
     "romaji": "gabon",
-    "flagImage": "gabon"
+    "flagImage": "gabon",
+    "capital": "リーブルビル",
+    "capitalRomaji": "riburubiru"
   },
   {
     "id": "NA",
     "name": "ナミビア",
     "romaji": "namibia",
-    "flagImage": "namibia"
+    "flagImage": "namibia",
+    "capital": "ウィントフック",
+    "capitalRomaji": "wintofukku"
   },
   {
     "id": "BW",
     "name": "ボツワナ",
     "romaji": "botsuwana",
-    "flagImage": "botsuwana"
+    "flagImage": "botsuwana",
+    "capital": "ハボローネ",
+    "capitalRomaji": "haborone"
   },
   {
     "id": "RW",
     "name": "ルワンダ",
     "romaji": "ruwanda",
-    "flagImage": "ruwanda"
+    "flagImage": "ruwanda",
+    "capital": "キガリ",
+    "capitalRomaji": "kigari"
   },
   {
     "id": "CF",
     "name": "中央アフリカ",
     "romaji": "chuouafurika",
-    "flagImage": "chuouafurika"
+    "flagImage": "chuouafurika",
+    "capital": "バンギ",
+    "capitalRomaji": "bangi"
   },
   {
     "id": "ZM",
     "name": "ザンビア",
     "romaji": "zanbia",
-    "flagImage": "zanbia"
+    "flagImage": "zanbia",
+    "capital": "ルサカ",
+    "capitalRomaji": "rusaka"
   },
   {
     "id": "MW",
     "name": "マラウイ",
     "romaji": "maraui",
-    "flagImage": "maraui"
+    "flagImage": "maraui",
+    "capital": "リロングウェ",
+    "capitalRomaji": "rironguwe"
   },
   {
     "id": "BI",
     "name": "ブルンジ",
     "romaji": "burunji",
-    "flagImage": "burunji"
+    "flagImage": "burunji",
+    "capital": "ギテガ",
+    "capitalRomaji": "gitega"
   },
   {
     "id": "SS",
     "name": "南スーダン",
     "romaji": "minamisudan",
-    "flagImage": "minamisudan"
+    "flagImage": "minamisudan",
+    "capital": "ジュバ",
+    "capitalRomaji": "juba"
   },
   {
     "id": "ER",
     "name": "エリトリア",
     "romaji": "eritoria",
-    "flagImage": "eritoria"
+    "flagImage": "eritoria",
+    "capital": "アスマラ",
+    "capitalRomaji": "asumara"
   },
   {
     "id": "DJ",
     "name": "ジブチ",
     "romaji": "jibuchi",
-    "flagImage": "jibuchi"
+    "flagImage": "jibuchi",
+    "capital": "ジブチ",
+    "capitalRomaji": "jibuchi"
   },
   {
     "id": "SO",
     "name": "ソマリア",
     "romaji": "somaria",
-    "flagImage": "somaria"
+    "flagImage": "somaria",
+    "capital": "モガディシュ",
+    "capitalRomaji": "mogadishu"
   },
   {
     "id": "LS",
     "name": "レソト",
     "romaji": "resoto",
-    "flagImage": "resoto"
+    "flagImage": "resoto",
+    "capital": "マセル",
+    "capitalRomaji": "maseru"
   },
   {
     "id": "SZ",
     "name": "エスワティニ",
     "romaji": "esuwatini",
-    "flagImage": "esuwatini"
+    "flagImage": "esuwatini",
+    "capital": "ムババネ",
+    "capitalRomaji": "mubabane"
   },
   {
     "id": "CG",
     "name": "コンゴ共和国",
     "romaji": "kongokyouwakoku",
-    "flagImage": "kongokyouwakoku"
+    "flagImage": "kongokyouwakoku",
+    "capital": "ブラザビル",
+    "capitalRomaji": "burazabiru"
   },
   {
     "id": "GQ",
     "name": "赤道ギニア",
     "romaji": "sekidoginia",
-    "flagImage": "sekidoginia"
+    "flagImage": "sekidoginia",
+    "capital": "マラボ",
+    "capitalRomaji": "marabo"
   }
 ]
