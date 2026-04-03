@@ -24,10 +24,10 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-linear-to-b from-gray-50 to-gray-100 py-16 mt-16">
+    <main className="min-h-screen bg-linear-to-b from-gray-50 to-gray-100 py-16 mt-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* ヘッダーセクション */}
-        <div className="text-center mb-16 flex items-center justify-center">
+        <div className="text-center mb-10 flex items-center justify-center">
           <div>
             <Link href="/worldmap">
               <Image
@@ -117,20 +117,32 @@ export default function Home() {
           ))}
         </div>
 
-        {/* 将来的なユーザー登録セクション */}
-        {/* <div className="mt-16 bg-blue-50 rounded-lg p-8 text-center">
-          <p className="text-gray-700 mb-4">
-            ユーザー登録する事でゲームの記録をつける事が出来ます。
+        {/* 雑学タイピングへのリンク */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/other"
+            className="inline-flex items-center px-6 py-3 rounded-full bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl"
+          >
+            <span className="mr-2">💡</span>
+            雑学タイピングもチェック！
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
+          <p className="text-gray-500 text-sm mt-2">
+            元素周期表・山手線・星座・干支・七福神
           </p>
-          <div className="flex justify-center gap-4">
-            <button className="px-6 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-200 text-gray-700">
-              新規ユーザー登録
-            </button>
-            <button className="px-6 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-200 text-gray-700">
-              Googleでユーザー登録
-            </button>
-          </div>
-        </div> */}
+        </div>
       </div>
     </main>
   );
