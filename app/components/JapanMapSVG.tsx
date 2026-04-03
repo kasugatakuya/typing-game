@@ -5,13 +5,11 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
 export type JapanRegion =
   | "all"
-  | "hokkaido"
-  | "tohoku"
+  | "hokkaido-tohoku"
   | "kanto"
   | "chubu"
   | "kinki"
-  | "chugoku"
-  | "shikoku"
+  | "chugoku-shikoku"
   | "kyushu";
 
 interface JapanMapSVGProps {
@@ -88,15 +86,10 @@ const regionConfig: Record<
     scale: 1800,
     prefectureIds: Array.from({ length: 47 }, (_, i) => String(i + 1)),
   },
-  hokkaido: {
-    center: [143, 43.5],
-    scale: 4000,
-    prefectureIds: ["1"],
-  },
-  tohoku: {
-    center: [140.5, 39.2],
-    scale: 4800,
-    prefectureIds: ["2", "3", "4", "5", "6", "7"],
+  "hokkaido-tohoku": {
+    center: [141, 41.3],
+    scale: 2700,
+    prefectureIds: ["1", "2", "3", "4", "5", "6", "7"],
   },
   kanto: {
     center: [139.5, 35.5],
@@ -113,19 +106,14 @@ const regionConfig: Record<
     scale: 9500,
     prefectureIds: ["24", "25", "26", "27", "28", "29", "30"],
   },
-  chugoku: {
-    center: [133, 35],
-    scale: 8000,
-    prefectureIds: ["31", "32", "33", "34", "35"],
-  },
-  shikoku: {
-    center: [133.5, 33.6],
-    scale: 11000,
-    prefectureIds: ["36", "37", "38", "39"],
+  "chugoku-shikoku": {
+    center: [133, 34.5],
+    scale: 7000,
+    prefectureIds: ["31", "32", "33", "34", "35", "36", "37", "38", "39"],
   },
   kyushu: {
-    center: [130.5, 32],
-    scale: 4500,
+    center: [130.5, 32.5],
+    scale: 6000,
     prefectureIds: ["40", "41", "42", "43", "44", "45", "46", "47"],
   },
 };

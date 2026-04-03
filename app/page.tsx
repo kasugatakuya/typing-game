@@ -1,118 +1,44 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const gameCategories = [
     {
-      title: "世界地図 タイピング",
+      title: "世界地図タイピング",
       baseUrl: "/worldmap",
-      modes: [{ name: "世界地図 タイピング 一覧", path: "" }],
-      isNew: true,
-      singleMode: true,
+      text: "地図上の国名と首都をタイピングしよう！",
+      image: "/earth-map.png",
+      gradient: "from-blue-500 to-cyan-400",
+      hoverGradient: "hover:from-blue-600 hover:to-cyan-500",
+      features: ["国名", "首都"],
     },
     {
-      title: "日本地図 タイピング",
+      title: "日本地図タイピング",
       baseUrl: "/japanmap",
-      modes: [{ name: "日本地図 タイピング 一覧", path: "" }],
-      isNew: true,
-      singleMode: true,
-    },
-    {
-      title: "世界の国旗 タイピング",
-      baseUrl: "/country/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "むずかしい", path: "/hard" },
-      ],
-    },
-    {
-      title: "世界の首都 タイピング",
-      baseUrl: "/capitals/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "むずかしい", path: "/hard" },
-      ],
-    },
-    {
-      title: "世界遺産 タイピング",
-      baseUrl: "/heritage/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "むずかしい", path: "/hard" },
-      ],
-    },
-    {
-      title: "都道府県 タイピング",
-      baseUrl: "/prefectures/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "タイムトライアル", path: "/time-trial" },
-      ],
-    },
-    {
-      title: "県庁所在地 タイピング",
-      baseUrl: "/prefecturalCapitals/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "タイムトライアル", path: "/time-trial" },
-      ],
-    },
-    {
-      title: "県鳥 タイピング",
-      baseUrl: "/prefecturalBird/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "タイムトライアル", path: "/time-trial" },
-      ],
-    },
-    {
-      title: "県花 タイピング",
-      baseUrl: "/prefecturalFlower/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "タイムトライアル", path: "/time-trial" },
-      ],
-    },
-    {
-      title: "県木 タイピング",
-      baseUrl: "/prefecturalTree/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "タイムトライアル", path: "/time-trial" },
-      ],
-    },
-    {
-      title: "ゆるキャラ タイピング",
-      baseUrl: "/prefecturalChara/game",
-      modes: [
-        { name: "かんたん", path: "/easy" },
-        { name: "ふつう", path: "/normal" },
-        { name: "タイムトライアル", path: "/time-trial" },
-      ],
+      text: "地図上の都道府県や県の情報をタイピングしよう！",
+      image: "/japan-map.png",
+      gradient: "from-rose-500 to-orange-400",
+      hoverGradient: "hover:from-rose-600 hover:to-orange-500",
+      features: ["都道府県", "県庁所在地", "県鳥", "県花", "県木"],
     },
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 mt-11 lg:mt-16">
+    <main className="min-h-screen bg-linear-to-b from-gray-50 to-gray-100 py-16 mt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* ヘッダーセクション */}
         <div className="text-center mb-16 flex items-center justify-center">
           <div>
-            <Image
-              width={200}
-              height={200}
-              src="/earth-map.png"
-              alt="地球"
-              style={{ width: "auto", height: "auto" }}
-              priority
-            />
+            <Link href="/worldmap">
+              <Image
+                width={200}
+                height={200}
+                src="/earth-map.png"
+                alt="地球"
+                style={{ width: "auto", height: "auto" }}
+                priority
+              />
+            </Link>
           </div>
           <div className="mx-1">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
@@ -122,65 +48,71 @@ export default function Home() {
               楽しくゲーム感覚で遊ぼう!
             </p>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              国旗、主要国の首都、主要国の世界遺産、都道府県、県庁所在地、県鳥、県花、県木、ゆるキャラが出てきます
+              国名・首都、都道府県・県庁所在地・県鳥・県花・県木をタイピングで学ぼう
             </p>
           </div>
           <div>
-            <Image
-              width={200}
-              height={200}
-              src="/japan-map.png"
-              alt="日本地図"
-              style={{ width: "auto", height: "auto" }}
-              priority
-            />
+            <Link href="/japanmap">
+              <Image
+                width={200}
+                height={200}
+                src="/japan-map.png"
+                alt="日本地図"
+                style={{ width: "auto", height: "auto" }}
+                priority
+              />
+            </Link>
           </div>
         </div>
 
         {/* ゲームカテゴリーセクション */}
-        <div className="grid gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {gameCategories.map((category, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-[1.02]"
-            >
-              <div
-                className={`p-4 relative ${
-                  "isNew" in category && category.isNew
-                    ? "bg-gradient-to-r from-blue-400 to-blue-500"
-                    : "bg-gradient-to-r from-red-400 to-red-500"
-                }`}
-              >
-                {"isNew" in category && category.isNew && (
-                  <span className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                )}
-                <h2 className="text-2xl font-bold text-white text-center">
-                  {category.title}
-                </h2>
-              </div>
-              <div className="p-6">
-                <p className="text-center text-gray-600 mb-6">
-                  好きなコースを選んでください
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  {category.modes.map((mode, modeIndex) => (
-                    <a
-                      key={modeIndex}
-                      href={category.baseUrl + mode.path}
-                      className={`inline-block px-8 py-3 rounded-full text-white font-medium transition-all duration-200 hover:shadow-md transform hover:-translate-y-1 active:translate-y-0 ${
-                        "isNew" in category && category.isNew
-                          ? "bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500"
-                          : "bg-gradient-to-r from-orange-300 to-orange-400 hover:from-orange-400 hover:to-orange-500"
-                      }`}
-                    >
-                      {mode.name}
-                    </a>
-                  ))}
+            <Link key={index} href={category.baseUrl} className="group block">
+              <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                {/* グラデーション背景 */}
+                <div
+                  className={`absolute inset-0 bg-linear-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                />
+
+                {/* カード内容 */}
+                <div className="relative p-6">
+                  {/* 画像 */}
+                  <div className="flex justify-center mb-4">
+                    <div className="relative w-24 h-24 transition-transform duration-300 group-hover:scale-110">
+                      <Image
+                        src={category.image}
+                        alt={category.title}
+                        fill
+                        className="object-contain drop-shadow-md"
+                      />
+                    </div>
+                  </div>
+
+                  {/* タイトル */}
+                  <h2 className="text-xl font-bold text-gray-800 text-center mb-2 group-hover:text-white transition-colors duration-300">
+                    {category.title}
+                  </h2>
+
+                  {/* 説明 */}
+                  <p className="text-sm text-gray-600 text-center mb-4 group-hover:text-white/90 transition-colors duration-300">
+                    {category.text}
+                  </p>
+
+                  {/* 機能タグ */}
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {category.features.map((feature, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

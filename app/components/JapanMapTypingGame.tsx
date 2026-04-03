@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { JapanMapSVG, JapanRegion } from "./JapanMapSVG";
@@ -9,15 +10,85 @@ interface Prefecture {
   id: string;
   name: string;
   romaji: string;
+  subName?: string;
+  subRomaji?: string;
+  birdName?: string;
+  birdRomaji?: string;
+  flowerName?: string;
+  flowerRomaji?: string;
+  treeName?: string;
+  treeRomaji?: string;
 }
 
 type GameState = "idle" | "playing" | "finished";
+type GameMode = "prefecture" | "capital" | "bird" | "flower" | "tree";
 
 interface JapanMapTypingGameProps {
   allPrefectures: Prefecture[];
   region: JapanRegion;
   regionName: string;
+  gameMode: GameMode;
 }
+
+const gameModeLabels: Record<GameMode, string> = {
+  prefecture: "都道府県名",
+  capital: "県庁所在地",
+  bird: "県鳥",
+  flower: "県花",
+  tree: "県木",
+};
+
+const getTargetName = (prefecture: Prefecture, mode: GameMode): string => {
+  switch (mode) {
+    case "capital":
+      return prefecture.subName || prefecture.name;
+    case "bird":
+      return prefecture.birdName || prefecture.name;
+    case "flower":
+      return prefecture.flowerName || prefecture.name;
+    case "tree":
+      return prefecture.treeName || prefecture.name;
+    default:
+      return prefecture.name;
+  }
+};
+
+const getTargetRomaji = (prefecture: Prefecture, mode: GameMode): string => {
+  switch (mode) {
+    case "capital":
+      return prefecture.subRomaji || prefecture.romaji;
+    case "bird":
+      return prefecture.birdRomaji || prefecture.romaji;
+    case "flower":
+      return prefecture.flowerRomaji || prefecture.romaji;
+    case "tree":
+      return prefecture.treeRomaji || prefecture.romaji;
+    default:
+      return prefecture.romaji;
+  }
+};
+
+const getImagePath = (
+  prefecture: Prefecture,
+  mode: GameMode,
+): string | null => {
+  switch (mode) {
+    case "bird":
+      return prefecture.birdRomaji
+        ? `/bird/${prefecture.birdRomaji}.jpg`
+        : null;
+    case "flower":
+      return prefecture.flowerRomaji
+        ? `/flower/${prefecture.flowerRomaji}.jpg`
+        : null;
+    case "tree":
+      return prefecture.treeRomaji
+        ? `/tree/${prefecture.treeRomaji}.jpg`
+        : null;
+    default:
+      return null;
+  }
+};
 
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => 0.5 - Math.random());
@@ -37,12 +108,19 @@ export function JapanMapTypingGame({
   allPrefectures,
   region,
   regionName,
+  gameMode,
 }: JapanMapTypingGameProps) {
   const [gameState, setGameState] = useState<GameState>("idle");
-  const [currentPrefecture, setCurrentPrefecture] = useState<Prefecture | null>(null);
+  const [currentPrefecture, setCurrentPrefecture] = useState<Prefecture | null>(
+    null,
+  );
   const [input, setInput] = useState("");
-  const [completedPrefectures, setCompletedPrefectures] = useState<Prefecture[]>([]);
-  const [remainingPrefectures, setRemainingPrefectures] = useState<Prefecture[]>([]);
+  const [completedPrefectures, setCompletedPrefectures] = useState<
+    Prefecture[]
+  >([]);
+  const [remainingPrefectures, setRemainingPrefectures] = useState<
+    Prefecture[]
+  >([]);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [endTime, setEndTime] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -124,40 +202,43 @@ export function JapanMapTypingGame({
     return () => clearInterval(interval);
   }, [gameState]);
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (gameState !== "playing" || !currentPrefecture) return;
-
-    const newInput = e.target.value.toLowerCase();
-    setTotalKeystrokes((prevCount) => prevCount + 1);
-
-    if (typingStartTime === null) {
-      setTypingStartTime(Date.now());
-    }
-
-    if (currentPrefecture.romaji.startsWith(newInput)) {
-      setInput(newInput);
-      if (newInput === currentPrefecture.romaji) {
-        handleCorrectInput();
+  const handleCorrectInput = useCallback(() => {
+    setCompletedPrefectures((prev) => [...prev, currentPrefecture!]);
+    setRemainingPrefectures((prev) => {
+      const newRemaining = prev.slice(1);
+      if (newRemaining.length === 0) {
+        setEndTime(Date.now());
+        setGameState("finished");
+      } else {
+        setCurrentPrefecture(newRemaining[0]);
+        setInput("");
+        setTypingStartTime(null);
       }
-    } else {
-      setMistakeCount((prevCount) => prevCount + 1);
-    }
-  };
+      return newRemaining;
+    });
+  }, [currentPrefecture]);
 
-  const handleCorrectInput = () => {
-    setCompletedPrefectures([...completedPrefectures, currentPrefecture!]);
-    const newRemaining = remainingPrefectures.slice(1);
-    setRemainingPrefectures(newRemaining);
+  const handleInput = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (gameState !== "playing" || !currentPrefecture) return;
 
-    if (newRemaining.length === 0) {
-      setEndTime(Date.now());
-      setGameState("finished");
-    } else {
-      setCurrentPrefecture(newRemaining[0]);
-      setInput("");
-      setTypingStartTime(null);
-    }
-  };
+      const newInput = e.target.value.toLowerCase();
+      setTotalKeystrokes((prevCount) => prevCount + 1);
+
+      setTypingStartTime((prev) => (prev === null ? Date.now() : prev));
+
+      const targetRomaji = getTargetRomaji(currentPrefecture, gameMode);
+      if (targetRomaji.startsWith(newInput)) {
+        setInput(newInput);
+        if (newInput === targetRomaji) {
+          handleCorrectInput();
+        }
+      } else {
+        setMistakeCount((prevCount) => prevCount + 1);
+      }
+    },
+    [gameState, currentPrefecture, gameMode, handleCorrectInput],
+  );
 
   const calculateAverageTypingSpeed = useCallback(() => {
     if (startTime && endTime && totalKeystrokes > 0) {
@@ -171,9 +252,12 @@ export function JapanMapTypingGame({
     <div className="h-screen flex flex-col pt-11 lg:pt-14">
       <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 py-10 overflow-hidden">
         {/* Header */}
-        <div className="flex-shrink-0 text-center mb-5 w-full">
+        <div className="shrink-0 text-center mb-5 w-full">
           <h1 className="text-xl font-bold text-gray-800">
             日本地図タイピング - {regionName}（全{itemCount}問）
+            <span className="ml-2 text-sm font-normal text-blue-600">
+              【{gameModeLabels[gameMode]}】
+            </span>
           </h1>
         </div>
 
@@ -191,6 +275,23 @@ export function JapanMapTypingGame({
             </span>
           </div>
 
+          {/* Image overlay for bird/flower/tree modes - top right */}
+          {gameState === "playing" &&
+            currentPrefecture &&
+            getImagePath(currentPrefecture, gameMode) && (
+              <div className="absolute top-4 right-4 z-10">
+                <div className="bg-white/90 p-3 rounded-lg shadow-lg border border-gray-200">
+                  <Image
+                    src={getImagePath(currentPrefecture, gameMode)!}
+                    alt={`${getTargetName(currentPrefecture, gameMode)}の画像`}
+                    width={120}
+                    height={80}
+                    className="object-contain rounded w-30 h-auto"
+                  />
+                </div>
+              </div>
+            )}
+
           {/* Idle or finished state overlay */}
           {(gameState === "idle" || gameState === "finished") && (
             <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/20">
@@ -198,7 +299,9 @@ export function JapanMapTypingGame({
                 {gameState === "idle" ? (
                   <>
                     <p className="text-gray-700 mb-3">
-                      地図上の都道府県名をタイピングしよう！
+                      {gameMode === "prefecture"
+                        ? "地図上の都道府県名をタイピングしよう！"
+                        : `地図上の都道府県の${gameModeLabels[gameMode]}をタイピングしよう！`}
                     </p>
                     <p
                       className={`text-xl font-semibold text-blue-500 transition-opacity duration-500 ${
@@ -254,14 +357,22 @@ export function JapanMapTypingGame({
 
         {/* Input area during play */}
         {gameState === "playing" && currentPrefecture && (
-          <div className="flex-shrink-0 bg-white rounded-lg shadow-lg p-4 mb-3">
+          <div className="shrink-0 bg-white rounded-lg shadow-lg p-4 mb-3">
             <div className="max-w-lg mx-auto">
               {/* Prefecture name and input */}
               <div className="text-center mb-2">
+                {gameMode !== "prefecture" && (
+                  <p className="text-sm text-gray-500 mb-1">
+                    {currentPrefecture.name}の{gameModeLabels[gameMode]}
+                  </p>
+                )}
                 <p className="text-xl font-bold text-gray-800">
-                  {currentPrefecture.name}
+                  {getTargetName(currentPrefecture, gameMode)}
                 </p>
-                <RomajiDisplay input={input} romaji={currentPrefecture.romaji} />
+                <RomajiDisplay
+                  input={input}
+                  romaji={getTargetRomaji(currentPrefecture, gameMode)}
+                />
               </div>
 
               {/* Input field */}
@@ -293,10 +404,10 @@ export function JapanMapTypingGame({
         )}
 
         {/* Back to region selection link */}
-        <div className="flex-shrink-0 text-center mt-4">
+        <div className="shrink-0 text-center mt-4">
           <Link
             href="/japanmap"
-            className="inline-block px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
+            className="inline-block px-5 py-1.5 text-sm rounded-full bg-linear-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
           >
             ← 地域選択に戻る
           </Link>

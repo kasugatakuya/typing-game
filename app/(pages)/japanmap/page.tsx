@@ -6,129 +6,151 @@ export default function JapanMap() {
       id: "all",
       name: "日本全国",
       description: "全47都道府県",
-      available: true,
+      isAll: true,
     },
     {
-      id: "hokkaido",
-      name: "北海道地方",
-      description: "北海道（全1問）",
-      available: true,
-    },
-    {
-      id: "tohoku",
-      name: "東北地方",
-      description: "青森、岩手、宮城など（全6問）",
-      available: true,
+      id: "hokkaido-tohoku",
+      name: "北海道・東北地方",
+      description: "北海道、青森、岩手、宮城など（全7問）",
     },
     {
       id: "kanto",
       name: "関東地方",
       description: "東京、神奈川、千葉など（全7問）",
-      available: true,
     },
     {
       id: "chubu",
       name: "中部地方",
       description: "愛知、新潟、長野など（全9問）",
-      available: true,
     },
     {
       id: "kinki",
       name: "近畿地方",
       description: "大阪、京都、兵庫など（全7問）",
-      available: true,
     },
     {
-      id: "chugoku",
-      name: "中国地方",
-      description: "広島、岡山、山口など（全5問）",
-      available: true,
-    },
-    {
-      id: "shikoku",
-      name: "四国地方",
-      description: "愛媛、香川、高知など（全4問）",
-      available: true,
+      id: "chugoku-shikoku",
+      name: "中国・四国地方",
+      description: "広島、岡山、愛媛、香川など（全9問）",
     },
     {
       id: "kyushu",
       name: "九州・沖縄地方",
       description: "福岡、熊本、沖縄など（全8問）",
-      available: true,
+    },
+  ];
+
+  const modes = [
+    { key: "", label: "都道府県", color: "bg-rose-500 hover:bg-rose-600" },
+    {
+      key: "?mode=capital",
+      label: "県庁所在地",
+      color: "bg-orange-500 hover:bg-orange-600",
+    },
+    {
+      key: "?mode=bird",
+      label: "県鳥",
+      color: "bg-amber-500 hover:bg-amber-600",
+    },
+    {
+      key: "?mode=flower",
+      label: "県花",
+      color: "bg-pink-500 hover:bg-pink-600",
+    },
+    {
+      key: "?mode=tree",
+      label: "県木",
+      color: "bg-emerald-500 hover:bg-emerald-600",
     },
   ];
 
   return (
-    <div className="h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-6 pt-16 lg:pt-20 overflow-auto mt-7">
+    <div className="min-h-screen bg-linear-to-b from-rose-50 to-orange-50 py-6 pt-20 lg:pt-25">
       <div className="container mx-auto px-4">
         {/* ヘッダーセクション */}
-        <div className="text-center mb-5">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-3">
             日本地図タイピング
           </h1>
-          <p className="text-base text-gray-600">
-            地図上の都道府県名をタイピングしよう！
+          <p className="text-gray-600">
+            地図上の都道府県・県庁所在地・県鳥・県花・県木をタイピングしよう！
           </p>
         </div>
 
         {/* 地域選択グリッド */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {regions.map((region) => (
             <div
               key={region.id}
-              className={`bg-white rounded-lg shadow overflow-hidden transition-transform flex flex-col ${
-                region.available
-                  ? "hover:scale-[1.02] cursor-pointer"
-                  : "opacity-60"
+              className={`group relative bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                region.isAll ? "md:col-span-2 lg:col-span-3" : ""
               }`}
             >
+              {/* ホバー時のグラデーション背景 */}
               <div
-                className={`p-2 ${
-                  region.id === "all"
-                    ? "bg-gradient-to-r from-green-400 to-green-500"
-                    : region.available
-                      ? "bg-gradient-to-r from-blue-400 to-blue-500"
-                      : "bg-gradient-to-r from-gray-400 to-gray-500"
+                className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                  region.isAll
+                    ? "bg-linear-to-br from-rose-500 via-orange-400 to-amber-400"
+                    : "bg-linear-to-br from-rose-500 to-orange-400"
                 }`}
-              >
-                <h2 className="text-lg font-bold text-white text-center">
-                  {region.name}
-                </h2>
-              </div>
-              <div className="p-4 flex flex-col flex-grow">
-                <p className="text-gray-600 text-sm mb-3 text-center flex-grow">
+              />
+
+              {/* カード内容 */}
+              <div className="relative p-5">
+                {/* 地域名 */}
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  {region.isAll && (
+                    <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-linear-to-r from-rose-500 to-orange-400 text-white group-hover:bg-white/20">
+                      ALL
+                    </span>
+                  )}
+                  <h2 className="text-lg font-bold text-gray-800 text-center group-hover:text-white transition-colors duration-300">
+                    {region.name}
+                  </h2>
+                </div>
+
+                {/* 説明 */}
+                <p className="text-sm text-gray-500 text-center mb-4 group-hover:text-white/80 transition-colors duration-300">
                   {region.description}
                 </p>
-                {region.available ? (
-                  <div className="flex justify-center">
+
+                {/* モード選択ボタン */}
+                <div className="flex flex-wrap justify-center gap-2">
+                  {modes.map((mode) => (
                     <Link
-                      href={`/japanmap/${region.id}`}
-                      className={`px-5 py-1.5 text-sm rounded-full text-white font-medium transition-all duration-200 hover:shadow-md ${
-                        region.id === "all"
-                          ? "bg-gradient-to-r from-green-300 to-green-400 hover:from-green-400 hover:to-green-500"
-                          : "bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500"
-                      }`}
+                      key={mode.key}
+                      href={`/japanmap/${region.id}${mode.key}`}
+                      className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color} group-hover:bg-white/20 group-hover:hover:bg-white/30`}
                     >
-                      プレイする
+                      {mode.label}
                     </Link>
-                  </div>
-                ) : (
-                  <p className="text-center text-gray-400 text-xs">
-                    Coming Soon...
-                  </p>
-                )}
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
         {/* ホームに戻るリンク */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-10">
           <Link
             href="/"
-            className="inline-block px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
+            className="inline-flex items-center px-6 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md transition-all duration-200 hover:shadow-lg hover:text-rose-600"
           >
-            ← ホームに戻る
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            ホームに戻る
           </Link>
         </div>
       </div>

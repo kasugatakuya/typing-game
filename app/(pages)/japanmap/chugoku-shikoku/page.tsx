@@ -7,14 +7,14 @@ interface PageProps {
 
 type GameMode = "prefecture" | "capital" | "bird" | "flower" | "tree";
 
-export default async function KantoPage({ searchParams }: PageProps) {
+export default async function ChugokuShikokuPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const validModes: GameMode[] = ["prefecture", "capital", "bird", "flower", "tree"];
   const gameMode: GameMode = validModes.includes(params.mode as GameMode)
     ? (params.mode as GameMode)
     : "prefecture";
 
-  const prefectureIds = ["8", "9", "10", "11", "12", "13", "14"];
+  const prefectureIds = ["31", "32", "33", "34", "35", "36", "37", "38", "39"];
   const prefectureData = prefectures
     .filter((p) => prefectureIds.includes(p.id))
     .map((p) => ({
@@ -34,8 +34,8 @@ export default async function KantoPage({ searchParams }: PageProps) {
   return (
     <JapanMapTypingGame
       allPrefectures={prefectureData}
-      region="kanto"
-      regionName="関東地方"
+      region="chugoku-shikoku"
+      regionName="中国・四国地方"
       gameMode={gameMode}
     />
   );

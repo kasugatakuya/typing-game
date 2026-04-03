@@ -5,15 +5,7 @@ import { useState } from "react";
 
 const links = [
   { href: "/worldmap", label: "世界地図" },
-  { href: "/country/game/normal", label: "国旗" },
-  { href: "/capitals/game/normal", label: "首都" },
-  { href: "/heritage/game/normal", label: "世界遺産" },
-  { href: "/prefectures/game/normal", label: "都道府県" },
-  { href: "/prefecturalCapitals/game/normal", label: "県庁所在地" },
-  { href: "/prefecturalBird/game/normal", label: "県鳥" },
-  { href: "/prefecturalFlower/game/normal", label: "県花" },
-  { href: "/prefecturalTree/game/normal", label: "県木" },
-  { href: "/prefecturalChara/game/normal", label: "ゆるキャラ" },
+  { href: "/japanmap", label: "日本地図" },
 ];
 
 export default function Header() {
@@ -52,7 +44,7 @@ export default function Header() {
             <span
               className={`absolute top-0 left-0 w-full h-0.5 bg-white transition-all duration-300 ${
                 isMenuOpen
-                  ? "rotate-45 translate-y-[7px]"
+                  ? "rotate-45 translate-y-1.75"
                   : "rotate-0 translate-y-0"
               }`}
             />
@@ -64,7 +56,7 @@ export default function Header() {
             <span
               className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transition-all duration-300 ${
                 isMenuOpen
-                  ? "-rotate-45 -translate-y-[7px]"
+                  ? "-rotate-45 -translate-y-1.75"
                   : "rotate-0 translate-y-0"
               }`}
             />
@@ -74,7 +66,7 @@ export default function Header() {
         {/* モバイルメニュー */}
         <div
           className={`lg:hidden fixed left-0 right-0 bg-black transition-all duration-300 ${
-            isMenuOpen ? "top-[52px] opacity-100" : "top-[-100%] opacity-0"
+            isMenuOpen ? "top-13 opacity-100" : "-top-full opacity-0"
           }`}
         >
           {links.map((link) => (

@@ -6,147 +6,145 @@ export default function WorldMap() {
       id: "north-america",
       name: "北アメリカ",
       description: "カナダ、アメリカなど（全23問）",
-      available: true,
     },
     {
       id: "south-america",
       name: "南アメリカ",
       description: "ブラジル、アルゼンチンなど（全12問）",
-      available: true,
     },
     {
       id: "western-europe",
       name: "西ヨーロッパ",
       description: "イギリス、フランスなど（全17問）",
-      available: true,
     },
     {
       id: "eastern-europe",
       name: "東ヨーロッパ",
       description: "ポーランド、ウクライナなど（全18問）",
-      available: true,
     },
     {
       id: "southern-europe",
       name: "ロシア・その他",
       description: "ロシア、キプロスなど（全5問）",
-      available: true,
     },
     {
       id: "east-asia",
       name: "東・東南・南アジア",
       description: "日本、中国など（全24問）",
-      available: true,
     },
     {
       id: "west-asia",
       name: "西アジア（中東）",
       description: "トルコ、イランなど（全15問）",
-      available: true,
     },
     {
       id: "central-asia",
       name: "中央アジア・コーカサス",
       description: "カザフスタンなど（全8問）",
-      available: true,
     },
     {
       id: "oceania",
       name: "オセアニア",
       description: "オーストラリアなど（全14問）",
-      available: true,
     },
     {
       id: "north-africa",
       name: "北アフリカ",
       description: "エジプト、モロッコなど（全6問）",
-      available: true,
     },
     {
       id: "west-africa",
       name: "西アフリカ",
       description: "マリ、ギニアなど（全11問）",
-      available: true,
     },
     {
       id: "sub-saharan-africa",
       name: "サブサハラ・アフリカ",
       description: "ケニア、ナイジェリアなど（全33問）",
-      available: true,
+    },
+  ];
+
+  const modes = [
+    { key: "", label: "国名", color: "bg-blue-500 hover:bg-blue-600" },
+    {
+      key: "?mode=capital",
+      label: "首都",
+      color: "bg-cyan-500 hover:bg-cyan-600",
     },
   ];
 
   return (
-    <div className="h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-6 pt-16 lg:pt-20 overflow-auto mt-7">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 to-slate-100 py-6 pt-20 lg:pt-25">
       <div className="container mx-auto px-4">
         {/* ヘッダーセクション */}
-        <div className="text-center mb-5">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold text-gray-800 mb-3">
             世界地図タイピング
           </h1>
-          <p className="text-base text-gray-600">
-            地図上の国の名前をタイピングしよう！
+          <p className="text-gray-600">
+            地図上の国名と首都をタイピングしよう！
           </p>
         </div>
 
         {/* 地域選択グリッド */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+        <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-5xl mx-auto">
           {regions.map((region) => (
             <div
               key={region.id}
-              className={`bg-white rounded-lg shadow overflow-hidden transition-transform flex flex-col ${
-                region.available
-                  ? "hover:scale-[1.02] cursor-pointer"
-                  : "opacity-60"
-              }`}
+              className="group relative bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              <div
-                className={`py-1 px-2 ${
-                  region.available
-                    ? "bg-gradient-to-r from-blue-400 to-blue-500"
-                    : "bg-gradient-to-r from-gray-400 to-gray-500"
-                }`}
-              >
-                <h2 className="text-lg font-bold text-white text-center">
+              {/* ホバー時のグラデーション背景 */}
+              <div className="absolute inset-0 bg-linear-to-br from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* カード内容 */}
+              <div className="relative p-5 h-full flex flex-col">
+                {/* 地域名 */}
+                <h2 className="text-lg font-bold text-gray-800 text-center mb-1 group-hover:text-white transition-colors duration-300">
                   {region.name}
                 </h2>
-              </div>
-              <div className="p-2 flex flex-col flex-grow">
-                <p className="text-gray-600 text-sm mb-3 text-center flex-grow">
+
+                {/* 説明 */}
+                <p className="text-sm text-gray-500 text-center mb-4 group-hover:text-white/80 transition-colors duration-300 flex-1">
                   {region.description}
                 </p>
-                {region.available ? (
-                  <div className="flex justify-center gap-2">
+
+                {/* モード選択ボタン */}
+                <div className="flex justify-center gap-2">
+                  {modes.map((mode) => (
                     <Link
-                      href={`/worldmap/${region.id}`}
-                      className="px-4 py-1.5 text-sm rounded-full bg-gradient-to-r from-blue-300 to-blue-400 text-white font-medium transition-all duration-200 hover:from-blue-400 hover:to-blue-500 hover:shadow-md"
+                      key={mode.key}
+                      href={`/worldmap/${region.id}${mode.key}`}
+                      className={`px-5 py-1.5 text-sm rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color} group-hover:bg-white/20 group-hover:hover:bg-white/30`}
                     >
-                      国名
+                      {mode.label}
                     </Link>
-                    <Link
-                      href={`/worldmap/${region.id}?mode=capital`}
-                      className="px-4 py-1.5 text-sm rounded-full bg-gradient-to-r from-green-300 to-green-400 text-white font-medium transition-all duration-200 hover:from-green-400 hover:to-green-500 hover:shadow-md"
-                    >
-                      首都
-                    </Link>
-                  </div>
-                ) : (
-                  <p className="text-center text-gray-400 text-xs">
-                    Coming Soon...
-                  </p>
-                )}
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
         {/* ホームに戻るリンク */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-9">
           <Link
             href="/"
-            className="inline-block px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
+            className="inline-flex items-center px-6 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md transition-all duration-200 hover:shadow-lg hover:text-blue-600"
           >
-            ← ホームに戻る
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            ホームに戻る
           </Link>
         </div>
       </div>

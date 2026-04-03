@@ -157,41 +157,43 @@ export function WorldMapTypingGame({
     return () => clearInterval(interval);
   }, [gameState]);
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (gameState !== "playing" || !currentCountry) return;
-
-    const newInput = e.target.value.toLowerCase();
-    setTotalKeystrokes((prevCount) => prevCount + 1);
-
-    if (typingStartTime === null) {
-      setTypingStartTime(Date.now());
-    }
-
-    const targetRomaji = getTargetRomaji(currentCountry, gameMode);
-    if (targetRomaji.startsWith(newInput)) {
-      setInput(newInput);
-      if (newInput === targetRomaji) {
-        handleCorrectInput();
+  const handleCorrectInput = useCallback(() => {
+    setCompletedCountries((prev) => [...prev, currentCountry!]);
+    setRemainingCountries((prev) => {
+      const newRemaining = prev.slice(1);
+      if (newRemaining.length === 0) {
+        setEndTime(Date.now());
+        setGameState("finished");
+      } else {
+        setCurrentCountry(newRemaining[0]);
+        setInput("");
+        setTypingStartTime(null);
       }
-    } else {
-      setMistakeCount((prevCount) => prevCount + 1);
-    }
-  };
+      return newRemaining;
+    });
+  }, [currentCountry]);
 
-  const handleCorrectInput = () => {
-    setCompletedCountries([...completedCountries, currentCountry!]);
-    const newRemaining = remainingCountries.slice(1);
-    setRemainingCountries(newRemaining);
+  const handleInput = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (gameState !== "playing" || !currentCountry) return;
 
-    if (newRemaining.length === 0) {
-      setEndTime(Date.now());
-      setGameState("finished");
-    } else {
-      setCurrentCountry(newRemaining[0]);
-      setInput("");
-      setTypingStartTime(null);
-    }
-  };
+      const newInput = e.target.value.toLowerCase();
+      setTotalKeystrokes((prevCount) => prevCount + 1);
+
+      setTypingStartTime((prev) => (prev === null ? Date.now() : prev));
+
+      const targetRomaji = getTargetRomaji(currentCountry, gameMode);
+      if (targetRomaji.startsWith(newInput)) {
+        setInput(newInput);
+        if (newInput === targetRomaji) {
+          handleCorrectInput();
+        }
+      } else {
+        setMistakeCount((prevCount) => prevCount + 1);
+      }
+    },
+    [gameState, currentCountry, gameMode, handleCorrectInput],
+  );
 
   const calculateAverageTypingSpeed = useCallback(() => {
     if (startTime && endTime && totalKeystrokes > 0) {
@@ -209,7 +211,7 @@ export function WorldMapTypingGame({
     <div className="h-screen flex flex-col pt-11 lg:pt-14">
       <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 py-10 overflow-hidden">
         {/* ヘッダー */}
-        <div className="flex-shrink-0 text-center mb-5 w-full">
+        <div className="shrink-0 text-center mb-5 w-full">
           <h1 className="text-xl font-bold text-gray-800">
             世界地図タイピング - {regionName}（全{itemCount}問）
             <span className="ml-2 text-sm font-normal text-blue-600">
@@ -234,7 +236,7 @@ export function WorldMapTypingGame({
                   alt={`${currentCountry.name}の国旗`}
                   width={120}
                   height={80}
-                  className="object-contain rounded w-[120px] h-auto"
+                  className="object-contain rounded w-30 h-auto"
                 />
               </div>
             </div>
@@ -312,7 +314,7 @@ export function WorldMapTypingGame({
 
         {/* プレイ中の入力エリア */}
         {gameState === "playing" && currentCountry && (
-          <div className="flex-shrink-0 bg-white rounded-lg shadow-lg p-4 mb-3">
+          <div className="shrink-0 bg-white rounded-lg shadow-lg p-4 mb-3">
             <div className="max-w-lg mx-auto">
               {/* 国名/首都名と入力 */}
               <div className="text-center mb-2">
@@ -365,10 +367,10 @@ export function WorldMapTypingGame({
         )}
 
         {/* 地域選択に戻るリンク */}
-        <div className="flex-shrink-0 text-center mt-4">
+        <div className="shrink-0 text-center mt-4">
           <Link
             href="/worldmap"
-            className="inline-block px-5 py-1.5 text-sm rounded-full bg-gradient-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
+            className="inline-block px-5 py-1.5 text-sm rounded-full bg-linear-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
           >
             ← 地域選択に戻る
           </Link>
