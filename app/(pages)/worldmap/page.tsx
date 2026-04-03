@@ -103,7 +103,7 @@ export default function WorldMap() {
           {regions.map((region) => (
             <div
               key={region.id}
-              className="group relative bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
             >
               {/* ホバー時のグラデーション背景 */}
               <div className="absolute inset-0 bg-linear-to-br from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -131,7 +131,7 @@ export default function WorldMap() {
                     <Link
                       key={mode.key}
                       href={`/worldmap/${region.id}${mode.key}`}
-                      className={`px-5 py-1.5 text-sm rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color}`}
+                      className={`px-5 py-1.5 text-sm rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-1 ${mode.color}`}
                     >
                       {mode.label}
                     </Link>

@@ -84,6 +84,7 @@ export default function Home() {
                         src={category.image}
                         alt={category.title}
                         fill
+                        sizes="96px"
                         className="object-contain drop-shadow-md"
                       />
                     </div>
