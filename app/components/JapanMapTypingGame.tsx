@@ -129,6 +129,7 @@ export function JapanMapTypingGame({
   const [mistakeCount, setMistakeCount] = useState<number>(0);
   const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [showMistakeEffect, setShowMistakeEffect] = useState(false);
 
   const itemCount = allPrefectures.length;
 
@@ -236,6 +237,8 @@ export function JapanMapTypingGame({
         }
       } else {
         setMistakeCount((prevCount) => prevCount + 1);
+        setShowMistakeEffect(true);
+        setTimeout(() => setShowMistakeEffect(false), 300);
       }
     },
     [gameState, currentPrefecture, gameMode, handleCorrectInput],
@@ -390,7 +393,11 @@ export function JapanMapTypingGame({
                 type="text"
                 value={input}
                 onChange={handleInput}
-                className="w-full p-2 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all"
+                className={`w-full p-2 text-lg border rounded-lg outline-none transition-all ${
+                  showMistakeEffect
+                    ? "border-red-500 bg-red-50 animate-shake"
+                    : "border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
+                }`}
                 autoFocus
               />
 
