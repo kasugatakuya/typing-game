@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     "タイピングスキルを向上させる無料オンラインタイピングゲーム。地理を学びながら楽しくタイピング練習ができます。",
   keywords:
     "タイピングゲーム, 地理タイピング, タイピング練習, タイピング, ゲーム, 無料タイピング, 人気, 国, 都道府県, 首都, 県庁所在地, 世界遺産, 国旗, 地理, 学習, 地球, オンライン, 無料, 練習",
+  applicationName: "地理タイピング",
+  authors: [{ name: "地理タイピング" }],
+  creator: "地理タイピング",
+  publisher: "地理タイピング",
 
   metadataBase: new URL("https://typing-game-rho-weld.vercel.app"),
 
@@ -59,14 +63,26 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Game",
-              name: "地理タイピング",
-              description:
-                "タイピングスキルを向上させる無料オンラインタイピングゲーム。地理を学びながら楽しくタイピング練習ができます。",
-              url: "https://typing-game-rho-weld.vercel.app",
-            }),
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "地理タイピング",
+                url: "https://typing-game-rho-weld.vercel.app",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Game",
+                name: "地理タイピング",
+                description:
+                  "タイピングスキルを向上させる無料オンラインタイピングゲーム。地理を学びながら楽しくタイピング練習ができます。",
+                url: "https://typing-game-rho-weld.vercel.app",
+                publisher: {
+                  "@type": "Organization",
+                  name: "地理タイピング",
+                },
+              },
+            ]),
           }}
         />
       </head>
