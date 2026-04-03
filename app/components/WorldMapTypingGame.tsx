@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { WorldMapSVG } from "./WorldMapSVG";
+import { ShareButtons } from "./ShareButtons";
 
 interface MapCountry {
   id: string;
@@ -277,29 +278,38 @@ export function WorldMapTypingGame({
                       ゲーム終了！
                     </h3>
                     {startTime !== null && endTime !== null && (
-                      <div className="flex justify-center gap-6 mb-4">
-                        <div>
-                          <p className="text-xs text-gray-500">タイム</p>
-                          <p className="text-lg font-bold text-gray-800">
-                            {formatTime(endTime - startTime)}
-                          </p>
+                      <>
+                        <div className="flex justify-center gap-6 mb-4">
+                          <div>
+                            <p className="text-xs text-gray-500">タイム</p>
+                            <p className="text-lg font-bold text-gray-800">
+                              {formatTime(endTime - startTime)}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-gray-500">ミス</p>
+                            <p className="text-lg font-bold text-gray-800">
+                              {mistakeCount}回
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-xs text-gray-500">速度</p>
+                            <p className="text-lg font-bold text-gray-800">
+                              {calculateAverageTypingSpeed()}打/秒
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-xs text-gray-500">ミス</p>
-                          <p className="text-lg font-bold text-gray-800">
-                            {mistakeCount}回
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-gray-500">速度</p>
-                          <p className="text-lg font-bold text-gray-800">
-                            {calculateAverageTypingSpeed()}打/秒
-                          </p>
-                        </div>
-                      </div>
+                        <ShareButtons
+                          time={formatTime(endTime - startTime)}
+                          mistakes={mistakeCount}
+                          speed={calculateAverageTypingSpeed()}
+                          gameName={`世界地図タイピング - ${regionName}`}
+                          mode={gameMode === "capital" ? "首都名" : "国名"}
+                        />
+                      </>
                     )}
                     <p
-                      className={`text-base font-semibold text-blue-500 transition-opacity duration-500 ${
+                      className={`text-base font-semibold text-blue-500 transition-opacity duration-500 mt-4 ${
                         isVisible ? "opacity-100" : "opacity-0"
                       }`}
                     >
