@@ -5,62 +5,74 @@ export default function WorldMap() {
     {
       id: "north-america",
       name: "北アメリカ",
-      description: "カナダ、アメリカなど（全23問）",
+      description: "カナダ、アメリカなど",
+      count: 23,
     },
     {
       id: "south-america",
       name: "南アメリカ",
-      description: "ブラジル、アルゼンチンなど（全12問）",
+      description: "ブラジル、アルゼンチンなど",
+      count: 12,
     },
     {
       id: "western-europe",
       name: "西ヨーロッパ",
-      description: "イギリス、フランスなど（全17問）",
+      description: "イギリス、フランスなど",
+      count: 17,
     },
     {
       id: "eastern-europe",
       name: "東ヨーロッパ",
-      description: "ポーランド、ウクライナなど（全18問）",
+      description: "ポーランド、ウクライナなど",
+      count: 18,
     },
     {
       id: "southern-europe",
       name: "ロシア・その他",
-      description: "ロシア、キプロスなど（全5問）",
+      description: "ロシア、キプロスなど",
+      count: 5,
     },
     {
       id: "east-asia",
       name: "東・東南・南アジア",
-      description: "日本、中国など（全24問）",
+      description: "日本、中国など",
+      count: 24,
     },
     {
       id: "west-asia",
       name: "西アジア（中東）",
-      description: "トルコ、イランなど（全15問）",
+      description: "トルコ、イランなど",
+      count: 15,
     },
     {
       id: "central-asia",
       name: "中央アジア・コーカサス",
-      description: "カザフスタンなど（全8問）",
+      description: "カザフスタンなど",
+      count: 8,
     },
     {
       id: "oceania",
       name: "オセアニア",
-      description: "オーストラリアなど（全14問）",
+      description: "オーストラリアなど",
+      count: 14,
     },
     {
       id: "north-africa",
       name: "北アフリカ",
-      description: "エジプト、モロッコなど（全6問）",
+      description: "エジプト、モロッコなど",
+      count: 6,
     },
     {
       id: "west-africa",
       name: "西アフリカ",
-      description: "マリ、ギニアなど（全11問）",
+      description: "マリ、ギニアなど",
+      count: 11,
     },
     {
       id: "sub-saharan-africa",
       name: "サブサハラ・アフリカ",
-      description: "ケニア、ナイジェリアなど（全33問）",
+      description: "ケニア、ナイジェリアなど",
+      count: 33,
     },
   ];
 
@@ -104,9 +116,14 @@ export default function WorldMap() {
                 </h2>
 
                 {/* 説明 */}
-                <p className="text-sm text-gray-500 text-center mb-4 group-hover:text-white/80 transition-colors duration-300 flex-1">
-                  {region.description}
-                </p>
+                <div className="text-sm text-center mb-4 flex-1">
+                  <p className="text-gray-500 group-hover:text-white/80 transition-colors duration-300">
+                    {region.description}
+                  </p>
+                  <p className="text-gray-500 group-hover:text-white/80 transition-colors duration-300">
+                    （全{region.count}問）
+                  </p>
+                </div>
 
                 {/* モード選択ボタン */}
                 <div className="flex justify-center gap-2">
@@ -114,7 +131,7 @@ export default function WorldMap() {
                     <Link
                       key={mode.key}
                       href={`/worldmap/${region.id}${mode.key}`}
-                      className={`px-5 py-1.5 text-sm rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color} group-hover:bg-white/20 group-hover:hover:bg-white/30`}
+                      className={`px-5 py-1.5 text-sm rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color}`}
                     >
                       {mode.label}
                     </Link>

@@ -40,13 +40,16 @@ export default function JapanMap() {
     },
   ];
 
-  const modes = [
+  const modesRow1 = [
     { key: "", label: "都道府県", color: "bg-rose-500 hover:bg-rose-600" },
     {
       key: "?mode=capital",
       label: "県庁所在地",
       color: "bg-orange-500 hover:bg-orange-600",
     },
+  ];
+
+  const modesRow2 = [
     {
       key: "?mode=bird",
       label: "県鳥",
@@ -115,17 +118,44 @@ export default function JapanMap() {
                 </p>
 
                 {/* モード選択ボタン */}
-                <div className="flex flex-wrap justify-center gap-2">
-                  {modes.map((mode) => (
-                    <Link
-                      key={mode.key}
-                      href={`/japanmap/${region.id}${mode.key}`}
-                      className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color} group-hover:bg-white/20 group-hover:hover:bg-white/30`}
-                    >
-                      {mode.label}
-                    </Link>
-                  ))}
-                </div>
+                {region.isAll ? (
+                  <div className="flex justify-center gap-2">
+                    {[...modesRow1, ...modesRow2].map((mode) => (
+                      <Link
+                        key={mode.key}
+                        href={`/japanmap/${region.id}${mode.key}`}
+                        className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color}`}
+                      >
+                        {mode.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-2">
+                    <div className="flex justify-center gap-2">
+                      {modesRow1.map((mode) => (
+                        <Link
+                          key={mode.key}
+                          href={`/japanmap/${region.id}${mode.key}`}
+                          className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color}`}
+                        >
+                          {mode.label}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="flex justify-center gap-2">
+                      {modesRow2.map((mode) => (
+                        <Link
+                          key={mode.key}
+                          href={`/japanmap/${region.id}${mode.key}`}
+                          className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md ${mode.color}`}
+                        >
+                          {mode.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
