@@ -267,7 +267,7 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                 mode=""
               />
               <p
-                className={`text-sm font-semibold text-green-500 transition-opacity duration-500 mt-3 ${
+                className={`text-sm font-semibold text-teal-500 transition-opacity duration-500 mt-5 ${
                   isVisible ? "opacity-100" : "opacity-0"
                 }`}
               >

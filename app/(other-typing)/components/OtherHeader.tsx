@@ -57,6 +57,16 @@ const links = [
       </svg>
     ),
   },
+  {
+    href: "/planets",
+    label: "太陽系",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" strokeWidth={2} />
+        <ellipse cx="12" cy="12" rx="10" ry="3" strokeWidth={2} transform="rotate(-20 12 12)" />
+      </svg>
+    ),
+  },
 ];
 
 export default function OtherHeader() {

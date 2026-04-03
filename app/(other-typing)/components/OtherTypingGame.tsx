@@ -275,7 +275,7 @@ export function OtherTypingGame({
                 mode=""
               />
               <p
-                className={`text-base font-semibold transition-opacity duration-500 mt-6 ${themeColor} ${
+                className={`text-base font-semibold transition-opacity duration-500 mt-10 ${themeColor} ${
                   isVisible ? "opacity-100" : "opacity-0"
                 }`}
               >

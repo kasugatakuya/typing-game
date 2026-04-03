@@ -46,6 +46,13 @@ const AtomIcon = () => (
   </svg>
 );
 
+const PlanetIcon = () => (
+  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="5" strokeWidth={1.5} />
+    <ellipse cx="12" cy="12" rx="10" ry="3" strokeWidth={1.5} transform="rotate(-20 12 12)" />
+  </svg>
+);
+
 export default function OtherTypingHome() {
   const categories = [
     {
@@ -87,6 +94,14 @@ export default function OtherTypingHome() {
       icon: <AtomIcon />,
       color: "from-blue-500 to-indigo-500",
       count: 118,
+    },
+    {
+      id: "planets",
+      title: "太陽系",
+      description: "8つの惑星をマスター",
+      icon: <PlanetIcon />,
+      color: "from-purple-500 to-violet-500",
+      count: 8,
     },
   ];
 
