@@ -83,8 +83,8 @@ const regionConfig: Record<
 > = {
   all: {
     center: [137, 38],
-    scale: 1800,
-    prefectureIds: Array.from({ length: 47 }, (_, i) => String(i + 1)),
+    scale: 1600,
+    prefectureIds: Array.from({ length: 46 }, (_, i) => String(i + 1)), // 沖縄を除く
   },
   "hokkaido-tohoku": {
     center: [141, 41.3],
@@ -204,11 +204,11 @@ export function JapanMapSVG({
 }: JapanMapSVGProps) {
   const config = regionConfig[region];
 
-  // 九州地方の場合は沖縄を別枠で表示
-  if (region === "kyushu") {
+  // 日本全国または九州地方の場合は沖縄を別枠で表示
+  if (region === "all" || region === "kyushu") {
     return (
       <div className="relative w-full h-full">
-        {/* メイン地図（九州本土） */}
+        {/* メイン地図 */}
         <MapComponent
           highlightedPrefecture={highlightedPrefecture}
           config={config}

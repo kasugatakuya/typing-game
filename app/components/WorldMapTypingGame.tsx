@@ -208,10 +208,10 @@ export function WorldMapTypingGame({
   };
 
   return (
-    <div className="h-screen flex flex-col pt-11 lg:pt-14">
+    <div className="h-screen flex flex-col pt-11 lg:pt-12">
       <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 py-10 overflow-hidden">
         {/* ヘッダー */}
-        <div className="shrink-0 text-center mb-5 w-full">
+        <div className="shrink-0 text-center mb-6 w-full">
           <h1 className="text-xl font-bold text-gray-800">
             世界地図タイピング - {regionName}（全{itemCount}問）
             <span className="ml-2 text-sm font-normal text-blue-600">
