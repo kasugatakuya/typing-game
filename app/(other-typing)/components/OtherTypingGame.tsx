@@ -22,13 +22,18 @@ function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => 0.5 - Math.random());
 }
 
-const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
-  input,
-  romaji,
-}) => (
-  <p className="text-lg text-center font-mono">
-    <span className="text-green-600">{input}</span>
-    <span className="text-gray-400">{romaji.slice(input.length)}</span>
+const RomajiDisplay: React.FC<{
+  input: string;
+  romaji: string;
+  showMistake: boolean;
+}> = ({ input, romaji, showMistake }) => (
+  <p
+    className={`text-lg text-center font-mono ${showMistake ? "animate-shake text-red-500" : ""}`}
+  >
+    <span className={showMistake ? "" : "text-green-600"}>{input}</span>
+    <span className={showMistake ? "" : "text-gray-400"}>
+      {romaji.slice(input.length)}
+    </span>
   </p>
 );
 
@@ -95,36 +100,6 @@ export function OtherTypingGame({
     setInput("");
   }, [getItems]);
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (
-        e.code === "Space" &&
-        (gameState === "idle" || gameState === "finished")
-      ) {
-        resetGame();
-        startGame();
-      } else if (e.code === "Escape" && gameState === "playing") {
-        resetGame();
-      }
-    },
-    [gameState, startGame, resetGame],
-  );
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleKeyDown]);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (gameState === "playing") {
-      interval = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime + 10);
-      }, 10);
-    }
-    return () => clearInterval(interval);
-  }, [gameState]);
-
   const handleCorrectInput = useCallback(() => {
     setCompletedItems((prev) => [...prev, currentItem!]);
     setRemainingItems((prev) => {
@@ -140,26 +115,56 @@ export function OtherTypingGame({
     });
   }, [currentItem]);
 
-  const handleInput = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        if (gameState === "idle" || gameState === "finished") {
+          resetGame();
+          startGame();
+        }
+        return;
+      }
+
+      if (e.code === "Escape" && gameState === "playing") {
+        resetGame();
+        return;
+      }
+
       if (gameState !== "playing" || !currentItem) return;
 
-      const newInput = e.target.value.toLowerCase();
-      setTotalKeystrokes((prevCount) => prevCount + 1);
+      if (e.key === "Backspace") {
+        setInput((prev) => prev.slice(0, -1));
+      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        const newInput = (input + e.key).toLowerCase();
+        setTotalKeystrokes((prevCount) => prevCount + 1);
 
-      if (currentItem.romaji.startsWith(newInput)) {
-        setInput(newInput);
-        if (newInput === currentItem.romaji) {
-          handleCorrectInput();
+        if (currentItem.romaji.startsWith(newInput)) {
+          setInput(newInput);
+          if (newInput === currentItem.romaji) {
+            handleCorrectInput();
+          }
+        } else {
+          setMistakeCount((prevCount) => prevCount + 1);
+          setShowMistakeEffect(true);
+          setTimeout(() => setShowMistakeEffect(false), 300);
         }
-      } else {
-        setMistakeCount((prevCount) => prevCount + 1);
-        setShowMistakeEffect(true);
-        setTimeout(() => setShowMistakeEffect(false), 300);
       }
-    },
-    [gameState, currentItem, handleCorrectInput],
-  );
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [gameState, startGame, resetGame, currentItem, input, handleCorrectInput]);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (gameState === "playing") {
+      interval = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime + 10);
+      }, 10);
+    }
+    return () => clearInterval(interval);
+  }, [gameState]);
 
   const calculateAverageTypingSpeed = useCallback(() => {
     if (startTime && endTime && totalKeystrokes > 0) {
@@ -211,27 +216,22 @@ export function OtherTypingGame({
                 <p className="text-3xl font-bold text-gray-800 mb-2">
                   {currentItem.name}
                 </p>
-                <RomajiDisplay input={input} romaji={currentItem.romaji} />
+                <RomajiDisplay
+                  input={input}
+                  romaji={currentItem.romaji}
+                  showMistake={showMistakeEffect}
+                />
               </div>
-
-              <input
-                type="text"
-                value={input}
-                onChange={handleInput}
-                className={`w-full p-3 text-lg border rounded-lg outline-none transition-all ${
-                  showMistakeEffect
-                    ? "border-red-500 bg-red-50 animate-shake"
-                    : "border-gray-300 focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
-                }`}
-                autoFocus
-              />
 
               <div className="flex justify-between items-center mt-4 text-sm text-gray-600">
                 <span>経過時間: {formatTime(currentTime)}</span>
+                <span>
+                  {completedItems.length} / {itemCount}
+                </span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
-              <div className="w-full bg-gray-200 rounded-full h-2 mt-4">
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                 <div
                   className={`h-2 rounded-full transition-all duration-300 bg-teal-500`}
                   style={{
@@ -239,6 +239,9 @@ export function OtherTypingGame({
                   }}
                 />
               </div>
+              <p className="text-xs text-gray-400 text-center mt-2">
+                ESCキーで中断
+              </p>
             </div>
           )}
 

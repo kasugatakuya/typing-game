@@ -44,13 +44,18 @@ function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => 0.5 - Math.random());
 }
 
-const RomajiDisplay: React.FC<{ input: string; romaji: string }> = ({
-  input,
-  romaji,
-}) => (
-  <p className="text-lg text-center font-mono">
-    <span className="text-green-600">{input}</span>
-    <span className="text-gray-400">{romaji.slice(input.length)}</span>
+const RomajiDisplay: React.FC<{
+  input: string;
+  romaji: string;
+  showMistake: boolean;
+}> = ({ input, romaji, showMistake }) => (
+  <p
+    className={`text-lg text-center font-mono ${showMistake ? "animate-shake text-red-500" : ""}`}
+  >
+    <span className={showMistake ? "" : "text-green-600"}>{input}</span>
+    <span className={showMistake ? "" : "text-gray-400"}>
+      {romaji.slice(input.length)}
+    </span>
   </p>
 );
 
@@ -129,36 +134,6 @@ export function WorldMapTypingGame({
     setInput("");
   }, [getItems]);
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (
-        e.code === "Space" &&
-        (gameState === "idle" || gameState === "finished")
-      ) {
-        resetGame();
-        startGame();
-      } else if (e.code === "Escape" && gameState === "playing") {
-        resetGame();
-      }
-    },
-    [gameState, startGame, resetGame],
-  );
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleKeyDown]);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (gameState === "playing") {
-      interval = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime + 10);
-      }, 10);
-    }
-    return () => clearInterval(interval);
-  }, [gameState]);
-
   const handleCorrectInput = useCallback(() => {
     setCompletedCountries((prev) => [...prev, currentCountry!]);
     setRemainingCountries((prev) => {
@@ -175,29 +150,66 @@ export function WorldMapTypingGame({
     });
   }, [currentCountry]);
 
-  const handleInput = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        if (gameState === "idle" || gameState === "finished") {
+          resetGame();
+          startGame();
+        }
+        return;
+      }
+
+      if (e.code === "Escape" && gameState === "playing") {
+        resetGame();
+        return;
+      }
+
       if (gameState !== "playing" || !currentCountry) return;
 
-      const newInput = e.target.value.toLowerCase();
-      setTotalKeystrokes((prevCount) => prevCount + 1);
+      if (e.key === "Backspace") {
+        setInput((prev) => prev.slice(0, -1));
+      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        const newInput = (input + e.key).toLowerCase();
+        setTotalKeystrokes((prevCount) => prevCount + 1);
+        setTypingStartTime((prev) => (prev === null ? Date.now() : prev));
 
-      setTypingStartTime((prev) => (prev === null ? Date.now() : prev));
-
-      const targetRomaji = getTargetRomaji(currentCountry, gameMode);
-      if (targetRomaji.startsWith(newInput)) {
-        setInput(newInput);
-        if (newInput === targetRomaji) {
-          handleCorrectInput();
+        const targetRomaji = getTargetRomaji(currentCountry, gameMode);
+        if (targetRomaji.startsWith(newInput)) {
+          setInput(newInput);
+          if (newInput === targetRomaji) {
+            handleCorrectInput();
+          }
+        } else {
+          setMistakeCount((prevCount) => prevCount + 1);
+          setShowMistakeEffect(true);
+          setTimeout(() => setShowMistakeEffect(false), 300);
         }
-      } else {
-        setMistakeCount((prevCount) => prevCount + 1);
-        setShowMistakeEffect(true);
-        setTimeout(() => setShowMistakeEffect(false), 300);
       }
-    },
-    [gameState, currentCountry, gameMode, handleCorrectInput],
-  );
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [
+    gameState,
+    startGame,
+    resetGame,
+    currentCountry,
+    input,
+    gameMode,
+    handleCorrectInput,
+  ]);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (gameState === "playing") {
+      interval = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime + 10);
+      }, 10);
+    }
+    return () => clearInterval(interval);
+  }, [gameState]);
 
   const calculateAverageTypingSpeed = useCallback(() => {
     if (startTime && endTime && totalKeystrokes > 0) {
@@ -348,26 +360,17 @@ export function WorldMapTypingGame({
                 <RomajiDisplay
                   input={input}
                   romaji={getTargetRomaji(currentCountry, gameMode)}
+                  showMistake={showMistakeEffect}
                 />
               </div>
 
-              {/* 入力フィールド */}
-              <input
-                type="text"
-                value={input}
-                onChange={handleInput}
-                className={`w-full p-2 text-lg border rounded-lg outline-none transition-all ${
-                  showMistakeEffect
-                    ? "border-red-500 bg-red-50 animate-shake"
-                    : "border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                }`}
-                autoFocus
-              />
-
-              {/* 経過時間とヒント */}
+              {/* 経過時間・進捗・ミス */}
               <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
                 <span>経過時間: {formatTime(currentTime)}</span>
-                <span>ESCキーで中断</span>
+                <span>
+                  {completedCountries.length} / {itemCount}
+                </span>
+                <span>ミス: {mistakeCount}回</span>
               </div>
 
               {/* 進捗バー */}
@@ -379,6 +382,9 @@ export function WorldMapTypingGame({
                   }}
                 />
               </div>
+              <p className="text-xs text-gray-400 text-center mt-2">
+                ESCキーで中断
+              </p>
             </div>
           </div>
         )}

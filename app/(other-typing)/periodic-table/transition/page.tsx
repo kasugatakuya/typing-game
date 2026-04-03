@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { transitionElements } from "../data";
+import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "../data";
 
 export const metadata: Metadata = {
   title: "遷移金属タイピング | 雑学タイピング",
@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function TransitionElementsPage() {
+  const elements = getElementsByCategory("transition");
+
   return (
-    <OtherTypingGame
-      items={transitionElements}
+    <PeriodicTableTypingGame
+      elements={elements}
       title="遷移金属など（21-54）"
       backUrl="/periodic-table"
-      themeColor="text-blue-500"
     />
   );
 }

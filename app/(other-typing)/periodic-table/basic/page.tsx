@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { basicElements } from "../data";
+import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "../data";
 
 export const metadata: Metadata = {
   title: "基本20元素タイピング | 雑学タイピング",
@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function BasicElementsPage() {
+  const elements = getElementsByCategory("basic");
+
   return (
-    <OtherTypingGame
-      items={basicElements}
-      title="基本20元素"
+    <PeriodicTableTypingGame
+      elements={elements}
+      title="基本20元素（1-20）"
       backUrl="/periodic-table"
-      themeColor="text-blue-500"
     />
   );
 }

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { actinides } from "../data";
+import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "../data";
 
 export const metadata: Metadata = {
   title: "アクチノイドタイピング | 雑学タイピング",
@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function ActinidesPage() {
+  const elements = getElementsByCategory("actinides");
+
   return (
-    <OtherTypingGame
-      items={actinides}
+    <PeriodicTableTypingGame
+      elements={elements}
       title="アクチノイド（89-103）"
       backUrl="/periodic-table"
-      themeColor="text-blue-500"
     />
   );
 }

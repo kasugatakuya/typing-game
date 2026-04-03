@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { lanthanides } from "../data";
+import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "../data";
 
 export const metadata: Metadata = {
   title: "ランタノイドタイピング | 雑学タイピング",
@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function LanthanidesPage() {
+  const elements = getElementsByCategory("lanthanides");
+
   return (
-    <OtherTypingGame
-      items={lanthanides}
+    <PeriodicTableTypingGame
+      elements={elements}
       title="ランタノイド（57-71）"
       backUrl="/periodic-table"
-      themeColor="text-blue-500"
     />
   );
 }

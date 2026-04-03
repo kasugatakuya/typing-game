@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { heavyElements } from "../data";
+import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "../data";
 
 export const metadata: Metadata = {
   title: "重元素タイピング | 雑学タイピング",
@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function HeavyElementsPage() {
+  const elements = getElementsByCategory("heavy");
+
   return (
-    <OtherTypingGame
-      items={heavyElements}
+    <PeriodicTableTypingGame
+      elements={elements}
       title="重元素（55-88）"
       backUrl="/periodic-table"
-      themeColor="text-blue-500"
     />
   );
 }

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { allElements } from "../data";
+import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "../data";
 
 export const metadata: Metadata = {
   title: "全118元素タイピング | 雑学タイピング",
@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function AllElementsPage() {
+  const elements = getElementsByCategory("all");
+
   return (
-    <OtherTypingGame
-      items={allElements}
+    <PeriodicTableTypingGame
+      elements={elements}
       title="全118元素"
       backUrl="/periodic-table"
-      themeColor="text-blue-500"
     />
   );
 }
