@@ -114,16 +114,32 @@ const regionConfig: Record<
   kyushu: {
     center: [130.5, 32.5],
     scale: 6000,
-    prefectureIds: ["40", "41", "42", "43", "44", "45", "46", "47"],
+    prefectureIds: ["40", "41", "42", "43", "44", "45", "46"],
   },
 };
 
-const JapanMap = memo(function JapanMap({
-  highlightedPrefecture,
-  region,
-}: JapanMapSVGProps) {
-  const config = regionConfig[region];
+// 沖縄専用の設定
+const okinawaConfig = {
+  center: [127.6, 26.5] as [number, number],
+  scale: 20000,
+  prefectureIds: ["47"],
+};
 
+interface MapComponentProps {
+  highlightedPrefecture: string | null;
+  config: {
+    center: [number, number];
+    scale: number;
+    prefectureIds: string[];
+  };
+  style?: React.CSSProperties;
+}
+
+const MapComponent = memo(function MapComponent({
+  highlightedPrefecture,
+  config,
+  style,
+}: MapComponentProps) {
   return (
     <ComposableMap
       projection="geoMercator"
@@ -135,6 +151,7 @@ const JapanMap = memo(function JapanMap({
         width: "100%",
         height: "100%",
         backgroundColor: "#a5d8ff",
+        ...style,
       }}
     >
       <Geographies geography={GEO_URL}>
@@ -185,7 +202,35 @@ export function JapanMapSVG({
   highlightedPrefecture,
   region,
 }: JapanMapSVGProps) {
+  const config = regionConfig[region];
+
+  // 九州地方の場合は沖縄を別枠で表示
+  if (region === "kyushu") {
+    return (
+      <div className="relative w-full h-full">
+        {/* メイン地図（九州本土） */}
+        <MapComponent
+          highlightedPrefecture={highlightedPrefecture}
+          config={config}
+        />
+        {/* 沖縄県の別枠 */}
+        <div className="absolute bottom-4 left-4 w-48 h-40 border-2 border-gray-400 rounded-lg overflow-hidden shadow-lg bg-white">
+          <div className="absolute top-1 left-2 text-sm font-bold text-gray-600 z-10">
+            沖縄県
+          </div>
+          <MapComponent
+            highlightedPrefecture={highlightedPrefecture}
+            config={okinawaConfig}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <JapanMap highlightedPrefecture={highlightedPrefecture} region={region} />
+    <MapComponent
+      highlightedPrefecture={highlightedPrefecture}
+      config={config}
+    />
   );
 }
