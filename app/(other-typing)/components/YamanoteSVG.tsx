@@ -52,9 +52,9 @@ export function YamanoteSVG({
   currentStation,
   completedStations,
 }: YamanoteSVGProps) {
-  const centerX = 200;
+  const centerX = 209;
   const centerY = 200;
-  const radius = 130;
+  const radius = 140;
   const stationRadius = 7;
 
   // 角度から座標を計算
@@ -88,7 +88,7 @@ export function YamanoteSVG({
   };
 
   return (
-    <svg viewBox="0 0 400 400" className="w-full h-full max-w-[380px] mx-auto">
+    <svg viewBox="0 0 400 400" className="w-full h-full">
       {/* 背景 */}
       <rect width="400" height="400" fill="#f8fafc" rx="12" />
 

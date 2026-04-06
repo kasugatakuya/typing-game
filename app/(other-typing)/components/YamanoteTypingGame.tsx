@@ -174,17 +174,17 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
   }, [startTime, endTime, totalKeystrokes]);
 
   return (
-    <div className="h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-16 pb-2 mt-4">
-      <div className="container mx-auto px-4 max-w-md">
+    <div className="h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-16 pb-2 mt-7">
+      <div className="container mx-auto px-4 max-w-lg">
         {/* タイトル */}
-        <div className="text-center py-1 mb-4">
+        <div className="text-center py-1 mb-7">
           <h1 className="text-2xl font-bold text-gray-800">
             山手線タイピング（全{stationCount}駅）
           </h1>
         </div>
 
         {/* 路線図 */}
-        <div className="bg-white rounded-xl shadow-lg p-2 mb-3">
+        <div className="bg-white rounded-xl shadow-lg mb-3 max-h-102.5 overflow-hidden flex items-center justify-center">
           <YamanoteSVG
             currentStation={currentStation?.name || null}
             completedStations={completedStations.map((s) => s.name)}
@@ -237,7 +237,9 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
               </div>
               <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
                 <span>ESCキーで中断</span>
-                <span>{completedStations.length} / {stationCount}</span>
+                <span>
+                  {completedStations.length} / {stationCount}
+                </span>
               </div>
             </div>
           )}
