@@ -53,7 +53,7 @@ export function ShareButtons({
   };
 
   return (
-    <div className="flex justify-center gap-3 mt-4">
+    <div className="flex justify-center gap-3 mt-2">
       {/* X (Twitter) Share Button */}
       <button
         onClick={handleXShare}

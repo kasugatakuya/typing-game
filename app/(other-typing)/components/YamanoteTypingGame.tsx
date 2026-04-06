@@ -245,26 +245,26 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
           )}
 
           {gameState === "finished" && startTime && endTime && (
-            <div className="text-center py-2">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">
+            <div className="text-center">
+              <h3 className="text-base font-bold text-gray-800 mb-2">
                 🎉 全駅制覇！
               </h3>
-              <div className="flex justify-center gap-5 mb-3">
+              <div className="flex justify-center gap-5">
                 <div>
                   <p className="text-xs text-gray-500">タイム</p>
-                  <p className="text-base font-bold text-gray-800">
+                  <p className="text-sm font-bold text-gray-800">
                     {formatTime(endTime - startTime)}
                   </p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500">ミス</p>
-                  <p className="text-base font-bold text-gray-800">
+                  <p className="text-sm font-bold text-gray-800">
                     {mistakeCount}回
                   </p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500">速度</p>
-                  <p className="text-base font-bold text-gray-800">
+                  <p className="text-sm font-bold text-gray-800">
                     {calculateAverageTypingSpeed()}打/秒
                   </p>
                 </div>
@@ -277,7 +277,7 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                 mode=""
               />
               <p
-                className={`text-sm font-semibold text-teal-500 transition-opacity duration-500 mt-5 ${
+                className={`text-xs font-semibold text-teal-500 transition-opacity duration-500 mt-4 ${
                   isVisible ? "opacity-100" : "opacity-0"
                 }`}
               >
