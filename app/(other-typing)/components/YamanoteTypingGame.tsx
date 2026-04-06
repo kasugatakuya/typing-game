@@ -224,9 +224,6 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
 
               <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
                 <span>経過: {formatTime(currentTime)}</span>
-                <span>
-                  {completedStations.length} / {stationCount}
-                </span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
@@ -238,9 +235,10 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-400 text-center mt-2">
-                ESCキーで中断
-              </p>
+              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
+                <span>ESCキーで中断</span>
+                <span>{completedStations.length} / {stationCount}</span>
+              </div>
             </div>
           )}
 

@@ -284,12 +284,6 @@ export function JapanMapTypingGame({
             region={region}
           />
 
-          {/* Progress display - top left */}
-          <div className="absolute top-4 left-4 z-10 bg-white/90 px-3 py-1 rounded-lg shadow">
-            <span className="text-sm font-semibold text-gray-700">
-              {completedPrefectures.length} / {itemCount}
-            </span>
-          </div>
 
           {/* Image overlay for bird/flower/tree modes - top right */}
           {gameState === "playing" &&
@@ -401,12 +395,9 @@ export function JapanMapTypingGame({
                 />
               </div>
 
-              {/* Elapsed time, progress, mistakes */}
+              {/* Elapsed time, mistakes */}
               <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
                 <span>経過時間: {formatTime(currentTime)}</span>
-                <span>
-                  {completedPrefectures.length} / {itemCount}
-                </span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
@@ -419,9 +410,10 @@ export function JapanMapTypingGame({
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-400 text-center mt-2">
-                ESCキーで中断
-              </p>
+              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
+                <span>ESCキーで中断</span>
+                <span>{completedPrefectures.length} / {itemCount}</span>
+              </div>
             </div>
           </div>
         )}

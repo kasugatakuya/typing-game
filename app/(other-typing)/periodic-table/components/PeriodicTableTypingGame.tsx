@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { Element, allElementsWithPosition } from "../data";
+import { ShareButtons } from "@/app/components/ShareButtons";
 
 type Props = {
   elements: Element[];
@@ -170,6 +171,7 @@ export default function PeriodicTableTypingGame({
   const [elapsedTime, setElapsedTime] = useState(0);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
   const [mistakeCount, setMistakeCount] = useState(0);
+  const [totalKeystrokes, setTotalKeystrokes] = useState(0);
 
   // シャッフル関数
   const shuffleArray = useCallback((array: Element[]) => {
@@ -214,6 +216,7 @@ export default function PeriodicTableTypingGame({
           setStartTime(null);
           setElapsedTime(0);
           setMistakeCount(0);
+          setTotalKeystrokes(0);
         }
         return;
       }
@@ -229,6 +232,7 @@ export default function PeriodicTableTypingGame({
         setInput((prev) => prev.slice(0, -1));
       } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
         const newInput = (input + e.key).toLowerCase();
+        setTotalKeystrokes((prev) => prev + 1);
 
         // 入力がローマ字の先頭と一致するか確認
         if (currentElement.romaji.startsWith(newInput)) {
@@ -272,6 +276,13 @@ export default function PeriodicTableTypingGame({
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
+  const calculateAverageTypingSpeed = useCallback(() => {
+    if (elapsedTime > 0 && totalKeystrokes > 0) {
+      return (totalKeystrokes / elapsedTime).toFixed(2);
+    }
+    return "0.00";
+  }, [elapsedTime, totalKeystrokes]);
+
   if (shuffledElements.length === 0) {
     return <div className="min-h-screen bg-teal-50 pt-20" />;
   }
@@ -305,9 +316,33 @@ export default function PeriodicTableTypingGame({
               <p className="text-gray-600 mb-2">
                 {shuffledElements.length}問完了
               </p>
-              <p className="text-3xl font-bold text-gray-800 mb-4">
-                {formatTime(elapsedTime)}
-              </p>
+              <div className="flex justify-center gap-8 mb-4">
+                <div>
+                  <p className="text-xs text-gray-500">タイム</p>
+                  <p className="text-xl font-bold text-gray-800">
+                    {formatTime(elapsedTime)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">ミス</p>
+                  <p className="text-xl font-bold text-gray-800">
+                    {mistakeCount}回
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">速度</p>
+                  <p className="text-xl font-bold text-gray-800">
+                    {calculateAverageTypingSpeed()}打/秒
+                  </p>
+                </div>
+              </div>
+              <ShareButtons
+                time={formatTime(elapsedTime)}
+                mistakes={mistakeCount}
+                speed={calculateAverageTypingSpeed()}
+                gameName={title}
+                mode=""
+              />
               <p className="text-teal-500 text-sm mt-6">
                 スペースキーでもう一度プレイ
               </p>
@@ -370,9 +405,6 @@ export default function PeriodicTableTypingGame({
               {/* 経過時間とミス */}
               <div className="flex justify-between items-center text-sm text-gray-600 mb-2">
                 <span>経過時間: {formatTime(elapsedTime)}</span>
-                <span>
-                  {currentIndex} / {shuffledElements.length}
-                </span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
@@ -385,9 +417,10 @@ export default function PeriodicTableTypingGame({
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-400 text-center mt-2">
-                ESCキーで中断
-              </p>
+              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
+                <span>ESCキーで中断</span>
+                <span>{currentIndex} / {shuffledElements.length}</span>
+              </div>
             </div>
 
             <div className="mt-6">

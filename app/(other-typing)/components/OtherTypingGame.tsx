@@ -205,9 +205,6 @@ export function OtherTypingGame({
           {gameState === "playing" && currentItem && (
             <div>
               <div className="text-center mb-6">
-                <div className="text-sm text-gray-500 mb-1">
-                  {completedItems.length + 1} / {itemCount}
-                </div>
                 {currentItem.hint && (
                   <p className="text-sm text-gray-500 mb-2">
                     {currentItem.hint}
@@ -225,9 +222,6 @@ export function OtherTypingGame({
 
               <div className="flex justify-between items-center mt-4 text-sm text-gray-600">
                 <span>経過時間: {formatTime(currentTime)}</span>
-                <span>
-                  {completedItems.length} / {itemCount}
-                </span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
@@ -239,9 +233,10 @@ export function OtherTypingGame({
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-400 text-center mt-2">
-                ESCキーで中断
-              </p>
+              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
+                <span>ESCキーで中断</span>
+                <span>{completedItems.length} / {itemCount}</span>
+              </div>
             </div>
           )}
 

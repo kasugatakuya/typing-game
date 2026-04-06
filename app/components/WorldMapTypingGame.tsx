@@ -258,12 +258,6 @@ export function WorldMapTypingGame({
             </div>
           )}
 
-          {/* 進捗表示 - 左上 */}
-          <div className="absolute top-4 left-4 z-10 bg-white/90 px-3 py-1 rounded-lg shadow">
-            <span className="text-sm font-semibold text-gray-700">
-              {completedCountries.length} / {itemCount}
-            </span>
-          </div>
 
           {/* アイドル状態または終了状態のオーバーレイ */}
           {(gameState === "idle" || gameState === "finished") && (
@@ -364,12 +358,9 @@ export function WorldMapTypingGame({
                 />
               </div>
 
-              {/* 経過時間・進捗・ミス */}
+              {/* 経過時間・ミス */}
               <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
                 <span>経過時間: {formatTime(currentTime)}</span>
-                <span>
-                  {completedCountries.length} / {itemCount}
-                </span>
                 <span>ミス: {mistakeCount}回</span>
               </div>
 
@@ -382,9 +373,10 @@ export function WorldMapTypingGame({
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-400 text-center mt-2">
-                ESCキーで中断
-              </p>
+              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
+                <span>ESCキーで中断</span>
+                <span>{completedCountries.length} / {itemCount}</span>
+              </div>
             </div>
           </div>
         )}
