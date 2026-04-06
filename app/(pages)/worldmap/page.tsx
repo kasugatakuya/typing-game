@@ -86,7 +86,7 @@ export default function WorldMap() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-blue-50 to-slate-100 py-6 pt-20 lg:pt-25">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 to-slate-100 py-6 pt-20 lg:pt-23">
       <div className="container mx-auto px-4">
         {/* ヘッダーセクション */}
         <div className="text-center mb-6">
@@ -143,7 +143,7 @@ export default function WorldMap() {
         </div>
 
         {/* ホームに戻るリンク */}
-        <div className="text-center mt-9">
+        <div className="text-center mt-10">
           <Link
             href="/"
             className="inline-flex items-center px-6 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md transition-all duration-200 hover:shadow-lg hover:text-blue-600"

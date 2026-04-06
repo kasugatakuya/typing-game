@@ -68,10 +68,10 @@ export default function JapanMap() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-rose-50 to-orange-50 py-6 pt-20 lg:pt-25">
+    <div className="min-h-screen bg-linear-to-b from-rose-50 to-orange-50 py-6 pt-20 lg:pt-23">
       <div className="container mx-auto px-4">
         {/* ヘッダーセクション */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800 mb-3">
             日本地図タイピング
           </h1>
@@ -99,7 +99,7 @@ export default function JapanMap() {
               />
 
               {/* カード内容 */}
-              <div className="relative p-5">
+              <div className="relative p-3">
                 {/* 地域名 */}
                 <div className="flex items-center justify-center gap-2 mb-1">
                   {region.isAll && (
@@ -161,8 +161,36 @@ export default function JapanMap() {
           ))}
         </div>
 
+        {/* 世界遺産タイピング */}
+        <div className="max-w-5xl mx-auto mt-4">
+          <Link
+            href="/japanmap/heritage"
+            className="group block bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+          >
+            <div className="relative">
+              {/* ホバー時のグラデーション背景 */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-br from-amber-500 via-orange-400 to-yellow-400" />
+
+              {/* カード内容 */}
+              <div className="relative p-5">
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-linear-to-r from-amber-500 to-orange-400 text-white group-hover:bg-white/20">
+                    NEW
+                  </span>
+                  <h2 className="text-lg font-bold text-gray-800 text-center group-hover:text-white transition-colors duration-300">
+                    日本の世界遺産タイピング
+                  </h2>
+                </div>
+                <p className="text-sm text-gray-500 text-center group-hover:text-white/80 transition-colors duration-300">
+                  日本のユネスコ世界遺産（全26問）
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         {/* ホームに戻るリンク */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-6">
           <Link
             href="/"
             className="inline-flex items-center px-6 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md transition-all duration-200 hover:shadow-lg hover:text-rose-600"
