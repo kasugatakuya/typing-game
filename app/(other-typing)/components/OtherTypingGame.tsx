@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
 
@@ -9,6 +10,7 @@ interface Item {
   name: string;
   romaji: string;
   hint?: string;
+  image?: string;
 }
 
 interface OtherTypingGameProps {
@@ -205,6 +207,17 @@ export function OtherTypingGame({
           {gameState === "playing" && currentItem && (
             <div>
               <div className="text-center mb-6">
+                {currentItem.image && (
+                  <div className="flex justify-center mb-4">
+                    <Image
+                      src={currentItem.image}
+                      alt={currentItem.name}
+                      width={150}
+                      height={150}
+                      className="rounded-lg object-contain"
+                    />
+                  </div>
+                )}
                 {currentItem.hint && (
                   <p className="text-sm text-gray-500 mb-2">
                     {currentItem.hint}

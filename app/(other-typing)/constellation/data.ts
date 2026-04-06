@@ -1,17 +1,17 @@
 // 12星座（黄道十二宮）
 export const zodiacSigns = [
-  { name: "おひつじ座", romaji: "ohitsujiza", hint: "3/21〜4/19" },
-  { name: "おうし座", romaji: "oushiza", hint: "4/20〜5/20" },
-  { name: "ふたご座", romaji: "futagoza", hint: "5/21〜6/21" },
-  { name: "かに座", romaji: "kaniza", hint: "6/22〜7/22" },
-  { name: "しし座", romaji: "shishiza", hint: "7/23〜8/22" },
-  { name: "おとめ座", romaji: "otomeza", hint: "8/23〜9/22" },
-  { name: "てんびん座", romaji: "tenbinza", hint: "9/23〜10/23" },
-  { name: "さそり座", romaji: "sasoriza", hint: "10/24〜11/22" },
-  { name: "いて座", romaji: "iteza", hint: "11/23〜12/21" },
-  { name: "やぎ座", romaji: "yagiza", hint: "12/22〜1/19" },
-  { name: "みずがめ座", romaji: "mizugameza", hint: "1/20〜2/18" },
-  { name: "うお座", romaji: "uoza", hint: "2/19〜3/20" },
+  { name: "おひつじ座", romaji: "ohitsujiza", hint: "3/21〜4/19", image: "/zodiac-sign/ohitsuji.png" },
+  { name: "おうし座", romaji: "oushiza", hint: "4/20〜5/20", image: "/zodiac-sign/oushi.png" },
+  { name: "ふたご座", romaji: "futagoza", hint: "5/21〜6/21", image: "/zodiac-sign/futago.png" },
+  { name: "かに座", romaji: "kaniza", hint: "6/22〜7/22", image: "/zodiac-sign/kani.png" },
+  { name: "しし座", romaji: "shishiza", hint: "7/23〜8/22", image: "/zodiac-sign/shishi.png" },
+  { name: "おとめ座", romaji: "otomeza", hint: "8/23〜9/22", image: "/zodiac-sign/otome.png" },
+  { name: "てんびん座", romaji: "tenbinza", hint: "9/23〜10/23", image: "/zodiac-sign/tenbin.png" },
+  { name: "さそり座", romaji: "sasoriza", hint: "10/24〜11/22", image: "/zodiac-sign/sasori.png" },
+  { name: "いて座", romaji: "iteza", hint: "11/23〜12/21", image: "/zodiac-sign/ite.png" },
+  { name: "やぎ座", romaji: "yagiza", hint: "12/22〜1/19", image: "/zodiac-sign/yagi.png" },
+  { name: "みずがめ座", romaji: "mizugameza", hint: "1/20〜2/18", image: "/zodiac-sign/mizugame.png" },
+  { name: "うお座", romaji: "uoza", hint: "2/19〜3/20", image: "/zodiac-sign/uo.png" },
 ];
 
 // 88星座
