@@ -208,13 +208,13 @@ export function OtherTypingGame({
             <div>
               <div className="text-center mb-6">
                 {currentItem.image && (
-                  <div className="flex justify-center mb-4">
+                  <div className="flex justify-center items-center mb-4 h-[150px]">
                     <Image
                       src={currentItem.image}
                       alt={currentItem.name}
                       width={150}
                       height={150}
-                      className="rounded-lg object-contain"
+                      className="rounded-lg object-contain max-h-[150px] w-auto"
                     />
                   </div>
                 )}

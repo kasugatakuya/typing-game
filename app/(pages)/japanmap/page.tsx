@@ -119,16 +119,29 @@ export default function JapanMap() {
 
                 {/* モード選択ボタン */}
                 {region.isAll ? (
-                  <div className="flex justify-center gap-2">
-                    {[...modesRow1, ...modesRow2].map((mode) => (
-                      <Link
-                        key={mode.key}
-                        href={`/japanmap/${region.id}${mode.key}`}
-                        className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-1 ${mode.color}`}
-                      >
-                        {mode.label}
-                      </Link>
-                    ))}
+                  <div className="flex flex-col sm:flex-row justify-center gap-2">
+                    <div className="flex justify-center gap-2">
+                      {modesRow1.map((mode) => (
+                        <Link
+                          key={mode.key}
+                          href={`/japanmap/${region.id}${mode.key}`}
+                          className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-1 ${mode.color}`}
+                        >
+                          {mode.label}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="flex justify-center gap-2">
+                      {modesRow2.map((mode) => (
+                        <Link
+                          key={mode.key}
+                          href={`/japanmap/${region.id}${mode.key}`}
+                          className={`px-3 py-1 text-xs rounded-full text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-1 ${mode.color}`}
+                        >
+                          {mode.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <div className="flex flex-col gap-2">

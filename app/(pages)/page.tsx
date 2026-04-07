@@ -19,7 +19,8 @@ export default function Home() {
       image: "/japan-map.png",
       linear: "from-rose-500 to-orange-400",
       hoverGradient: "hover:from-rose-600 hover:to-orange-500",
-      features: ["都道府県", "県庁所在地", "県鳥", "県花", "県木"],
+      features: ["都道府県", "県庁所在地"],
+      featuresRow2: ["県鳥", "県花", "県木"],
     },
   ];
 
@@ -42,7 +43,8 @@ export default function Home() {
           </div>
           <div className="mx-1">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
-              タイピングで学ぶ地理
+              <span className="inline-block">タイピングで学ぶ</span>
+              <span className="inline-block">地理</span>
             </h1>
             <p className="text-xl text-gray-600 mb-3">
               楽しくゲーム感覚で遊ぼう!
@@ -101,15 +103,29 @@ export default function Home() {
                   </p>
 
                   {/* 機能タグ */}
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {category.features.map((feature, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                  <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2">
+                    <div className="flex justify-center gap-2">
+                      {category.features.map((feature, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                    {category.featuresRow2 && (
+                      <div className="flex justify-center gap-2">
+                        {category.featuresRow2.map((feature, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
