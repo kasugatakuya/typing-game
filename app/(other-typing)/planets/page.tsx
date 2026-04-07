@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../components/OtherTypingGame";
-import { planets } from "./data";
+import { OtherTypingGame } from "@/app/(other-typing)/components/OtherTypingGame";
+import { planets } from "@/app/(other-typing)/planets/data";
 
 export const metadata: Metadata = {
   title: "太陽系タイピング | 雑学タイピング",

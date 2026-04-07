@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import PeriodicTableTypingGame from "../components/PeriodicTableTypingGame";
-import { getElementsByCategory } from "../data";
+import PeriodicTableTypingGame from "@/app/(other-typing)/periodic-table/components/PeriodicTableTypingGame";
+import { getElementsByCategory } from "@/app/(other-typing)/periodic-table/data";
 
 export const metadata: Metadata = {
   title: "超重元素タイピング | 雑学タイピング",

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { YamanoteTypingGame } from "../components/YamanoteTypingGame";
-import { stations } from "./data";
+import { YamanoteTypingGame } from "@/app/(other-typing)/components/YamanoteTypingGame";
+import { stations } from "@/app/(other-typing)/yamanote/data";
 
 export const metadata: Metadata = {
   title: "山手線タイピング | 雑学タイピング",

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../components/OtherTypingGame";
-import { shichifukujin } from "./data";
+import { OtherTypingGame } from "@/app/(other-typing)/components/OtherTypingGame";
+import { shichifukujin } from "@/app/(other-typing)/shichifukujin/data";
 
 export const metadata: Metadata = {
   title: "七福神タイピング | 雑学タイピング",

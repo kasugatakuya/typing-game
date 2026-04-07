@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../components/OtherTypingGame";
-import { eto } from "./data";
+import { OtherTypingGame } from "@/app/(other-typing)/components/OtherTypingGame";
+import { eto } from "@/app/(other-typing)/eto/data";
 
 export const metadata: Metadata = {
   title: "干支タイピング | 雑学タイピング",

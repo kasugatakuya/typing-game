@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
-import { Heritage, heritages } from "./data";
+import { Heritage, heritages } from "@/app/(pages)/japanmap/heritage/data";
 
 // Japan prefecture TopoJSON
 const GEO_URL =

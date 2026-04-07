@@ -4,8 +4,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
-import { WorldMapSVG } from "./WorldMapSVG";
-import { ShareButtons } from "./ShareButtons";
+import { WorldMapSVG } from "@/app/components/WorldMapSVG";
+import { ShareButtons } from "@/app/components/ShareButtons";
 
 interface MapCountry {
   id: string;

@@ -1,5 +1,5 @@
-import OtherHeader from "./components/OtherHeader";
-import OtherFooter from "./components/OtherFooter";
+import OtherHeader from "@/app/(other-typing)/components/OtherHeader";
+import OtherFooter from "@/app/(other-typing)/components/OtherFooter";
 
 export default function OtherTypingLayout({
   children,

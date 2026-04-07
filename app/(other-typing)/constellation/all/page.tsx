@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { OtherTypingGame } from "../../components/OtherTypingGame";
-import { constellations } from "../data";
+import { OtherTypingGame } from "@/app/(other-typing)/components/OtherTypingGame";
+import { constellations } from "@/app/(other-typing)/constellation/data";
 
 export const metadata: Metadata = {
   title: "88星座タイピング | 雑学タイピング",

@@ -4,8 +4,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
-import { JapanMapSVG, JapanRegion } from "./JapanMapSVG";
-import { ShareButtons } from "./ShareButtons";
+import { JapanMapSVG, JapanRegion } from "@/app/components/JapanMapSVG";
+import { ShareButtons } from "@/app/components/ShareButtons";
 
 interface Prefecture {
   id: string;

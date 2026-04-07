@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
-import { Element, allElementsWithPosition } from "../data";
+import { Element, allElementsWithPosition } from "@/app/(other-typing)/periodic-table/data";
 import { ShareButtons } from "@/app/components/ShareButtons";
 
 type Props = {

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
-import { YamanoteSVG } from "./YamanoteSVG";
+import { YamanoteSVG } from "@/app/(other-typing)/components/YamanoteSVG";
 
 interface Station {
   name: string;
