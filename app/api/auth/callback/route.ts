@@ -11,7 +11,10 @@ export async function GET(request: Request) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error) {
-      return NextResponse.redirect(`${origin}${next}`);
+      // リダイレクト先にauth_successパラメータを追加
+      const redirectUrl = new URL(next, origin);
+      redirectUrl.searchParams.set("auth_success", "true");
+      return NextResponse.redirect(redirectUrl.toString());
     }
   }
 

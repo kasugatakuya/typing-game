@@ -26,13 +26,13 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const supabase = useMemo(() => createClient(), []);
+  const isSupabaseAvailable = supabase !== null;
+
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const supabase = useMemo(() => createClient(), []);
-  const isSupabaseAvailable = supabase !== null;
+  const [isLoading, setIsLoading] = useState(isSupabaseAvailable);
 
   const fetchProfile = useCallback(
     async (userId: string) => {
@@ -54,31 +54,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [user, fetchProfile]);
 
   useEffect(() => {
+    // auth_successパラメータがある場合、URLをクリーンにしてリロード
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has("auth_success")) {
+        url.searchParams.delete("auth_success");
+        window.history.replaceState({}, "", url.pathname + url.search);
+        window.location.reload();
+        return;
+      }
+    }
+
     if (!supabase) {
-      setIsLoading(false);
       return;
     }
 
-    const getSessionWithRetry = async (retryCount = 0) => {
+    // Get initial session
+    const initSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
 
       if (session?.user) {
         setSession(session);
         setUser(session.user);
         await fetchProfile(session.user.id);
-        setIsLoading(false);
-      } else if (retryCount < 3) {
-        // セッションがない場合、少し待ってから再試行
-        setTimeout(() => getSessionWithRetry(retryCount + 1), 200);
-      } else {
-        setSession(null);
-        setUser(null);
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
 
-    // Get initial session with retry
-    getSessionWithRetry();
+    initSession();
 
     // Listen for auth changes
     const {
