@@ -44,23 +44,30 @@ export default function RankingPage() {
                 <label className="block text-sm text-slate-400 mb-2">
                   カテゴリ
                 </label>
-                <select
-                  value={category}
-                  onChange={(e) => {
-                    const newCategory = e.target.value as GameCategory;
-                    setCategory(newCategory);
-                    // 新しいカテゴリの最初のモードを選択
-                    const firstMode = Object.keys(GAME_MODES[newCategory])[0];
-                    setMode(firstMode);
-                  }}
-                  className="cursor-pointer w-full bg-slate-700 text-white rounded-lg px-3 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none"
-                >
-                  {Object.entries(GAME_CATEGORIES).map(([key, label]) => (
-                    <option key={key} value={key}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    value={category}
+                    onChange={(e) => {
+                      const newCategory = e.target.value as GameCategory;
+                      setCategory(newCategory);
+                      // 新しいカテゴリの最初のモードを選択
+                      const firstMode = Object.keys(GAME_MODES[newCategory])[0];
+                      setMode(firstMode);
+                    }}
+                    className="cursor-pointer w-full bg-slate-700 text-white rounded-lg pl-3 pr-10 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none appearance-none"
+                  >
+                    {Object.entries(GAME_CATEGORIES).map(([key, label]) => (
+                      <option key={key} value={key}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               {/* Mode Filter */}
@@ -68,17 +75,24 @@ export default function RankingPage() {
                 <label className="block text-sm text-slate-400 mb-2">
                   ゲーム
                 </label>
-                <select
-                  value={mode}
-                  onChange={(e) => setMode(e.target.value)}
-                  className="cursor-pointer w-full bg-slate-700 text-white rounded-lg px-3 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none"
-                >
-                  {Object.entries(availableModes).map(([key, info]) => (
-                    <option key={key} value={key}>
-                      {info.displayName} ({info.questionCount}問)
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    value={mode}
+                    onChange={(e) => setMode(e.target.value)}
+                    className="cursor-pointer w-full bg-slate-700 text-white rounded-lg pl-3 pr-10 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none appearance-none"
+                  >
+                    {Object.entries(availableModes).map(([key, info]) => (
+                      <option key={key} value={key}>
+                        {info.displayName} ({info.questionCount}問)
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               {/* Period Filter */}
@@ -86,17 +100,24 @@ export default function RankingPage() {
                 <label className="block text-sm text-slate-400 mb-2">
                   期間
                 </label>
-                <select
-                  value={period}
-                  onChange={(e) => setPeriod(e.target.value as RankingPeriod)}
-                  className="cursor-pointer w-full bg-slate-700 text-white rounded-lg px-3 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none"
-                >
-                  {Object.entries(RANKING_PERIODS).map(([key, label]) => (
-                    <option key={key} value={key}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    value={period}
+                    onChange={(e) => setPeriod(e.target.value as RankingPeriod)}
+                    className="cursor-pointer w-full bg-slate-700 text-white rounded-lg pl-3 pr-10 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none appearance-none"
+                  >
+                    {Object.entries(RANKING_PERIODS).map(([key, label]) => (
+                      <option key={key} value={key}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
