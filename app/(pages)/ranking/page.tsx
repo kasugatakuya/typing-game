@@ -14,18 +14,18 @@ import {
 } from "@/app/types/score";
 
 export default function RankingPage() {
-  const [category, setCategory] = useState<GameCategory | "all">("all");
-  const [mode, setMode] = useState<string>("");
+  const [category, setCategory] = useState<GameCategory>("worldmap");
+  const [mode, setMode] = useState<string>("east-asia-country");
   const [period, setPeriod] = useState<RankingPeriod>("all");
 
   const { rankings, total, isLoading, error } = useRankings({
     category,
-    mode: mode || undefined,
+    mode,
     period,
   });
 
   // Get available modes for selected category
-  const availableModes = category !== "all" ? GAME_MODES[category] : {};
+  const availableModes = GAME_MODES[category];
 
   return (
     <div className="min-h-screen bg-linear-to-b from-slate-900 to-slate-800">
@@ -47,12 +47,14 @@ export default function RankingPage() {
                 <select
                   value={category}
                   onChange={(e) => {
-                    setCategory(e.target.value as GameCategory | "all");
-                    setMode("");
+                    const newCategory = e.target.value as GameCategory;
+                    setCategory(newCategory);
+                    // 新しいカテゴリの最初のモードを選択
+                    const firstMode = Object.keys(GAME_MODES[newCategory])[0];
+                    setMode(firstMode);
                   }}
                   className="cursor-pointer w-full bg-slate-700 text-white rounded-lg px-3 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none"
                 >
-                  <option value="all">すべて</option>
                   {Object.entries(GAME_CATEGORIES).map(([key, label]) => (
                     <option key={key} value={key}>
                       {label}
@@ -64,18 +66,16 @@ export default function RankingPage() {
               {/* Mode Filter */}
               <div>
                 <label className="block text-sm text-slate-400 mb-2">
-                  モード
+                  ゲーム
                 </label>
                 <select
                   value={mode}
                   onChange={(e) => setMode(e.target.value)}
-                  disabled={category === "all"}
-                  className="w-full bg-slate-700 text-white rounded-lg px-3 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none disabled:opacity-50"
+                  className="cursor-pointer w-full bg-slate-700 text-white rounded-lg px-3 py-2 border border-slate-600 focus:border-blue-500 focus:outline-none"
                 >
-                  <option value="">すべてのモード</option>
                   {Object.entries(availableModes).map(([key, info]) => (
                     <option key={key} value={key}>
-                      {info.displayName}
+                      {info.displayName} ({info.questionCount}問)
                     </option>
                   ))}
                 </select>
