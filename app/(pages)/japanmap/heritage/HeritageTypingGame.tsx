@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, memo } from "react";
+import React, { useState, useEffect, useCallback, memo, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
+import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
 import { Heritage, heritages } from "@/app/(pages)/japanmap/heritage/data";
+import type { QuestionTimestamp } from "@/app/types/score";
 
 // Japan prefecture TopoJSON
 const GEO_URL =
@@ -229,6 +231,8 @@ export default function HeritageTypingGame() {
   const [totalKeystrokes, setTotalKeystrokes] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
+  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
+  const questionStartTimeRef = useRef<number | null>(null);
 
   const itemCount = heritages.length;
   const currentHeritage = shuffledHeritages[currentIndex] || null;
@@ -261,18 +265,23 @@ export default function HeritageTypingGame() {
     setCurrentTime(0);
     setMistakeCount(0);
     setTotalKeystrokes(0);
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = null;
   }, []);
 
   const startGame = useCallback(() => {
+    const now = Date.now();
     const newHeritages = shuffleArray(heritages);
     setShuffledHeritages(newHeritages);
     setGameState("playing");
-    setStartTime(Date.now());
+    setStartTime(now);
     setCurrentTime(0);
     setCurrentIndex(0);
     setInput("");
     setMistakeCount(0);
     setTotalKeystrokes(0);
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = now;
   }, []);
 
   // Keyboard event handler
@@ -296,18 +305,36 @@ export default function HeritageTypingGame() {
       if (e.key === "Backspace") {
         setInput((prev) => prev.slice(0, -1));
       } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        const now = Date.now();
         const newInput = (input + e.key).toLowerCase();
         setTotalKeystrokes((prev) => prev + 1);
 
         if (currentHeritage.romaji.startsWith(newInput)) {
           setInput(newInput);
           if (newInput === currentHeritage.romaji) {
+            // Use startTime as fallback for first question if ref is not set
+            const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+
+            // Record timestamp for this question
+            setQuestionTimestamps((prev) => [
+              ...prev,
+              {
+                questionIndex: prev.length,
+                startTime: questionStart,
+                endTime: now,
+                romajiLength: currentHeritage.romaji.length,
+                targetRomaji: currentHeritage.romaji,
+              },
+            ]);
+
             if (currentIndex + 1 >= shuffledHeritages.length) {
-              setEndTime(Date.now());
+              setEndTime(now);
               setGameState("finished");
             } else {
+              // Set start time for next question
               setCurrentIndex((prev) => prev + 1);
               setInput("");
+              questionStartTimeRef.current = Date.now();
             }
           }
         } else {
@@ -328,6 +355,7 @@ export default function HeritageTypingGame() {
     currentIndex,
     shuffledHeritages.length,
     input,
+    startTime,
   ]);
 
   // Timer
@@ -453,6 +481,15 @@ export default function HeritageTypingGame() {
                           speed={calculateAverageTypingSpeed()}
                           gameName="日本の世界遺産タイピング"
                           mode=""
+                        />
+                        <ScoreSubmitButton
+                          gameCategory="japanmap"
+                          gameMode="heritage"
+                          clearTimeMs={endTime - startTime}
+                          mistakeCount={mistakeCount}
+                          keystrokeCount={totalKeystrokes}
+                          questionCount={itemCount}
+                          questionTimestamps={questionTimestamps}
                         />
                       </>
                     )}

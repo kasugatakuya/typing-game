@@ -14,6 +14,7 @@ export default function EtoPage() {
       title="干支タイピング"
       backUrl="/other"
       themeColor="text-red-500"
+      gameMode="eto"
     />
   );
 }

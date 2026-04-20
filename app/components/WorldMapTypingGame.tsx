@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { WorldMapSVG } from "@/app/components/WorldMapSVG";
 import { ShareButtons } from "@/app/components/ShareButtons";
+import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
+import type { QuestionTimestamp } from "@/app/types/score";
 
 interface MapCountry {
   id: string;
@@ -90,6 +92,8 @@ export function WorldMapTypingGame({
   const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
+  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
+  const questionStartTimeRef = useRef<number | null>(null);
 
   const itemCount = allCountries.length;
 
@@ -121,34 +125,59 @@ export function WorldMapTypingGame({
     setMistakeCount(0);
     setTotalKeystrokes(0);
     setTypingStartTime(null);
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = null;
   }, [getItems]);
 
   const startGame = useCallback(() => {
+    const now = Date.now();
     setGameState("playing");
-    setStartTime(Date.now());
+    setStartTime(now);
     setCurrentTime(0);
     const newItems = getItems();
     setRemainingCountries(newItems);
     setCompletedCountries([]);
     setCurrentCountry(newItems[0]);
     setInput("");
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = now;
   }, [getItems]);
 
   const handleCorrectInput = useCallback(() => {
+    const now = Date.now();
+    const targetRomaji = getTargetRomaji(currentCountry!, gameMode);
+
+    // Use startTime as fallback for first question if ref is not set
+    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+
+    // Record timestamp for this question
+    setQuestionTimestamps((prev) => [
+      ...prev,
+      {
+        questionIndex: prev.length,
+        startTime: questionStart,
+        endTime: now,
+        romajiLength: targetRomaji.length,
+        targetRomaji,
+      },
+    ]);
+
     setCompletedCountries((prev) => [...prev, currentCountry!]);
     setRemainingCountries((prev) => {
       const newRemaining = prev.slice(1);
       if (newRemaining.length === 0) {
-        setEndTime(Date.now());
+        setEndTime(now);
         setGameState("finished");
       } else {
         setCurrentCountry(newRemaining[0]);
         setInput("");
         setTypingStartTime(null);
+        // Set start time for next question immediately
+        questionStartTimeRef.current = Date.now();
       }
       return newRemaining;
     });
-  }, [currentCountry]);
+  }, [currentCountry, gameMode, startTime]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -314,6 +343,15 @@ export function WorldMapTypingGame({
                           speed={calculateAverageTypingSpeed()}
                           gameName={`世界地図タイピング - ${regionName}`}
                           mode={gameMode === "capital" ? "首都名" : "国名"}
+                        />
+                        <ScoreSubmitButton
+                          gameCategory="worldmap"
+                          gameMode={`${region}-${gameMode}`}
+                          clearTimeMs={endTime - startTime}
+                          mistakeCount={mistakeCount}
+                          keystrokeCount={totalKeystrokes}
+                          questionCount={itemCount}
+                          questionTimestamps={questionTimestamps}
                         />
                       </>
                     )}

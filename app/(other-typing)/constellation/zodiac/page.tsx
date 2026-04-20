@@ -14,6 +14,7 @@ export default function ZodiacPage() {
       title="12星座タイピング"
       backUrl="/constellation"
       themeColor="text-yellow-500"
+      gameMode="constellation-12"
     />
   );
 }

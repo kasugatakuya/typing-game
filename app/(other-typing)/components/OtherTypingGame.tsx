@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
+import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
+import type { QuestionTimestamp } from "@/app/types/score";
 
 interface Item {
   name: string;
@@ -18,6 +20,7 @@ interface OtherTypingGameProps {
   title: string;
   backUrl: string;
   themeColor: string;
+  gameMode: string;
 }
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -44,6 +47,7 @@ export function OtherTypingGame({
   title,
   backUrl,
   themeColor,
+  gameMode,
 }: OtherTypingGameProps) {
   const [gameState, setGameState] = useState<"idle" | "playing" | "finished">(
     "idle",
@@ -59,6 +63,8 @@ export function OtherTypingGame({
   const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
+  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
+  const questionStartTimeRef = useRef<number | null>(null);
 
   const itemCount = items.length;
 
@@ -89,33 +95,57 @@ export function OtherTypingGame({
     setRemainingItems(getItems());
     setMistakeCount(0);
     setTotalKeystrokes(0);
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = null;
   }, [getItems]);
 
   const startGame = useCallback(() => {
+    const now = Date.now();
     setGameState("playing");
-    setStartTime(Date.now());
+    setStartTime(now);
     setCurrentTime(0);
     const newItems = getItems();
     setRemainingItems(newItems);
     setCompletedItems([]);
     setCurrentItem(newItems[0]);
     setInput("");
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = now;
   }, [getItems]);
 
   const handleCorrectInput = useCallback(() => {
+    const now = Date.now();
+
+    // Use startTime as fallback for first question if ref is not set
+    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+
+    // Record timestamp for this question
+    setQuestionTimestamps((prev) => [
+      ...prev,
+      {
+        questionIndex: prev.length,
+        startTime: questionStart,
+        endTime: now,
+        romajiLength: currentItem!.romaji.length,
+        targetRomaji: currentItem!.romaji,
+      },
+    ]);
+
     setCompletedItems((prev) => [...prev, currentItem!]);
     setRemainingItems((prev) => {
       const newRemaining = prev.slice(1);
       if (newRemaining.length === 0) {
-        setEndTime(Date.now());
+        setEndTime(now);
         setGameState("finished");
       } else {
         setCurrentItem(newRemaining[0]);
         setInput("");
+        // Set start time for next question immediately
+        questionStartTimeRef.current = Date.now();
       }
       return newRemaining;
     });
-  }, [currentItem]);
+  }, [currentItem, startTime]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -284,6 +314,15 @@ export function OtherTypingGame({
                 speed={calculateAverageTypingSpeed()}
                 gameName={title}
                 mode=""
+              />
+              <ScoreSubmitButton
+                gameCategory="other"
+                gameMode={gameMode}
+                clearTimeMs={endTime - startTime}
+                mistakeCount={mistakeCount}
+                keystrokeCount={totalKeystrokes}
+                questionCount={itemCount}
+                questionTimestamps={questionTimestamps}
               />
               <p
                 className={`text-base font-semibold transition-opacity duration-500 mt-10 ${themeColor} ${

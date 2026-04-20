@@ -14,6 +14,7 @@ export default function AllConstellationsPage() {
       title="88星座タイピング"
       backUrl="/constellation"
       themeColor="text-yellow-500"
+      gameMode="constellation-all"
     />
   );
 }

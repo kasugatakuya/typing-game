@@ -14,6 +14,7 @@ export default function ShichifukujinPage() {
       title="七福神タイピング"
       backUrl="/other"
       themeColor="text-amber-500"
+      gameMode="shichifukujin"
     />
   );
 }

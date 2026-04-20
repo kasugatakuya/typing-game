@@ -14,6 +14,7 @@ export default function PlanetsPage() {
       title="太陽系タイピング"
       backUrl="/other"
       themeColor="text-purple-500"
+      gameMode="planets"
     />
   );
 }

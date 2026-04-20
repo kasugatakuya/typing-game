@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { JapanMapSVG, JapanRegion } from "@/app/components/JapanMapSVG";
 import { ShareButtons } from "@/app/components/ShareButtons";
+import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
+import type { QuestionTimestamp } from "@/app/types/score";
 
 interface Prefecture {
   id: string;
@@ -135,6 +137,8 @@ export function JapanMapTypingGame({
   const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
+  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
+  const questionStartTimeRef = useRef<number | null>(null);
 
   const itemCount = allPrefectures.length;
 
@@ -166,34 +170,59 @@ export function JapanMapTypingGame({
     setMistakeCount(0);
     setTotalKeystrokes(0);
     setTypingStartTime(null);
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = null;
   }, [getItems]);
 
   const startGame = useCallback(() => {
+    const now = Date.now();
     setGameState("playing");
-    setStartTime(Date.now());
+    setStartTime(now);
     setCurrentTime(0);
     const newItems = getItems();
     setRemainingPrefectures(newItems);
     setCompletedPrefectures([]);
     setCurrentPrefecture(newItems[0]);
     setInput("");
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = now;
   }, [getItems]);
 
   const handleCorrectInput = useCallback(() => {
+    const now = Date.now();
+    const targetRomaji = getTargetRomaji(currentPrefecture!, gameMode);
+
+    // Use startTime as fallback for first question if ref is not set
+    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+
+    // Record timestamp for this question
+    setQuestionTimestamps((prev) => [
+      ...prev,
+      {
+        questionIndex: prev.length,
+        startTime: questionStart,
+        endTime: now,
+        romajiLength: targetRomaji.length,
+        targetRomaji,
+      },
+    ]);
+
     setCompletedPrefectures((prev) => [...prev, currentPrefecture!]);
     setRemainingPrefectures((prev) => {
       const newRemaining = prev.slice(1);
       if (newRemaining.length === 0) {
-        setEndTime(Date.now());
+        setEndTime(now);
         setGameState("finished");
       } else {
         setCurrentPrefecture(newRemaining[0]);
         setInput("");
         setTypingStartTime(null);
+        // Set start time for next question immediately
+        questionStartTimeRef.current = Date.now();
       }
       return newRemaining;
     });
-  }, [currentPrefecture]);
+  }, [currentPrefecture, gameMode, startTime]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -357,6 +386,15 @@ export function JapanMapTypingGame({
                           speed={calculateAverageTypingSpeed()}
                           gameName={`日本地図タイピング - ${regionName}`}
                           mode={gameModeLabels[gameMode]}
+                        />
+                        <ScoreSubmitButton
+                          gameCategory="japanmap"
+                          gameMode={`${region}-${gameMode}`}
+                          clearTimeMs={endTime - startTime}
+                          mistakeCount={mistakeCount}
+                          keystrokeCount={totalKeystrokes}
+                          questionCount={itemCount}
+                          questionTimestamps={questionTimestamps}
                         />
                       </>
                     )}
