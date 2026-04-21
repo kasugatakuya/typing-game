@@ -6,7 +6,13 @@ import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 
 function LoginContent() {
-  const { user, isLoading, signInWithGoogle, signInWithEmail, signUpWithEmail } = useAuth();
+  const {
+    user,
+    isLoading,
+    signInWithGoogle,
+    signInWithEmail,
+    signUpWithEmail,
+  } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
@@ -19,6 +25,7 @@ function LoginContent() {
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showTermsModal, setShowTermsModal] = useState(false);
 
   useEffect(() => {
     if (user && !isLoading) {
@@ -47,7 +54,9 @@ function LoginContent() {
         if (!result.success) {
           setFormError(result.error ?? "登録に失敗しました");
         } else if (result.needsEmailConfirmation) {
-          setSuccessMessage("確認メールを送信しました。メール内のリンクをクリックして登録を完了してください。");
+          setSuccessMessage(
+            "確認メールを送信しました。メール内のリンクをクリックして登録を完了してください。",
+          );
           setEmail("");
           setPassword("");
           setDisplayName("");
@@ -124,7 +133,8 @@ function LoginContent() {
             {(error || formError) && (
               <div className="mb-4 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
                 <p className="text-red-400 text-sm text-center">
-                  {formError || "ログインに失敗しました。もう一度お試しください。"}
+                  {formError ||
+                    "ログインに失敗しました。もう一度お試しください。"}
                 </p>
               </div>
             )}
@@ -236,9 +246,13 @@ function LoginContent() {
             <div className="mt-8 pt-6 border-t border-slate-700">
               <p className="text-slate-400 text-xs text-center">
                 {mode === "login" ? "ログイン" : "登録"}すると、
-                <Link href="/about" className="text-blue-400 hover:underline">
+                <button
+                  type="button"
+                  onClick={() => setShowTermsModal(true)}
+                  className="text-blue-400 hover:underline"
+                >
                   利用規約
-                </Link>
+                </button>
                 に同意したことになります
               </p>
             </div>
@@ -254,6 +268,93 @@ function LoginContent() {
           </div>
         </div>
       </main>
+
+      {/* 利用規約モーダル */}
+      {showTermsModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+          onClick={() => setShowTermsModal(false)}
+        >
+          <div
+            className="bg-slate-800 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-slate-700">
+              <h2 className="text-lg font-bold text-white">利用規約・プライバシーポリシー</h2>
+              <button
+                onClick={() => setShowTermsModal(false)}
+                className="p-1 text-slate-400 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[calc(80vh-60px)] space-y-6">
+              {/* 利用規約 */}
+              <section>
+                <h3 className="text-lg font-bold text-white mb-3">利用規約</h3>
+                <div className="space-y-3 text-slate-300 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">第1条（適用）</h4>
+                    <p>本規約は、地理タイピング（以下「本サービス」）の利用に関する条件を定めるものです。ユーザーは本規約に同意の上、本サービスを利用するものとします。</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">第2条（利用登録）</h4>
+                    <p>ユーザーは、Googleアカウントまたはメールアドレスによる認証を通じて利用登録を行うことができます。</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">第3条（禁止事項）</h4>
+                    <p className="mb-1">ユーザーは、以下の行為を行ってはなりません。</p>
+                    <ul className="list-disc list-inside text-slate-400 space-y-0.5">
+                      <li>不正な方法によるスコアの改ざん・送信</li>
+                      <li>自動化ツールやスクリプトを使用したプレイ</li>
+                      <li>他のユーザーへの迷惑行為</li>
+                      <li>サーバーに過度な負荷をかける行為</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">第4条（免責事項）</h4>
+                    <p>本サービスは現状有姿で提供され、完全性・正確性・可用性を保証するものではありません。</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* プライバシーポリシー */}
+              <section>
+                <h3 className="text-lg font-bold text-white mb-3">プライバシーポリシー</h3>
+                <div className="space-y-3 text-slate-300 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">収集する情報</h4>
+                    <ul className="list-disc list-inside text-slate-400 space-y-0.5">
+                      <li>メールアドレス（認証用）</li>
+                      <li>表示名（ランキング表示用）</li>
+                      <li>プロフィール画像（Googleログインの場合）</li>
+                      <li>ゲームのスコア・プレイ履歴</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">情報の利用目的</h4>
+                    <ul className="list-disc list-inside text-slate-400 space-y-0.5">
+                      <li>ユーザー認証およびアカウント管理</li>
+                      <li>ランキング機能の提供</li>
+                      <li>サービスの改善・不正検知</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">情報の第三者提供</h4>
+                    <p>法令に基づく場合を除き、ユーザーの同意なく個人情報を第三者に提供することはありません。</p>
+                  </div>
+                </div>
+              </section>
+
+              <div className="text-center pt-2 border-t border-slate-700">
+                <p className="text-xs text-slate-500">最終更新日: 2024年1月</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
