@@ -37,12 +37,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const fetchProfile = useCallback(
     async (userId: string) => {
       if (!supabase) return;
-      const { data } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", userId)
-        .single();
-      setProfile(data);
+      try {
+        const { data } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("id", userId)
+          .single();
+        setProfile(data);
+      } catch {
+        // プロフィール取得エラーは無視
+      }
     },
     [supabase]
   );
@@ -54,14 +58,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [user, fetchProfile]);
 
   useEffect(() => {
-    // auth_successパラメータがある場合、URLをクリーンにしてリロード
+    // auth_successパラメータがある場合、URLをクリーンにする
     if (typeof window !== "undefined") {
       const url = new URL(window.location.href);
       if (url.searchParams.has("auth_success")) {
         url.searchParams.delete("auth_success");
         window.history.replaceState({}, "", url.pathname + url.search);
-        window.location.reload();
-        return;
       }
     }
 
@@ -69,37 +71,57 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    // Get initial session
-    const initSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+    let isMounted = true;
 
-      if (session?.user) {
-        setSession(session);
-        setUser(session.user);
-        await fetchProfile(session.user.id);
-      }
-      setIsLoading(false);
-    };
-
-    initSession();
-
-    // Listen for auth changes
+    // Listen for auth changes first
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (!isMounted) return;
+
       setSession(session);
       setUser(session?.user ?? null);
 
       if (session?.user) {
-        await fetchProfile(session.user.id);
+        fetchProfile(session.user.id).then(() => {
+          if (isMounted) setIsLoading(false);
+        });
       } else {
         setProfile(null);
+        setIsLoading(false);
       }
-
-      setIsLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    // 初期セッションを取得（onAuthStateChangeが発火しない場合のフォールバック）
+    const initSession = async () => {
+      try {
+        const { data: { user: currentUser }, error } = await supabase.auth.getUser();
+
+        if (!isMounted) return;
+
+        if (currentUser && !error) {
+          const { data: { session: currentSession } } = await supabase.auth.getSession();
+          if (!isMounted) return;
+
+          setSession(currentSession);
+          setUser(currentUser);
+          await fetchProfile(currentUser.id);
+        }
+      } catch {
+        // エラーは無視
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
+    };
+
+    // 少し遅延させてonAuthStateChangeが先に処理されるようにする
+    const timeoutId = setTimeout(initSession, 100);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timeoutId);
+      subscription.unsubscribe();
+    };
   }, [supabase, fetchProfile]);
 
   const signInWithGoogle = async () => {

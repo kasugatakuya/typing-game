@@ -68,15 +68,15 @@ export const GAME_MODES: Record<
   Record<string, { displayName: string; questionCount: number }>
 > = {
   worldmap: {
-    "east-asia-country": { displayName: "東アジア・国名", questionCount: 6 },
-    "east-asia-capital": { displayName: "東アジア・首都名", questionCount: 6 },
+    "east-asia-country": { displayName: "東・東南・南アジア・国名", questionCount: 24 },
+    "east-asia-capital": { displayName: "東・東南・南アジア・首都名", questionCount: 24 },
     "western-europe-country": {
       displayName: "西ヨーロッパ・国名",
-      questionCount: 9,
+      questionCount: 17,
     },
     "western-europe-capital": {
       displayName: "西ヨーロッパ・首都名",
-      questionCount: 9,
+      questionCount: 17,
     },
     "south-america-country": {
       displayName: "南アメリカ・国名",
@@ -97,80 +97,124 @@ export const GAME_MODES: Record<
       questionCount: 6,
     },
     "central-asia-country": {
-      displayName: "中央アジア・国名",
-      questionCount: 5,
+      displayName: "中央アジア・コーカサス・国名",
+      questionCount: 8,
     },
     "central-asia-capital": {
-      displayName: "中央アジア・首都名",
-      questionCount: 5,
+      displayName: "中央アジア・コーカサス・首都名",
+      questionCount: 8,
     },
     "eastern-europe-country": {
       displayName: "東ヨーロッパ・国名",
-      questionCount: 10,
+      questionCount: 18,
     },
     "eastern-europe-capital": {
       displayName: "東ヨーロッパ・首都名",
-      questionCount: 10,
+      questionCount: 18,
     },
     "west-africa-country": {
       displayName: "西アフリカ・国名",
-      questionCount: 16,
+      questionCount: 11,
     },
     "west-africa-capital": {
       displayName: "西アフリカ・首都名",
-      questionCount: 16,
+      questionCount: 11,
     },
-    "north-america-country": { displayName: "北米・国名", questionCount: 23 },
-    "north-america-capital": { displayName: "北米・首都名", questionCount: 23 },
+    "north-america-country": { displayName: "北アメリカ・国名", questionCount: 23 },
+    "north-america-capital": { displayName: "北アメリカ・首都名", questionCount: 23 },
     "sub-saharan-africa-country": {
-      displayName: "サブサハラアフリカ・国名",
-      questionCount: 24,
+      displayName: "サブサハラ・アフリカ・国名",
+      questionCount: 33,
     },
     "sub-saharan-africa-capital": {
-      displayName: "サブサハラアフリカ・首都名",
-      questionCount: 24,
+      displayName: "サブサハラ・アフリカ・首都名",
+      questionCount: 33,
     },
-    "west-asia-country": { displayName: "西アジア・国名", questionCount: 18 },
-    "west-asia-capital": { displayName: "西アジア・首都名", questionCount: 18 },
+    "west-asia-country": { displayName: "西アジア（中東）・国名", questionCount: 15 },
+    "west-asia-capital": { displayName: "西アジア（中東）・首都名", questionCount: 15 },
     "southern-europe-country": {
-      displayName: "南ヨーロッパ・国名",
-      questionCount: 15,
+      displayName: "ロシア・その他・国名",
+      questionCount: 5,
     },
     "southern-europe-capital": {
-      displayName: "南ヨーロッパ・首都名",
-      questionCount: 15,
+      displayName: "ロシア・その他・首都名",
+      questionCount: 5,
     },
   },
   japanmap: {
+    // 全国
     "all-prefecture": { displayName: "全国・都道府県名", questionCount: 47 },
     "all-capital": { displayName: "全国・県庁所在地", questionCount: 47 },
     "all-bird": { displayName: "全国・県鳥", questionCount: 47 },
     "all-flower": { displayName: "全国・県花", questionCount: 47 },
     "all-tree": { displayName: "全国・県木", questionCount: 47 },
+    // 北海道・東北地方
     "hokkaido-tohoku-prefecture": {
-      displayName: "北海道・東北・都道府県名",
+      displayName: "北海道・東北地方・都道府県名",
       questionCount: 7,
     },
     "hokkaido-tohoku-capital": {
-      displayName: "北海道・東北・県庁所在地",
+      displayName: "北海道・東北地方・県庁所在地",
       questionCount: 7,
     },
-    "kanto-prefecture": { displayName: "関東・都道府県名", questionCount: 7 },
-    "kanto-capital": { displayName: "関東・県庁所在地", questionCount: 7 },
-    "chubu-prefecture": { displayName: "中部・都道府県名", questionCount: 9 },
-    "chubu-capital": { displayName: "中部・県庁所在地", questionCount: 9 },
-    "kinki-prefecture": { displayName: "近畿・都道府県名", questionCount: 7 },
-    "kinki-capital": { displayName: "近畿・県庁所在地", questionCount: 7 },
+    "hokkaido-tohoku-bird": {
+      displayName: "北海道・東北地方・県鳥",
+      questionCount: 7,
+    },
+    "hokkaido-tohoku-flower": {
+      displayName: "北海道・東北地方・県花",
+      questionCount: 7,
+    },
+    "hokkaido-tohoku-tree": {
+      displayName: "北海道・東北地方・県木",
+      questionCount: 7,
+    },
+    // 関東地方
+    "kanto-prefecture": { displayName: "関東地方・都道府県名", questionCount: 7 },
+    "kanto-capital": { displayName: "関東地方・県庁所在地", questionCount: 7 },
+    "kanto-bird": { displayName: "関東地方・県鳥", questionCount: 7 },
+    "kanto-flower": { displayName: "関東地方・県花", questionCount: 7 },
+    "kanto-tree": { displayName: "関東地方・県木", questionCount: 7 },
+    // 中部地方
+    "chubu-prefecture": { displayName: "中部地方・都道府県名", questionCount: 9 },
+    "chubu-capital": { displayName: "中部地方・県庁所在地", questionCount: 9 },
+    "chubu-bird": { displayName: "中部地方・県鳥", questionCount: 9 },
+    "chubu-flower": { displayName: "中部地方・県花", questionCount: 9 },
+    "chubu-tree": { displayName: "中部地方・県木", questionCount: 9 },
+    // 近畿地方
+    "kinki-prefecture": { displayName: "近畿地方・都道府県名", questionCount: 7 },
+    "kinki-capital": { displayName: "近畿地方・県庁所在地", questionCount: 7 },
+    "kinki-bird": { displayName: "近畿地方・県鳥", questionCount: 7 },
+    "kinki-flower": { displayName: "近畿地方・県花", questionCount: 7 },
+    "kinki-tree": { displayName: "近畿地方・県木", questionCount: 7 },
+    // 中国・四国地方
     "chugoku-shikoku-prefecture": {
-      displayName: "中国・四国・都道府県名",
+      displayName: "中国・四国地方・都道府県名",
       questionCount: 9,
     },
     "chugoku-shikoku-capital": {
-      displayName: "中国・四国・県庁所在地",
+      displayName: "中国・四国地方・県庁所在地",
       questionCount: 9,
     },
-    "kyushu-prefecture": { displayName: "九州・都道府県名", questionCount: 8 },
-    "kyushu-capital": { displayName: "九州・県庁所在地", questionCount: 8 },
+    "chugoku-shikoku-bird": {
+      displayName: "中国・四国地方・県鳥",
+      questionCount: 9,
+    },
+    "chugoku-shikoku-flower": {
+      displayName: "中国・四国地方・県花",
+      questionCount: 9,
+    },
+    "chugoku-shikoku-tree": {
+      displayName: "中国・四国地方・県木",
+      questionCount: 9,
+    },
+    // 九州・沖縄地方
+    "kyushu-prefecture": { displayName: "九州・沖縄地方・都道府県名", questionCount: 8 },
+    "kyushu-capital": { displayName: "九州・沖縄地方・県庁所在地", questionCount: 8 },
+    "kyushu-bird": { displayName: "九州・沖縄地方・県鳥", questionCount: 8 },
+    "kyushu-flower": { displayName: "九州・沖縄地方・県花", questionCount: 8 },
+    "kyushu-tree": { displayName: "九州・沖縄地方・県木", questionCount: 8 },
+    // 世界遺産
     heritage: { displayName: "日本の世界遺産", questionCount: 26 },
   },
   other: {
