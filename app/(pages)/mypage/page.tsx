@@ -8,7 +8,6 @@ import Header from "@/app/components/Header";
 import { useAuth } from "@/app/contexts/AuthContext";
 import {
   GAME_CATEGORIES,
-  GAME_MODES,
   type GameCategory,
 } from "@/app/types/score";
 
@@ -26,13 +25,17 @@ interface MyScore {
 }
 
 export default function MyPage() {
-  const { user, profile, isLoading, signOut } = useAuth();
+  const { user, profile, isLoading, signOut, updateProfile } = useAuth();
   const router = useRouter();
   const [scores, setScores] = useState<MyScore[]>([]);
   const [isLoadingScores, setIsLoadingScores] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<
     GameCategory | "all"
   >("all");
+  const [isEditing, setIsEditing] = useState(false);
+  const [editDisplayName, setEditDisplayName] = useState("");
+  const [editError, setEditError] = useState<string | null>(null);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -68,6 +71,42 @@ export default function MyPage() {
       fetchScores();
     }
   }, [user, selectedCategory]);
+
+  const handleStartEdit = () => {
+    setEditDisplayName(profile?.display_name || "");
+    setEditError(null);
+    setIsEditing(true);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setEditError(null);
+  };
+
+  const handleSaveEdit = async () => {
+    const trimmed = editDisplayName.trim();
+    if (!trimmed) {
+      setEditError("表示名を入力してください");
+      return;
+    }
+    if (trimmed.length > 30) {
+      setEditError("表示名は30文字以内で入力してください");
+      return;
+    }
+
+    setIsUpdating(true);
+    setEditError(null);
+
+    const result = await updateProfile(trimmed);
+
+    setIsUpdating(false);
+
+    if (result.success) {
+      setIsEditing(false);
+    } else {
+      setEditError(result.error || "更新に失敗しました");
+    }
+  };
 
   if (isLoading) {
     return (
@@ -123,12 +162,58 @@ export default function MyPage() {
                 </div>
               )}
               <div className="flex-1">
-                <h1 className="text-2xl font-bold text-white">
-                  {profile.display_name}
-                </h1>
-                <p className="text-slate-400 text-sm">
-                  Googleアカウントでログイン中
-                </p>
+                {isEditing ? (
+                  <div className="space-y-2">
+                    <input
+                      type="text"
+                      value={editDisplayName}
+                      onChange={(e) => setEditDisplayName(e.target.value)}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                      placeholder="表示名"
+                      maxLength={30}
+                      autoFocus
+                    />
+                    {editError && (
+                      <p className="text-red-400 text-sm">{editError}</p>
+                    )}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleSaveEdit}
+                        disabled={isUpdating}
+                        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white rounded-lg text-sm transition-colors"
+                      >
+                        {isUpdating ? "保存中..." : "保存"}
+                      </button>
+                      <button
+                        onClick={handleCancelEdit}
+                        disabled={isUpdating}
+                        className="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-lg text-sm transition-colors"
+                      >
+                        キャンセル
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-2">
+                      <h1 className="text-2xl font-bold text-white">
+                        {profile.display_name}
+                      </h1>
+                      <button
+                        onClick={handleStartEdit}
+                        className="p-1 text-slate-400 hover:text-white transition-colors"
+                        title="名前を編集"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </button>
+                    </div>
+                    <p className="text-slate-400 text-sm">
+                      {profile.provider === "google" ? "Googleアカウント" : "メール"}でログイン中
+                    </p>
+                  </>
+                )}
               </div>
               <button
                 onClick={signOut}
