@@ -15,6 +15,7 @@ export default function ActinidesPage() {
       elements={elements}
       title="アクチノイド（89-103）"
       backUrl="/periodic-table"
+      gameMode="periodic-table-actinides"
     />
   );
 }

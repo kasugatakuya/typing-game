@@ -15,6 +15,7 @@ export default function HeavyElementsPage() {
       elements={elements}
       title="重元素（55-88）"
       backUrl="/periodic-table"
+      gameMode="periodic-table-heavy"
     />
   );
 }

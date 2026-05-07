@@ -15,6 +15,7 @@ export default function LanthanidesPage() {
       elements={elements}
       title="ランタノイド（57-71）"
       backUrl="/periodic-table"
+      gameMode="periodic-table-lanthanides"
     />
   );
 }

@@ -15,6 +15,7 @@ export default function AllElementsPage() {
       elements={elements}
       title="全118元素"
       backUrl="/periodic-table"
+      gameMode="periodic-table-all"
     />
   );
 }

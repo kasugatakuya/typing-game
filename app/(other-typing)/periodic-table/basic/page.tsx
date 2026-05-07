@@ -15,6 +15,7 @@ export default function BasicElementsPage() {
       elements={elements}
       title="基本20元素（1-20）"
       backUrl="/periodic-table"
+      gameMode="periodic-table-basic"
     />
   );
 }

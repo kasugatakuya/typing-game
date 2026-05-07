@@ -15,6 +15,7 @@ export default function SuperheavyElementsPage() {
       elements={elements}
       title="超重元素（104-118）"
       backUrl="/periodic-table"
+      gameMode="periodic-table-superheavy"
     />
   );
 }

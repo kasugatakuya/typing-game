@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { formatTime } from "@/app/utils/timeUtils";
 import { ShareButtons } from "@/app/components/ShareButtons";
 import { YamanoteSVG } from "@/app/(other-typing)/components/YamanoteSVG";
+import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
+import type { QuestionTimestamp } from "@/app/types/score";
 
 interface Station {
   name: string;
@@ -49,6 +51,8 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
   const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
+  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
+  const questionStartTimeRef = useRef<number | null>(null);
 
   const stationCount = stations.length;
 
@@ -79,33 +83,58 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
     setRemainingStations(getStations());
     setMistakeCount(0);
     setTotalKeystrokes(0);
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = null;
   }, [getStations]);
 
   const startGame = useCallback(() => {
     setGameState("playing");
-    setStartTime(Date.now());
+    const now = Date.now();
+    setStartTime(now);
     setCurrentTime(0);
     const newStations = getStations();
     setRemainingStations(newStations);
     setCompletedStations([]);
     setCurrentStation(newStations[0]);
     setInput("");
+    setQuestionTimestamps([]);
+    questionStartTimeRef.current = now;
   }, [getStations]);
 
   const handleCorrectInput = useCallback(() => {
+    const now = Date.now();
+    const stationRomaji = currentStation!.romaji;
+
+    // フォールバック: Refが未設定の場合はstartTimeを使用
+    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+
+    // 問題のタイムスタンプを記録
+    setQuestionTimestamps((prev) => [
+      ...prev,
+      {
+        questionIndex: prev.length,
+        startTime: questionStart,
+        endTime: now,
+        romajiLength: stationRomaji.length,
+        targetRomaji: stationRomaji,
+      },
+    ]);
+
     setCompletedStations((prev) => [...prev, currentStation!]);
     setRemainingStations((prev) => {
       const newRemaining = prev.slice(1);
       if (newRemaining.length === 0) {
-        setEndTime(Date.now());
+        setEndTime(now);
         setGameState("finished");
       } else {
         setCurrentStation(newRemaining[0]);
         setInput("");
+        // 次の問題の開始時刻を設定
+        questionStartTimeRef.current = Date.now();
       }
       return newRemaining;
     });
-  }, [currentStation]);
+  }, [currentStation, startTime]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -183,13 +212,15 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
           </h1>
         </div>
 
-        {/* 路線図 */}
-        <div className="bg-white rounded-xl shadow-lg mb-3 max-h-102.5 overflow-hidden flex items-center justify-center">
-          <YamanoteSVG
-            currentStation={currentStation?.name || null}
-            completedStations={completedStations.map((s) => s.name)}
-          />
-        </div>
+        {/* 路線図（ゲーム終了時は非表示） */}
+        {gameState !== "finished" && (
+          <div className="bg-white rounded-xl shadow-lg mb-3 max-h-102.5 overflow-hidden flex items-center justify-center">
+            <YamanoteSVG
+              currentStation={currentStation?.name || null}
+              completedStations={completedStations.map((s) => s.name)}
+            />
+          </div>
+        )}
 
         {/* ゲームエリア */}
         <div className="bg-white rounded-xl shadow-lg p-4 mb-3">
@@ -275,6 +306,15 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                 speed={calculateAverageTypingSpeed()}
                 gameName="山手線タイピング"
                 mode=""
+              />
+              <ScoreSubmitButton
+                gameCategory="other"
+                gameMode="yamanote"
+                clearTimeMs={endTime - startTime}
+                mistakeCount={mistakeCount}
+                keystrokeCount={totalKeystrokes}
+                questionCount={stationCount}
+                questionTimestamps={questionTimestamps}
               />
               <p
                 className={`text-xs font-semibold text-teal-500 transition-opacity duration-500 mt-4 ${

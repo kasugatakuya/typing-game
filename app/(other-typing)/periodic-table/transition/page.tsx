@@ -15,6 +15,7 @@ export default function TransitionElementsPage() {
       elements={elements}
       title="遷移金属など（21-54）"
       backUrl="/periodic-table"
+      gameMode="periodic-table-transition"
     />
   );
 }

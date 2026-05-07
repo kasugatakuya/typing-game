@@ -1,14 +1,17 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import Link from "next/link";
 import { Element, allElementsWithPosition } from "@/app/(other-typing)/periodic-table/data";
 import { ShareButtons } from "@/app/components/ShareButtons";
+import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
+import type { QuestionTimestamp } from "@/app/types/score";
 
 type Props = {
   elements: Element[];
   title: string;
   backUrl: string;
+  gameMode: string;
 };
 
 // 周期表コンポーネント
@@ -161,6 +164,7 @@ export default function PeriodicTableTypingGame({
   elements,
   title,
   backUrl,
+  gameMode,
 }: Props) {
   const [shuffledElements, setShuffledElements] = useState<Element[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -172,6 +176,9 @@ export default function PeriodicTableTypingGame({
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
   const [mistakeCount, setMistakeCount] = useState(0);
   const [totalKeystrokes, setTotalKeystrokes] = useState(0);
+  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
+  const questionStartTimeRef = useRef<number | null>(null);
+  const [clearTimeMs, setClearTimeMs] = useState(0);
 
   // シャッフル関数
   const shuffleArray = useCallback((array: Element[]) => {
@@ -217,6 +224,9 @@ export default function PeriodicTableTypingGame({
           setElapsedTime(0);
           setMistakeCount(0);
           setTotalKeystrokes(0);
+          setQuestionTimestamps([]);
+          setClearTimeMs(0);
+          questionStartTimeRef.current = null;
         }
         return;
       }
@@ -225,7 +235,9 @@ export default function PeriodicTableTypingGame({
 
       // タイマー開始
       if (!startTime && e.key.length === 1) {
-        setStartTime(Date.now());
+        const now = Date.now();
+        setStartTime(now);
+        questionStartTimeRef.current = now;
       }
 
       if (e.key === "Backspace") {
@@ -240,12 +252,33 @@ export default function PeriodicTableTypingGame({
 
           // 完全一致したら次へ
           if (newInput === currentElement.romaji) {
+            const now = Date.now();
+            const elementRomaji = currentElement.romaji;
+
+            // フォールバック: Refが未設定の場合はstartTimeを使用
+            const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+
+            // 問題のタイムスタンプを記録
+            setQuestionTimestamps((prev) => [
+              ...prev,
+              {
+                questionIndex: prev.length,
+                startTime: questionStart,
+                endTime: now,
+                romajiLength: elementRomaji.length,
+                targetRomaji: elementRomaji,
+              },
+            ]);
+
             setCompletedElements((prev) => [...prev, currentElement.number]);
             if (currentIndex + 1 >= shuffledElements.length) {
               setIsFinished(true);
+              setClearTimeMs(now - (startTime || now));
             } else {
               setCurrentIndex((prev) => prev + 1);
               setInput("");
+              // 次の問題の開始時刻を設定
+              questionStartTimeRef.current = Date.now();
             }
           }
         } else {
@@ -342,6 +375,15 @@ export default function PeriodicTableTypingGame({
                 speed={calculateAverageTypingSpeed()}
                 gameName={title}
                 mode=""
+              />
+              <ScoreSubmitButton
+                gameCategory="other"
+                gameMode={gameMode}
+                clearTimeMs={clearTimeMs}
+                mistakeCount={mistakeCount}
+                keystrokeCount={totalKeystrokes}
+                questionCount={shuffledElements.length}
+                questionTimestamps={questionTimestamps}
               />
               <p className="text-teal-500 text-sm mt-6">
                 スペースキーでもう一度プレイ
