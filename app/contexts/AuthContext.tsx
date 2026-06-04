@@ -24,7 +24,7 @@ interface AuthContextType {
   profile: Profile | null;
   isLoading: boolean;
   isSupabaseAvailable: boolean;
-  signInWithGoogle: () => Promise<void>;
+  signInWithGoogle: (redirectTo?: string) => Promise<void>;
   signUpWithEmail: (email: string, password: string, displayName: string) => Promise<AuthResult>;
   signInWithEmail: (email: string, password: string) => Promise<AuthResult>;
   signOut: () => Promise<void>;
@@ -195,12 +195,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, [supabase, fetchProfile]);
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (redirectTo?: string) => {
     if (!supabase) return;
+    const callbackUrl = new URL("/api/auth/callback", window.location.origin);
+    if (redirectTo) {
+      callbackUrl.searchParams.set("next", redirectTo);
+    }
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/api/auth/callback`,
+        redirectTo: callbackUrl.toString(),
       },
     });
   };

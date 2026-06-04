@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useScoreSubmit } from "@/app/hooks/useScoreSubmit";
+import { savePendingScore } from "@/app/lib/pendingScore";
 import type { QuestionTimestamp, GameCategory } from "@/app/types/score";
 
 interface ScoreSubmitButtonProps {
@@ -42,6 +43,18 @@ export function ScoreSubmitButton({
     setHasSubmitted(true);
   };
 
+  const handleLoginClick = () => {
+    savePendingScore({
+      gameCategory,
+      gameMode,
+      clearTimeMs,
+      mistakeCount,
+      keystrokeCount,
+      questionCount,
+      questionTimestamps,
+    });
+  };
+
   if (!isLoggedIn) {
     return (
       <div className="mt-4 p-4 bg-slate-700/50 rounded-lg">
@@ -50,6 +63,7 @@ export function ScoreSubmitButton({
         </p>
         <Link
           href={`/login?redirect=${encodeURIComponent(window.location.pathname)}`}
+          onClick={handleLoginClick}
           className="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
         >
           ログインする
