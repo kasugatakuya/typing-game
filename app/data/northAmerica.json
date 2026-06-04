@@ -123,7 +123,7 @@
     "id": "TT",
     "name": "トリニダード・トバゴ",
     "romaji": "torinidadotobago",
-    "flagImage": "torinidado tobago",
+    "flagImage": "torinidado_tobago",
     "capital": "ポートオブスペイン",
     "capitalRomaji": "potoobusupein"
   },
@@ -155,7 +155,7 @@
     "id": "VC",
     "name": "セントビンセント・グレナディーン",
     "romaji": "sentobinsentogurenadhin",
-    "flagImage": "sentobinsento gurenadhin",
+    "flagImage": "sentobinsento_gurenadhin",
     "capital": "キングスタウン",
     "capitalRomaji": "kingusutaun"
   },
@@ -171,7 +171,7 @@
     "id": "AG",
     "name": "アンティグア・バーブーダ",
     "romaji": "anthiguababuda",
-    "flagImage": "anthigua babuda",
+    "flagImage": "anthigua_babuda",
     "capital": "セントジョンズ",
     "capitalRomaji": "sentojonzu"
   },
@@ -179,7 +179,7 @@
     "id": "KN",
     "name": "セントクリストファー・ネイビス",
     "romaji": "sentokurisutofanevisu",
-    "flagImage": "sentokurisutofa nevisu",
+    "flagImage": "sentokurisutofa_nevisu",
     "capital": "バセテール",
     "capitalRomaji": "baseteru"
   }
