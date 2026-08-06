@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import Link from "next/link";
-import { formatTime } from "@/app/utils/timeUtils";
-import { ShareButtons } from "@/app/components/ShareButtons";
+import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
+import { GameProgress } from "@/app/components/game/GameProgress";
+import { GameResult } from "@/app/components/game/GameResult";
+import { BackLink } from "@/app/components/game/BackLink";
 import { YamanoteSVG } from "@/app/(other-typing)/components/YamanoteSVG";
-import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
-import type { QuestionTimestamp } from "@/app/types/score";
+import { useTypingGame } from "@/app/hooks/useTypingGame";
 
 interface Station {
   name: string;
@@ -17,190 +16,25 @@ interface YamanoteTypingGameProps {
   stations: Station[];
 }
 
-function shuffleArray<T>(array: T[]): T[] {
-  return [...array].sort(() => 0.5 - Math.random());
-}
-
-const RomajiDisplay: React.FC<{
-  input: string;
-  romaji: string;
-  showMistake: boolean;
-}> = ({ input, romaji, showMistake }) => (
-  <p
-    className={`text-base text-center font-mono ${showMistake ? "animate-shake text-red-500" : ""}`}
-  >
-    <span className={showMistake ? "" : "text-green-600"}>{input}</span>
-    <span className={showMistake ? "" : "text-gray-400"}>
-      {romaji.slice(input.length)}
-    </span>
-  </p>
-);
-
 export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
-  const [gameState, setGameState] = useState<"idle" | "playing" | "finished">(
-    "idle",
-  );
-  const [currentStation, setCurrentStation] = useState<Station | null>(null);
-  const [input, setInput] = useState("");
-  const [completedStations, setCompletedStations] = useState<Station[]>([]);
-  const [remainingStations, setRemainingStations] = useState<Station[]>([]);
-  const [startTime, setStartTime] = useState<number | null>(null);
-  const [endTime, setEndTime] = useState<number | null>(null);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [mistakeCount, setMistakeCount] = useState<number>(0);
-  const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const [showMistakeEffect, setShowMistakeEffect] = useState(false);
-  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
-  const questionStartTimeRef = useRef<number | null>(null);
-
-  const stationCount = stations.length;
-
-  useEffect(() => {
-    let intervalId: NodeJS.Timeout;
-    if (gameState === "idle" || gameState === "finished") {
-      intervalId = setInterval(() => {
-        setIsVisible((prev) => !prev);
-      }, 1000);
-    }
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [gameState]);
-
-  const getStations = useCallback(() => {
-    return shuffleArray(stations);
-  }, [stations]);
-
-  const resetGame = useCallback(() => {
-    setGameState("idle");
-    setCurrentStation(null);
-    setInput("");
-    setCompletedStations([]);
-    setStartTime(null);
-    setEndTime(null);
-    setCurrentTime(0);
-    setRemainingStations(getStations());
-    setMistakeCount(0);
-    setTotalKeystrokes(0);
-    setQuestionTimestamps([]);
-    questionStartTimeRef.current = null;
-  }, [getStations]);
-
-  const startGame = useCallback(() => {
-    setGameState("playing");
-    const now = Date.now();
-    setStartTime(now);
-    setCurrentTime(0);
-    const newStations = getStations();
-    setRemainingStations(newStations);
-    setCompletedStations([]);
-    setCurrentStation(newStations[0]);
-    setInput("");
-    setQuestionTimestamps([]);
-    questionStartTimeRef.current = now;
-  }, [getStations]);
-
-  const handleCorrectInput = useCallback(() => {
-    const now = Date.now();
-    const stationRomaji = currentStation!.romaji;
-
-    // フォールバック: Refが未設定の場合はstartTimeを使用
-    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
-
-    // 問題のタイムスタンプを記録
-    setQuestionTimestamps((prev) => [
-      ...prev,
-      {
-        questionIndex: prev.length,
-        startTime: questionStart,
-        endTime: now,
-        romajiLength: stationRomaji.length,
-        targetRomaji: stationRomaji,
-      },
-    ]);
-
-    setCompletedStations((prev) => [...prev, currentStation!]);
-    setRemainingStations((prev) => {
-      const newRemaining = prev.slice(1);
-      if (newRemaining.length === 0) {
-        setEndTime(now);
-        setGameState("finished");
-      } else {
-        setCurrentStation(newRemaining[0]);
-        setInput("");
-        // 次の問題の開始時刻を設定
-        questionStartTimeRef.current = Date.now();
-      }
-      return newRemaining;
-    });
-  }, [currentStation, startTime]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        e.preventDefault();
-        if (gameState === "idle" || gameState === "finished") {
-          resetGame();
-          startGame();
-        }
-        return;
-      }
-
-      if (e.code === "Escape" && gameState === "playing") {
-        resetGame();
-        return;
-      }
-
-      if (gameState !== "playing" || !currentStation) return;
-
-      if (e.key === "Backspace") {
-        setInput((prev) => prev.slice(0, -1));
-      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-        const newInput = (input + e.key).toLowerCase();
-        setTotalKeystrokes((prevCount) => prevCount + 1);
-
-        if (currentStation.romaji.startsWith(newInput)) {
-          setInput(newInput);
-          if (newInput === currentStation.romaji) {
-            handleCorrectInput();
-          }
-        } else {
-          setMistakeCount((prevCount) => prevCount + 1);
-          setShowMistakeEffect(true);
-          setTimeout(() => setShowMistakeEffect(false), 300);
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [
+  const {
     gameState,
-    startGame,
-    resetGame,
-    currentStation,
+    currentItem: currentStation,
     input,
-    handleCorrectInput,
-  ]);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (gameState === "playing") {
-      interval = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime + 10);
-      }, 10);
-    }
-    return () => clearInterval(interval);
-  }, [gameState]);
-
-  const calculateAverageTypingSpeed = useCallback(() => {
-    if (startTime && endTime && totalKeystrokes > 0) {
-      const totalTimeInSeconds = (endTime - startTime) / 1000;
-      return (totalKeystrokes / totalTimeInSeconds).toFixed(2);
-    }
-    return "0.00";
-  }, [startTime, endTime, totalKeystrokes]);
+    completedItems: completedStations,
+    completedCount,
+    itemCount: stationCount,
+    startTime,
+    endTime,
+    currentTime,
+    clearTimeMs,
+    mistakeCount,
+    totalKeystrokes,
+    isVisible,
+    showMistakeEffect,
+    questionTimestamps,
+    averageSpeed,
+  } = useTypingGame({ items: stations });
 
   return (
     <div className="h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-16 pb-2 mt-7">
@@ -250,28 +84,18 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                   input={input}
                   romaji={currentStation.romaji}
                   showMistake={showMistakeEffect}
+                  className="text-base"
                 />
               </div>
 
-              <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
-                <span>経過: {formatTime(currentTime)}</span>
-                <span>ミス: {mistakeCount}回</span>
-              </div>
-
-              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                <div
-                  className="h-2 rounded-full transition-all duration-300 bg-green-500"
-                  style={{
-                    width: `${(completedStations.length / stationCount) * 100}%`,
-                  }}
-                />
-              </div>
-              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
-                <span>ESCキーで中断</span>
-                <span>
-                  {completedStations.length} / {stationCount}
-                </span>
-              </div>
+              <GameProgress
+                currentTime={currentTime}
+                mistakeCount={mistakeCount}
+                completedCount={completedCount}
+                itemCount={stationCount}
+                barColorClass="bg-green-500"
+                timeLabel="経過"
+              />
             </div>
           )}
 
@@ -280,41 +104,17 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
               <h3 className="text-base font-bold text-gray-800 mb-2">
                 🎉 全駅制覇！
               </h3>
-              <div className="flex justify-center gap-5">
-                <div>
-                  <p className="text-xs text-gray-500">タイム</p>
-                  <p className="text-sm font-bold text-gray-800">
-                    {formatTime(endTime - startTime)}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">ミス</p>
-                  <p className="text-sm font-bold text-gray-800">
-                    {mistakeCount}回
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">速度</p>
-                  <p className="text-sm font-bold text-gray-800">
-                    {calculateAverageTypingSpeed()}打/秒
-                  </p>
-                </div>
-              </div>
-              <ShareButtons
-                time={formatTime(endTime - startTime)}
-                mistakes={mistakeCount}
-                speed={calculateAverageTypingSpeed()}
+              <GameResult
                 gameName="山手線タイピング"
-                mode=""
-              />
-              <ScoreSubmitButton
                 gameCategory="other"
                 gameMode="yamanote"
-                clearTimeMs={endTime - startTime}
+                clearTimeMs={clearTimeMs}
                 mistakeCount={mistakeCount}
                 keystrokeCount={totalKeystrokes}
                 questionCount={stationCount}
                 questionTimestamps={questionTimestamps}
+                averageSpeed={averageSpeed}
+                size="sm"
               />
               <p
                 className={`text-xs font-semibold text-teal-500 transition-opacity duration-500 mt-4 ${
@@ -329,25 +129,7 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
 
         {/* 戻るボタン */}
         <div className="text-center mt-6">
-          <Link
-            href="/other"
-            className="inline-flex items-center px-4 py-1 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md hover:shadow-lg hover:text-teal-600 transition-all"
-          >
-            <svg
-              className="w-3.5 h-3.5 mr-1.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-            戻る
-          </Link>
+          <BackLink href="/other" />
         </div>
       </div>
     </div>

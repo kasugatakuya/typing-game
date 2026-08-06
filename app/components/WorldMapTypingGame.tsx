@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { formatTime } from "@/app/utils/timeUtils";
 import { WorldMapSVG } from "@/app/components/WorldMapSVG";
-import { ShareButtons } from "@/app/components/ShareButtons";
-import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
-import type { QuestionTimestamp } from "@/app/types/score";
+import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
+import { GameProgress } from "@/app/components/game/GameProgress";
+import { GameResult } from "@/app/components/game/GameResult";
+import { BackLink } from "@/app/components/game/BackLink";
+import { useTypingGame } from "@/app/hooks/useTypingGame";
 
 interface MapCountry {
   id: string;
@@ -20,7 +19,6 @@ interface MapCountry {
 
 type GameMode = "country" | "capital";
 
-type GameState = "idle" | "playing" | "finished";
 type Region =
   | "north-america"
   | "south-america"
@@ -42,29 +40,6 @@ interface WorldMapTypingGameProps {
   gameMode: GameMode;
 }
 
-function shuffleArray<T>(array: T[]): T[] {
-  return [...array].sort(() => 0.5 - Math.random());
-}
-
-const RomajiDisplay: React.FC<{
-  input: string;
-  romaji: string;
-  showMistake: boolean;
-}> = ({ input, romaji, showMistake }) => (
-  <p
-    className={`text-lg text-center font-mono ${showMistake ? "animate-shake text-red-500" : ""}`}
-  >
-    <span className={showMistake ? "" : "text-green-600"}>{input}</span>
-    <span className={showMistake ? "" : "text-gray-400"}>
-      {romaji.slice(input.length)}
-    </span>
-  </p>
-);
-
-const getTargetName = (country: MapCountry, mode: GameMode): string => {
-  return mode === "capital" ? country.capital : country.name;
-};
-
 const getTargetRomaji = (country: MapCountry, mode: GameMode): string => {
   return mode === "capital" ? country.capitalRomaji : country.romaji;
 };
@@ -75,182 +50,26 @@ export function WorldMapTypingGame({
   regionName,
   gameMode,
 }: WorldMapTypingGameProps) {
-  const [gameState, setGameState] = useState<GameState>("idle");
-  const [currentCountry, setCurrentCountry] = useState<MapCountry | null>(null);
-  const [input, setInput] = useState("");
-  const [completedCountries, setCompletedCountries] = useState<MapCountry[]>(
-    [],
-  );
-  const [remainingCountries, setRemainingCountries] = useState<MapCountry[]>(
-    [],
-  );
-  const [startTime, setStartTime] = useState<number | null>(null);
-  const [endTime, setEndTime] = useState<number | null>(null);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [typingStartTime, setTypingStartTime] = useState<number | null>(null);
-  const [mistakeCount, setMistakeCount] = useState<number>(0);
-  const [totalKeystrokes, setTotalKeystrokes] = useState<number>(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const [showMistakeEffect, setShowMistakeEffect] = useState(false);
-  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
-  const questionStartTimeRef = useRef<number | null>(null);
-
-  const itemCount = allCountries.length;
-
-  useEffect(() => {
-    let intervalId: NodeJS.Timeout;
-    if (gameState === "idle" || gameState === "finished") {
-      intervalId = setInterval(() => {
-        setIsVisible((prev) => !prev);
-      }, 1000);
-    }
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [gameState]);
-
-  const getItems = useCallback(() => {
-    return shuffleArray(allCountries);
-  }, [allCountries]);
-
-  const resetGame = useCallback(() => {
-    setGameState("idle");
-    setCurrentCountry(null);
-    setInput("");
-    setCompletedCountries([]);
-    setStartTime(null);
-    setEndTime(null);
-    setCurrentTime(0);
-    setRemainingCountries(getItems());
-    setMistakeCount(0);
-    setTotalKeystrokes(0);
-    setTypingStartTime(null);
-    setQuestionTimestamps([]);
-    questionStartTimeRef.current = null;
-  }, [getItems]);
-
-  const startGame = useCallback(() => {
-    const now = Date.now();
-    setGameState("playing");
-    setStartTime(now);
-    setCurrentTime(0);
-    const newItems = getItems();
-    setRemainingCountries(newItems);
-    setCompletedCountries([]);
-    setCurrentCountry(newItems[0]);
-    setInput("");
-    setQuestionTimestamps([]);
-    questionStartTimeRef.current = now;
-  }, [getItems]);
-
-  const handleCorrectInput = useCallback(() => {
-    const now = Date.now();
-    const targetRomaji = getTargetRomaji(currentCountry!, gameMode);
-
-    // Use startTime as fallback for first question if ref is not set
-    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
-
-    // Record timestamp for this question
-    setQuestionTimestamps((prev) => [
-      ...prev,
-      {
-        questionIndex: prev.length,
-        startTime: questionStart,
-        endTime: now,
-        romajiLength: targetRomaji.length,
-        targetRomaji,
-      },
-    ]);
-
-    setCompletedCountries((prev) => [...prev, currentCountry!]);
-    setRemainingCountries((prev) => {
-      const newRemaining = prev.slice(1);
-      if (newRemaining.length === 0) {
-        setEndTime(now);
-        setGameState("finished");
-      } else {
-        setCurrentCountry(newRemaining[0]);
-        setInput("");
-        setTypingStartTime(null);
-        // Set start time for next question immediately
-        questionStartTimeRef.current = Date.now();
-      }
-      return newRemaining;
-    });
-  }, [currentCountry, gameMode, startTime]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        e.preventDefault();
-        if (gameState === "idle" || gameState === "finished") {
-          resetGame();
-          startGame();
-        }
-        return;
-      }
-
-      if (e.code === "Escape" && gameState === "playing") {
-        resetGame();
-        return;
-      }
-
-      if (gameState !== "playing" || !currentCountry) return;
-
-      if (e.key === "Backspace") {
-        setInput((prev) => prev.slice(0, -1));
-      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-        const newInput = (input + e.key).toLowerCase();
-        setTotalKeystrokes((prevCount) => prevCount + 1);
-        setTypingStartTime((prev) => (prev === null ? Date.now() : prev));
-
-        const targetRomaji = getTargetRomaji(currentCountry, gameMode);
-        if (targetRomaji.startsWith(newInput)) {
-          setInput(newInput);
-          if (newInput === targetRomaji) {
-            handleCorrectInput();
-          }
-        } else {
-          setMistakeCount((prevCount) => prevCount + 1);
-          setShowMistakeEffect(true);
-          setTimeout(() => setShowMistakeEffect(false), 300);
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [
+  const {
     gameState,
-    startGame,
-    resetGame,
-    currentCountry,
+    currentItem: currentCountry,
     input,
-    gameMode,
-    handleCorrectInput,
-  ]);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (gameState === "playing") {
-      interval = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime + 10);
-      }, 10);
-    }
-    return () => clearInterval(interval);
-  }, [gameState]);
-
-  const calculateAverageTypingSpeed = useCallback(() => {
-    if (startTime && endTime && totalKeystrokes > 0) {
-      const totalTimeInSeconds = (endTime - startTime) / 1000;
-      return (totalKeystrokes / totalTimeInSeconds).toFixed(2);
-    }
-    return "0.00";
-  }, [startTime, endTime, totalKeystrokes]);
-
-  const getFlagImagePath = (country: MapCountry) => {
-    return `/country/${country.flagImage}.png`;
-  };
+    completedCount,
+    itemCount,
+    startTime,
+    endTime,
+    currentTime,
+    clearTimeMs,
+    mistakeCount,
+    totalKeystrokes,
+    isVisible,
+    showMistakeEffect,
+    questionTimestamps,
+    averageSpeed,
+  } = useTypingGame({
+    items: allCountries,
+    getRomaji: (c) => getTargetRomaji(c, gameMode),
+  });
 
   return (
     <div className="h-screen flex flex-col pt-11 lg:pt-12">
@@ -277,7 +96,7 @@ export function WorldMapTypingGame({
             <div className="absolute top-4 right-4 z-10">
               <div className="bg-white/90 p-3 rounded-lg shadow-lg border border-gray-200">
                 <Image
-                  src={getFlagImagePath(currentCountry)}
+                  src={`/country/${currentCountry.flagImage}.png`}
                   alt={`${currentCountry.name}の国旗`}
                   width={120}
                   height={80}
@@ -286,7 +105,6 @@ export function WorldMapTypingGame({
               </div>
             </div>
           )}
-
 
           {/* アイドル状態または終了状態のオーバーレイ */}
           {(gameState === "idle" || gameState === "finished") && (
@@ -316,44 +134,18 @@ export function WorldMapTypingGame({
                       ゲーム終了！
                     </h3>
                     {startTime !== null && endTime !== null && (
-                      <>
-                        <div className="flex justify-center gap-6 mb-4">
-                          <div>
-                            <p className="text-xs text-gray-500">タイム</p>
-                            <p className="text-lg font-bold text-gray-800">
-                              {formatTime(endTime - startTime)}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="text-xs text-gray-500">ミス</p>
-                            <p className="text-lg font-bold text-gray-800">
-                              {mistakeCount}回
-                            </p>
-                          </div>
-                          <div>
-                            <p className="text-xs text-gray-500">速度</p>
-                            <p className="text-lg font-bold text-gray-800">
-                              {calculateAverageTypingSpeed()}打/秒
-                            </p>
-                          </div>
-                        </div>
-                        <ShareButtons
-                          time={formatTime(endTime - startTime)}
-                          mistakes={mistakeCount}
-                          speed={calculateAverageTypingSpeed()}
-                          gameName={`世界地図タイピング - ${regionName}`}
-                          mode={gameMode === "capital" ? "首都名" : "国名"}
-                        />
-                        <ScoreSubmitButton
-                          gameCategory="worldmap"
-                          gameMode={`${region}-${gameMode}`}
-                          clearTimeMs={endTime - startTime}
-                          mistakeCount={mistakeCount}
-                          keystrokeCount={totalKeystrokes}
-                          questionCount={itemCount}
-                          questionTimestamps={questionTimestamps}
-                        />
-                      </>
+                      <GameResult
+                        gameName={`世界地図タイピング - ${regionName}`}
+                        shareMode={gameMode === "capital" ? "首都名" : "国名"}
+                        gameCategory="worldmap"
+                        gameMode={`${region}-${gameMode}`}
+                        clearTimeMs={clearTimeMs}
+                        mistakeCount={mistakeCount}
+                        keystrokeCount={totalKeystrokes}
+                        questionCount={itemCount}
+                        questionTimestamps={questionTimestamps}
+                        averageSpeed={averageSpeed}
+                      />
                     )}
                     <p
                       className={`text-base font-semibold text-blue-500 transition-opacity duration-500 mt-4 ${
@@ -396,37 +188,19 @@ export function WorldMapTypingGame({
                 />
               </div>
 
-              {/* 経過時間・ミス */}
-              <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
-                <span>経過時間: {formatTime(currentTime)}</span>
-                <span>ミス: {mistakeCount}回</span>
-              </div>
-
-              {/* 進捗バー */}
-              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                <div
-                  className="bg-blue-400 h-2 rounded-full transition-all duration-300"
-                  style={{
-                    width: `${(completedCountries.length / itemCount) * 100}%`,
-                  }}
-                />
-              </div>
-              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
-                <span>ESCキーで中断</span>
-                <span>{completedCountries.length} / {itemCount}</span>
-              </div>
+              <GameProgress
+                currentTime={currentTime}
+                mistakeCount={mistakeCount}
+                completedCount={completedCount}
+                itemCount={itemCount}
+              />
             </div>
           </div>
         )}
 
         {/* 地域選択に戻るリンク */}
         <div className="shrink-0 text-center mt-4">
-          <Link
-            href="/worldmap"
-            className="inline-block px-5 py-1.5 text-sm rounded-full bg-linear-to-r from-gray-400 to-gray-500 text-white font-medium transition-all duration-200 hover:from-gray-500 hover:to-gray-600 hover:shadow-md"
-          >
-            ← 地域選択に戻る
-          </Link>
+          <BackLink href="/worldmap" label="← 地域選択に戻る" variant="gray" />
         </div>
       </div>
     </div>

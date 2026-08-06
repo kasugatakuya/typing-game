@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
-import Link from "next/link";
+import { useMemo } from "react";
 import { Element, allElementsWithPosition } from "@/app/(other-typing)/periodic-table/data";
-import { ShareButtons } from "@/app/components/ShareButtons";
-import { ScoreSubmitButton } from "@/app/components/score/ScoreSubmitButton";
-import type { QuestionTimestamp } from "@/app/types/score";
+import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
+import { GameProgress } from "@/app/components/game/GameProgress";
+import { GameResult } from "@/app/components/game/GameResult";
+import { BackLink } from "@/app/components/game/BackLink";
+import { useTypingGame } from "@/app/hooks/useTypingGame";
 
 type Props = {
   elements: Element[];
@@ -13,6 +14,26 @@ type Props = {
   backUrl: string;
   gameMode: string;
 };
+
+// 周期表の1マス
+function ElementCell({
+  element,
+  styleClass,
+}: {
+  element: Element;
+  styleClass: string;
+}) {
+  return (
+    <div
+      className={`w-6 h-6 sm:w-8 sm:h-8 flex flex-col items-center justify-center text-[8px] sm:text-[10px] rounded transition-colors ${styleClass}`}
+    >
+      <span className="font-bold leading-none">{element.symbol}</span>
+      <span className="text-[6px] sm:text-[7px] leading-none">
+        {element.number}
+      </span>
+    </div>
+  );
+}
 
 // 周期表コンポーネント
 function PeriodicTable({
@@ -70,15 +91,11 @@ function PeriodicTable({
         );
         if (element) {
           cells.push(
-            <div
+            <ElementCell
               key={`${row}-${col}`}
-              className={`w-6 h-6 sm:w-8 sm:h-8 flex flex-col items-center justify-center text-[8px] sm:text-[10px] rounded transition-colors ${getElementStyle(element)}`}
-            >
-              <span className="font-bold leading-none">{element.symbol}</span>
-              <span className="text-[6px] sm:text-[7px] leading-none">
-                {element.number}
-              </span>
-            </div>
+              element={element}
+              styleClass={getElementStyle(element)}
+            />
           );
         } else {
           cells.push(
@@ -95,47 +112,20 @@ function PeriodicTable({
     return rows;
   };
 
-  // ランタノイド・アクチノイド
-  const renderLanthanides = () => {
+  // ランタノイド(row 9)・アクチノイド(row 10)
+  const renderExtendedRow = (row: 9 | 10) => {
     const cells = [];
     for (let col = 3; col <= 17; col++) {
       const element = allElementsWithPosition.find(
-        (e) => e.row === 9 && e.col === col
+        (e) => e.row === row && e.col === col
       );
       if (element) {
         cells.push(
-          <div
-            key={`9-${col}`}
-            className={`w-6 h-6 sm:w-8 sm:h-8 flex flex-col items-center justify-center text-[8px] sm:text-[10px] rounded transition-colors ${getElementStyle(element)}`}
-          >
-            <span className="font-bold leading-none">{element.symbol}</span>
-            <span className="text-[6px] sm:text-[7px] leading-none">
-              {element.number}
-            </span>
-          </div>
-        );
-      }
-    }
-    return cells;
-  };
-
-  const renderActinides = () => {
-    const cells = [];
-    for (let col = 3; col <= 17; col++) {
-      const element = allElementsWithPosition.find(
-        (e) => e.row === 10 && e.col === col
-      );
-      if (element) {
-        cells.push(
-          <div
-            key={`10-${col}`}
-            className={`w-6 h-6 sm:w-8 sm:h-8 flex flex-col items-center justify-center text-[8px] sm:text-[10px] rounded transition-colors ${getElementStyle(element)}`}
-          >
-            <span className="font-bold leading-none">{element.symbol}</span>
-            <span className="text-[6px] sm:text-[7px] leading-none">
-              {element.number}
-            </span>
-          </div>
+          <ElementCell
+            key={`${row}-${col}`}
+            element={element}
+            styleClass={getElementStyle(element)}
+          />
         );
       }
     }
@@ -150,10 +140,10 @@ function PeriodicTable({
       {/* ランタノイド・アクチノイド */}
       <div className="flex flex-col gap-0.5 mt-2">
         <div className="flex gap-0.5 ml-[52px] sm:ml-[68px]">
-          {renderLanthanides()}
+          {renderExtendedRow(9)}
         </div>
         <div className="flex gap-0.5 ml-[52px] sm:ml-[68px]">
-          {renderActinides()}
+          {renderExtendedRow(10)}
         </div>
       </div>
     </div>
@@ -166,157 +156,26 @@ export default function PeriodicTableTypingGame({
   backUrl,
   gameMode,
 }: Props) {
-  const [shuffledElements, setShuffledElements] = useState<Element[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [input, setInput] = useState("");
-  const [isFinished, setIsFinished] = useState(false);
-  const [completedElements, setCompletedElements] = useState<number[]>([]);
-  const [startTime, setStartTime] = useState<number | null>(null);
-  const [elapsedTime, setElapsedTime] = useState(0);
-  const [showMistakeEffect, setShowMistakeEffect] = useState(false);
-  const [mistakeCount, setMistakeCount] = useState(0);
-  const [totalKeystrokes, setTotalKeystrokes] = useState(0);
-  const [questionTimestamps, setQuestionTimestamps] = useState<QuestionTimestamp[]>([]);
-  const questionStartTimeRef = useRef<number | null>(null);
-  const [clearTimeMs, setClearTimeMs] = useState(0);
-
-  // シャッフル関数
-  const shuffleArray = useCallback((array: Element[]) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  }, []);
-
-  // 初期化
-  useEffect(() => {
-    setShuffledElements(shuffleArray(elements));
-  }, [elements, shuffleArray]);
-
-  // タイマー
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (startTime && !isFinished) {
-      interval = setInterval(() => {
-        setElapsedTime(Math.floor((Date.now() - startTime) / 1000));
-      }, 100);
-    }
-    return () => clearInterval(interval);
-  }, [startTime, isFinished]);
-
-  const currentElement = shuffledElements[currentIndex] || null;
-
-  // キー入力処理
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        e.preventDefault();
-        if (isFinished) {
-          // リスタート
-          setShuffledElements(shuffleArray(elements));
-          setCurrentIndex(0);
-          setInput("");
-          setIsFinished(false);
-          setCompletedElements([]);
-          setStartTime(null);
-          setElapsedTime(0);
-          setMistakeCount(0);
-          setTotalKeystrokes(0);
-          setQuestionTimestamps([]);
-          setClearTimeMs(0);
-          questionStartTimeRef.current = null;
-        }
-        return;
-      }
-
-      if (isFinished || !currentElement) return;
-
-      // タイマー開始
-      if (!startTime && e.key.length === 1) {
-        const now = Date.now();
-        setStartTime(now);
-        questionStartTimeRef.current = now;
-      }
-
-      if (e.key === "Backspace") {
-        setInput((prev) => prev.slice(0, -1));
-      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-        const newInput = (input + e.key).toLowerCase();
-        setTotalKeystrokes((prev) => prev + 1);
-
-        // 入力がローマ字の先頭と一致するか確認
-        if (currentElement.romaji.startsWith(newInput)) {
-          setInput(newInput);
-
-          // 完全一致したら次へ
-          if (newInput === currentElement.romaji) {
-            const now = Date.now();
-            const elementRomaji = currentElement.romaji;
-
-            // フォールバック: Refが未設定の場合はstartTimeを使用
-            const questionStart = questionStartTimeRef.current ?? startTime ?? now;
-
-            // 問題のタイムスタンプを記録
-            setQuestionTimestamps((prev) => [
-              ...prev,
-              {
-                questionIndex: prev.length,
-                startTime: questionStart,
-                endTime: now,
-                romajiLength: elementRomaji.length,
-                targetRomaji: elementRomaji,
-              },
-            ]);
-
-            setCompletedElements((prev) => [...prev, currentElement.number]);
-            if (currentIndex + 1 >= shuffledElements.length) {
-              setIsFinished(true);
-              setClearTimeMs(now - (startTime || now));
-            } else {
-              setCurrentIndex((prev) => prev + 1);
-              setInput("");
-              // 次の問題の開始時刻を設定
-              questionStartTimeRef.current = Date.now();
-            }
-          }
-        } else {
-          // ミス時のエフェクト
-          setMistakeCount((prev) => prev + 1);
-          setShowMistakeEffect(true);
-          setTimeout(() => setShowMistakeEffect(false), 300);
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [
+  const {
+    gameState,
+    currentItem: currentElement,
     input,
-    currentElement,
-    currentIndex,
-    shuffledElements.length,
-    isFinished,
-    startTime,
-    shuffleArray,
-    elements,
-  ]);
+    completedItems,
+    completedCount,
+    itemCount,
+    currentTime,
+    clearTimeMs,
+    mistakeCount,
+    totalKeystrokes,
+    showMistakeEffect,
+    questionTimestamps,
+    averageSpeed,
+  } = useTypingGame({ items: elements, startOnFirstKey: true });
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
+  const isFinished = gameState === "finished";
+  const completedNumbers = completedItems.map((e) => e.number);
 
-  const calculateAverageTypingSpeed = useCallback(() => {
-    if (elapsedTime > 0 && totalKeystrokes > 0) {
-      return (totalKeystrokes / elapsedTime).toFixed(2);
-    }
-    return "0.00";
-  }, [elapsedTime, totalKeystrokes]);
-
-  if (shuffledElements.length === 0) {
+  if (itemCount === 0) {
     return <div className="min-h-screen bg-teal-50 pt-20" />;
   }
 
@@ -334,7 +193,7 @@ export default function PeriodicTableTypingGame({
         <div className="flex justify-center mb-4 overflow-x-auto">
           <PeriodicTable
             currentElement={isFinished ? null : currentElement}
-            completedElements={completedElements}
+            completedElements={completedNumbers}
             targetElements={elements}
           />
         </div>
@@ -346,69 +205,25 @@ export default function PeriodicTableTypingGame({
               <h2 className="text-2xl font-bold text-green-600 mb-4">
                 クリア！
               </h2>
-              <p className="text-gray-600 mb-2">
-                {shuffledElements.length}問完了
-              </p>
-              <div className="flex justify-center gap-8 mb-4">
-                <div>
-                  <p className="text-xs text-gray-500">タイム</p>
-                  <p className="text-xl font-bold text-gray-800">
-                    {formatTime(elapsedTime)}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">ミス</p>
-                  <p className="text-xl font-bold text-gray-800">
-                    {mistakeCount}回
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">速度</p>
-                  <p className="text-xl font-bold text-gray-800">
-                    {calculateAverageTypingSpeed()}打/秒
-                  </p>
-                </div>
-              </div>
-              <ShareButtons
-                time={formatTime(elapsedTime)}
-                mistakes={mistakeCount}
-                speed={calculateAverageTypingSpeed()}
+              <p className="text-gray-600 mb-2">{itemCount}問完了</p>
+              <GameResult
                 gameName={title}
-                mode=""
-              />
-              <ScoreSubmitButton
                 gameCategory="other"
                 gameMode={gameMode}
                 clearTimeMs={clearTimeMs}
                 mistakeCount={mistakeCount}
                 keystrokeCount={totalKeystrokes}
-                questionCount={shuffledElements.length}
+                questionCount={itemCount}
                 questionTimestamps={questionTimestamps}
+                averageSpeed={averageSpeed}
+                size="lg"
               />
               <p className="text-teal-500 text-sm mt-6">
                 スペースキーでもう一度プレイ
               </p>
             </div>
             <div className="mt-6">
-              <Link
-                href={backUrl}
-                className="inline-flex items-center px-5 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md hover:shadow-lg hover:text-teal-600 transition-all"
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                戻る
-              </Link>
+              <BackLink href={backUrl} />
             </div>
           </div>
         ) : (
@@ -426,65 +241,31 @@ export default function PeriodicTableTypingGame({
               </div>
 
               {/* ローマ字表示 */}
-              <div
-                className={`text-xl sm:text-2xl font-mono mb-3 ${
-                  showMistakeEffect ? "animate-shake text-red-500" : ""
-                }`}
-              >
-                <span className={showMistakeEffect ? "" : "text-green-600"}>
-                  {input}
-                </span>
-                <span className={showMistakeEffect ? "" : "text-gray-400"}>
-                  {currentElement?.romaji.slice(input.length)}
-                </span>
-              </div>
+              {currentElement && (
+                <RomajiDisplay
+                  input={input}
+                  romaji={currentElement.romaji}
+                  showMistake={showMistakeEffect}
+                  className="text-xl sm:text-2xl mb-3"
+                />
+              )}
 
               {/* ヒント */}
               <div className="text-sm text-gray-500 mb-3">
                 {currentElement?.name}
               </div>
 
-              {/* 経過時間とミス */}
-              <div className="flex justify-between items-center text-sm text-gray-600 mb-2">
-                <span>経過時間: {formatTime(elapsedTime)}</span>
-                <span>ミス: {mistakeCount}回</span>
-              </div>
-
-              {/* 進捗バー */}
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div
-                  className="h-2 rounded-full transition-all duration-300 bg-teal-500"
-                  style={{
-                    width: `${(currentIndex / shuffledElements.length) * 100}%`,
-                  }}
-                />
-              </div>
-              <div className="flex justify-between items-center mt-2 text-xs text-gray-400">
-                <span>ESCキーで中断</span>
-                <span>{currentIndex} / {shuffledElements.length}</span>
-              </div>
+              <GameProgress
+                currentTime={currentTime}
+                mistakeCount={mistakeCount}
+                completedCount={completedCount}
+                itemCount={itemCount}
+                barColorClass="bg-teal-500"
+              />
             </div>
 
             <div className="mt-6">
-              <Link
-                href={backUrl}
-                className="inline-flex items-center px-5 py-2 text-sm rounded-full bg-white text-gray-600 font-medium shadow-md hover:shadow-lg hover:text-teal-600 transition-all"
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                戻る
-              </Link>
+              <BackLink href={backUrl} />
             </div>
           </div>
         )}

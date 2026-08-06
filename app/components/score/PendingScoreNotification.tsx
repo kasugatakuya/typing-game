@@ -9,7 +9,9 @@ export function PendingScoreNotification() {
 
   useEffect(() => {
     if (result) {
-      setIsVisible(true);
+      // マウント直後に opacity-0 → 100 のフェードインを効かせるため1フレーム遅らせる
+      const frameId = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(frameId);
     }
   }, [result]);
 
