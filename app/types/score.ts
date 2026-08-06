@@ -21,6 +21,10 @@ export interface ScoreSubmitResponse {
   scoreId?: string;
   rank?: number;
   isVerified: boolean;
+  /** 検証済みスコアの中で自己ベストを更新したか */
+  isPersonalBest?: boolean;
+  /** 更新前の自己ベスト（ms）。初登録時は null */
+  previousBestMs?: number | null;
   error?: string;
 }
 
@@ -249,5 +253,8 @@ export const GAME_MODES: Record<
     eto: { displayName: "干支", questionCount: 12 },
     planets: { displayName: "太陽系惑星", questionCount: 8 },
     shichifukujin: { displayName: "七福神", questionCount: 7 },
+    yojijukugo: { displayName: "四字熟語", questionCount: 30 },
+    kotowaza: { displayName: "ことわざ", questionCount: 30 },
+    nandoku: { displayName: "難読漢字", questionCount: 30 },
   },
 };

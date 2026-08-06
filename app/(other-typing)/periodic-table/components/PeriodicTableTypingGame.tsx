@@ -6,6 +6,9 @@ import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
 import { GameProgress } from "@/app/components/game/GameProgress";
 import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
+import { MobileNotice } from "@/app/components/game/MobileNotice";
+import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 
 type Props = {
@@ -170,6 +173,7 @@ export default function PeriodicTableTypingGame({
     showMistakeEffect,
     questionTimestamps,
     averageSpeed,
+    displayRomaji,
   } = useTypingGame({ items: elements, startOnFirstKey: true });
 
   const isFinished = gameState === "finished";
@@ -181,12 +185,15 @@ export default function PeriodicTableTypingGame({
 
   return (
     <div className="min-h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-20 pb-8">
+      <MobileNotice />
+      <SoundToggle />
       <div className="container mx-auto px-2 max-w-4xl">
         {/* ヘッダー */}
         <div className="text-center mb-2">
           <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
             {title}
           </h1>
+          <PersonalBestBadge gameCategory="other" gameMode={gameMode} />
         </div>
 
         {/* 周期表 */}
@@ -244,7 +251,7 @@ export default function PeriodicTableTypingGame({
               {currentElement && (
                 <RomajiDisplay
                   input={input}
-                  romaji={currentElement.romaji}
+                  romaji={displayRomaji}
                   showMistake={showMistakeEffect}
                   className="text-xl sm:text-2xl mb-3"
                 />

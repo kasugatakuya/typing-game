@@ -7,6 +7,9 @@ import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
 import { GameProgress } from "@/app/components/game/GameProgress";
 import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
+import { MobileNotice } from "@/app/components/game/MobileNotice";
+import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 import { heritages } from "@/app/(pages)/japanmap/heritage/data";
 
@@ -169,6 +172,7 @@ export default function HeritageTypingGame() {
     showMistakeEffect,
     questionTimestamps,
     averageSpeed,
+    displayRomaji,
   } = useTypingGame({ items: heritages });
 
   const highlightedPrefectures =
@@ -178,6 +182,8 @@ export default function HeritageTypingGame() {
 
   return (
     <div className="h-screen flex flex-col pt-11 lg:pt-12">
+      <MobileNotice />
+      <SoundToggle />
       <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 py-10 overflow-hidden">
         {/* ヘッダー */}
         <div className="shrink-0 text-center mb-6 w-full">
@@ -238,6 +244,10 @@ export default function HeritageTypingGame() {
                     <p className="text-xs text-gray-500 mt-2">
                       ※ESCキーで中断できます
                     </p>
+                    <PersonalBestBadge
+                      gameCategory="japanmap"
+                      gameMode="heritage"
+                    />
                   </>
                 ) : (
                   <>
@@ -289,7 +299,7 @@ export default function HeritageTypingGame() {
                 </p>
                 <RomajiDisplay
                   input={input}
-                  romaji={currentHeritage.romaji}
+                  romaji={displayRomaji}
                   showMistake={showMistakeEffect}
                   className="text-base"
                 />

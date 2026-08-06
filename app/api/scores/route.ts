@@ -117,6 +117,23 @@ export async function POST(request: Request) {
     // Validate score
     const validation = validateScore(body);
 
+    // 自己ベスト判定用に、登録前の自己ベストを取得しておく
+    let previousBestMs: number | null = null;
+    if (validation.isValid) {
+      const { data: prevBestData } = await supabase
+        .from("scores")
+        .select("clear_time_ms")
+        .eq("user_id", user.id as never)
+        .eq("game_category", body.gameCategory as never)
+        .eq("game_mode", body.gameMode as never)
+        .eq("is_verified", true as never)
+        .order("clear_time_ms", { ascending: true })
+        .limit(1)
+        .maybeSingle();
+      const prevBest = prevBestData as { clear_time_ms: number } | null;
+      previousBestMs = prevBest?.clear_time_ms ?? null;
+    }
+
     // Insert score
     const scoreData: ScoreInsert = {
       user_id: user.id,
@@ -161,11 +178,17 @@ export async function POST(request: Request) {
       rank = (count || 0) + 1;
     }
 
+    const isPersonalBest =
+      validation.isValid &&
+      (previousBestMs === null || body.clearTimeMs < previousBestMs);
+
     return NextResponse.json({
       success: true,
       scoreId: score?.id,
       rank,
       isVerified: validation.isValid,
+      isPersonalBest,
+      previousBestMs,
       error: validation.isValid ? undefined : validation.reason,
     });
   } catch (error) {

@@ -6,6 +6,9 @@ import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
 import { GameProgress } from "@/app/components/game/GameProgress";
 import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
+import { MobileNotice } from "@/app/components/game/MobileNotice";
+import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 
 interface MapCountry {
@@ -66,6 +69,7 @@ export function WorldMapTypingGame({
     showMistakeEffect,
     questionTimestamps,
     averageSpeed,
+    displayRomaji,
   } = useTypingGame({
     items: allCountries,
     getRomaji: (c) => getTargetRomaji(c, gameMode),
@@ -73,6 +77,8 @@ export function WorldMapTypingGame({
 
   return (
     <div className="h-screen flex flex-col pt-11 lg:pt-12">
+      <MobileNotice />
+      <SoundToggle />
       <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto px-6 py-10 overflow-hidden">
         {/* ヘッダー */}
         <div className="shrink-0 text-center mb-6 w-full">
@@ -127,6 +133,10 @@ export function WorldMapTypingGame({
                     <p className="text-xs text-gray-500 mt-2">
                       ※タイピング中はキーボードを使います
                     </p>
+                    <PersonalBestBadge
+                      gameCategory="worldmap"
+                      gameMode={`${region}-${gameMode}`}
+                    />
                   </>
                 ) : (
                   <>
@@ -183,7 +193,7 @@ export function WorldMapTypingGame({
                 )}
                 <RomajiDisplay
                   input={input}
-                  romaji={getTargetRomaji(currentCountry, gameMode)}
+                  romaji={displayRomaji}
                   showMistake={showMistakeEffect}
                 />
               </div>

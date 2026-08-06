@@ -85,6 +85,11 @@ export function ScoreSubmitButton({
       >
         {result.success && result.isVerified ? (
           <>
+            {result.isPersonalBest && (
+              <p className="text-yellow-300 font-bold text-lg animate-bounce">
+                🎉 自己ベスト更新！
+              </p>
+            )}
             <p className="text-green-400 font-medium">
               ランキングに登録しました
             </p>

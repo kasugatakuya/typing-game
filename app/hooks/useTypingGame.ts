@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { shuffleArray } from "@/app/utils/arrayUtils";
+import { matchRomaji } from "@/app/utils/romaji";
+import { sounds } from "@/app/lib/sounds";
 import type { QuestionTimestamp } from "@/app/types/score";
 
 export type GameState = "idle" | "playing" | "finished";
@@ -38,6 +40,11 @@ interface UseTypingGameResult<T> {
   questionTimestamps: QuestionTimestamp[];
   /** 平均タイピング速度（打/秒） */
   averageSpeed: string;
+  /**
+   * 表示用ローマ字（入力済み + 選択中の表記に沿った残り）。
+   * 入力ゆれ（si/shi等）でユーザーが選んだ表記に追従する。
+   */
+  displayRomaji: string;
   startGame: () => void;
   resetGame: () => void;
 }
@@ -54,6 +61,11 @@ export function useTypingGame<T>({
     startOnFirstKey ? (initialShuffle[0] ?? null) : null,
   );
   const [input, setInput] = useState("");
+  const [displayRomaji, setDisplayRomaji] = useState<string>(() => {
+    const first = startOnFirstKey ? initialShuffle[0] : undefined;
+    if (first === undefined) return "";
+    return getRomaji ? getRomaji(first) : (first as { romaji: string }).romaji;
+  });
   const [completedItems, setCompletedItems] = useState<T[]>([]);
   const [, setRemainingItems] = useState<T[]>(initialShuffle);
   const [startTime, setStartTime] = useState<number | null>(null);
@@ -98,7 +110,13 @@ export function useTypingGame<T>({
     const shuffled = shuffleArray(items);
     setGameState("idle");
     // 開始前から問題を表示する必要があるモードでは最初の問題をセットしておく
-    setCurrentItem(startOnFirstKey ? (shuffled[0] ?? null) : null);
+    if (startOnFirstKey && shuffled[0] !== undefined) {
+      setCurrentItem(shuffled[0]);
+      setDisplayRomaji(resolveRomaji(shuffled[0]));
+    } else {
+      setCurrentItem(null);
+      setDisplayRomaji("");
+    }
     setInput("");
     setCompletedItems([]);
     setRemainingItems(shuffled);
@@ -109,7 +127,7 @@ export function useTypingGame<T>({
     setTotalKeystrokes(0);
     setQuestionTimestamps([]);
     questionStartTimeRef.current = null;
-  }, [items, startOnFirstKey]);
+  }, [items, startOnFirstKey, resolveRomaji]);
 
   const startGame = useCallback(() => {
     const now = Date.now();
@@ -121,45 +139,52 @@ export function useTypingGame<T>({
     setRemainingItems(shuffled);
     setCompletedItems([]);
     setCurrentItem(shuffled[0] ?? null);
+    setDisplayRomaji(shuffled[0] !== undefined ? resolveRomaji(shuffled[0]) : "");
     setInput("");
     setMistakeCount(0);
     setTotalKeystrokes(0);
     setQuestionTimestamps([]);
     questionStartTimeRef.current = now;
-  }, [items]);
+  }, [items, resolveRomaji]);
 
-  const handleCorrectInput = useCallback(() => {
-    const now = Date.now();
-    const targetRomaji = resolveRomaji(currentItem!);
+  const handleCorrectInput = useCallback(
+    (typedRomaji: string) => {
+      const now = Date.now();
+      const targetRomaji = resolveRomaji(currentItem!);
 
-    // 最初の問題で ref が未設定の場合は startTime をフォールバックに使う
-    const questionStart = questionStartTimeRef.current ?? startTime ?? now;
+      // 最初の問題で ref が未設定の場合は startTime をフォールバックに使う
+      const questionStart = questionStartTimeRef.current ?? startTime ?? now;
 
-    setQuestionTimestamps((prev) => [
-      ...prev,
-      {
-        questionIndex: prev.length,
-        startTime: questionStart,
-        endTime: now,
-        romajiLength: targetRomaji.length,
-        targetRomaji,
-      },
-    ]);
+      setQuestionTimestamps((prev) => [
+        ...prev,
+        {
+          questionIndex: prev.length,
+          startTime: questionStart,
+          endTime: now,
+          // 入力ゆれで打鍵数が変わるため、実際にタイプした長さを記録する
+          romajiLength: typedRomaji.length,
+          targetRomaji,
+        },
+      ]);
 
-    setCompletedItems((prev) => [...prev, currentItem!]);
-    setRemainingItems((prev) => {
-      const newRemaining = prev.slice(1);
-      if (newRemaining.length === 0) {
-        setEndTime(now);
-        setGameState("finished");
-      } else {
-        setCurrentItem(newRemaining[0]);
-        setInput("");
-        questionStartTimeRef.current = Date.now();
-      }
-      return newRemaining;
-    });
-  }, [currentItem, startTime, resolveRomaji]);
+      setCompletedItems((prev) => [...prev, currentItem!]);
+      setRemainingItems((prev) => {
+        const newRemaining = prev.slice(1);
+        if (newRemaining.length === 0) {
+          setEndTime(now);
+          setGameState("finished");
+          sounds.playClear();
+        } else {
+          setCurrentItem(newRemaining[0]);
+          setDisplayRomaji(resolveRomaji(newRemaining[0]));
+          setInput("");
+          questionStartTimeRef.current = Date.now();
+        }
+        return newRemaining;
+      });
+    },
+    [currentItem, startTime, resolveRomaji],
+  );
 
   // キー入力処理
   useEffect(() => {
@@ -181,8 +206,13 @@ export function useTypingGame<T>({
         gameState === "playing" || (startOnFirstKey && gameState === "idle");
       if (!canType || !currentItem) return;
 
+      const targetRomaji = resolveRomaji(currentItem);
+
       if (e.key === "Backspace") {
-        setInput((prev) => prev.slice(0, -1));
+        const newInput = input.slice(0, -1);
+        setInput(newInput);
+        const match = matchRomaji(targetRomaji, newInput);
+        setDisplayRomaji(match.status === "invalid" ? targetRomaji : match.display);
       } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
         // startOnFirstKey モードでは最初の文字入力でタイマーを開始
         if (startOnFirstKey && gameState === "idle") {
@@ -195,15 +225,18 @@ export function useTypingGame<T>({
         const newInput = (input + e.key).toLowerCase();
         setTotalKeystrokes((prev) => prev + 1);
 
-        const targetRomaji = resolveRomaji(currentItem);
-        if (targetRomaji.startsWith(newInput)) {
+        const match = matchRomaji(targetRomaji, newInput);
+        if (match.status !== "invalid") {
           setInput(newInput);
-          if (newInput === targetRomaji) {
-            handleCorrectInput();
+          setDisplayRomaji(match.display);
+          sounds.playType();
+          if (match.status === "complete") {
+            handleCorrectInput(newInput);
           }
         } else {
           setMistakeCount((prev) => prev + 1);
           setShowMistakeEffect(true);
+          sounds.playMiss();
           setTimeout(() => setShowMistakeEffect(false), 300);
         }
       }
@@ -257,6 +290,7 @@ export function useTypingGame<T>({
     showMistakeEffect,
     questionTimestamps,
     averageSpeed,
+    displayRomaji,
     startGame,
     resetGame,
   };

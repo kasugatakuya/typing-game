@@ -4,6 +4,9 @@ import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
 import { GameProgress } from "@/app/components/game/GameProgress";
 import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
+import { MobileNotice } from "@/app/components/game/MobileNotice";
+import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { YamanoteSVG } from "@/app/(other-typing)/components/YamanoteSVG";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 
@@ -34,10 +37,13 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
     showMistakeEffect,
     questionTimestamps,
     averageSpeed,
+    displayRomaji,
   } = useTypingGame({ items: stations });
 
   return (
     <div className="h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-16 pb-2 mt-7">
+      <MobileNotice />
+      <SoundToggle />
       <div className="container mx-auto px-4 max-w-lg">
         {/* タイトル */}
         <div className="text-center py-1 mb-7">
@@ -71,6 +77,7 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                 スペースキーで開始
               </p>
               <p className="text-xs text-gray-500 mt-1">※ESCキーで中断</p>
+              <PersonalBestBadge gameCategory="other" gameMode="yamanote" />
             </div>
           )}
 
@@ -82,7 +89,7 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
                 </p>
                 <RomajiDisplay
                   input={input}
-                  romaji={currentStation.romaji}
+                  romaji={displayRomaji}
                   showMistake={showMistakeEffect}
                   className="text-base"
                 />

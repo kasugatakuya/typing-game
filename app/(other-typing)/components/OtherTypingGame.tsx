@@ -5,6 +5,9 @@ import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
 import { GameProgress } from "@/app/components/game/GameProgress";
 import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
+import { MobileNotice } from "@/app/components/game/MobileNotice";
+import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 
 interface Item {
@@ -45,10 +48,13 @@ export function OtherTypingGame({
     showMistakeEffect,
     questionTimestamps,
     averageSpeed,
+    displayRomaji,
   } = useTypingGame({ items });
 
   return (
     <div className="min-h-screen bg-linear-to-b from-teal-50 to-slate-100 py-12 pt-20 mt-4">
+      <MobileNotice />
+      <SoundToggle />
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-gray-800">
@@ -72,6 +78,7 @@ export function OtherTypingGame({
               <p className="text-xs text-gray-500 mt-2">
                 ※ESCキーで中断できます
               </p>
+              <PersonalBestBadge gameCategory="other" gameMode={gameMode} />
             </div>
           )}
 
@@ -99,7 +106,7 @@ export function OtherTypingGame({
                 </p>
                 <RomajiDisplay
                   input={input}
-                  romaji={currentItem.romaji}
+                  romaji={displayRomaji}
                   showMistake={showMistakeEffect}
                 />
               </div>
