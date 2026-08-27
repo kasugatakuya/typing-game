@@ -9,7 +9,7 @@ export function MobileNotice() {
   if (dismissed) return null;
 
   return (
-    <div className="md:hidden fixed top-11 inset-x-0 z-40 bg-amber-100 border-b border-amber-300 text-amber-800 text-xs px-3 py-2 flex items-center justify-between gap-2">
+    <div className="md:hidden fixed top-14 inset-x-0 z-40 bg-amber-100 border-b border-amber-300 text-amber-800 text-xs px-3 py-2 flex items-center justify-between gap-2">
       <span>
         ⌨️ このゲームはキーボード操作が必要です。PCでのプレイを推奨します。
       </span>
