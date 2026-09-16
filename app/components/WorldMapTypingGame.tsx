@@ -102,7 +102,7 @@ export function WorldMapTypingGame({
             <div className="absolute top-4 right-4 z-10">
               <div className="bg-white/90 p-3 rounded-lg shadow-lg border border-gray-200">
                 <Image
-                  src={`/country/${currentCountry.flagImage}.png`}
+                  src={`/flags/${currentCountry.flagImage}.png`}
                   alt={`${currentCountry.name}の国旗`}
                   width={120}
                   height={80}
