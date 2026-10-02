@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { AuthProvider } from "@/app/contexts/AuthContext";
 import { PendingScoreNotification } from "@/app/components/score/PendingScoreNotification";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -91,6 +92,7 @@ export default function RootLayout({
           <PendingScoreNotification />
           {children}
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );
