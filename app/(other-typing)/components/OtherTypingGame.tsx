@@ -7,6 +7,7 @@ import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
 import { MobileNotice } from "@/app/components/game/MobileNotice";
 import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { ImeNotice } from "@/app/components/game/ImeNotice";
 import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 
@@ -49,12 +50,14 @@ export function OtherTypingGame({
     questionTimestamps,
     averageSpeed,
     displayRomaji,
+    imeDetected,
   } = useTypingGame({ items });
 
   return (
     <div className="min-h-screen bg-linear-to-b from-teal-50 to-slate-100 py-12 pt-20 mt-4">
       <MobileNotice />
       <SoundToggle />
+      <ImeNotice visible={imeDetected} />
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-gray-800">

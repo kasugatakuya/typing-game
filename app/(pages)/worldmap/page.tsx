@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "世界地図タイピング | 地理タイピング",
+  description:
+    "世界の地域を選んで国名・首都名をタイピング練習。地図と国旗を見ながら楽しく地理を学べる無料タイピングゲームです。",
+};
 
 export default function WorldMap() {
   const regions = [

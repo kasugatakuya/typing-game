@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "日本地図タイピング | 地理タイピング",
+  description:
+    "地方を選んで都道府県名・県庁所在地・県鳥・県花・県木をタイピング練習。日本地図を見ながら学べる無料タイピングゲームです。",
+};
 
 export default function JapanMap() {
   const regions = [

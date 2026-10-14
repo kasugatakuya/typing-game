@@ -6,6 +6,7 @@ import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
 import { MobileNotice } from "@/app/components/game/MobileNotice";
 import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { ImeNotice } from "@/app/components/game/ImeNotice";
 import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { YamanoteSVG } from "@/app/(other-typing)/components/YamanoteSVG";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
@@ -38,12 +39,14 @@ export function YamanoteTypingGame({ stations }: YamanoteTypingGameProps) {
     questionTimestamps,
     averageSpeed,
     displayRomaji,
+    imeDetected,
   } = useTypingGame({ items: stations });
 
   return (
     <div className="h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-16 pb-2 mt-7">
       <MobileNotice />
       <SoundToggle />
+      <ImeNotice visible={imeDetected} />
       <div className="container mx-auto px-4 max-w-lg">
         {/* タイトル */}
         <div className="text-center py-1 mb-7">

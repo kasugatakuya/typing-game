@@ -38,6 +38,8 @@ interface UseTypingGameResult<T> {
   isVisible: boolean;
   showMistakeEffect: boolean;
   questionTimestamps: QuestionTimestamp[];
+  /** 日本語入力（IME）がオンの状態でキーが押されたことを検知したか */
+  imeDetected: boolean;
   /** 平均タイピング速度（打/秒） */
   averageSpeed: string;
   /**
@@ -67,7 +69,7 @@ export function useTypingGame<T>({
     return getRomaji ? getRomaji(first) : (first as { romaji: string }).romaji;
   });
   const [completedItems, setCompletedItems] = useState<T[]>([]);
-  const [, setRemainingItems] = useState<T[]>(initialShuffle);
+  const [remainingItems, setRemainingItems] = useState<T[]>(initialShuffle);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [endTime, setEndTime] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
@@ -75,6 +77,7 @@ export function useTypingGame<T>({
   const [totalKeystrokes, setTotalKeystrokes] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [showMistakeEffect, setShowMistakeEffect] = useState(false);
+  const [imeDetected, setImeDetected] = useState(false);
   const [questionTimestamps, setQuestionTimestamps] = useState<
     QuestionTimestamp[]
   >([]);
@@ -105,6 +108,13 @@ export function useTypingGame<T>({
       if (intervalId) clearInterval(intervalId);
     };
   }, [gameState]);
+
+  // IME 検知の案内は数秒で自動的に消す
+  useEffect(() => {
+    if (!imeDetected) return;
+    const timeoutId = setTimeout(() => setImeDetected(false), 4000);
+    return () => clearTimeout(timeoutId);
+  }, [imeDetected]);
 
   const resetGame = useCallback(() => {
     const shuffled = shuffleArray(items);
@@ -168,22 +178,24 @@ export function useTypingGame<T>({
       ]);
 
       setCompletedItems((prev) => [...prev, currentItem!]);
-      setRemainingItems((prev) => {
-        const newRemaining = prev.slice(1);
-        if (newRemaining.length === 0) {
-          setEndTime(now);
-          setGameState("finished");
-          sounds.playClear();
-        } else {
-          setCurrentItem(newRemaining[0]);
-          setDisplayRomaji(resolveRomaji(newRemaining[0]));
-          setInput("");
-          questionStartTimeRef.current = Date.now();
-        }
-        return newRemaining;
-      });
+
+      // state の updater 関数内で副作用（他の setState や効果音）を実行すると
+      // StrictMode の二重呼び出しで効果音が重複するため、updater の外で処理する
+      const newRemaining = remainingItems.slice(1);
+      setRemainingItems(newRemaining);
+
+      if (newRemaining.length === 0) {
+        setEndTime(now);
+        setGameState("finished");
+        sounds.playClear();
+      } else {
+        setCurrentItem(newRemaining[0]);
+        setDisplayRomaji(resolveRomaji(newRemaining[0]));
+        setInput("");
+        questionStartTimeRef.current = now;
+      }
     },
-    [currentItem, startTime, resolveRomaji],
+    [currentItem, remainingItems, startTime, resolveRomaji],
   );
 
   // キー入力処理
@@ -206,6 +218,12 @@ export function useTypingGame<T>({
         gameState === "playing" || (startOnFirstKey && gameState === "idle");
       if (!canType || !currentItem) return;
 
+      // 日本語入力（IME）がオンだと key が "Process" になり何も起きないため案内を出す
+      if (e.isComposing || e.key === "Process") {
+        setImeDetected(true);
+        return;
+      }
+
       const targetRomaji = resolveRomaji(currentItem);
 
       if (e.key === "Backspace") {
@@ -213,7 +231,7 @@ export function useTypingGame<T>({
         setInput(newInput);
         const match = matchRomaji(targetRomaji, newInput);
         setDisplayRomaji(match.status === "invalid" ? targetRomaji : match.display);
-      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
         // startOnFirstKey モードでは最初の文字入力でタイマーを開始
         if (startOnFirstKey && gameState === "idle") {
           const now = Date.now();
@@ -222,6 +240,7 @@ export function useTypingGame<T>({
           questionStartTimeRef.current = now;
         }
 
+        setImeDetected(false);
         const newInput = (input + e.key).toLowerCase();
         setTotalKeystrokes((prev) => prev + 1);
 
@@ -289,6 +308,7 @@ export function useTypingGame<T>({
     isVisible,
     showMistakeEffect,
     questionTimestamps,
+    imeDetected,
     averageSpeed,
     displayRomaji,
     startGame,

@@ -4,6 +4,16 @@ import { formatTime } from "@/app/utils/timeUtils";
 import { GAME_MODES, type GameCategory } from "@/app/types/score";
 import type { Score } from "@/app/types/database";
 
+const MAX_LIMIT = 100;
+const MAX_OFFSET = 10_000;
+
+/** クエリ文字列を 0 以上の整数として読む。不正値・NaN は fallback、上限は max で丸める */
+function parsePositiveInt(value: string | null, fallback: number, max: number): number {
+  const n = Number.parseInt(value ?? "", 10);
+  if (!Number.isFinite(n) || n < 0) return fallback;
+  return Math.min(n, max);
+}
+
 export async function GET(request: Request) {
   try {
     const supabase = await createClient();
@@ -18,8 +28,8 @@ export async function GET(request: Request) {
 
     const { searchParams } = new URL(request.url);
     const category = searchParams.get("category") as GameCategory | null;
-    const limit = parseInt(searchParams.get("limit") || "50", 10);
-    const offset = parseInt(searchParams.get("offset") || "0", 10);
+    const limit = parsePositiveInt(searchParams.get("limit"), 50, MAX_LIMIT);
+    const offset = parsePositiveInt(searchParams.get("offset"), 0, MAX_OFFSET);
 
     let query = supabase
       .from("scores")

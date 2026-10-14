@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { japanMapMetadata, resolveJapanMapMode } from "@/app/utils/gameMetadata";
 import { JapanMapTypingGame } from "@/app/components/JapanMapTypingGame";
 import prefectures from "@/app/prefectures.json";
 
@@ -6,6 +8,11 @@ interface PageProps {
 }
 
 type GameMode = "prefecture" | "capital" | "bird" | "flower" | "tree";
+
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const params = await searchParams;
+  return japanMapMetadata("中国・四国地方", resolveJapanMapMode(params.mode), 9);
+}
 
 export default async function ChugokuShikokuPage({ searchParams }: PageProps) {
   const params = await searchParams;

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "@/app/components/Header";
+import { TERMS_LAST_UPDATED } from "@/app/constants/legal";
 
 export const metadata = {
   title: "利用規約・プライバシーポリシー | 地理タイピング",
@@ -148,7 +149,7 @@ export default function AboutPage() {
             {/* 更新日 */}
             <div className="text-center pt-4 border-t border-slate-700">
               <p className="text-sm text-slate-500">
-                最終更新日: 2024年1月
+                最終更新日: {TERMS_LAST_UPDATED}
               </p>
             </div>
           </div>

@@ -230,7 +230,7 @@ export const GAME_MODES: Record<
     "periodic-table-all": { displayName: "元素記号・全て", questionCount: 118 },
     "periodic-table-transition": {
       displayName: "元素記号・遷移金属",
-      questionCount: 38,
+      questionCount: 34,
     },
     "periodic-table-lanthanides": {
       displayName: "元素記号・ランタノイド",
@@ -242,7 +242,7 @@ export const GAME_MODES: Record<
     },
     "periodic-table-heavy": {
       displayName: "元素記号・重元素",
-      questionCount: 20,
+      questionCount: 19,
     },
     "periodic-table-superheavy": {
       displayName: "元素記号・超重元素",

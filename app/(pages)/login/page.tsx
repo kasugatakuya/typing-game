@@ -4,6 +4,8 @@ import { useAuth } from "@/app/contexts/AuthContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
+import { safeRedirectPath } from "@/app/utils/redirect";
+import { TERMS_LAST_UPDATED } from "@/app/constants/legal";
 
 function LoginContent() {
   const {
@@ -16,7 +18,8 @@ function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
-  const redirect = searchParams.get("redirect") ?? "/";
+  // 外部URLへのオープンリダイレクトを防ぐため、サイト内パスのみ許可する
+  const redirect = safeRedirectPath(searchParams.get("redirect"));
 
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [email, setEmail] = useState("");
@@ -349,7 +352,7 @@ function LoginContent() {
               </section>
 
               <div className="text-center pt-2 border-t border-slate-700">
-                <p className="text-xs text-slate-500">最終更新日: 2024年1月</p>
+                <p className="text-xs text-slate-500">最終更新日: {TERMS_LAST_UPDATED}</p>
               </div>
             </div>
           </div>

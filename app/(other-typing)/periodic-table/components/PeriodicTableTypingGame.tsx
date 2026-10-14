@@ -8,6 +8,7 @@ import { GameResult } from "@/app/components/game/GameResult";
 import { BackLink } from "@/app/components/game/BackLink";
 import { MobileNotice } from "@/app/components/game/MobileNotice";
 import { SoundToggle } from "@/app/components/game/SoundToggle";
+import { ImeNotice } from "@/app/components/game/ImeNotice";
 import { PersonalBestBadge } from "@/app/components/game/PersonalBestBadge";
 import { useTypingGame } from "@/app/hooks/useTypingGame";
 
@@ -174,6 +175,7 @@ export default function PeriodicTableTypingGame({
     questionTimestamps,
     averageSpeed,
     displayRomaji,
+    imeDetected,
   } = useTypingGame({ items: elements, startOnFirstKey: true });
 
   const isFinished = gameState === "finished";
@@ -187,6 +189,7 @@ export default function PeriodicTableTypingGame({
     <div className="min-h-screen bg-linear-to-b from-teal-50 to-slate-100 pt-20 pb-8">
       <MobileNotice />
       <SoundToggle />
+      <ImeNotice visible={imeDetected} />
       <div className="container mx-auto px-2 max-w-4xl">
         {/* ヘッダー */}
         <div className="text-center mb-2">

@@ -1,24 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    // 画像最適化を使わないため remotePatterns は不要（unoptimized 時はドメイン検証自体が行われない）
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "pbs.twimg.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "abs.twimg.com",
-        pathname: "/**",
-      },
-    ],
   },
   async redirects() {
     return [

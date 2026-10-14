@@ -10,9 +10,7 @@
     "flowerName": "ハマナス",
     "flowerRomaji": "hamanasu",
     "treeName": "エゾマツ",
-    "treeRomaji": "ezomatsu",
-    "charaName": "札幌市のさんかくやまべー",
-    "charaRomaji": "sapporoshinosankakuyamabee"
+    "treeRomaji": "ezomatsu"
   },
   {
     "id": "2",
@@ -25,9 +23,7 @@
     "flowerName": "りんごの花",
     "flowerRomaji": "ringonohana",
     "treeName": "ヒバ(ひば)",
-    "treeRomaji": "hiba",
-    "charaName": "青森市のはねっと",
-    "charaRomaji": "aomorishinohaneton"
+    "treeRomaji": "hiba"
   },
   {
     "id": "3",
@@ -40,9 +36,7 @@
     "flowerName": "キリ",
     "flowerRomaji": "kiri",
     "treeName": "ナンブアカマツ",
-    "treeRomaji": "nanbuakamatu",
-    "charaName": "盛岡市のしわまろくん",
-    "charaRomaji": "moriokashinoshiwamarokun"
+    "treeRomaji": "nanbuakamatu"
   },
   {
     "id": "4",
@@ -55,9 +49,7 @@
     "flowerName": "ミヤギノハギ",
     "flowerRomaji": "miyaginohagi",
     "treeName": "ケヤキ",
-    "treeRomaji": "keyaki",
-    "charaName": "仙台市のむすび丸",
-    "charaRomaji": "sendaishinodokuganryumekomasamune"
+    "treeRomaji": "keyaki"
   },
   {
     "id": "5",
@@ -70,9 +62,7 @@
     "flowerName": "ふきのとう",
     "flowerRomaji": "fukinotou",
     "treeName": "秋田杉(あきたすぎ)",
-    "treeRomaji": "akitasugi",
-    "charaName": "秋田市のスーポくん",
-    "charaRomaji": "akitashinosupomaru"
+    "treeRomaji": "akitasugi"
   },
   {
     "id": "6",
@@ -85,9 +75,7 @@
     "flowerName": "べにばな",
     "flowerRomaji": "benibana",
     "treeName": "さくらんぼ",
-    "treeRomaji": "sakuranbo",
-    "charaName": "山形市のはながたべにちゃん",
-    "charaRomaji": "yamagatashinohanagatabenichan"
+    "treeRomaji": "sakuranbo"
   },
   {
     "id": "7",
@@ -100,9 +88,7 @@
     "flowerName": "ネモトシャクナゲ",
     "flowerRomaji": "nemotoshakunage",
     "treeName": "ケヤキ",
-    "treeRomaji": "keyaki",
-    "charaName": "福島市のももりん",
-    "charaRomaji": "fukushimsshinomomorin"
+    "treeRomaji": "keyaki"
   },
   {
     "id": "8",
@@ -115,9 +101,7 @@
     "flowerName": "薔薇(ばら)",
     "flowerRomaji": "bara",
     "treeName": "梅(うめ)",
-    "treeRomaji": "ume",
-    "charaName": "水戸市のミトちゃん",
-    "charaRomaji": "mitoshinnomitochan"
+    "treeRomaji": "ume"
   },
   {
     "id": "9",
@@ -130,9 +114,7 @@
     "flowerName": "やしおつつじ",
     "flowerRomaji": "yashiotsutsuji",
     "treeName": "トチノキ",
-    "treeRomaji": "tochinoki",
-    "charaName": "宇都宮市のみやり",
-    "charaRomaji": "utsunomiyashinomiyari"
+    "treeRomaji": "tochinoki"
   },
   {
     "id": "10",
@@ -145,9 +127,7 @@
     "flowerName": "レンゲツツジ",
     "flowerRomaji": "rengetsutsuji",
     "treeName": "クロマツ",
-    "treeRomaji": "kuromatsu",
-    "charaName": "前橋市のころとん",
-    "charaRomaji": "maebashishinokoroton"
+    "treeRomaji": "kuromatsu"
   },
   {
     "id": "11",
@@ -160,9 +140,7 @@
     "flowerName": "サクラソウ",
     "flowerRomaji": "sakurasou",
     "treeName": "ケヤキ",
-    "treeRomaji": "keyaki",
-    "charaName": "さいたま市のつなが竜ゥ～ヌゥ～",
-    "charaRomaji": "saitamashinotunagaryuunuu"
+    "treeRomaji": "keyaki"
   },
   {
     "id": "12",
@@ -175,9 +153,7 @@
     "flowerName": "なのはな",
     "flowerRomaji": "nanohana",
     "treeName": "マキ",
-    "treeRomaji": "maki",
-    "charaName": "千葉市のチーバくん",
-    "charaRomaji": "chibashichihanachan"
+    "treeRomaji": "maki"
   },
   {
     "id": "13",
@@ -190,9 +166,7 @@
     "flowerName": "ソメイヨシノ",
     "flowerRomaji": "someiyoshino",
     "treeName": "イチョウ",
-    "treeRomaji": "ichou",
-    "charaName": "東京23区の新宿あわわ",
-    "charaRomaji": "tokyo23kunoshinjukuawawa"
+    "treeRomaji": "ichou"
   },
   {
     "id": "14",
@@ -205,9 +179,7 @@
     "flowerName": "山ゆり",
     "flowerRomaji": "yamayuri",
     "treeName": "イチョウ",
-    "treeRomaji": "ichou",
-    "charaName": "横浜市のヨコハマミドリアップハッピー",
-    "charaRomaji": "yokohamashinoyokohamamidoriappuhappi"
+    "treeRomaji": "ichou"
   },
   {
     "id": "15",
@@ -220,9 +192,7 @@
     "flowerName": "チューリップ",
     "flowerRomaji": "churippu",
     "treeName": "雪椿(ゆきつばき)",
-    "treeRomaji": "yukitsubaki",
-    "charaName": "新潟市のマイカちゃん",
-    "charaRomaji": "niigatashinomaikachan"
+    "treeRomaji": "yukitsubaki"
   },
   {
     "id": "16",
@@ -235,9 +205,7 @@
     "flowerName": "チューリップ",
     "flowerRomaji": "churippu",
     "treeName": "立山杉(たてやますぎ)",
-    "treeRomaji": "tateyamasugi",
-    "charaName": "富山市のシリツタンテイペロリッチ",
-    "charaRomaji": "toyamashinoshiritsutanteiperoricchi"
+    "treeRomaji": "tateyamasugi"
   },
   {
     "id": "17",
@@ -250,9 +218,7 @@
     "flowerName": "クロユリ",
     "flowerRomaji": "kuroyuri",
     "treeName": "あて",
-    "treeRomaji": "ate",
-    "charaName": "金沢市のカナリン",
-    "charaRomaji": "kanazawashinokanarin"
+    "treeRomaji": "ate"
   },
   {
     "id": "18",
@@ -265,9 +231,7 @@
     "flowerName": "スイセン",
     "flowerRomaji": "suisen",
     "treeName": "マツ",
-    "treeRomaji": "matsu",
-    "charaName": "福井市のあさくらゆめまる",
-    "charaRomaji": "fukuishinoasakurayumemaru"
+    "treeRomaji": "matsu"
   },
   {
     "id": "19",
@@ -280,9 +244,7 @@
     "flowerName": "フジザクラ",
     "flowerRomaji": "fujizakura",
     "treeName": "カエデ",
-    "treeRomaji": "kaede",
-    "charaName": "甲府市のとりもっちゃん",
-    "charaRomaji": "koufushinotorimocchan"
+    "treeRomaji": "kaede"
   },
   {
     "id": "20",
@@ -295,9 +257,7 @@
     "flowerName": "りんどう",
     "flowerRomaji": "rindou",
     "treeName": "白樺(しらかば)",
-    "treeRomaji": "shirakaba",
-    "charaName": "長野市のエッサ",
-    "charaRomaji": "naganoshinoessa"
+    "treeRomaji": "shirakaba"
   },
   {
     "id": "21",
@@ -310,9 +270,7 @@
     "flowerName": "レンゲ草",
     "flowerRomaji": "rengesou",
     "treeName": "イチイ",
-    "treeRomaji": "ichii",
-    "charaName": "岐阜市のうーたん",
-    "charaRomaji": "gifushinoutan"
+    "treeRomaji": "ichii"
   },
   {
     "id": "22",
@@ -325,9 +283,7 @@
     "flowerName": "つつじ",
     "flowerRomaji": "tsutsuji",
     "treeName": "もくせい",
-    "treeRomaji": "mokusei",
-    "charaName": "静岡市のしずみぃ",
-    "charaRomaji": "shizuokashinoshizumii"
+    "treeRomaji": "mokusei"
   },
   {
     "id": "23",
@@ -340,9 +296,7 @@
     "flowerName": "カキツバタ",
     "flowerRomaji": "kakitsubata",
     "treeName": "ハナノキ",
-    "treeRomaji": "hananoki",
-    "charaName": "名古屋市のはち丸とかなえっち",
-    "charaRomaji": "nagoyashinohachimaruandokanaecchi"
+    "treeRomaji": "hananoki"
   },
   {
     "id": "24",
@@ -355,9 +309,7 @@
     "flowerName": "ハナショウブ",
     "flowerRomaji": "hanashoubu",
     "treeName": "神宮スギ(じんぐうすぎ)",
-    "treeRomaji": "jingusugi",
-    "charaName": "津市のうのゴちゃん",
-    "charaRomaji": "tsushiunogochan"
+    "treeRomaji": "jingusugi"
   },
   {
     "id": "25",
@@ -370,9 +322,7 @@
     "flowerName": "しゃくなげ",
     "flowerRomaji": "shakunage",
     "treeName": "もみじ",
-    "treeRomaji": "momiji",
-    "charaName": "大津市の大津光ルくん",
-    "charaRomaji": "ootsushinoootsuhikarukun"
+    "treeRomaji": "momiji"
   },
   {
     "id": "26",
@@ -385,9 +335,7 @@
     "flowerName": "しだれ桜(しだれざくら)",
     "flowerRomaji": "shidarezakura",
     "treeName": "北山杉(きたやますぎ)",
-    "treeRomaji": "kitayamasugi",
-    "charaName": "京都市のにしきょう太兵衛にょん",
-    "charaRomaji": "kyotoshinonishikyoutakenyon"
+    "treeRomaji": "kitayamasugi"
   },
   {
     "id": "27",
@@ -400,9 +348,7 @@
     "flowerName": "梅(うめ)",
     "flowerRomaji": "ume",
     "treeName": "いちょう",
-    "treeRomaji": "ichou",
-    "charaName": "大阪市のゆめまるキン",
-    "charaRomaji": "oosakashinoyumemarukin"
+    "treeRomaji": "ichou"
   },
   {
     "id": "28",
@@ -415,9 +361,7 @@
     "flowerName": "ノジギク",
     "flowerRomaji": "nojigiku",
     "treeName": "クスノキ",
-    "treeRomaji": "kusunoki",
-    "charaName": "神戸市のかもめん",
-    "charaRomaji": "koubeshinokamomen"
+    "treeRomaji": "kusunoki"
   },
   {
     "id": "29",
@@ -430,9 +374,7 @@
     "flowerName": "奈良八重桜(ならやえざくら)",
     "flowerRomaji": "narayaezakura",
     "treeName": "すぎ",
-    "treeRomaji": "sugi",
-    "charaName": "奈良市のしかまろくん",
-    "charaRomaji": "narashinoshikamarokun"
+    "treeRomaji": "sugi"
   },
   {
     "id": "30",
@@ -445,9 +387,7 @@
     "flowerName": "梅(うめ)",
     "flowerRomaji": "ume",
     "treeName": "うばめがし",
-    "treeRomaji": "ubamegashi",
-    "charaName": "和歌山市のリリクル",
-    "charaRomaji": "wakayamashinoririkuru"
+    "treeRomaji": "ubamegashi"
   },
   {
     "id": "31",
@@ -460,9 +400,7 @@
     "flowerName": "二十世紀梨の花(にじっせいきなしのはな)",
     "flowerRomaji": "nijusseikinashinohana",
     "treeName": "ダイセンキャラボク",
-    "treeRomaji": "daisenkyaraboku",
-    "charaName": "鳥取市のすごい!因幡うさぎ君",
-    "charaRomaji": "tottorishinosugo!usagiikun"
+    "treeRomaji": "daisenkyaraboku"
   },
   {
     "id": "32",
@@ -475,9 +413,7 @@
     "flowerName": "牡丹(ぼたん)",
     "flowerRomaji": "botan",
     "treeName": "黒松(くろまつ)",
-    "treeRomaji": "kuromatsu",
-    "charaName": "松江市のあっぱれくん",
-    "charaRomaji": "matsueshinoapparekun"
+    "treeRomaji": "kuromatsu"
   },
   {
     "id": "33",
@@ -490,9 +426,7 @@
     "flowerName": "ももの花",
     "flowerRomaji": "momonohana",
     "treeName": "あかまつ",
-    "treeRomaji": "akamatsu",
-    "charaName": "岡山市のみころはころ",
-    "charaRomaji": "okayamashinomikorohakoro"
+    "treeRomaji": "akamatsu"
   },
   {
     "id": "34",
@@ -505,9 +439,7 @@
     "flowerName": "もみじ",
     "flowerRomaji": "momiji",
     "treeName": "もみじ",
-    "treeRomaji": "momiji",
-    "charaName": "広島市のかけちゃま",
-    "charaRomaji": "hiroshimashinokakechama"
+    "treeRomaji": "momiji"
   },
   {
     "id": "35",
@@ -520,9 +452,7 @@
     "flowerName": "夏みかんの花(なつみかんのはな)",
     "flowerRomaji": "natsumikannohana",
     "treeName": "アカマツ",
-    "treeRomaji": "akamatsu",
-    "charaName": "山口市のおーちゃん",
-    "charaRomaji": "yamaguchishinooochan"
+    "treeRomaji": "akamatsu"
   },
   {
     "id": "36",
@@ -535,9 +465,7 @@
     "flowerName": "すだちの花",
     "flowerRomaji": "sudachinohana",
     "treeName": "やまもも",
-    "treeRomaji": "yamamomo",
-    "charaName": "徳島市のこくしー",
-    "charaRomaji": "tokushimashinokokushii"
+    "treeRomaji": "yamamomo"
   },
   {
     "id": "37",
@@ -550,9 +478,7 @@
     "flowerName": "オリーブ",
     "flowerRomaji": "oribu",
     "treeName": "オリーブ",
-    "treeRomaji": "oribu",
-    "charaName": "高松市のときたま",
-    "charaRomaji": "takamatsushinotokitama"
+    "treeRomaji": "oribu"
   },
   {
     "id": "38",
@@ -565,9 +491,7 @@
     "flowerName": "みかんの花",
     "flowerRomaji": "mikannohana",
     "treeName": "まつ",
-    "treeRomaji": "matsu",
-    "charaName": "松山市のしまぼう",
-    "charaRomaji": "matsuyamashinoshimabou"
+    "treeRomaji": "matsu"
   },
   {
     "id": "39",
@@ -580,9 +504,7 @@
     "flowerName": "ヤマモモ",
     "flowerRomaji": "yamamomo",
     "treeName": "ヤナセスギ",
-    "treeRomaji": "yanasesugi",
-    "charaName": "高知市のケちゃん",
-    "charaRomaji": "kouchishinokechan"
+    "treeRomaji": "yanasesugi"
   },
   {
     "id": "40",
@@ -595,9 +517,7 @@
     "flowerName": "梅(うめ)",
     "flowerRomaji": "ume",
     "treeName": "つつじ",
-    "treeRomaji": "tsutsuji",
-    "charaName": "福岡市の福岡カンベイくん",
-    "charaRomaji": "fukuokashinofukuokakanbeikun"
+    "treeRomaji": "tsutsuji"
   },
   {
     "id": "41",
@@ -610,9 +530,7 @@
     "flowerName": "クスの花",
     "flowerRomaji": "kusunohana",
     "treeName": "クス",
-    "treeRomaji": "kusu",
-    "charaName": "佐賀市のハンシャロン",
-    "charaRomaji": "sagashinohansharon"
+    "treeRomaji": "kusu"
   },
   {
     "id": "42",
@@ -625,9 +543,7 @@
     "flowerName": "雲仙ツツジ(うんぜんつつじ)",
     "flowerRomaji": "unzentsutsuji",
     "treeName": "ヒノキ",
-    "treeRomaji": "hinoki",
-    "charaName": "長崎市のさるくちゃん",
-    "charaRomaji": "nagasakishinosarukuchan"
+    "treeRomaji": "hinoki"
   },
   {
     "id": "43",
@@ -640,9 +556,7 @@
     "flowerName": "リンドウ",
     "flowerRomaji": "rindou",
     "treeName": "クスノキ",
-    "treeRomaji": "kusunoki",
-    "charaName": "熊本市のひごまる",
-    "charaRomaji": "kumamotoshinohigomaru"
+    "treeRomaji": "kusunoki"
   },
   {
     "id": "44",
@@ -655,9 +569,7 @@
     "flowerName": "豊後梅(ぶんごうめ)",
     "flowerRomaji": "bungoume",
     "treeName": "豊後梅(ぶんごうめ)",
-    "treeRomaji": "bungoume",
-    "charaName": "大分市のたかもん",
-    "charaRomaji": "ooitashinotakamon"
+    "treeRomaji": "bungoume"
   },
   {
     "id": "45",
@@ -670,9 +582,7 @@
     "flowerName": "はまゆう",
     "flowerRomaji": "hamayu",
     "treeName": "フェニックス",
-    "treeRomaji": "fenikkusu",
-    "charaName": "宮崎市のミッシーちゃん",
-    "charaRomaji": "miyazakishinomisshichan"
+    "treeRomaji": "fenikkusu"
   },
   {
     "id": "46",
@@ -685,9 +595,7 @@
     "flowerName": "ミヤマキリシマ",
     "flowerRomaji": "miyamakirishima",
     "treeName": "クスノキ",
-    "treeRomaji": "kusunoki",
-    "charaName": "鹿児島市のサクラエンジェルちゃん",
-    "charaRomaji": "kagoshimashinosakuraenjieruchan"
+    "treeRomaji": "kusunoki"
   },
   {
     "id": "47",
@@ -700,8 +608,6 @@
     "flowerName": "デイゴ",
     "flowerRomaji": "deigo",
     "treeName": "リュウキュウマツ",
-    "treeRomaji": "ryukyumatsu",
-    "charaName": "那覇市のダチビン君",
-    "charaRomaji": "nahashinodachibinkun"
+    "treeRomaji": "ryukyumatsu"
   }
 ]

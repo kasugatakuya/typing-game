@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { japanMapMetadata, resolveJapanMapMode } from "@/app/utils/gameMetadata";
 import { JapanMapTypingGame } from "@/app/components/JapanMapTypingGame";
 import prefectures from "@/app/prefectures.json";
 
@@ -6,6 +8,11 @@ interface PageProps {
 }
 
 type GameMode = "prefecture" | "capital" | "bird" | "flower" | "tree";
+
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const params = await searchParams;
+  return japanMapMetadata("日本全国", resolveJapanMapMode(params.mode), 47);
+}
 
 export default async function AllJapanPage({ searchParams }: PageProps) {
   const params = await searchParams;

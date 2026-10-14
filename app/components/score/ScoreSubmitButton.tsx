@@ -62,7 +62,7 @@ export function ScoreSubmitButton({
           ランキングに登録するにはログインが必要です
         </p>
         <Link
-          href={`/login?redirect=${encodeURIComponent(window.location.pathname)}`}
+          href={`/login?redirect=${encodeURIComponent(window.location.pathname + window.location.search)}`}
           onClick={handleLoginClick}
           className="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors"
         >
