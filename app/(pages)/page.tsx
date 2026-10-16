@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { WorldMapTypingGame } from "@/app/components/WorldMapTypingGame";
-import eastAsiaData from "@/app/data/eastAsia.json";
 
 export default function Home() {
   const gameCategories = [
@@ -27,93 +25,97 @@ export default function Home() {
   ];
 
   return (
-    <>
-      {/* お試しタイピングゲーム（東アジア・東南アジア・南アジア） */}
-      <WorldMapTypingGame
-        allCountries={eastAsiaData}
-        region="east-asia"
-        regionName="東アジア・東南アジア・南アジア"
-        gameMode="country"
-      />
-
-      <main className="bg-linear-to-b from-gray-50 to-gray-100 pt-16 pb-34 md:pb-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* ヘッダーセクション */}
-          <div className="text-center mb-10 flex items-center justify-center">
-            <Link href="/worldmap">
-              <Image
-                width={200}
-                height={200}
-                src="/square-earth.png"
-                alt="地球"
-                priority
-                loading="eager"
-              />
-            </Link>
-            <div className="mx-1">
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">
-                <span className="inline-block">タイピングで学ぶ</span>
-                <span className="inline-block">地理</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-3">
-                楽しくゲーム感覚で遊ぼう!
-              </p>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                国名・首都、都道府県・県庁所在地・県鳥・県花・県木をタイピングで学ぼう
-              </p>
-            </div>
-            <Link href="/japanmap">
-              <Image
-                width={200}
-                height={200}
-                src="/square-japan.png"
-                alt="日本地図"
-                priority
-                loading="eager"
-              />
-            </Link>
+    <main className="min-h-screen bg-linear-to-b from-gray-50 to-gray-100 pt-24 pb-16 md:pt-28 md:pb-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ヘッダーセクション */}
+        <div className="mb-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-center">
+          <Link href="/worldmap" className="order-2 md:order-1 shrink-0 hidden md:block">
+            <Image
+              width={200}
+              height={200}
+              src="/square-earth.png"
+              alt="地球"
+              priority
+              loading="eager"
+              className="md:w-48 md:h-48 transition-transform duration-300 hover:scale-105"
+            />
+          </Link>
+          <div className="order-1 md:order-2 md:mx-2">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
+              <span className="inline-block">タイピングで学ぶ</span>
+              <span className="inline-block">地理</span>
+            </h3>
+            <p className="text-lg sm:text-xl text-gray-600 mb-2 md:mb-3">
+              楽しくゲーム感覚で遊ぼう!
+            </p>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+              国名・首都、都道府県・県庁所在地・県鳥・県花・県木をタイピングで学ぼう
+            </p>
           </div>
+          <Link href="/japanmap" className="order-3 shrink-0 hidden md:block">
+            <Image
+              width={200}
+              height={200}
+              src="/square-japan.png"
+              alt="日本地図"
+              priority
+              loading="eager"
+              className="md:w-48 md:h-48 transition-transform duration-300 hover:scale-105"
+            />
+          </Link>
+        </div>
 
-          {/* ゲームカテゴリーセクション */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {gameCategories.map((category, index) => (
-              <Link key={index} href={category.baseUrl} className="group block">
-                <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                  {/* グラデーション背景 */}
-                  <div
-                    className={`absolute inset-0 bg-linear-to-br ${category.linear} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                  />
+        {/* ゲームカテゴリーセクション */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {gameCategories.map((category, index) => (
+            <Link key={index} href={category.baseUrl} className="group block">
+              <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                {/* グラデーション背景 */}
+                <div
+                  className={`absolute inset-0 bg-linear-to-br ${category.linear} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                />
 
-                  {/* カード内容 */}
-                  <div className="relative p-6">
-                    {/* 画像 */}
-                    <div className="flex justify-center mb-4">
-                      <div className="relative w-24 h-24 transition-transform duration-300 group-hover:scale-110">
-                        <Image
-                          src={category.image}
-                          alt={category.title}
-                          fill
-                          sizes="96px"
-                          className="object-contain drop-shadow-md"
-                          priority
-                        />
-                      </div>
+                {/* カード内容 */}
+                <div className="relative p-6">
+                  {/* 画像 */}
+                  <div className="flex justify-center mb-4">
+                    <div className="relative w-24 h-24 transition-transform duration-300 group-hover:scale-110">
+                      <Image
+                        src={category.image}
+                        alt={category.title}
+                        fill
+                        sizes="96px"
+                        className="object-contain drop-shadow-md"
+                        priority
+                      />
                     </div>
+                  </div>
 
-                    {/* タイトル */}
-                    <h2 className="text-xl font-bold text-gray-800 text-center mb-2 group-hover:text-white transition-colors duration-300">
-                      {category.title}
-                    </h2>
+                  {/* タイトル */}
+                  <h2 className="text-xl font-bold text-gray-800 text-center mb-2 group-hover:text-white transition-colors duration-300">
+                    {category.title}
+                  </h2>
 
-                    {/* 説明 */}
-                    <p className="text-sm text-gray-600 text-center mb-4 group-hover:text-white/90 transition-colors duration-300">
-                      {category.text}
-                    </p>
+                  {/* 説明 */}
+                  <p className="text-sm text-gray-600 text-center mb-4 group-hover:text-white/90 transition-colors duration-300">
+                    {category.text}
+                  </p>
 
-                    {/* 機能タグ */}
-                    <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2">
+                  {/* 機能タグ */}
+                  <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2">
+                    <div className="flex justify-center gap-2">
+                      {category.features.map((feature, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                    {category.featuresRow2 && (
                       <div className="flex justify-center gap-2">
-                        {category.features.map((feature, i) => (
+                        {category.featuresRow2.map((feature, i) => (
                           <span
                             key={i}
                             className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
@@ -122,49 +124,23 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
-                      {category.featuresRow2 && (
-                        <div className="flex justify-center gap-2">
-                          {category.featuresRow2.map((feature, i) => (
-                            <span
-                              key={i}
-                              className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors duration-300"
-                            >
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+            </Link>
+          ))}
+        </div>
 
-          {/* 雑学タイピングへのリンク */}
-          <div className="mt-16 text-center">
-            <Link
-              href="/other"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl"
-            >
-              <span className="mr-2 mb-1">
-                <svg
-                  className="w-6 h-6 text-teal-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
-              </span>
-              雑学タイピングもチェック！
+        {/* 雑学タイピングへのリンク */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/other"
+            className="inline-flex items-center px-6 py-3 rounded-full bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl"
+          >
+            <span className="mr-2 mb-1">
               <svg
-                className="w-4 h-4 ml-2"
+                className="w-6 h-6 text-teal-200"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -173,16 +149,30 @@ export default function Home() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
                 />
               </svg>
-            </Link>
-            <p className="text-gray-500 text-sm mt-2">
-              元素周期表・山手線・星座・干支・七福神
-            </p>
-          </div>
+            </span>
+            雑学タイピングもチェック！
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
+          <p className="text-gray-500 text-sm mt-2">
+            元素周期表・山手線・星座・干支・七福神
+          </p>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }

@@ -93,7 +93,7 @@ export default function WorldMap() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-blue-50 to-slate-100 py-6 pt-20 lg:pt-23">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 to-slate-100 py-6 pt-20 lg:pt-26">
       <div className="container mx-auto px-4">
         {/* ヘッダーセクション */}
         <div className="text-center mb-6">

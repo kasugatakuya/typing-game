@@ -75,7 +75,7 @@ export default function JapanMap() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-rose-50 to-orange-50 py-6 pt-20 lg:pt-23">
+    <div className="min-h-screen bg-linear-to-b from-rose-50 to-orange-50 py-6 pt-20 lg:pt-26">
       <div className="container mx-auto px-4">
         {/* ヘッダーセクション */}
         <div className="text-center mb-6">
