@@ -1,10 +1,16 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/app/utils/gameMetadata";
+import {
+  ALL_DECKS,
+  ENGLISH_SECTIONS,
+  deckPath,
+  sectionPath,
+} from "@/app/(english)/data";
 
 // 公開ページ一覧。ログインが必要な /login /mypage は含めない。
 // ゲームページを追加したらここにも追記する。
 
-const TOP_PAGES = ["/", "/worldmap", "/japanmap", "/other", "/ranking"];
+const TOP_PAGES = ["/", "/worldmap", "/japanmap", "/other", "/english", "/ranking"];
 
 const WORLD_REGIONS = [
   "north-america",
@@ -46,7 +52,9 @@ const OTHER_PAGES = [
   "/constellation/zodiac",
   "/constellation/all",
   "/eto",
+  "/eto/english",
   "/planets",
+  "/planets/english",
   "/shichifukujin",
   "/yojijukugo",
   "/kotowaza",
@@ -74,6 +82,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...WORLD_REGIONS.map((r) => entry(`/worldmap/${r}`, 0.8)),
     ...JAPAN_REGIONS.map((r) => entry(`/japanmap/${r}`, 0.8)),
     ...OTHER_PAGES.map((p) => entry(p, 0.7)),
+    ...ENGLISH_SECTIONS.map((s) => entry(sectionPath(s), 0.8)),
+    ...ALL_DECKS.map((deck) => entry(deckPath(deck), 0.7)),
     ...STATIC_PAGES.map((p) => entry(p, 0.3, "yearly")),
   ];
 }

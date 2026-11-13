@@ -12,3 +12,25 @@ export const eto = [
   { name: "戌", romaji: "inu", hint: "いぬ年", image: "/eto/inu.png" },
   { name: "亥", romaji: "i", hint: "いのしし年", image: "/eto/inoshishi.png" },
 ];
+
+// 英単語版: 十二支と同じ並び順の英語名
+const ETO_ENGLISH = [
+  "rat",
+  "ox",
+  "tiger",
+  "rabbit",
+  "dragon",
+  "snake",
+  "horse",
+  "sheep",
+  "monkey",
+  "rooster",
+  "dog",
+  "boar",
+];
+
+/** 英単語版。十二支を見て動物の英語名をタイピングする */
+export const etoEnglish = eto.map((item, i) => ({
+  ...item,
+  romaji: ETO_ENGLISH[i],
+}));

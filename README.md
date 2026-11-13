@@ -15,6 +15,7 @@
 | 世界地図 | 地域別の国名・首都名（12地域） |
 | 日本地図 | 都道府県名・県庁所在地・県鳥・県花・県木（全国 + 6地方）、日本の世界遺産 |
 | 雑学 | 山手線、元素記号、星座、干支、惑星、七福神、四字熟語、ことわざ、難読漢字 |
+| 英語 | 英単語・英会話フレーズ・英文法（見て覚える / 意味だけ見て確認の2モード、ランキング対応） |
 
 ## セットアップ
 
@@ -32,6 +33,8 @@ http://localhost:3000 で起動します。Node.js は `.nvmrc` のバージョ�
 2. 続けて `supabase/migrations/` 配下の SQL を日付順に実行する
    - `20261014_get_rankings.sql`: ランキングをユーザーごとのベストタイムで集計する関数。
      未実行でもアプリ側のフォールバック集計で動作しますが、本番では実行を推奨します。
+   - `20261113_english_progress.sql`: 英語タイピングの学習記録テーブル。
+     未実行でも動作しますが、記録がブラウザ（localStorage）にしか残らず端末間で同期されません。
 3. Authentication で Google プロバイダーとメール認証を有効にし、
    Redirect URL に `https://<ドメイン>/api/auth/callback` を追加する
 
@@ -53,6 +56,7 @@ npm run lint    # ESLint
 app/
   (pages)/          世界地図・日本地図・ランキング・ログイン・マイページ
   (other-typing)/   雑学タイピング各種
+  (english)/        英語タイピング（データ・入力判定・進捗保存をこの中に閉じている）
   api/              スコア登録・ランキング・プロフィール・認証コールバック
   components/       ゲーム共通 UI（GameResult, RomajiDisplay など）
   hooks/            useTypingGame（ゲーム進行）・useScoreSubmit など
@@ -71,6 +75,17 @@ public/             国旗・県鳥・県花・県木などの画像
 2. `app/types/score.ts` の `GAME_MODES` にモード ID・表示名・問題数を追加する
    （問題数はサーバー側のスコア検証でも使われるため、実データと一致させること）
 3. `app/sitemap.ts` にページを追加する
+
+## 英語タイピングに問題を追加するとき
+
+`app/(english)/data/` の `words.ts` / `phrases.ts` / `grammar.ts` にデッキまたは問題を追加するだけで、
+一覧・ページ・サイトマップ・ランキングのモード定義（`GAME_MODES.english`）に自動で反映されます。
+ランキングは「見て覚える」と「確認モード」（モード ID の末尾が `-test`）を別々に集計します。
+
+学習記録（「覚えたか確認」モードの正誤）は localStorage（`english-progress-v1`）に保存し、ログイン中は
+Supabase の `english_progress` テーブルと同期します（`app/(english)/lib/progressSync.ts`）。
+この記録をもとに `/english/review` で「今日の復習」（正解から 1・3・7・14・30・60 日後に再出題）と
+「苦手な問題」をデッキ横断で出題します。「聞いて打つ」モードは記録とランキングの対象外です。
 
 ## スコアの不正対策
 

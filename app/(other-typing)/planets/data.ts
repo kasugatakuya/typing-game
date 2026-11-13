@@ -8,3 +8,21 @@ export const planets = [
   { name: "天王星", romaji: "tennousei", hint: "横倒しで自転する惑星", image: "/planets/uranus.png" },
   { name: "海王星", romaji: "kaiousei", hint: "太陽から最も遠い惑星", image: "/planets/neptune.png" },
 ];
+
+// 英単語版: 日本語名と同じ並び順の英語名
+const PLANET_ENGLISH = [
+  "mercury",
+  "venus",
+  "earth",
+  "mars",
+  "jupiter",
+  "saturn",
+  "uranus",
+  "neptune",
+];
+
+/** 英単語版。日本語名を見て英語名をタイピングする */
+export const planetsEnglish = planets.map((planet, i) => ({
+  ...planet,
+  romaji: PLANET_ENGLISH[i],
+}));

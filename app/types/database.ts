@@ -76,6 +76,32 @@ export interface Database {
           played_at?: string;
         };
       };
+      english_progress: {
+        Row: {
+          user_id: string;
+          item_key: string;
+          correct: number;
+          wrong: number;
+          streak: number;
+          last_at: string;
+        };
+        Insert: {
+          user_id: string;
+          item_key: string;
+          correct?: number;
+          wrong?: number;
+          streak?: number;
+          last_at?: string;
+        };
+        Update: {
+          user_id?: string;
+          item_key?: string;
+          correct?: number;
+          wrong?: number;
+          streak?: number;
+          last_at?: string;
+        };
+      };
     };
   };
 }

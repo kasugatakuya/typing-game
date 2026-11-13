@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Header from "@/app/components/Header";
 import { useRankings } from "@/app/hooks/useRankings";
 import {
   GAME_CATEGORIES,
@@ -29,7 +28,6 @@ export default function RankingPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-slate-900 to-slate-800">
-      <Header />
       <main className="pt-24 pb-12 px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl font-bold text-white text-center mb-8">

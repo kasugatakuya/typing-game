@@ -15,6 +15,10 @@ export default function EtoPage() {
       backUrl="/other"
       themeColor="text-red-500"
       gameMode="eto"
+      variants={[
+        { label: "日本語", href: "/eto", active: true },
+        { label: "英単語", href: "/eto/english" },
+      ]}
     />
   );
 }

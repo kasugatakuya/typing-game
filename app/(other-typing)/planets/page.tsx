@@ -15,6 +15,10 @@ export default function PlanetsPage() {
       backUrl="/other"
       themeColor="text-purple-500"
       gameMode="planets"
+      variants={[
+        { label: "日本語", href: "/planets", active: true },
+        { label: "英単語", href: "/planets/english" },
+      ]}
     />
   );
 }

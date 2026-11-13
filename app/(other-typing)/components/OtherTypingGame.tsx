@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { RomajiDisplay } from "@/app/components/game/RomajiDisplay";
 import { GameProgress } from "@/app/components/game/GameProgress";
 import { GameResult } from "@/app/components/game/GameResult";
@@ -24,6 +25,10 @@ interface OtherTypingGameProps {
   backUrl: string;
   themeColor: string;
   gameMode: string;
+  /** 開始前の説明文 */
+  instruction?: string;
+  /** 同じ題材の別バージョン（日本語 / 英語など）への切り替えリンク */
+  variants?: { label: string; href: string; active?: boolean }[];
 }
 
 export function OtherTypingGame({
@@ -32,6 +37,8 @@ export function OtherTypingGame({
   backUrl,
   themeColor,
   gameMode,
+  instruction = "表示される名前をタイピングしよう！",
+  variants,
 }: OtherTypingGameProps) {
   const {
     gameState,
@@ -63,13 +70,31 @@ export function OtherTypingGame({
           <h1 className="text-2xl font-bold text-gray-800">
             {title}（全{itemCount}問）
           </h1>
+          {variants && (
+            <div className="inline-flex rounded-full bg-white shadow p-1 mt-4">
+              {variants.map((variant) => (
+                <Link
+                  key={variant.href}
+                  href={variant.href}
+                  aria-current={variant.active ? "page" : undefined}
+                  className={`px-5 py-1.5 text-sm font-medium rounded-full transition-colors ${
+                    variant.active
+                      ? "bg-teal-600 text-white"
+                      : "text-gray-600 hover:text-teal-600"
+                  }`}
+                >
+                  {variant.label}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
           {gameState === "idle" && (
             <div className="text-center py-12">
               <p className="text-gray-700 mb-4">
-                表示される名前をタイピングしよう！
+                {instruction}
               </p>
               <p
                 className={`text-xl font-semibold transition-opacity duration-500 ${themeColor} ${

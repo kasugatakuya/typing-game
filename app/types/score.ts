@@ -1,3 +1,5 @@
+import { ENGLISH_GAME_MODES } from "@/app/(english)/data";
+
 export interface QuestionTimestamp {
   questionIndex: number;
   startTime: number;
@@ -7,7 +9,7 @@ export interface QuestionTimestamp {
 }
 
 export interface ScoreSubmitRequest {
-  gameCategory: "worldmap" | "japanmap" | "other";
+  gameCategory: GameCategory;
   gameMode: string;
   clearTimeMs: number;
   mistakeCount: number;
@@ -51,13 +53,14 @@ export interface RankingResponse {
   };
 }
 
-export type GameCategory = "worldmap" | "japanmap" | "other";
+export type GameCategory = "worldmap" | "japanmap" | "other" | "english";
 export type RankingPeriod = "all" | "monthly" | "weekly" | "daily";
 
 export const GAME_CATEGORIES: Record<GameCategory, string> = {
   worldmap: "世界地図",
   japanmap: "日本地図",
   other: "雑学",
+  english: "英語",
 };
 
 export const RANKING_PERIODS: Record<RankingPeriod, string> = {
@@ -251,10 +254,14 @@ export const GAME_MODES: Record<
     "constellation-12": { displayName: "12星座", questionCount: 12 },
     "constellation-all": { displayName: "全88星座", questionCount: 88 },
     eto: { displayName: "干支", questionCount: 12 },
+    "eto-english": { displayName: "干支（英単語）", questionCount: 12 },
     planets: { displayName: "太陽系惑星", questionCount: 8 },
+    "planets-english": { displayName: "太陽系惑星（英単語）", questionCount: 8 },
     shichifukujin: { displayName: "七福神", questionCount: 7 },
     yojijukugo: { displayName: "四字熟語", questionCount: 30 },
     kotowaza: { displayName: "ことわざ", questionCount: 30 },
     nandoku: { displayName: "難読漢字", questionCount: 30 },
   },
+  // 英語はデッキ定義から自動生成する（見て覚える / 確認モードの2種類）
+  english: ENGLISH_GAME_MODES,
 };
