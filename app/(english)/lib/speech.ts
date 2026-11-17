@@ -3,43 +3,67 @@
 const STORAGE_KEY = "english-speech-enabled";
 
 /**
- * 女性アナウンサー風の声として優先する音声名（上にあるほど優先）。
- * 端末・ブラウザごとに使える音声が違うため、主要な環境の落ち着いた女性音声を並べている。
+ * ネイティブの女性らしい声として優先する話者名（上にあるほど優先）。
+ * すべてアメリカ英語の女性音声。端末・ブラウザごとに使える音声が違うため主要な環境のものを並べている。
  */
-const PREFERRED_VOICE_NAMES = [
-  // Edge（ニューラル音声）
-  "Microsoft Aria Online",
-  "Microsoft Jenny Online",
-  "Microsoft Ava Online",
-  "Microsoft Emma Online",
-  "Microsoft Michelle Online",
-  // macOS / iOS
+const FEMALE_VOICE_NAMES = [
   "Ava",
+  "Emma",
+  "Aria",
+  "Jenny",
+  "Michelle",
+  "Zoe",
   "Allison",
   "Samantha",
+  "Joelle",
+  "Noelle",
   "Susan",
-  "Zoe",
-  // Chrome
-  "Google US English",
-  // Windows 標準
-  "Microsoft Zira",
+  "Nicky",
+  "Zira",
 ];
 
-/** 高音質版（macOS の「拡張」「プレミアム」や Edge のニューラル音声）を示す語 */
-const HIGH_QUALITY_PATTERN = /premium|enhanced|natural|プレミアム|拡張/i;
+/**
+ * 音質の段階。人間らしさは話者名よりも合成方式でほぼ決まるので、こちらを最優先する。
+ * 例: macOS 標準の Samantha（軽量版）より、Chrome の Google US English の方がずっと自然に聞こえる。
+ */
+const QUALITY = {
+  /** Edge のニューラル音声（最も人間に近い） */
+  neural: 5000,
+  /** macOS / iOS の「プレミアム」 */
+  premium: 4000,
+  /** macOS / iOS の「拡張」 */
+  enhanced: 3000,
+  /** Chrome の Google US English（女性・オンライン合成） */
+  google: 2000,
+  /** OS 標準の軽量版（機械っぽさが残る） */
+  compact: 1000,
+} as const;
 
 function scoreVoice(voice: SpeechSynthesisVoice): number {
   const lang = voice.lang.replace("_", "-").toLowerCase();
   if (!lang.startsWith("en")) return -1;
 
-  let score = lang === "en-us" ? 100 : 0;
-  const name = voice.name.toLowerCase();
-  const index = PREFERRED_VOICE_NAMES.findIndex((preferred) =>
-    name.startsWith(preferred.toLowerCase()),
+  // アメリカ英語以外は、同じ音質段階の中でだけ後回しにする
+  let score = lang === "en-us" ? 500 : 0;
+
+  if (/^Google US English/i.test(voice.name)) return score + QUALITY.google;
+
+  // "Microsoft Ava Online (Natural) - ..." / "Ava (Premium)" / "Samantha" → 先頭の話者名を取り出す
+  const speaker = voice.name
+    .replace(/^Microsoft\s+/i, "")
+    .split(/[\s(（]/)[0]
+    .toLowerCase();
+  const index = FEMALE_VOICE_NAMES.findIndex((name) =>
+    speaker.startsWith(name.toLowerCase()),
   );
-  if (index !== -1) score += 1000 - index * 10;
-  if (HIGH_QUALITY_PATTERN.test(voice.name)) score += 5;
-  return score;
+  // 女性音声と分からないものは最後の手段（男性や効果音風の声を避ける）
+  if (index === -1) return score;
+
+  score -= index * 10;
+  if (/online|natural/i.test(voice.name)) return score + QUALITY.neural;
+  if (/premium|プレミアム/i.test(voice.name)) return score + QUALITY.premium;
+  if (/enhanced|拡張/i.test(voice.name)) return score + QUALITY.enhanced;
+  return score + QUALITY.compact;
 }
 
 class SpeechManager {
@@ -48,7 +72,7 @@ class SpeechManager {
   private voice: SpeechSynthesisVoice | null = null;
   private watchingVoices = false;
 
-  /** 使える中で最も女性アナウンサーらしい英語音声を選ぶ（音声一覧は遅れて届くことがある） */
+  /** 使える中で最もネイティブの女性らしく聞こえる英語音声を選ぶ（音声一覧は遅れて届くことがある） */
   private pickVoice(): SpeechSynthesisVoice | null {
     const synth = window.speechSynthesis;
     if (!this.watchingVoices) {
@@ -73,6 +97,8 @@ class SpeechManager {
   }
 
   subscribe = (listener: () => void) => {
+    // Chrome は音声一覧を非同期で読み込むので、最初の読み上げに間に合うよう先に要求しておく
+    if (this.supported) this.pickVoice();
     this.listeners.add(listener);
     return () => {
       this.listeners.delete(listener);
@@ -122,8 +148,8 @@ class SpeechManager {
       utterance.lang = voice.lang.replace("_", "-");
     }
     utterance.rate = options.rate ?? 0.95;
-    // わずかに高めにして、明るくはっきりしたアナウンサー寄りの声にする
-    utterance.pitch = 1.05;
+    // ピッチを加工すると合成音っぽさが出るので、音声本来の高さのまま話させる
+    utterance.pitch = 1;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   }
